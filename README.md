@@ -1,11 +1,12 @@
 <h1 align="center">Welcome to CiteGraph - Frontend 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://gitlab.com/citegraph/frontend/commits/master"><img alt="pipeline status" src="https://gitlab.com/citegraph/frontend/badges/master/pipeline.svg" /></a>
+  <a href="https://gitlab.com/citegraph/frontend/commits/master"><img alt="coverage report" src="https://gitlab.com/citegraph/frontend/badges/master/coverage.svg" /></a>
 </p>
 
 > A bibliometric tool for running literature analysis
 
-### 🏠 [Homepage](https://citegraph.gitlab.com/frontend)
+### 🏠 [Homepage](https://citegraph.gitlab.io/frontend/#/)
 
 ## Usage
 
@@ -80,6 +81,3 @@ To release a new version the library [bumped](https://bumped.github.io/) is used
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
