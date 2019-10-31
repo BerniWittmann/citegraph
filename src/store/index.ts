@@ -1,5 +1,9 @@
-import Vuex from 'vuex'
+export const modules = {}
 
-export default new Vuex.Store({
-  modules: {}
-})
+export const state = {}
+
+export const mutations = {}
+
+export const actions = {}
+
+export const getters = {}

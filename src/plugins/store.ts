@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import store from '@/store'
+import * as store from '@/store'
 
 Vue.use(Vuex)
 
-export default store
+export default new Vuex.Store({
+  ...store
+})
