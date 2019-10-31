@@ -29,6 +29,8 @@ build:
   artifacts:
     paths:
       - dist
+  only:
+    - tags
 
 pages:
   stage: deploy
