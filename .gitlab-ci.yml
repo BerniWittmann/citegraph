@@ -1,0 +1,45 @@
+image: node:9.4.0
+
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+
+before_script:
+  - yarn install
+
+lint:
+  stage: lint
+  script:
+    - yarn lint -- --no-fix
+
+unit:
+  stage: test
+  script:
+    - yarn test:unit -- --ci
+
+build:
+  stage: build
+  script:
+    - yarn build
+  artifacts:
+    paths:
+      - dist
+
+pages:
+  stage: deploy
+  script:
+    - npm run build
+    - mv public public-vue # GitLab Pages hooks on the public folder
+    - mv dist public # rename the dist folder (result of npm run build)
+  artifacts:
+    paths:
+      - public
+  only:
+    - tags
+
+cache:
+  paths:
+    - node_modules/
+    - .yarn
