@@ -13,7 +13,7 @@
 
 You should have [node](https://nodejs.org/en/) and  [yarn](https://yarnpkg.com) installed.
 
-## Install
+### Install
 
 Install the dependencies
 
@@ -21,7 +21,7 @@ Install the dependencies
 yarn install
 ```
 
-## Start Development Server
+### Start Development Server
 
 Start the local development server
 
@@ -29,7 +29,7 @@ Start the local development server
 yarn serve
 ```
 
-## Run tests
+### Run tests
 
 Run the unit test
 
@@ -37,7 +37,7 @@ Run the unit test
 yarn test:unit
 ```
 
-## Bundle the application
+### Bundle the application
 
 Bundle the application for production
 
@@ -45,7 +45,7 @@ Bundle the application for production
 yarn build
 ```
 
-## Linting
+### Linting
 
 Run a static code analysis with ESLint
 
@@ -53,12 +53,20 @@ Run a static code analysis with ESLint
 yarn lint
 ```
 
-## i18n
+### i18n
 
 Run a report for the i18n messages and check whether entries are missing or obsolete
 
 ```sh
  yarn i18n:report
+```
+
+## Release
+
+To release a new version the library [bumped](https://bumped.github.io/) is used.
+
+```sh
+ bump release <major|minor|patch>
 ```
 
 ## Author
