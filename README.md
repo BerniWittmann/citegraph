@@ -11,7 +11,7 @@
 
 ### Prerequisites 
 
-You should have [yarn](https://yarnpkg.com) installed. The project was created with version `1.19.1`.
+You should have [node](https://nodejs.org/en/) and  [yarn](https://yarnpkg.com) installed.
 
 ## Install
 
