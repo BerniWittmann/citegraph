@@ -18,6 +18,9 @@ unit:
   stage: test
   script:
     - yarn test:unit --ci
+  artifacts:
+    paths:
+      - coverage
 
 build:
   stage: build

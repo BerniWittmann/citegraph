@@ -7,5 +7,6 @@ module.exports = {
     '!src/plugins/*',
     '!src/main.ts'
   ],
-  coverageReporters: ['text-summary']
+  coverageReporters: ['text-summary', 'html'],
+  coverageDirectory: 'coverage'
 }
