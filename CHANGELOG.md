@@ -1,3 +1,10 @@
+## <small>0.1.2 (2019-10-31)</small>
+
+* fix: Fixed importing issue in vuex plugin setup ([cb9a7eb](https://gitlab.com/citegraph/frontend/commit/cb9a7eb))
+* ci: Build Application only on tags ([ad5e73a](https://gitlab.com/citegraph/frontend/commit/ad5e73a))
+
+
+
 ## <small>0.1.1 (2019-10-31)</small>
 
 * fix: Fixed base path ([2668e68](https://gitlab.com/citegraph/frontend/commit/2668e68))
