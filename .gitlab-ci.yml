@@ -12,12 +12,12 @@ before_script:
 lint:
   stage: lint
   script:
-    - yarn lint -- --no-fix
+    - yarn lint --no-fix
 
 unit:
   stage: test
   script:
-    - yarn test:unit -- --ci
+    - yarn test:unit --ci
 
 build:
   stage: build
@@ -42,4 +42,3 @@ pages:
 cache:
   paths:
     - node_modules/
-    - .yarn
