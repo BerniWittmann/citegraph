@@ -12,7 +12,9 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "webpack",
+      "webpack-env"
     ],
     "paths": {
       "@/*": [
