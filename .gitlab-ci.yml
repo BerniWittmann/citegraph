@@ -1,7 +1,6 @@
 image: node:10
 
 stages:
-  - lint
   - test
   - build
   - deploy
@@ -10,7 +9,7 @@ before_script:
   - yarn install
 
 lint:
-  stage: lint
+  stage: test
   script:
     - yarn lint --no-fix
 
