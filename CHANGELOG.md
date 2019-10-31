@@ -1,3 +1,11 @@
+## <small>0.1.1 (2019-10-31)</small>
+
+* fix: Fixed base path ([2668e68](https://gitlab.com/citegraph/frontend/commit/2668e68))
+* ci: prevent additional build in deploy step ([ff3619f](https://gitlab.com/citegraph/frontend/commit/ff3619f))
+* docs: Updated README demo url and badges ([029f361](https://gitlab.com/citegraph/frontend/commit/029f361))
+
+
+
 ## 0.1.0 (2019-10-31)
 
 * build: Added bumped for release management ([533af9c](https://gitlab.com/citegraph/frontend/commit/533af9c))
