@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/index returns actions 1`] = `Object {}`;
+
+exports[`store/index returns getters 1`] = `Object {}`;
+
+exports[`store/index returns modules 1`] = `Object {}`;
+
+exports[`store/index returns mutations 1`] = `Object {}`;
+
+exports[`store/index returns state 1`] = `Object {}`;

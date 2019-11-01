@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Home.vue renders the page 1`] = `
+<div class="home"><img alt="CiteGraph logo" src="../assets/logo.png">
+  <h1>home.title</h1>
+  <p>home.text</p>
+</div>
+`;
