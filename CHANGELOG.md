@@ -1,3 +1,13 @@
+## 0.2.0 (2019-11-01)
+
+* test: Added tests for basic setup ([2b1b956](https://gitlab.com/citegraph/frontend/commit/2b1b956))
+* docs: Added Logo to README ([4503897](https://gitlab.com/citegraph/frontend/commit/4503897))
+* feat: Added Basic Styling and Layout ([fee2d1c](https://gitlab.com/citegraph/frontend/commit/fee2d1c)), closes [#1](https://gitlab.com/citegraph/frontend/issues/1)
+* refactor: Adjusted project folder structure ([fa9f604](https://gitlab.com/citegraph/frontend/commit/fa9f604))
+* ci: Parallelize Lint and test jobs ([b5e6396](https://gitlab.com/citegraph/frontend/commit/b5e6396))
+
+
+
 ## <small>0.1.2 (2019-10-31)</small>
 
 * fix: Fixed importing issue in vuex plugin setup ([cb9a7eb](https://gitlab.com/citegraph/frontend/commit/cb9a7eb))

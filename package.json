@@ -1,6 +1,6 @@
 {
   "name": "citegraph",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "dependencies": {
     "core-js": "^3.3.2",
     "element-ui": "^2.4.5",
