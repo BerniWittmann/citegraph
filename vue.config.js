@@ -7,5 +7,12 @@ module.exports = {
       enableInSFC: false
     }
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/frontend/' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/frontend/' : '/',
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `@import "~@/assets/styles/globals.scss";`
+      }
+    }
+  }
 }

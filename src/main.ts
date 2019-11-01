@@ -5,6 +5,8 @@ import store from './plugins/store'
 import i18n from './plugins/i18n'
 import './plugins/element'
 
+import '@/assets/styles/index.scss'
+
 Vue.config.productionTip = false
 
 new Vue({
