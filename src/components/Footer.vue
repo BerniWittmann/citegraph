@@ -27,31 +27,38 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+
   & > div {
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     & > a {
       align-self: flex-start
     }
   }
+
   .footer {
     padding: 30px 20vw;
     background: $footer_bg_color;
     color: $footer_text_color;
     margin: 0;
+
     .footer-paragraph {
       font-size: 14px;
+
       &, p {
         color: inherit;
         -webkit-margin-before: 0;
         -webkit-margin-after: 0.4em;
       }
+
       &, a {
         &, &:hover, &:visited, &:focus, &:active {
           color: inherit;
           text-decoration: none;
         }
+
         -webkit-margin-before: 0;
         -webkit-margin-after: 0.4em;
       }
@@ -59,15 +66,15 @@
   }
 }
 </style>
-<script>
+<script lang="ts">
 import packageInfo from '@/../package.json'
 
-export default {
-  name: 'Footer',
-  computed: {
-    version () {
-      return packageInfo.version
-    }
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class Footer extends Vue {
+  get version (): string {
+    return packageInfo.version
   }
 }
 </script>

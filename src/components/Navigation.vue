@@ -9,13 +9,13 @@
     </router-link>
   </el-menu>
 </template>
-<script>
-export default {
-  name: 'Navigation',
-  computed: {
-    activeRoute () {
-      return this.$route.name
-    }
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class Navigation extends Vue {
+  get activeRoute (): string | undefined {
+    return this.$route.name
   }
 }
 </script>
@@ -28,6 +28,7 @@ export default {
   text-decoration: none !important;
   outline: none !important;
   margin-right: 20px;
+
   .nav-image {
     margin: 10px 0 10px 20px;
     height: 40px;

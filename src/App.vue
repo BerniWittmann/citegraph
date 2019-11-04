@@ -7,14 +7,17 @@
     </v-layout>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
 import DefaultLayout from '@/layouts/Default.vue'
 
-export default {
+@Component({
   components: {
     VLayout: DefaultLayout
   }
-}
+})
+export default class App extends Vue {}
 </script>
 <style lang="scss">
 body {

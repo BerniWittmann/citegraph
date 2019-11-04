@@ -14,14 +14,15 @@
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 
-export default {
-  name: 'home',
+@Component({
   components: {
     VNavigation: Navigation,
     VFooter: Footer
   }
-}
+})
+export default class DefaultLayout extends Vue {}
 </script>
