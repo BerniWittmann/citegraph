@@ -1,15 +1,21 @@
-import Home from '@/pages/Home.vue'
-import About from '@/pages/About.vue'
+import HomePage from '@/pages/Home.vue'
+import AboutPage from '@/pages/About.vue'
+import ProjectPage from '@/pages/Project.vue'
 
 export default [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: HomePage
   },
   {
     path: '/about',
     name: 'about',
-    component: About
+    component: AboutPage
+  },
+  {
+    path: '/projects/:projectId',
+    name: 'projects.single',
+    component: ProjectPage
   }
 ]

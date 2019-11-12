@@ -12,5 +12,11 @@
   "about": {
     "title": "About",
     "text": "CiteGraph is a bibliometric tool for running literature analysis"
+  },
+  "project": {
+    "not_available": {
+      "title": "Project not available",
+      "text": "The requested Project is not available right now"
+    }
   }
 }

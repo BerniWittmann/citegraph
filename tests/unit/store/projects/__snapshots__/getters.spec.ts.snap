@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/projects/getters provides the getters 1`] = `
+Object {
+  "activeProject": [Function],
+}
+`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/projects/mutations provides the mutations 1`] = `
+Object {
+  "SET_ACTIVE_PROJECT": [Function],
+  "UNSET_ACTIVE_PROJECT": [Function],
+}
+`;

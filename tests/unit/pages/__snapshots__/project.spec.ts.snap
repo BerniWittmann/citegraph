@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Project.vue renders the page 1`] = `
+<div class="project">
+  <!---->
+  <div>
+    <h1>My awesome Project</h1>
+  </div>
+</div>
+`;
+
+exports[`pages/Project.vue shows a warning if project is not available 1`] = `
+<div class="project">
+  <el-alert-stub title="project.not_available.title" description="project.not_available.text" type="error" closetext="" showicon="true" center="true" effect="light"></el-alert-stub>
+  <!---->
+</div>
+`;

@@ -6,24 +6,24 @@ describe('store/index', () => {
     expect(Object.keys(store)).toEqual([
       'modules',
       'state',
-      'mutations',
       'actions',
-      'getters'
+      'getters',
+      'mutations'
     ])
   })
   it('returns state', () => {
-    expect(store.state).toMatchSnapshot()
+    expect(Object.keys(store.state)).toMatchSnapshot()
   })
   it('returns actions', () => {
-    expect(store.actions).toMatchSnapshot()
+    expect(Object.keys(store.actions)).toMatchSnapshot()
   })
   it('returns mutations', () => {
-    expect(store.mutations).toMatchSnapshot()
+    expect(Object.keys(store.mutations)).toMatchSnapshot()
   })
   it('returns getters', () => {
-    expect(store.getters).toMatchSnapshot()
+    expect(Object.keys(store.getters)).toMatchSnapshot()
   })
   it('returns modules', () => {
-    expect(store.modules).toMatchSnapshot()
+    expect(Object.keys(store.modules)).toMatchSnapshot()
   })
 })
