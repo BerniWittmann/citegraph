@@ -1,19 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/Footer.vue renders 1`] = `
-<el-row-stub tag="div" justify="start" align="top" class="footer-wrap">
-  <el-col-stub span="24" tag="div" class="footer-col">
-    <el-row-stub tag="div" justify="start" align="top" class="footer">
-      <el-col-stub span="24" tag="div" xs="24" sm="12" md="12" lg="12">
-        <p class="footer-paragraph"><a>footer.home</a></p>
-        <p class="footer-paragraph"><a>footer.about</a></p>
-      </el-col-stub>
-      <el-col-stub span="24" tag="div" xs="[object Object]" sm="[object Object]" md="[object Object]" lg="[object Object]">
-        <p class="footer-paragraph">
-          footer.version
-        </p>
-      </el-col-stub>
-    </el-row-stub>
-  </el-col-stub>
-</el-row-stub>
+<v-footer-stub height="auto" tag="div" tile="true" app="true" inset="true">
+  <v-spacer-stub></v-spacer-stub>
+  <div>footer.version</div>
+</v-footer-stub>
 `;

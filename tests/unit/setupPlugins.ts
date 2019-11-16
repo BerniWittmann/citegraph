@@ -7,14 +7,16 @@
 
 import VueI18N from 'vue-i18n'
 import Vue from 'vue'
-import Element from 'element-ui'
+import Vuetify from 'vuetify'
 
 Vue.use(VueI18N)
-Vue.use(Element)
+Vue.use(Vuetify)
 
 export const i18n = new VueI18N({
   silentTranslationWarn: true
 })
+
+export const vuetify = new Vuetify()
 
 export function monkeyPatchTransitions () {
   const { getComputedStyle } = window

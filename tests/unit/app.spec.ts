@@ -11,7 +11,7 @@ describe('App.vue', () => {
     const wrapper = shallowMount(App, {
       i18n,
       stubs: {
-        'v-layout': EmptySlotComponent,
+        'layout': EmptySlotComponent,
         'router-view': '<p>Router View</p>'
       }
     })

@@ -3,8 +3,9 @@ import { i18n } from '../setupPlugins'
 
 import DefaultLayout from '@/layouts/Default.vue'
 
-import Navigation from '@/components/Navigation.vue'
+import AppBar from '@/components/AppBar.vue'
 import Footer from '@/components/Footer.vue'
+import NavigationDrawer from '@/components/NavigationDrawer.vue'
 
 describe('layouts/Default.vue', () => {
   it('renders', () => {
@@ -16,11 +17,17 @@ describe('layouts/Default.vue', () => {
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
-  it('renders the navigation', () => {
+  it('renders the App Bar', () => {
     const wrapper = shallowMount(DefaultLayout, {
       i18n
     })
-    expect(wrapper.contains(Navigation)).toBeTruthy()
+    expect(wrapper.contains(AppBar)).toBeTruthy()
+  })
+  it('renders the Navigation Drawer', () => {
+    const wrapper = shallowMount(DefaultLayout, {
+      i18n
+    })
+    expect(wrapper.contains(NavigationDrawer)).toBeTruthy()
   })
   it('renders the main content', () => {
     const wrapper = shallowMount(DefaultLayout, {
@@ -38,5 +45,16 @@ describe('layouts/Default.vue', () => {
       i18n
     })
     expect(wrapper.contains(Footer)).toBeTruthy()
+  })
+  it('updates the drawer state on an event from the app bar', () => {
+    const wrapper = shallowMount(DefaultLayout, {
+      i18n
+    })
+    let drawer = wrapper.find(NavigationDrawer)
+    expect(drawer.props('drawerVisible')).toBeTruthy()
+    const bar = wrapper.find(AppBar)
+    bar.vm.$emit('toggle-drawer')
+    drawer = wrapper.find(NavigationDrawer)
+    expect(drawer.props('drawerVisible')).toBeFalsy()
   })
 })

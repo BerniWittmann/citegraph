@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`components/Navigation.vue renders 1`] = `
-<el-menu-stub mode="horizontal" defaultactive="home" router="true" menutrigger="hover" activetextcolor="#0E79B2" collapsetransition="true" class="nav"><a class="nav-image-wrap">
-    <div class="nav-image"></div>
-  </a></el-menu-stub>
-`;

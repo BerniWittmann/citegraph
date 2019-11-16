@@ -1,8 +1,6 @@
 {
-  "message": "hello i18n !!",
+  "citegraph": "CiteGraph",
   "footer": {
-    "home": "Home",
-    "about": "About CiteGraph",
     "version": "Version %{version}"
   },
   "home": {
@@ -14,9 +12,13 @@
     "text": "CiteGraph is a bibliometric tool for running literature analysis"
   },
   "project": {
-    "not_available": {
-      "title": "Project not available",
-      "text": "The requested Project is not available right now"
-    }
+    "not_available": "The requested Project is not available right now"
+  },
+  "navigation-drawer": {
+    "import": "Import",
+    "explore": "Explore",
+    "visualize": "Visualize",
+    "help": "Help",
+    "settings": "Settings"
   }
 }

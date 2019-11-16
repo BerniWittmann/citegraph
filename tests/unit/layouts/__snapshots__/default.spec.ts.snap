@@ -1,15 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`layouts/Default.vue renders 1`] = `
-<el-container-stub>
-  <el-header-stub height="60px">
-    <v-navigation-stub></v-navigation-stub>
-  </el-header-stub>
-  <el-main-stub>
-    <p class="content">Main Content</p>
-  </el-main-stub>
-  <el-footer-stub height="60px">
-    <v-footer-stub></v-footer-stub>
-  </el-footer-stub>
-</el-container-stub>
+<v-app-stub id="app">
+  <navigation-drawer-stub drawervisible="true"></navigation-drawer-stub>
+  <app-bar-stub></app-bar-stub>
+  <v-content-stub tag="main">
+    <v-container-stub id="main-content" tag="div" fluid="true">
+      <p class="content">Main Content</p>
+    </v-container-stub>
+  </v-content-stub>
+  <app-footer-stub></app-footer-stub>
+</v-app-stub>
 `;

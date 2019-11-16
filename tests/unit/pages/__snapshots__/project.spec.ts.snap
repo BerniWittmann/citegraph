@@ -11,7 +11,9 @@ exports[`pages/Project.vue renders the page 1`] = `
 
 exports[`pages/Project.vue shows a warning if project is not available 1`] = `
 <div class="project">
-  <el-alert-stub title="project.not_available.title" description="project.not_available.text" type="error" closetext="" showicon="true" center="true" effect="light"></el-alert-stub>
+  <v-alert-stub tag="div" value="true" closelabel="$vuetify.close" icon="" prominent="true" type="error">
+    project.not_available
+  </v-alert-stub>
   <!---->
 </div>
 `;

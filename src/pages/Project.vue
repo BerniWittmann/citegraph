@@ -1,13 +1,8 @@
 <template>
   <div class="project">
-    <el-alert v-if="!hasProject"
-      :title="$t('project.not_available.title')"
-      type="error"
-      :description=" $t('project.not_available.text')"
-      show-icon
-      center
-      :closable="false">
-    </el-alert>
+    <v-alert v-if="!hasProject" type="error" prominent>
+      {{ $t('project.not_available') }}
+    </v-alert>
 
     <div v-if="hasProject">
       <h1>{{ project.name }}</h1>
@@ -30,11 +25,3 @@ export default class ProjectPage extends Vue {
   }
 }
 </script>
-
-<style scoped lang="scss">
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>

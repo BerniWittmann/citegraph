@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/AppBar.vue renders 1`] = `
+<header class="v-sheet v-sheet--tile theme--dark v-toolbar v-toolbar--extended v-app-bar v-app-bar--fixed" style="height: 112px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;">
+  <div class="v-toolbar__content" style="height: 64px;"><button type="button" class="v-app-bar__nav-icon v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark"></i></span></button>
+    <div class="v-toolbar__title">citegraph</div>
+  </div>
+  <div class="v-toolbar__extension" style="height: 48px;">
+    <div class="v-tabs v-tabs--align-with-title theme--dark">
+      <div role="tablist" class="v-item-group theme--dark v-slide-group v-tabs-bar v-tabs-bar--is-mobile white--text transparent">
+        <div class="v-slide-group__prev v-slide-group__prev--disabled">
+          <!---->
+        </div>
+        <div class="v-slide-group__wrapper">
+          <div class="v-slide-group__content v-tabs-bar__content">
+            <div class="v-tabs-slider-wrapper" style="transition: none;">
+              <div class="v-tabs-slider"></div>
+            </div>
+            <div tabindex="0" aria-selected="true" role="tab" class="v-tab v-tab--active">Tab 1</div>
+            <div tabindex="0" aria-selected="false" role="tab" class="v-tab">Tab 2</div>
+            <div tabindex="0" aria-selected="false" role="tab" class="v-tab">Tab 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;

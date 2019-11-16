@@ -19,7 +19,8 @@
       "webpack-env",
       "jest",
       "webpack",
-      "webpack-env"
+      "webpack-env",
+      "vuetify"
     ],
     "paths": {
       "@/*": [

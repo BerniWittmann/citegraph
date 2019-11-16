@@ -1,28 +1,38 @@
 <template>
-  <el-container>
-    <el-header>
-      <v-navigation></v-navigation>
-    </el-header>
-    <el-main>
-      <!-- Page Content -->
-      <slot></slot>
-    </el-main>
-    <el-footer>
-      <v-footer></v-footer>
-    </el-footer>
-  </el-container>
+  <v-app>
+    <navigation-drawer :drawer-visible.sync="drawerVisible"/>
+
+    <app-bar @toggle-drawer="toggleDrawer"/>
+
+    <!-- Main application Content -->
+    <v-content>
+      <v-container fluid id="main-content">
+        <slot></slot>
+      </v-container>
+    </v-content>
+
+    <app-footer></app-footer>
+  </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Navigation from '@/components/Navigation.vue'
+import AppBar from '@/components/AppBar.vue'
+import NavigationDrawer from '@/components/NavigationDrawer.vue'
 import Footer from '@/components/Footer.vue'
 
 @Component({
   components: {
-    VNavigation: Navigation,
-    VFooter: Footer
+    AppBar,
+    NavigationDrawer,
+    AppFooter: Footer
   }
 })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+  drawerVisible: boolean = true
+
+  toggleDrawer () {
+    this.drawerVisible = !this.drawerVisible
+  }
+}
 </script>
