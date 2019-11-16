@@ -57,4 +57,53 @@ describe('layouts/Default.vue', () => {
     drawer = wrapper.find(NavigationDrawer)
     expect(drawer.props('drawerVisible')).toBeFalsy()
   })
+
+  describe('it sets the default value of the drawer state on route change', () => {
+    it('does not set the drawer state when changing from project to project page', () => {
+      const wrapper = shallowMount(DefaultLayout, {
+        i18n
+      })
+      let drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+      // @ts-ignore
+      wrapper.vm.onRouteChange({ matched: [{ name: 'projects.single' }] }, { matched: [{ name: 'projects.single' }] })
+      drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+    })
+    it('does not set the drawer state when changing from a non project to a non project page', () => {
+      const wrapper = shallowMount(DefaultLayout, {
+        i18n
+      })
+      let drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+      // @ts-ignore
+      wrapper.vm.onRouteChange({ matched: [{ name: 'home' }] }, { matched: [{ name: 'about' }] })
+      drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+    })
+    it('does set the drawer state when changing from a non project to a project page', () => {
+      const wrapper = shallowMount(DefaultLayout, {
+        i18n
+      })
+      // @ts-ignore
+      wrapper.vm.toggleDrawer()
+      let drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeFalsy()
+      // @ts-ignore
+      wrapper.vm.onRouteChange({ matched: [{ name: 'projects.single' }] }, { matched: [{ name: 'about' }] })
+      drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+    })
+    it('does unset the drawer state when changing from a project to a non project page', () => {
+      const wrapper = shallowMount(DefaultLayout, {
+        i18n
+      })
+      let drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeTruthy()
+      // @ts-ignore
+      wrapper.vm.onRouteChange({ matched: [{ name: 'home' }] }, { matched: [{ name: 'projects.single' }] })
+      drawer = wrapper.find(NavigationDrawer)
+      expect(drawer.props('drawerVisible')).toBeFalsy()
+    })
+  })
 })

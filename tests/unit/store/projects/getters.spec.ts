@@ -25,4 +25,24 @@ describe('store/modules/projects/getters', () => {
       expect(getter(state)).toBeUndefined()
     })
   })
+
+  describe('hasActiveProject', () => {
+    it('returns true if there is an active Project', () => {
+      const state = {
+        activeProject: new Project({ id: 1, name: 'My Project' })
+      }
+      const getter = getters.hasActiveProject as Function
+
+      expect(getter(state)).toBeTruthy()
+    })
+
+    it('returns undefined if no project is active', () => {
+      const state = {
+        activeProject: undefined
+      }
+      const getter = getters.hasActiveProject as Function
+
+      expect(getter(state)).toBeFalsy()
+    })
+  })
 })

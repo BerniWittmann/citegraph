@@ -5,7 +5,8 @@ import AppBar from '@/components/AppBar.vue'
 
 describe('components/AppBar.vue', () => {
   const router = {
-    push: jest.fn()
+    push: jest.fn().mockResolvedValue(undefined),
+    resolve: jest.fn()
   }
   const getWrapper = () => {
     return mount(AppBar, {

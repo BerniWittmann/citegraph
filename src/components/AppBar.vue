@@ -6,7 +6,7 @@
   >
     <v-app-bar-nav-icon @click.stop="toggleDrawer"></v-app-bar-nav-icon>
 
-    <v-toolbar-title @click="$router.push('/')">{{ $t('citegraph') }}</v-toolbar-title>
+    <v-toolbar-title @click="$router.push('/').catch(() => {})">{{ $t('citegraph') }}</v-toolbar-title>
 
     <template v-slot:extension>
       <v-tabs

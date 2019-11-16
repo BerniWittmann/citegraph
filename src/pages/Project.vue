@@ -21,7 +21,7 @@ export default class ProjectPage extends Vue {
   }
 
   get hasProject (): boolean {
-    return !!this.project
+    return this.$store.getters['projects/hasActiveProject']
   }
 }
 </script>

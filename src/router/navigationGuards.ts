@@ -1,11 +1,12 @@
-import { Route, RouteRecord, VueRouter } from 'vue-router/types/router'
+import { Route, VueRouter } from 'vue-router/types/router'
 import { Next } from 'vue-router'
 
 import store from '@/plugins/store'
+import { isProjectRoute } from '@/common/helpers'
 
 export default function setupNavigationGuards (router: VueRouter): void {
   router.beforeEach(async (to: Route, from: Route, next: Next) => {
-    if (to.matched.find((current: RouteRecord) => current.name === 'projects.single')) {
+    if (isProjectRoute(to)) {
       await loadProject(to)
     } else {
       await unloadProject()

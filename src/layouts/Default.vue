@@ -16,10 +16,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import AppBar from '@/components/AppBar.vue'
 import NavigationDrawer from '@/components/NavigationDrawer.vue'
 import Footer from '@/components/Footer.vue'
+import { Route } from 'vue-router'
+import { isProjectRoute } from '@/common/helpers'
 
 @Component({
   components: {
@@ -33,6 +35,15 @@ export default class DefaultLayout extends Vue {
 
   toggleDrawer () {
     this.drawerVisible = !this.drawerVisible
+  }
+
+  @Watch('$route')
+  onRouteChange (to: Route, from: Route) {
+    const toIsProjectRoute = isProjectRoute(to)
+    const fromIsProjectRoute = isProjectRoute(from)
+    if (toIsProjectRoute !== fromIsProjectRoute) {
+      this.drawerVisible = toIsProjectRoute
+    }
   }
 }
 </script>

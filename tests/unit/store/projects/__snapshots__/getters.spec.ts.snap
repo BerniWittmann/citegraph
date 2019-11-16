@@ -3,5 +3,6 @@
 exports[`store/modules/projects/getters provides the getters 1`] = `
 Object {
   "activeProject": [Function],
+  "hasActiveProject": [Function],
 }
 `;

@@ -20,7 +20,8 @@ describe('components/NavigationDrawer.vue', () => {
         },
         $store: {
           getters: {
-            'projects/activeProject': project
+            'projects/activeProject': project,
+            'projects/hasActiveProject': !!project
           }
         }
       },

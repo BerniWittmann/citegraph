@@ -101,7 +101,7 @@ export default class NavigationDrawer extends Vue {
   }
 
   get hasProject (): boolean {
-    return !!this.project
+    return this.$store.getters['projects/hasActiveProject']
   }
 }
 </script>

@@ -11,7 +11,8 @@ describe('pages/Project.vue', () => {
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
+            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' }),
+            'projects/hasActiveProject': true
           }
         }
       }
@@ -25,7 +26,8 @@ describe('pages/Project.vue', () => {
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
+            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' }),
+            'projects/hasActiveProject': true
           }
         }
       }
@@ -39,7 +41,8 @@ describe('pages/Project.vue', () => {
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': undefined
+            'projects/activeProject': undefined,
+            'projects/hasActiveProject': false
           }
         }
       }
