@@ -16,9 +16,10 @@ exports[`components/AppBar.vue renders 1`] = `
             <div class="v-tabs-slider-wrapper" style="transition: none;">
               <div class="v-tabs-slider"></div>
             </div>
-            <div tabindex="0" aria-selected="true" role="tab" class="v-tab v-tab--active">Tab 1</div>
-            <div tabindex="0" aria-selected="false" role="tab" class="v-tab">Tab 2</div>
-            <div tabindex="0" aria-selected="false" role="tab" class="v-tab">Tab 3</div>
+            <div class="tab"><i aria-hidden="true" class="v-icon notranslate mr-2 mdi mdi-view-dashboard theme--dark"></i> projects.title</div>
+            <div class="tab">Tab 1</div>
+            <div class="tab">Tab 2</div>
+            <div class="tab">Tab 3</div>
           </div>
         </div>
       </div>

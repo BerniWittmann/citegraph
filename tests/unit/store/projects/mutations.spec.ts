@@ -57,4 +57,39 @@ describe('store/modules/projects/mutations', () => {
       expect(state.activeProject).toBeUndefined()
     })
   })
+
+  describe('SET_PROJECTS', () => {
+    it('saves the projects to the store', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: []
+      }
+      const projects: Array<Project> = [
+        new Project({ id: 1, name: 'First Project' }),
+        new Project({ id: 2, name: 'Second Project' })
+      ]
+
+      mutations[mutationTypes.SET_PROJECTS](state, projects)
+
+      expect(state.projects).toEqual(projects)
+    })
+
+    it('overrides existing projects', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 99, name: 'Other Project' }),
+          new Project({ id: 100, name: 'Another Project' })
+        ]
+      }
+      const projects: Array<Project> = [
+        new Project({ id: 1, name: 'First Project' }),
+        new Project({ id: 2, name: 'Second Project' })
+      ]
+
+      mutations[mutationTypes.SET_PROJECTS](state, projects)
+
+      expect(state.projects).toEqual(projects)
+    })
+  })
 })

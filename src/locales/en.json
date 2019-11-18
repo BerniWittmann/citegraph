@@ -11,8 +11,14 @@
     "title": "About",
     "text": "CiteGraph is a bibliometric tool for running literature analysis"
   },
+  "projects": {
+    "title": "Projects",
+    "your_projects": "Your Projects",
+    "open_project": "Open"
+  },
   "project": {
-    "not_available": "The requested Project is not available right now"
+    "not_available": "The requested Project is not available right now",
+    "delete": "Delete"
   },
   "navigation-drawer": {
     "import": "Import",

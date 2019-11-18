@@ -24,9 +24,9 @@ describe('components/AppBar.vue', () => {
         $router: router
       },
       stubs: {
-        RouterLink: RouterLinkStub
-      },
-      sync: false
+        RouterLink: RouterLinkStub,
+        VTab: '<div class="tab"><slot/></div>'
+      }
     })
   }
   it('renders', () => {
@@ -45,5 +45,12 @@ describe('components/AppBar.vue', () => {
     expect(wrapper.find('.v-app-bar__nav-icon').exists()).toBeTruthy()
     wrapper.find('.v-app-bar__nav-icon').trigger('click')
     expect(wrapper.emitted('toggle-drawer')).toBeTruthy()
+  })
+  it('renders a tab for the projects overview', () => {
+    const wrapper = getWrapper()
+    const firstTab = wrapper.find('.tab')
+    expect(firstTab.exists()).toBeTruthy()
+    expect(firstTab.text()).toEqual('projects.title')
+    expect(firstTab.props('to')).toEqual({ name: 'projects' })
   })
 })

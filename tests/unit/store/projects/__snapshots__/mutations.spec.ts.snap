@@ -3,6 +3,7 @@
 exports[`store/modules/projects/mutations provides the mutations 1`] = `
 Object {
   "SET_ACTIVE_PROJECT": [Function],
+  "SET_PROJECTS": [Function],
   "UNSET_ACTIVE_PROJECT": [Function],
 }
 `;

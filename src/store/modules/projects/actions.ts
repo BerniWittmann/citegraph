@@ -21,5 +21,17 @@ export const actions: ActionTree<ProjectsState, RootState> = {
 
   unsetProject ({ commit }): void {
     commit(types.UNSET_ACTIVE_PROJECT)
+  },
+
+  async fetchProjects ({ commit }): Promise<undefined> {
+    try {
+      const response = await Axios(`/projects`)
+      const projects = response.data.map((project: Project) => new Project(project))
+      commit(types.SET_PROJECTS, projects)
+      return undefined
+    } catch (error) {
+      console.error(error)
+      return error
+    }
   }
 }

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Projects.vue can handle if no projects are available 1`] = `
+<div class="projects">
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <h1 class="display-1 mt-5">projects.your_projects</h1>
+    </v-row-stub>
+    <v-row-stub tag="div">
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
+          <v-icon-stub color="primary">mdi-plus</v-icon-stub>
+        </v-card-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
+exports[`pages/Projects.vue renders the page 1`] = `
+<div class="projects">
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <h1 class="display-1 mt-5">projects.your_projects</h1>
+    </v-row-stub>
+    <v-row-stub tag="div">
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
+          <v-card-text-stub>
+            <p class="title text--primary">
+              First Project
+            </p>
+          </v-card-text-stub>
+          <v-card-actions-stub>
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+              projects.open_project
+            </v-btn-stub>
+            <v-spacer-stub></v-spacer-stub>
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+              <v-list-stub tag="div" tile="true">
+                <v-list-item-stub activeclass="" tag="div">
+                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
+                </v-list-item-stub>
+              </v-list-stub>
+            </v-menu-stub>
+          </v-card-actions-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
+          <v-card-text-stub>
+            <p class="title text--primary">
+              Second Project
+            </p>
+          </v-card-text-stub>
+          <v-card-actions-stub>
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+              projects.open_project
+            </v-btn-stub>
+            <v-spacer-stub></v-spacer-stub>
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+              <v-list-stub tag="div" tile="true">
+                <v-list-item-stub activeclass="" tag="div">
+                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
+                </v-list-item-stub>
+              </v-list-stub>
+            </v-menu-stub>
+          </v-card-actions-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
+          <v-card-text-stub>
+            <p class="title text--primary">
+              My awesome Project
+            </p>
+          </v-card-text-stub>
+          <v-card-actions-stub>
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+              projects.open_project
+            </v-btn-stub>
+            <v-spacer-stub></v-spacer-stub>
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+              <v-list-stub tag="div" tile="true">
+                <v-list-item-stub activeclass="" tag="div">
+                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
+                </v-list-item-stub>
+              </v-list-stub>
+            </v-menu-stub>
+          </v-card-actions-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
+          <v-card-text-stub>
+            <p class="title text--primary">
+              Other Project
+            </p>
+          </v-card-text-stub>
+          <v-card-actions-stub>
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+              projects.open_project
+            </v-btn-stub>
+            <v-spacer-stub></v-spacer-stub>
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+              <v-list-stub tag="div" tile="true">
+                <v-list-item-stub activeclass="" tag="div">
+                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
+                </v-list-item-stub>
+              </v-list-stub>
+            </v-menu-stub>
+          </v-card-actions-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="3" tag="div">
+        <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
+          <v-icon-stub color="primary">mdi-plus</v-icon-stub>
+        </v-card-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;

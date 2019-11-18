@@ -9,5 +9,8 @@ export const getters: GetterTree<ProjectsState, RootState> = {
   },
   hasActiveProject (state): boolean {
     return !!state.activeProject
+  },
+  projects (state): Array<Project> {
+    return state.projects
   }
 }

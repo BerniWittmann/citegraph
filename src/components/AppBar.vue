@@ -12,7 +12,9 @@
       <v-tabs
         align-with-title
         background-color="transparent"
+        optional
       >
+        <v-tab :to="{ name: 'projects' }"><v-icon class="mr-2">mdi-view-dashboard</v-icon> {{ $t('projects.title') }}</v-tab>
         <v-tab>Tab 1</v-tab>
         <v-tab>Tab 2</v-tab>
         <v-tab>Tab 3</v-tab>

@@ -41,7 +41,7 @@ export default class DefaultLayout extends Vue {
   onRouteChange (to: Route, from: Route) {
     const toIsProjectRoute = isProjectRoute(to)
     const fromIsProjectRoute = isProjectRoute(from)
-    if (toIsProjectRoute !== fromIsProjectRoute) {
+    if (!from.name || toIsProjectRoute !== fromIsProjectRoute) {
       this.drawerVisible = toIsProjectRoute
     }
   }
