@@ -32,7 +32,7 @@ exports[`pages/Projects.vue renders the page 1`] = `
             </p>
           </v-card-text-stub>
           <v-card-actions-stub>
-            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" text="true" type="button">
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
@@ -54,7 +54,7 @@ exports[`pages/Projects.vue renders the page 1`] = `
             </p>
           </v-card-text-stub>
           <v-card-actions-stub>
-            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" text="true" type="button">
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
@@ -76,7 +76,7 @@ exports[`pages/Projects.vue renders the page 1`] = `
             </p>
           </v-card-text-stub>
           <v-card-actions-stub>
-            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" text="true" type="button">
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
@@ -98,7 +98,7 @@ exports[`pages/Projects.vue renders the page 1`] = `
             </p>
           </v-card-text-stub>
           <v-card-actions-stub>
-            <v-btn-stub color="primary accent-4" tag="button" activeclass="" to="[object Object]" text="true" type="button">
+            <v-btn-stub color="primary accent-4" tag="button" activeclass="" text="true" type="button">
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>

@@ -4,13 +4,16 @@ import { RootState } from '@/store/types'
 import Project from '@/models/project'
 
 export const getters: GetterTree<ProjectsState, RootState> = {
-  activeProject (state): Project | undefined {
+  activeProject (state: ProjectsState): Project | undefined {
     return state.activeProject
   },
-  hasActiveProject (state): boolean {
+  hasActiveProject (state: ProjectsState): boolean {
     return !!state.activeProject
   },
-  projects (state): Array<Project> {
+  projects (state: ProjectsState): Array<Project> {
     return state.projects
+  },
+  openProjects (state: ProjectsState): Array<Project> {
+    return state.openProjects
   }
 }

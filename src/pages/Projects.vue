@@ -14,7 +14,7 @@
             :hover="true"
             class="project-card"
           >
-            <v-card-text>
+            <v-card-text @click="openProject(project)">
               <p class="title text--primary">
                 {{ project.name }}
               </p>
@@ -23,7 +23,7 @@
               <v-btn
                 text
                 color="primary accent-4"
-                :to="{ name: 'projects.single', params: { projectId: project.id } }"
+                @click="openProject(project)"
               >
                 {{ $t('projects.open_project') }}
               </v-btn>
@@ -76,6 +76,12 @@ import Project from '@/models/project'
 export default class ProjectsPage extends Vue {
   get projects (): Array<Project> {
     return this.$store.getters['projects/projects']
+  }
+
+  openProject (project: Project): void {
+    this.$store.dispatch('projects/openProject', project).then(() => {
+      this.$router.push({ name: 'projects.single', params: { projectId: project.id!.toString() } })
+    })
   }
 }
 </script>

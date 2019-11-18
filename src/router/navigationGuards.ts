@@ -20,5 +20,5 @@ async function loadProject (route: Route): Promise<undefined> {
 }
 
 async function unloadProject (): Promise<undefined> {
-  return store.dispatch('projects/unsetProject')
+  return store.dispatch('projects/unsetActiveProject')
 }

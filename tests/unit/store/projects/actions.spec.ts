@@ -8,10 +8,10 @@ describe('store/modules/projects/actions', () => {
     expect(actions).toMatchSnapshot()
   })
 
-  describe('unsetProject', () => {
+  describe('unsetActiveProject', () => {
     it('triggers the mutation', () => {
       const commit = jest.fn()
-      const action = actions.unsetProject as Function
+      const action = actions.unsetActiveProject as Function
       action({ commit })
       expect(commit).toHaveBeenCalledWith(mutationTypes.UNSET_ACTIVE_PROJECT)
     })
@@ -44,6 +44,7 @@ describe('store/modules/projects/actions', () => {
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalled()
         expect(commit).toHaveBeenCalledWith(mutationTypes.SET_ACTIVE_PROJECT, new Project(projectData))
+        expect(commit).toHaveBeenCalledWith(mutationTypes.OPEN_PROJECT, new Project(projectData))
         done()
       })
     })
@@ -119,6 +120,26 @@ describe('store/modules/projects/actions', () => {
         expect(commit).not.toHaveBeenCalled()
         done()
       })
+    })
+  })
+
+  describe('openProject', () => {
+    it('triggers the mutation', () => {
+      const commit = jest.fn()
+      const action = actions.openProject as Function
+      const project = new Project({ id: 42, name: 'My awesome Project' })
+      action({ commit }, project)
+      expect(commit).toHaveBeenCalledWith(mutationTypes.OPEN_PROJECT, project)
+    })
+  })
+
+  describe('closeProject', () => {
+    it('triggers the mutation', () => {
+      const commit = jest.fn()
+      const action = actions.closeProject as Function
+      const project = new Project({ id: 42, name: 'My awesome Project' })
+      action({ commit }, project)
+      expect(commit).toHaveBeenCalledWith(mutationTypes.CLOSE_PROJECT, project)
     })
   })
 })

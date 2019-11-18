@@ -68,4 +68,27 @@ describe('store/modules/projects/getters', () => {
       expect(getter(state)).toEqual([])
     })
   })
+
+  describe('openProjects', () => {
+    it('returns the stored open projects', () => {
+      const state = {
+        openProjects: [
+          new Project({ id: 1, name: 'My Project' }),
+          new Project({ id: 42, name: 'Other Project' })
+        ]
+      }
+      const getter = getters.openProjects as Function
+
+      expect(getter(state)).toEqual(state.openProjects)
+    })
+
+    it('returns empty array if no open projects are available', () => {
+      const state = {
+        openProjects: []
+      }
+      const getter = getters.openProjects as Function
+
+      expect(getter(state)).toEqual([])
+    })
+  })
 })

@@ -2,8 +2,10 @@
 
 exports[`store/modules/projects/actions provides the actions 1`] = `
 Object {
+  "closeProject": [Function],
   "fetchProject": [Function],
   "fetchProjects": [Function],
-  "unsetProject": [Function],
+  "openProject": [Function],
+  "unsetActiveProject": [Function],
 }
 `;

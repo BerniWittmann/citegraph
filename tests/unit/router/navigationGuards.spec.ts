@@ -85,7 +85,7 @@ describe('router/navigationGuards', () => {
       }
       const next = jest.fn()
       await handler(to, from, next)
-      expect(store.dispatch).toHaveBeenCalledWith('projects/unsetProject')
+      expect(store.dispatch).toHaveBeenCalledWith('projects/unsetActiveProject')
       expect(next).toHaveBeenCalledWith()
     })
   })

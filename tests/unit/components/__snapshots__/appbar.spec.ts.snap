@@ -16,10 +16,18 @@ exports[`components/AppBar.vue renders 1`] = `
             <div class="v-tabs-slider-wrapper" style="transition: none;">
               <div class="v-tabs-slider"></div>
             </div>
-            <div class="tab"><i aria-hidden="true" class="v-icon notranslate mr-2 mdi mdi-view-dashboard theme--dark"></i> projects.title</div>
-            <div class="tab">Tab 1</div>
-            <div class="tab">Tab 2</div>
-            <div class="tab">Tab 3</div>
+            <div class="tab"><i aria-hidden="true" class="v-icon notranslate mr-2 mdi mdi-view-dashboard theme--dark"></i>
+              projects.title
+            </div>
+            <div class="tab">
+              First Project
+              <i role="button" class="v-icon notranslate ml-2 v-icon--link mdi mdi-close theme--dark" style="font-size: 16px; display: none;"></i></div>
+            <div class="tab">
+              Second Project
+              <i role="button" class="v-icon notranslate ml-2 v-icon--link mdi mdi-close theme--dark" style="font-size: 16px;"></i></div>
+            <div class="tab">
+              Last Project
+              <i role="button" class="v-icon notranslate ml-2 v-icon--link mdi mdi-close theme--dark" style="font-size: 16px; display: none;"></i></div>
           </div>
         </div>
       </div>

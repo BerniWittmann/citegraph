@@ -11,6 +11,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       const response = await Axios(`/projects/${id}`)
       const payload: Project = new Project(response && response.data)
       commit(types.SET_ACTIVE_PROJECT, payload)
+      commit(types.OPEN_PROJECT, payload)
       return undefined
     } catch (error) {
       console.error(error)
@@ -19,7 +20,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
     }
   },
 
-  unsetProject ({ commit }): void {
+  unsetActiveProject ({ commit }): void {
     commit(types.UNSET_ACTIVE_PROJECT)
   },
 
@@ -33,5 +34,13 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       console.error(error)
       return error
     }
+  },
+
+  openProject ({ commit }, project: Project): void {
+    commit(types.OPEN_PROJECT, project)
+  },
+
+  closeProject ({ commit }, project: Project): void {
+    commit(types.CLOSE_PROJECT, project)
   }
 }

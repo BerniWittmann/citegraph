@@ -11,6 +11,12 @@ describe('pages/Projects.vue', () => {
     new Project({ id: 12, name: 'My awesome Project' }),
     new Project({ id: 42, name: 'Other Project' })
   ]
+  const dispatch = jest.fn().mockReturnValue({
+    then: (cb: Function) => cb()
+  })
+  const router = {
+    push: jest.fn()
+  }
   const getWrapper = (currentProjects: Array<Project>) => {
     return shallowMount(ProjectsPage, {
       i18n,
@@ -18,8 +24,10 @@ describe('pages/Projects.vue', () => {
         $store: {
           getters: {
             'projects/projects': currentProjects
-          }
-        }
+          },
+          dispatch
+        },
+        $router: router
       }
     })
   }
@@ -32,9 +40,19 @@ describe('pages/Projects.vue', () => {
     const wrapper = getWrapper(projects)
     const projectCards = wrapper.findAll('.project-card')
     expect(projectCards.length).toEqual(4)
+  })
+  it('a click on a project card navigates to the project', () => {
+    const wrapper = getWrapper(projects)
+    const projectCards = wrapper.findAll('.project-card')
+    expect(projectCards.length).toEqual(4)
     const openButton = projectCards.at(2).find('v-btn-stub')
     expect(openButton.exists()).toBeTruthy()
-    expect(openButton.props('to')).toEqual({ name: 'projects.single', params: { projectId: 12 } })
+
+    // @ts-ignore
+    wrapper.vm.openProject(projects[2])
+
+    expect(dispatch).toHaveBeenCalledWith('projects/openProject', projects[2])
+    expect(router.push).toHaveBeenCalledWith({ name: 'projects.single', params: { projectId: '12' } })
   })
   it('can handle if no projects are available', () => {
     const wrapper = getWrapper([])
