@@ -12,10 +12,11 @@
         >
           <v-card
             :hover="true"
-            class="project-card"
+            class="project-card d-flex flex-column"
+            height="100%"
           >
-            <v-card-text @click="openProject(project)">
-              <p class="title text--primary">
+            <v-card-text @click="openProject(project)" class="flex-grow-1">
+              <p class="title text--primary mb-0">
                 {{ project.name }}
               </p>
             </v-card-text>
