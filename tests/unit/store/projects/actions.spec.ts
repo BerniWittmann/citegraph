@@ -142,4 +142,57 @@ describe('store/modules/projects/actions', () => {
       expect(commit).toHaveBeenCalledWith(mutationTypes.CLOSE_PROJECT, project)
     })
   })
+
+  describe('createProject', () => {
+    const projectData = {
+      id: 42,
+      name: 'My awesome Project'
+    }
+
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    it('creates a  new project', (done) => {
+      moxios.stubRequest('/projects', {
+        status: 201,
+        response: projectData
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const action = actions.createProject as Function
+
+      action({ commit }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalled()
+        expect(commit).toHaveBeenCalledWith(mutationTypes.ADD_PROJECT, new Project(projectData))
+        expect(onFulfilled).toHaveBeenCalledWith(new Project(projectData))
+        done()
+      })
+    })
+
+    it('handles the error when one appeared during the creation', (done) => {
+      moxios.stubRequest('/projects', {
+        status: 400,
+        response: 'The given name is invalid'
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      console.error = jest.fn()
+      const action = actions.createProject as Function
+
+      action({ commit }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 400'))
+        expect(commit).not.toHaveBeenCalled()
+        done()
+      })
+    })
+  })
 })

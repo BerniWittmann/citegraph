@@ -24,3 +24,14 @@ mock.onGet(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
 mock.onGet('/projects').reply(() => {
   return [200, projects]
 })
+
+mock.onPost('/projects').reply((config: AxiosRequestConfig) => {
+  try {
+    const projectName = JSON.parse(config.data).name.trim()
+    const newProject = new Project({ id: projects.length + 1, name: projectName })
+    projects.push(newProject)
+    return [201, newProject]
+  } catch {
+    return [400, 'Could not read body']
+  }
+})

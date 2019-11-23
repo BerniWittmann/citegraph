@@ -8,9 +8,11 @@ exports[`pages/Projects.vue can handle if no projects are available 1`] = `
     </v-row-stub>
     <v-row-stub tag="div">
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
-          <v-icon-stub color="primary">mdi-plus</v-icon-stub>
-        </v-card-stub>
+        <div class="empty-slot-component-stub" top="">
+          <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
+            <v-icon-stub color="primary">mdi-plus</v-icon-stub>
+          </v-card-stub> <span>projects.add.title</span>
+        </div>
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>
@@ -25,9 +27,9 @@ exports[`pages/Projects.vue renders the page 1`] = `
     </v-row-stub>
     <v-row-stub tag="div">
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
-          <v-card-text-stub>
-            <p class="title text--primary">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="project-card d-flex flex-column">
+          <v-card-text-stub class="flex-grow-1">
+            <p class="title text--primary mb-0">
               First Project
             </p>
           </v-card-text-stub>
@@ -47,9 +49,9 @@ exports[`pages/Projects.vue renders the page 1`] = `
         </v-card-stub>
       </v-col-stub>
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
-          <v-card-text-stub>
-            <p class="title text--primary">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="project-card d-flex flex-column">
+          <v-card-text-stub class="flex-grow-1">
+            <p class="title text--primary mb-0">
               Second Project
             </p>
           </v-card-text-stub>
@@ -69,9 +71,9 @@ exports[`pages/Projects.vue renders the page 1`] = `
         </v-card-stub>
       </v-col-stub>
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
-          <v-card-text-stub>
-            <p class="title text--primary">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="project-card d-flex flex-column">
+          <v-card-text-stub class="flex-grow-1">
+            <p class="title text--primary mb-0">
               My awesome Project
             </p>
           </v-card-text-stub>
@@ -91,9 +93,9 @@ exports[`pages/Projects.vue renders the page 1`] = `
         </v-card-stub>
       </v-col-stub>
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" tag="div" hover="true" class="project-card">
-          <v-card-text-stub>
-            <p class="title text--primary">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="project-card d-flex flex-column">
+          <v-card-text-stub class="flex-grow-1">
+            <p class="title text--primary mb-0">
               Other Project
             </p>
           </v-card-text-stub>
@@ -113,9 +115,11 @@ exports[`pages/Projects.vue renders the page 1`] = `
         </v-card-stub>
       </v-col-stub>
       <v-col-stub cols="3" tag="div">
-        <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
-          <v-icon-stub color="primary">mdi-plus</v-icon-stub>
-        </v-card-stub>
+        <div class="empty-slot-component-stub" top="">
+          <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
+            <v-icon-stub color="primary">mdi-plus</v-icon-stub>
+          </v-card-stub> <span>projects.add.title</span>
+        </div>
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>

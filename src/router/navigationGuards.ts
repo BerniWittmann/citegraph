@@ -8,10 +8,13 @@ export default function setupNavigationGuards (router: VueRouter): void {
   router.beforeEach(async (to: Route, from: Route, next: Next) => {
     if (isProjectRoute(to)) {
       await loadProject(to)
-    } else {
-      await unloadProject()
     }
     return next()
+  })
+  router.afterEach(async (to: Route) => {
+    if (!isProjectRoute(to)) {
+      await unloadProject()
+    }
   })
 }
 

@@ -218,4 +218,35 @@ describe('store/modules/projects/mutations', () => {
       expect(state.openProjects.length).toEqual(0)
     })
   })
+
+  describe('ADD_PROJECT', () => {
+    it('adds a project to the store', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [new Project({ id: 42, name: 'Other Project' })],
+        openProjects: []
+      }
+      const project = new Project({ id: 1, name: 'My awesome Project' })
+
+      mutations[mutationTypes.ADD_PROJECT](state, project)
+
+      expect(state.projects.length).toEqual(2)
+      expect(state.projects).toContain(project)
+    })
+
+    it('can add a project to an empty store', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [],
+        openProjects: []
+      }
+
+      const project = new Project({ id: 1, name: 'My awesome Project' })
+
+      mutations[mutationTypes.ADD_PROJECT](state, project)
+
+      expect(state.projects.length).toEqual(1)
+      expect(state.projects).toContain(project)
+    })
+  })
 })

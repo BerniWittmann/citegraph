@@ -3,6 +3,7 @@ import { i18n } from '../setupPlugins'
 
 import ProjectsPage from '@/pages/Projects.vue'
 import Project from '@/models/project'
+import EmptySlotComponent from '../EmptySlotComponent.vue'
 
 describe('pages/Projects.vue', () => {
   const projects = [
@@ -20,6 +21,9 @@ describe('pages/Projects.vue', () => {
   const getWrapper = (currentProjects: Array<Project>) => {
     return shallowMount(ProjectsPage, {
       i18n,
+      stubs: {
+        VTooltip: EmptySlotComponent
+      },
       mocks: {
         $store: {
           getters: {

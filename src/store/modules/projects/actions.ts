@@ -42,5 +42,20 @@ export const actions: ActionTree<ProjectsState, RootState> = {
 
   closeProject ({ commit }, project: Project): void {
     commit(types.CLOSE_PROJECT, project)
+  },
+
+  async createProject ({ commit }, data: Project): Promise<Project | undefined> {
+    try {
+      const response = await Axios(`/projects`, {
+        method: 'POST',
+        data: data
+      })
+      const project = new Project(response.data)
+      commit(types.ADD_PROJECT, project)
+      return project
+    } catch (error) {
+      console.error(error)
+      return error
+    }
   }
 }

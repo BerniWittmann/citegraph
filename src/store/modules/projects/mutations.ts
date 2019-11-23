@@ -1,7 +1,14 @@
 import { ProjectsState } from './types'
 import { MutationTree } from 'vuex'
 import Project from '@/models/project'
-import { SET_ACTIVE_PROJECT, UNSET_ACTIVE_PROJECT, SET_PROJECTS, OPEN_PROJECT, CLOSE_PROJECT } from './mutation-types'
+import {
+  SET_ACTIVE_PROJECT,
+  UNSET_ACTIVE_PROJECT,
+  SET_PROJECTS,
+  OPEN_PROJECT,
+  CLOSE_PROJECT,
+  ADD_PROJECT
+} from './mutation-types'
 
 export const mutations: MutationTree<ProjectsState> = {
   [SET_ACTIVE_PROJECT] (state: ProjectsState, payload: Project) {
@@ -20,5 +27,8 @@ export const mutations: MutationTree<ProjectsState> = {
   },
   [CLOSE_PROJECT] (state: ProjectsState, payload: Project) {
     state.openProjects = state.openProjects.filter(project => project.id !== payload.id)
+  },
+  [ADD_PROJECT] (state: ProjectsState, payload: Project) {
+    state.projects.push(payload)
   }
 }

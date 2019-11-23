@@ -53,16 +53,22 @@
           key="add"
           cols="3"
         >
-          <v-card
-            min-height="130"
-            outlined
-            height="100%"
-            :hover="true"
-            class="d-flex justify-center align-center text--primary add-card"
-            :to="{ name: 'projects.add' }"
-          >
-            <v-icon color="primary">mdi-plus</v-icon>
-          </v-card>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-card
+                min-height="130"
+                outlined
+                height="100%"
+                :hover="true"
+                v-on="on"
+                class="d-flex justify-center align-center text--primary add-card"
+                :to="{ name: 'projects.add' }"
+              >
+                <v-icon color="primary">mdi-plus</v-icon>
+              </v-card>
+            </template>
+            <span>{{ $t('projects.add.title') }}</span>
+          </v-tooltip>
         </v-col>
       </v-row>
     </v-container>

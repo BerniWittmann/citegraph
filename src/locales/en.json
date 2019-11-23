@@ -14,7 +14,16 @@
   "projects": {
     "title": "Projects",
     "your_projects": "Your Projects",
-    "open_project": "Open"
+    "open_project": "Open",
+    "add": {
+      "title": "Create new Project",
+      "name": "Name",
+      "name_hint": "Choose a name for your project",
+      "name_required": "Name is required",
+      "name_not_empty": "Name must not be empty",
+      "cancel": "Cancel",
+      "submit": "Create"
+    }
   },
   "project": {
     "not_available": "The requested Project is not available right now",
