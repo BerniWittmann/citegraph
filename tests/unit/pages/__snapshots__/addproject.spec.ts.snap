@@ -9,29 +9,7 @@ exports[`pages/AddProject.vue renders the page 1`] = `
     <v-form-stub class="mt-12">
       <v-row-stub tag="div" justify="center">
         <v-col-stub lg="6" tag="div">
-          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="v => {
-        /* istanbul ignore next */
-        cov_1ugj48qdkg.f[2]++;
-        cov_1ugj48qdkg.s[14]++;
-        return (
-          /* istanbul ignore next */
-          (cov_1ugj48qdkg.b[0][0]++, !!v) ||
-          /* istanbul ignore next */
-          (cov_1ugj48qdkg.b[0][1]++, this.$root.$t('projects.add.name_required'))
-        );
-      },v => {
-        /* istanbul ignore next */
-        cov_1ugj48qdkg.f[3]++;
-        cov_1ugj48qdkg.s[15]++;
-        return (
-          /* istanbul ignore next */
-          (cov_1ugj48qdkg.b[1][0]++, v) &amp;&amp;
-          /* istanbul ignore next */
-          (cov_1ugj48qdkg.b[1][1]++, v.trim().length > 0) ||
-          /* istanbul ignore next */
-          (cov_1ugj48qdkg.b[1][2]++, this.$root.$t('projects.add.name_not_empty'))
-        );
-      }" successmessages="" value="" backgroundcolor="" hint="projects.add.name_hint" label="projects.add.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
+          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hint="projects.add.name_hint" label="projects.add.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
         </v-col-stub>
       </v-row-stub>
       <v-row-stub tag="div" justify="center" direction="row" class="mt-5">

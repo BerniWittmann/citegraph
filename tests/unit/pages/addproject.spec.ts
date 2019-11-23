@@ -28,6 +28,9 @@ describe('pages/AddProject.vue', () => {
   }
   it('renders the page', () => {
     const wrapper = getWrapper()
+    // unset Rules to ensure Snapshot stability
+    // @ts-ignore
+    wrapper.vm.nameRules = []
     expect(wrapper.html()).toMatchSnapshot()
   })
 
