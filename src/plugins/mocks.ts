@@ -1,13 +1,14 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 import MockAdapter from 'axios-mock-adapter'
+import faker from 'faker'
 import Project from '@/models/project'
 
 const mock = new MockAdapter(Axios)
 
-const amountProjects: number = Math.random() * (10 - 1) + 1
+const amountProjects: number = faker.random.number(10)
 const projects: Array<Project> = []
 for (let i = 1; i <= amountProjects; i++) {
-  projects.push(new Project({ id: i, name: `Project #${i}` }))
+  projects.push(new Project({ id: i, name: faker.random.words() }))
 }
 
 mock.onGet(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
