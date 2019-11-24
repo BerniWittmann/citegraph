@@ -1,16 +1,18 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import db, { clearDB } from './db'
+import db from '../db'
 import Project from '@/models/project'
-import insertSampleData from '@/plugins/mocks/sampleData'
 
 const mock = new MockAdapter(Axios)
 const projects = db.getCollection('projects')
 
-mock.onGet(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+function getProjectId (config: AxiosRequestConfig): number {
   const urlParts: Array<string> = config.url!.split('/')
-  const id: number = parseInt(urlParts[urlParts.length - 1])
-  const project: Resultset<Project> = projects.findOne({ 'id': id })
+  return parseInt(urlParts[urlParts.length - 1])
+}
+
+mock.onGet(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
   if (!project) {
     return [404]
   }
@@ -33,22 +35,12 @@ mock.onPost('/projects').reply((config: AxiosRequestConfig) => {
   }
 })
 
-mock.onPost('/database/clear').reply(async () => {
-  try {
-    await clearDB()
-    return [200]
-  } catch (err) {
-    return [500, err]
+mock.onDelete(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
+  if (!project) {
+    return [404]
   }
-})
-
-mock.onPost('/database/reseed').reply(async () => {
-  try {
-    await clearDB()
-    insertSampleData(db)
-    db.saveDatabase()
-    return [200]
-  } catch (err) {
-    return [500, err]
-  }
+  projects.remove(project)
+  db.saveDatabase()
+  return [200, project]
 })

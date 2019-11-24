@@ -30,7 +30,7 @@
               </v-btn>
               <v-spacer></v-spacer>
 
-              <v-menu offset-y>
+              <v-menu offset-y :close-on-content-click="false">
                 <template v-slot:activator="{ on }">
                   <v-btn
                     icon
@@ -40,9 +40,25 @@
                   </v-btn>
                 </template>
                 <v-list>
-                  <v-list-item>
-                    <v-list-item-title class="error--text">{{ $t('project.delete') }}</v-list-item-title>
-                  </v-list-item>
+                  <v-menu bottom left>
+                    <template v-slot:activator="{ on }">
+                      <v-list-item v-on="on">
+                        <v-list-item-title class="error--text">{{ $t('project.delete.button_text') }}
+                        </v-list-item-title>
+                      </v-list-item>
+                    </template>
+
+                    <v-card>
+                      <v-card-text>
+                        {{ $t('project.delete.confirm_text') }}
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-btn text>{{ $t('project.delete.cancel') }}</v-btn>
+                        <v-spacer/>
+                        <v-btn color="error" @click="deleteProject(project)">{{ $t('project.delete.confirm') }}</v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-menu>
                 </v-list>
               </v-menu>
             </v-card-actions>
@@ -89,6 +105,10 @@ export default class ProjectsPage extends Vue {
     this.$store.dispatch('projects/openProject', project).then(() => {
       this.$router.push({ name: 'projects.single', params: { projectId: project.id!.toString() } })
     })
+  }
+
+  deleteProject (project: Project): void {
+    this.$store.dispatch('projects/deleteProject', project)
   }
 }
 </script>

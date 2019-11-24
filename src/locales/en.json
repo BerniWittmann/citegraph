@@ -47,7 +47,14 @@
   },
   "project": {
     "not_available": "The requested Project is not available right now",
-    "delete": "Delete",
+    "delete": {
+      "button_text": "Delete",
+      "confirm": "Delete",
+      "cancel": "Cancel",
+      "confirm_text": "Do you really want to delete the project?",
+      "successful": "Successfully deleted project",
+      "error": "Could not delete project"
+    },
     "fetch_error": "Could not load project"
   },
   "navigation-drawer": {

@@ -70,4 +70,11 @@ describe('pages/Projects.vue', () => {
     expect(addButton.exists()).toBeTruthy()
     expect(addButton.props('to')).toEqual({ name: 'projects.add' })
   })
+
+  it('a project can be deleted', () => {
+    const wrapper = getWrapper(projects)
+    // @ts-ignore
+    wrapper.vm.deleteProject(projects[1])
+    expect(dispatch).toHaveBeenCalledWith('projects/deleteProject', projects[1])
+  })
 })

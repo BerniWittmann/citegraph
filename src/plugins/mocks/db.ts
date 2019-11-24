@@ -7,7 +7,6 @@ const db = new Loki('mock.db', {
 
 export function initializeDB (): void {
   db.loadDatabase()
-  console.log('INIT')
   if (!db.getCollection('projects')) {
     db.addCollection('projects', {
       unique: ['id']

@@ -38,11 +38,20 @@ exports[`pages/Projects.vue renders the page 1`] = `
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
-            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
               <v-list-stub tag="div" tile="true">
-                <v-list-item-stub activeclass="" tag="div">
-                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
-                </v-list-item-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" bottom="true" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div">
+                    <v-card-text-stub>
+                      project.delete.confirm_text
+                    </v-card-text-stub>
+                    <v-card-actions-stub>
+                      <v-btn-stub tag="button" activeclass="" text="true" type="button">project.delete.cancel</v-btn-stub>
+                      <v-spacer-stub></v-spacer-stub>
+                      <v-btn-stub color="error" tag="button" activeclass="" type="button">project.delete.confirm</v-btn-stub>
+                    </v-card-actions-stub>
+                  </v-card-stub>
+                </v-menu-stub>
               </v-list-stub>
             </v-menu-stub>
           </v-card-actions-stub>
@@ -60,11 +69,20 @@ exports[`pages/Projects.vue renders the page 1`] = `
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
-            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
               <v-list-stub tag="div" tile="true">
-                <v-list-item-stub activeclass="" tag="div">
-                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
-                </v-list-item-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" bottom="true" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div">
+                    <v-card-text-stub>
+                      project.delete.confirm_text
+                    </v-card-text-stub>
+                    <v-card-actions-stub>
+                      <v-btn-stub tag="button" activeclass="" text="true" type="button">project.delete.cancel</v-btn-stub>
+                      <v-spacer-stub></v-spacer-stub>
+                      <v-btn-stub color="error" tag="button" activeclass="" type="button">project.delete.confirm</v-btn-stub>
+                    </v-card-actions-stub>
+                  </v-card-stub>
+                </v-menu-stub>
               </v-list-stub>
             </v-menu-stub>
           </v-card-actions-stub>
@@ -82,11 +100,20 @@ exports[`pages/Projects.vue renders the page 1`] = `
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
-            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
               <v-list-stub tag="div" tile="true">
-                <v-list-item-stub activeclass="" tag="div">
-                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
-                </v-list-item-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" bottom="true" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div">
+                    <v-card-text-stub>
+                      project.delete.confirm_text
+                    </v-card-text-stub>
+                    <v-card-actions-stub>
+                      <v-btn-stub tag="button" activeclass="" text="true" type="button">project.delete.cancel</v-btn-stub>
+                      <v-spacer-stub></v-spacer-stub>
+                      <v-btn-stub color="error" tag="button" activeclass="" type="button">project.delete.confirm</v-btn-stub>
+                    </v-card-actions-stub>
+                  </v-card-stub>
+                </v-menu-stub>
               </v-list-stub>
             </v-menu-stub>
           </v-card-actions-stub>
@@ -104,11 +131,20 @@ exports[`pages/Projects.vue renders the page 1`] = `
               projects.open_project
             </v-btn-stub>
             <v-spacer-stub></v-spacer-stub>
-            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
+            <v-menu-stub opendelay="0" closedelay="0" contentclass="" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" maxheight="auto" offsety="true" origin="top left" transition="v-menu-transition">
               <v-list-stub tag="div" tile="true">
-                <v-list-item-stub activeclass="" tag="div">
-                  <v-list-item-title-stub class="error--text">project.delete</v-list-item-title-stub>
-                </v-list-item-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" bottom="true" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div">
+                    <v-card-text-stub>
+                      project.delete.confirm_text
+                    </v-card-text-stub>
+                    <v-card-actions-stub>
+                      <v-btn-stub tag="button" activeclass="" text="true" type="button">project.delete.cancel</v-btn-stub>
+                      <v-spacer-stub></v-spacer-stub>
+                      <v-btn-stub color="error" tag="button" activeclass="" type="button">project.delete.confirm</v-btn-stub>
+                    </v-card-actions-stub>
+                  </v-card-stub>
+                </v-menu-stub>
               </v-list-stub>
             </v-menu-stub>
           </v-card-actions-stub>

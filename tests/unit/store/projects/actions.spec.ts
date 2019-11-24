@@ -203,4 +203,61 @@ describe('store/modules/projects/actions', () => {
       })
     })
   })
+
+  describe('deleteProject', () => {
+    const projectData = {
+      id: 42,
+      name: 'My awesome Project'
+    }
+
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    it('deletes the project', (done) => {
+      moxios.stubRequest('/projects/42', {
+        status: 200
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      const action = actions.deleteProject as Function
+
+      action({ commit, dispatch }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalled()
+        expect(commit).toHaveBeenCalledWith(mutationTypes.CLOSE_PROJECT, new Project(projectData))
+        expect(commit).toHaveBeenCalledWith(mutationTypes.DELETE_PROJECT, new Project(projectData))
+        expect(dispatch).toHaveBeenCalledWith('toasts/showSuccess', 'project.delete.successful', { root: true })
+        done()
+      })
+    })
+
+    it('handles the error when one appeared during the deletion', (done) => {
+      moxios.stubRequest('/projects/42', {
+        status: 404,
+        response: 'The project could not be found'
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      console.error = jest.fn()
+      const action = actions.deleteProject as Function
+
+      action({ commit, dispatch }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 404'))
+        expect(commit).not.toHaveBeenCalledWith(mutationTypes.CLOSE_PROJECT, new Project(projectData))
+        expect(commit).not.toHaveBeenCalledWith(mutationTypes.DELETE_PROJECT, new Project(projectData))
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'project.delete.error', { root: true })
+        done()
+      })
+    })
+  })
 })

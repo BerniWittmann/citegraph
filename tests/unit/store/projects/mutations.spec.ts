@@ -249,4 +249,73 @@ describe('store/modules/projects/mutations', () => {
       expect(state.projects).toContain(project)
     })
   })
+
+  describe('DELETE_PROJECT', () => {
+    it('removes a project from the projects', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ],
+        openProjects: []
+      }
+      const project = new Project({ id: 2, name: 'Second Project' })
+
+      mutations[mutationTypes.DELETE_PROJECT](state, project)
+
+      expect(state.projects).not.toContainEqual(project)
+      expect(state.projects.length).toEqual(1)
+    })
+
+    it('removes all instances of a project from the projects', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' }),
+          new Project({ id: 2, name: 'Second Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ],
+        openProjects: []
+      }
+      const project = new Project({ id: 2, name: 'Second Project' })
+
+      mutations[mutationTypes.DELETE_PROJECT](state, project)
+
+      expect(state.projects).not.toContainEqual(project)
+      expect(state.projects.length).toEqual(1)
+    })
+
+    it('does not change projects if project was not found', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ],
+        openProjects: []
+      }
+      const project = new Project({ id: 42, name: 'Other Project' })
+
+      mutations[mutationTypes.DELETE_PROJECT](state, project)
+
+      expect(state.projects).not.toContainEqual(project)
+      expect(state.projects.length).toEqual(2)
+      expect(state.projects.map(project => project.id)).toEqual([1, 2])
+    })
+
+    it('can handle an empty open projects array', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [],
+        openProjects: []
+      }
+      const project = new Project({ id: 42, name: 'Other Project' })
+
+      mutations[mutationTypes.DELETE_PROJECT](state, project)
+
+      expect(state.projects.length).toEqual(0)
+    })
+  })
 })
