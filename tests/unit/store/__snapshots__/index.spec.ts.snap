@@ -8,6 +8,7 @@ exports[`store/index returns modules 1`] = `
 Array [
   "projects",
   "toasts",
+  "database",
 ]
 `;
 

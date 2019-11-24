@@ -6,6 +6,7 @@ import HomePage from '@/pages/Home.vue'
 import AboutPage from '@/pages/About.vue'
 import ProjectPage from '@/pages/Project.vue'
 import ProjectsPage from '@/pages/Projects.vue'
+import SettingsPage from '@/pages/Settings.vue'
 
 export default [
   {
@@ -17,6 +18,11 @@ export default [
     path: '/about',
     name: 'about',
     component: AboutPage
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsPage
   },
   {
     path: '/projects',

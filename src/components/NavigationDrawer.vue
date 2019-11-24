@@ -73,6 +73,7 @@
         </v-list-item>
 
         <v-list-item
+          :to="{ name: 'settings' }"
           key="settings"
           link
         >

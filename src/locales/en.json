@@ -11,6 +11,24 @@
     "title": "About",
     "text": "CiteGraph is a bibliometric tool for running literature analysis"
   },
+  "settings": {
+    "title": "Settings",
+    "database": {
+      "title": "Database",
+      "clear": {
+        "title": "Clear Database",
+        "hint": "Clear all objects from the database",
+        "error": "Could not clear database",
+        "success": "Cleared database"
+      },
+      "reseed": {
+        "title": "Reseed Database",
+        "hint": "Fill the database with a new set of sample data",
+        "error": "Could not reseed database",
+        "success": "Reseeded database"
+      }
+    }
+  },
   "projects": {
     "title": "Projects",
     "your_projects": "Your Projects",

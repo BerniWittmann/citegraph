@@ -4,7 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,ts,vue}',
     '!**shims*',
-    '!src/plugins/*',
+    '!src/plugins/**',
     '!src/main.ts'
   ],
   coverageReporters: ['text-summary', 'html'],

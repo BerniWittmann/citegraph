@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Settings.vue renders the page 1`] = `
+<div class="settings">
+  <h1 class="display-1 my-5">settings.title</h1>
+  <h3 class="title mb-2">settings.database.title</h3> <button type="button" class="v-btn v-btn--contained theme--light v-size--default warning"><span class="v-btn__content">settings.database.clear.title</span></button>
+  <p>settings.database.clear.hint</p> <button type="button" class="v-btn v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">settings.database.reseed.title</span></button>
+  <p>settings.database.reseed.hint</p>
+</div>
+`;

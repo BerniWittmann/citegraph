@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/database/actions provides the actions 1`] = `
+Object {
+  "clearDatabase": [Function],
+  "reseedDatabase": [Function],
+}
+`;

@@ -1,11 +1,13 @@
 import { RootState } from '@/store/types'
 import { projects } from './modules/projects'
 import { toasts } from './modules/toasts'
+import { database } from './modules/database'
 import { ActionTree, GetterTree, MutationTree } from 'vuex'
 
 export const modules = {
   projects,
-  toasts
+  toasts,
+  database
 }
 
 export const state: RootState = {}
