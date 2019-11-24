@@ -9,6 +9,7 @@ exports[`layouts/Default.vue renders 1`] = `
       <p class="content">Main Content</p>
     </v-container-stub>
   </v-content-stub>
+  <toasts-container-stub></toasts-container-stub>
   <app-footer-stub></app-footer-stub>
 </v-app-stub>
 `;

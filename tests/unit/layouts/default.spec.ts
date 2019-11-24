@@ -6,6 +6,7 @@ import DefaultLayout from '@/layouts/Default.vue'
 import AppBar from '@/components/AppBar.vue'
 import Footer from '@/components/Footer.vue'
 import NavigationDrawer from '@/components/NavigationDrawer.vue'
+import ToastsContainer from '@/components/ToastsContainer.vue'
 
 describe('layouts/Default.vue', () => {
   it('renders', () => {
@@ -45,6 +46,12 @@ describe('layouts/Default.vue', () => {
       i18n
     })
     expect(wrapper.contains(Footer)).toBeTruthy()
+  })
+  it('renders the toasts container', () => {
+    const wrapper = shallowMount(DefaultLayout, {
+      i18n
+    })
+    expect(wrapper.contains(ToastsContainer)).toBeTruthy()
   })
   it('updates the drawer state on an event from the app bar', () => {
     const wrapper = shallowMount(DefaultLayout, {

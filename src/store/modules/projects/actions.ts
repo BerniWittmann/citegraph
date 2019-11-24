@@ -6,7 +6,7 @@ import Project from '@/models/project'
 import * as types from './mutation-types'
 
 export const actions: ActionTree<ProjectsState, RootState> = {
-  async fetchProject ({ commit }, id: string): Promise<undefined> {
+  async fetchProject ({ commit, dispatch }, id: string): Promise<undefined> {
     try {
       const response = await Axios(`/projects/${id}`)
       const payload: Project = new Project(response && response.data)
@@ -15,6 +15,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       return undefined
     } catch (error) {
       console.error(error)
+      dispatch('toasts/showError', 'project.fetch_error', { root: true })
       commit(types.UNSET_ACTIVE_PROJECT)
       return error
     }
@@ -24,7 +25,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
     commit(types.UNSET_ACTIVE_PROJECT)
   },
 
-  async fetchProjects ({ commit }): Promise<undefined> {
+  async fetchProjects ({ commit, dispatch }): Promise<undefined> {
     try {
       const response = await Axios(`/projects`)
       const projects = response.data.map((project: Project) => new Project(project))
@@ -32,6 +33,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       return undefined
     } catch (error) {
       console.error(error)
+      dispatch('toasts/showError', 'projects.fetch_error', { root: true })
       return error
     }
   },
@@ -44,7 +46,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
     commit(types.CLOSE_PROJECT, project)
   },
 
-  async createProject ({ commit }, data: Project): Promise<Project | undefined> {
+  async createProject ({ commit, dispatch }, data: Project): Promise<Project | undefined> {
     try {
       const response = await Axios(`/projects`, {
         method: 'POST',
@@ -52,9 +54,11 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       })
       const project = new Project(response.data)
       commit(types.ADD_PROJECT, project)
+      dispatch('toasts/showSuccess', 'projects.add.successful', { root: true })
       return project
     } catch (error) {
       console.error(error)
+      dispatch('toasts/showError', 'projects.add.error', { root: true })
       return error
     }
   }

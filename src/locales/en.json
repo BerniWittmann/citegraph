@@ -22,12 +22,15 @@
       "name_required": "Name is required",
       "name_not_empty": "Name must not be empty",
       "cancel": "Cancel",
-      "submit": "Create"
-    }
+      "submit": "Create",
+      "successful": "Successfully created project"
+    },
+    "fetch_error": "Could not load projects"
   },
   "project": {
     "not_available": "The requested Project is not available right now",
-    "delete": "Delete"
+    "delete": "Delete",
+    "fetch_error": "Could not load project"
   },
   "navigation-drawer": {
     "import": "Import",

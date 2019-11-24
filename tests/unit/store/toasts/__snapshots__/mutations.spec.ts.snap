@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/toasts/mutations provides the mutations 1`] = `
+Object {
+  "ADD_TOAST": [Function],
+  "REMOVE_TOAST": [Function],
+}
+`;

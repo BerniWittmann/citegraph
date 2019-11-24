@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ToastsContaienr.vue renders 1`] = `
+<v-slide-y-transition-stub group="true" origin="top center 0" class="toast-container">
+  <toast-stub toast="[object Object]"></toast-stub>
+  <toast-stub toast="[object Object]"></toast-stub>
+</v-slide-y-transition-stub>
+`;

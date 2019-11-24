@@ -57,14 +57,16 @@ describe('store/modules/projects/actions', () => {
 
       const onFulfilled = jest.fn()
       const commit = jest.fn()
+      const dispatch = jest.fn()
       console.error = jest.fn()
       const action = actions.fetchProject as Function
 
-      action({ commit }, 42).then(onFulfilled)
+      action({ commit, dispatch }, 42).then(onFulfilled)
 
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 404'))
         expect(commit).toHaveBeenCalledWith(mutationTypes.UNSET_ACTIVE_PROJECT)
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'project.fetch_error', { root: true })
         done()
       })
     })
@@ -110,14 +112,16 @@ describe('store/modules/projects/actions', () => {
 
       const onFulfilled = jest.fn()
       const commit = jest.fn()
+      const dispatch = jest.fn()
       console.error = jest.fn()
       const action = actions.fetchProjects as Function
 
-      action({ commit }, 42).then(onFulfilled)
+      action({ commit, dispatch }, 42).then(onFulfilled)
 
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 500'))
         expect(commit).not.toHaveBeenCalled()
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'projects.fetch_error', { root: true })
         done()
       })
     })
@@ -163,14 +167,16 @@ describe('store/modules/projects/actions', () => {
 
       const onFulfilled = jest.fn()
       const commit = jest.fn()
+      const dispatch = jest.fn()
       const action = actions.createProject as Function
 
-      action({ commit }, projectData).then(onFulfilled)
+      action({ commit, dispatch }, projectData).then(onFulfilled)
 
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalled()
         expect(commit).toHaveBeenCalledWith(mutationTypes.ADD_PROJECT, new Project(projectData))
         expect(onFulfilled).toHaveBeenCalledWith(new Project(projectData))
+        expect(dispatch).toHaveBeenCalledWith('toasts/showSuccess', 'projects.add.successful', { root: true })
         done()
       })
     })
@@ -183,14 +189,16 @@ describe('store/modules/projects/actions', () => {
 
       const onFulfilled = jest.fn()
       const commit = jest.fn()
+      const dispatch = jest.fn()
       console.error = jest.fn()
       const action = actions.createProject as Function
 
-      action({ commit }, projectData).then(onFulfilled)
+      action({ commit, dispatch }, projectData).then(onFulfilled)
 
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 400'))
         expect(commit).not.toHaveBeenCalled()
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'projects.add.error', { root: true })
         done()
       })
     })

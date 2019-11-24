@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Toast.vue the toast is of type error renders 1`] = `
+<v-snackbar-stub color="error" top="true" right="true" timeout="6000" class="toast" value="true">
+  <v-icon-stub dark="">
+    mdi-alert-circle-outline
+  </v-icon-stub>
+
+  My message
+  <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+    <v-icon-stub>
+      mdi-close
+    </v-icon-stub>
+  </v-btn-stub>
+</v-snackbar-stub>
+`;
+
+exports[`components/Toast.vue the toast is of type info renders 1`] = `
+<v-snackbar-stub color="info" top="true" right="true" timeout="4000" class="toast" value="true">
+  <v-icon-stub dark="">
+    mdi-information-outline
+  </v-icon-stub>
+
+  My message
+  <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+    <v-icon-stub>
+      mdi-close
+    </v-icon-stub>
+  </v-btn-stub>
+</v-snackbar-stub>
+`;
+
+exports[`components/Toast.vue the toast is of type success renders 1`] = `
+<v-snackbar-stub color="success" top="true" right="true" timeout="3000" class="toast">
+  <v-icon-stub dark="">
+    mdi-check-circle-outline
+  </v-icon-stub>
+
+  My message
+  <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+    <v-icon-stub>
+      mdi-close
+    </v-icon-stub>
+  </v-btn-stub>
+</v-snackbar-stub>
+`;
+
+exports[`components/Toast.vue the toast is of type warning renders 1`] = `
+<v-snackbar-stub color="warning" top="true" right="true" timeout="5000" class="toast" value="true">
+  <v-icon-stub dark="">
+    mdi-alert
+  </v-icon-stub>
+
+  My message
+  <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+    <v-icon-stub>
+      mdi-close
+    </v-icon-stub>
+  </v-btn-stub>
+</v-snackbar-stub>
+`;
