@@ -9,29 +9,7 @@ exports[`pages/EditProject.vue renders the page 1`] = `
     <v-form-stub class="mt-12">
       <v-row-stub tag="div" justify="center">
         <v-col-stub lg="6" tag="div">
-          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="v => {
-        /* istanbul ignore next */
-        cov_1q09kh53yg.f[2]++;
-        cov_1q09kh53yg.s[12]++;
-        return (
-          /* istanbul ignore next */
-          (cov_1q09kh53yg.b[0][0]++, !!v) ||
-          /* istanbul ignore next */
-          (cov_1q09kh53yg.b[0][1]++, this.$root.$t('project.edit.name_required'))
-        );
-      },v => {
-        /* istanbul ignore next */
-        cov_1q09kh53yg.f[3]++;
-        cov_1q09kh53yg.s[13]++;
-        return (
-          /* istanbul ignore next */
-          (cov_1q09kh53yg.b[1][0]++, v) &amp;&amp;
-          /* istanbul ignore next */
-          (cov_1q09kh53yg.b[1][1]++, v.trim().length > 0) ||
-          /* istanbul ignore next */
-          (cov_1q09kh53yg.b[1][2]++, this.$root.$t('project.edit.name_not_empty'))
-        );
-      }" successmessages="" value="" backgroundcolor="" hint="project.edit.name_hint" label="project.edit.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
+          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="My Project" backgroundcolor="" hint="project.edit.name_hint" label="project.edit.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
         </v-col-stub>
       </v-row-stub>
       <v-row-stub tag="div" justify="center" direction="row" class="mt-5">

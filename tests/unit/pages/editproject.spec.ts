@@ -33,12 +33,17 @@ describe('pages/EditProject.vue', () => {
       }
     })
   }
-  it('renders the page', () => {
+  it('renders the page', (done) => {
     const wrapper = getWrapper()
     // unset Rules to ensure Snapshot stability
     // @ts-ignore
     wrapper.vm.nameRules = []
-    expect(wrapper.html()).toMatchSnapshot()
+    expect.assertions(1)
+    // @ts-ignore
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.html()).toMatchSnapshot()
+      done()
+    })
   })
 
   describe('it has a text field of the name', () => {
