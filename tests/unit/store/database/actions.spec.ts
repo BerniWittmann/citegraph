@@ -40,7 +40,6 @@ describe('store/modules/database/actions', () => {
 
       const onFulfilled = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.clearDatabase as Function
 
       action({ dispatch }).then(onFulfilled)
@@ -87,7 +86,6 @@ describe('store/modules/database/actions', () => {
 
       const onFulfilled = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.reseedDatabase as Function
 
       action({ dispatch }).then(onFulfilled)

@@ -4,6 +4,8 @@ import { ProjectsState } from '@/store/modules/projects/types'
 import { RootState } from '@/store/types'
 import Project from '@/models/project'
 import * as types from './mutation-types'
+import jsLogger from 'js-logger'
+const logger = jsLogger.get('project/actions')
 
 export const actions: ActionTree<ProjectsState, RootState> = {
   async fetchProject ({ commit, dispatch }, id: string): Promise<undefined> {
@@ -14,7 +16,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       commit(types.OPEN_PROJECT, payload)
       return undefined
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'project.fetch_error', { root: true })
       commit(types.UNSET_ACTIVE_PROJECT)
       return error
@@ -32,7 +34,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       commit(types.SET_PROJECTS, projects)
       return undefined
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'projects.fetch_error', { root: true })
       return error
     }
@@ -57,7 +59,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       dispatch('toasts/showSuccess', 'projects.add.successful', { root: true })
       return project
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'projects.add.error', { root: true })
       return error
     }
@@ -74,7 +76,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       dispatch('toasts/showSuccess', 'project.delete.successful', { root: true })
       return undefined
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'project.delete.error', { root: true })
       return error
     }
@@ -91,7 +93,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       dispatch('toasts/showSuccess', 'project.edit.successful', { root: true })
       return project
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'project.edit.error', { root: true })
       return error
     }

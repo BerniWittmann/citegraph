@@ -2,6 +2,8 @@ import { ActionTree } from 'vuex'
 import { RootState } from '@/store/types'
 import { DatabaseState } from '@/store/modules/database/types'
 import Axios from 'axios'
+import jsLogger from 'js-logger'
+const logger = jsLogger.get('database/actions')
 
 export const actions: ActionTree<DatabaseState, RootState> = {
   async clearDatabase ({ dispatch }): Promise<undefined> {
@@ -12,7 +14,7 @@ export const actions: ActionTree<DatabaseState, RootState> = {
       dispatch('toasts/showSuccess', 'settings.database.clear.success', { root: true })
       return undefined
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'settings.database.clear.error', { root: true })
       return error
     }
@@ -26,7 +28,7 @@ export const actions: ActionTree<DatabaseState, RootState> = {
       dispatch('toasts/showSuccess', 'settings.database.reseed.success', { root: true })
       return undefined
     } catch (error) {
-      console.error(error)
+      logger.error(error)
       dispatch('toasts/showError', 'settings.database.reseed.error', { root: true })
       return error
     }

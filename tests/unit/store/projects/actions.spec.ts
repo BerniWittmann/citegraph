@@ -58,7 +58,6 @@ describe('store/modules/projects/actions', () => {
       const onFulfilled = jest.fn()
       const commit = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.fetchProject as Function
 
       action({ commit, dispatch }, 42).then(onFulfilled)
@@ -113,7 +112,6 @@ describe('store/modules/projects/actions', () => {
       const onFulfilled = jest.fn()
       const commit = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.fetchProjects as Function
 
       action({ commit, dispatch }, 42).then(onFulfilled)
@@ -190,7 +188,6 @@ describe('store/modules/projects/actions', () => {
       const onFulfilled = jest.fn()
       const commit = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.createProject as Function
 
       action({ commit, dispatch }, projectData).then(onFulfilled)
@@ -246,7 +243,6 @@ describe('store/modules/projects/actions', () => {
       const onFulfilled = jest.fn()
       const commit = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.deleteProject as Function
 
       action({ commit, dispatch }, projectData).then(onFulfilled)
@@ -303,7 +299,6 @@ describe('store/modules/projects/actions', () => {
       const onFulfilled = jest.fn()
       const commit = jest.fn()
       const dispatch = jest.fn()
-      console.error = jest.fn()
       const action = actions.updateProject as Function
 
       action({ commit, dispatch }, projectData).then(onFulfilled)
