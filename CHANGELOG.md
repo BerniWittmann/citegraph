@@ -1,3 +1,9 @@
+## <small>0.4.2 (2019-11-25)</small>
+
+* build: Fixed typo public path ([551d6e6](https://gitlab.com/citegraph/frontend/commit/551d6e6))
+
+
+
 ## <small>0.4.1 (2019-11-25)</small>
 
 * build: Fixed public path ([f87c78a](https://gitlab.com/citegraph/frontend/commit/f87c78a))
