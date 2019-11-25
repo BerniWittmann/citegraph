@@ -1,3 +1,9 @@
+## 0.4.0 (2019-11-25)
+
+* refactor: Added js-logger for logging ([c2f4647](https://gitlab.com/citegraph/frontend/commit/c2f4647))
+
+
+
 ## 0.3.0 (2019-11-25)
 
 * chore: Reordered package.json keys for bumped script ([fc96f8a](https://gitlab.com/citegraph/frontend/commit/fc96f8a))
