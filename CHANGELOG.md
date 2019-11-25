@@ -1,3 +1,9 @@
+## <small>0.4.1 (2019-11-25)</small>
+
+* build: Fixed public path ([f87c78a](https://gitlab.com/citegraph/frontend/commit/f87c78a))
+
+
+
 ## 0.4.0 (2019-11-25)
 
 * refactor: Added js-logger for logging ([c2f4647](https://gitlab.com/citegraph/frontend/commit/c2f4647))
