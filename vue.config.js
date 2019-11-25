@@ -7,7 +7,7 @@ module.exports = {
       'enableInSFC': false
     }
   },
-  'publicPath': '/',
+  'publicPath': process.env.NODE_ENV === 'production' ? '/frontned/' : '/',
   'css': {
     'loaderOptions': {
       'scss': {
