@@ -1,3 +1,25 @@
+## 0.3.0 (2019-11-25)
+
+* chore: Reordered package.json keys for bumped script ([fc96f8a](https://gitlab.com/citegraph/frontend/commit/fc96f8a))
+* test: Fix test stability issue due to snapshot testing ([f14a5da](https://gitlab.com/citegraph/frontend/commit/f14a5da))
+* test: Fixed test due to flaky test ([ed3c221](https://gitlab.com/citegraph/frontend/commit/ed3c221))
+* feat: Added ability to edit projects ([628dd94](https://gitlab.com/citegraph/frontend/commit/628dd94)), closes [#5](https://gitlab.com/citegraph/frontend/issues/5)
+* feat: Added basic Projects Overview page ([f819fd6](https://gitlab.com/citegraph/frontend/commit/f819fd6))
+* feat: Added basic Vuetify configuration ([805b5ed](https://gitlab.com/citegraph/frontend/commit/805b5ed))
+* feat: Added open Projects handling with tabs in app bar ([6e9284d](https://gitlab.com/citegraph/frontend/commit/6e9284d))
+* feat: Added the ability to add new Projects ([22cb03d](https://gitlab.com/citegraph/frontend/commit/22cb03d))
+* feat: Added Toasts for messages ([3bd0562](https://gitlab.com/citegraph/frontend/commit/3bd0562)), closes [#2](https://gitlab.com/citegraph/frontend/issues/2)
+* feat: Added Vuex Projects store and axios connection ([d1d7c86](https://gitlab.com/citegraph/frontend/commit/d1d7c86))
+* feat: Allow projects to be deleted ([67a1750](https://gitlab.com/citegraph/frontend/commit/67a1750)), closes [#4](https://gitlab.com/citegraph/frontend/issues/4)
+* feat: Reworked Navigation Drawer show and hide behavior ([0c92152](https://gitlab.com/citegraph/frontend/commit/0c92152))
+* refactor: Enable TypeScript in VueJS Components ([bbb3337](https://gitlab.com/citegraph/frontend/commit/bbb3337))
+* refactor: Removed Element UI dependency and config ([4e187a1](https://gitlab.com/citegraph/frontend/commit/4e187a1))
+* refactor: Reworked mocks to include local Storage DB ([89bb070](https://gitlab.com/citegraph/frontend/commit/89bb070)), closes [#3](https://gitlab.com/citegraph/frontend/issues/3)
+* refactor: Use faker for generating mock data ([b4460b9](https://gitlab.com/citegraph/frontend/commit/b4460b9))
+* fix: Fixed small styling and alignment issues on projects page ([053f0ce](https://gitlab.com/citegraph/frontend/commit/053f0ce))
+
+
+
 ## 0.2.0 (2019-11-01)
 
 * test: Added tests for basic setup ([2b1b956](https://gitlab.com/citegraph/frontend/commit/2b1b956))
