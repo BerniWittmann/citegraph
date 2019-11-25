@@ -28,7 +28,12 @@ describe('components/AppBar.vue', () => {
       mocks: {
         $route: {
           name: 'projects.single',
-          matched: [{ name: routeName }],
+          matched: [{
+            name: routeName,
+            meta: {
+              isSingleProjectPage: routeName === 'projects.single'
+            }
+          }],
           params: {
             projectId: 2
           }

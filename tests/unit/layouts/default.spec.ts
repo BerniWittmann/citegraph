@@ -73,8 +73,22 @@ describe('layouts/Default.vue', () => {
       let drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeTruthy()
       // @ts-ignore
-      wrapper.vm.onRouteChange({ matched: [{ name: 'projects.single' }] }, {
-        matched: [{ name: 'projects.single' }],
+      wrapper.vm.onRouteChange({
+        // @ts-ignore
+        matched: [{
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
+        }]
+      }, {
+        // @ts-ignore
+        matched: [{
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
+        }],
         name: 'projects.single'
       })
       drawer = wrapper.find(NavigationDrawer)
@@ -87,8 +101,18 @@ describe('layouts/Default.vue', () => {
       let drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeTruthy()
       // @ts-ignore
-      wrapper.vm.onRouteChange({ matched: [{ name: 'home' }] }, {
-        matched: [{ name: 'about' }],
+      wrapper.vm.onRouteChange({
+        // @ts-ignore
+        matched: [{
+          name: 'home',
+          meta: {}
+        }]
+      }, {
+        // @ts-ignore
+        matched: [{
+          name: 'about',
+          meta: {}
+        }],
         name: 'about'
       })
       drawer = wrapper.find(NavigationDrawer)
@@ -103,8 +127,20 @@ describe('layouts/Default.vue', () => {
       let drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeFalsy()
       // @ts-ignore
-      wrapper.vm.onRouteChange({ matched: [{ name: 'projects.single' }] }, {
-        matched: [{ name: 'about' }],
+      wrapper.vm.onRouteChange({
+        // @ts-ignore
+        matched: [{
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
+        }]
+      }, {
+        // @ts-ignore
+        matched: [{
+          name: 'about',
+          meta: {}
+        }],
         name: 'about'
       })
       drawer = wrapper.find(NavigationDrawer)
@@ -117,8 +153,20 @@ describe('layouts/Default.vue', () => {
       let drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeTruthy()
       // @ts-ignore
-      wrapper.vm.onRouteChange({ matched: [{ name: 'home' }] }, {
-        matched: [{ name: 'projects.single' }],
+      wrapper.vm.onRouteChange({
+        // @ts-ignore
+        matched: [{
+          name: 'home',
+          meta: {}
+        }]
+      }, {
+        // @ts-ignore
+        matched: [{
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
+        }],
         name: 'projects.single'
       })
       drawer = wrapper.find(NavigationDrawer)
@@ -133,7 +181,15 @@ describe('layouts/Default.vue', () => {
       let drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeFalsy()
       // @ts-ignore
-      wrapper.vm.onRouteChange({ matched: [{ name: 'projects.single' }] }, { name: undefined, matched: [] })
+      wrapper.vm.onRouteChange({
+        // @ts-ignore
+        matched: [{
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
+        }]
+      }, { name: undefined, matched: [] })
       drawer = wrapper.find(NavigationDrawer)
       expect(drawer.props('drawerVisible')).toBeTruthy()
     })

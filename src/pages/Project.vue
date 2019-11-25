@@ -1,11 +1,11 @@
 <template>
   <div class="project">
-    <v-alert v-if="!hasProject" type="error" prominent>
-      {{ $t('project.not_available') }}
-    </v-alert>
-
-    <div v-if="hasProject">
+    <div class="d-flex mr-5 mt-4">
       <h1>{{ project.name }}</h1>
+      <v-spacer/>
+      <v-btn :to="{ name: 'projects.single.edit', params: { projectId: project.id } }">
+        <v-icon>mdi-pencil</v-icon> {{ $t('project.edit.button_text') }}
+      </v-btn>
     </div>
   </div>
 </template>
@@ -16,12 +16,8 @@ import Project from '@/models/project'
 
 @Component
 export default class ProjectPage extends Vue {
-  get project (): Project | undefined {
+  get project (): Project {
     return this.$store.getters['projects/activeProject']
-  }
-
-  get hasProject (): boolean {
-    return this.$store.getters['projects/hasActiveProject']
   }
 }
 </script>

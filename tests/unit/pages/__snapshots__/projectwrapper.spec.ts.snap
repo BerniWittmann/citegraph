@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/ProjectWrapper.vue displays an error if project is not available 1`] = `
+<div class="project-wrapper">
+  <div>
+    <v-alert-stub tag="div" value="true" closelabel="$vuetify.close" icon="" prominent="true" type="error">
+      project.not_available.text
+    </v-alert-stub>
+    <div class="d-flex justify-center">
+      <v-btn-stub color="blue-grey" tag="button" activeclass="" to="[object Object]" xlarge="true" type="button" class="mt-2 white--text">project.not_available.button</v-btn-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`pages/ProjectWrapper.vue renders the page 1`] = `
+<div class="project-wrapper">
+  <div>
+    <div class="router-view"></div>
+  </div>
+</div>
+`;

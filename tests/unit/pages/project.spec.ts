@@ -11,8 +11,7 @@ describe('pages/Project.vue', () => {
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' }),
-            'projects/hasActiveProject': true
+            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
           }
         }
       }
@@ -26,8 +25,7 @@ describe('pages/Project.vue', () => {
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' }),
-            'projects/hasActiveProject': true
+            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
           }
         }
       }
@@ -35,18 +33,22 @@ describe('pages/Project.vue', () => {
     expect(wrapper.text()).toContain('My awesome Project')
   })
 
-  it('shows a warning if project is not available', () => {
+  it('has a button to edit the project', () => {
     const wrapper = shallowMount(ProjectPage, {
       i18n,
       mocks: {
         $store: {
           getters: {
-            'projects/activeProject': undefined,
-            'projects/hasActiveProject': false
+            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
           }
         }
       }
     })
-    expect(wrapper.html()).toMatchSnapshot()
+    const button = wrapper.find('v-btn-stub')
+    expect(button.exists()).toBeTruthy()
+    expect(button.text()).toContain('project.edit.button_text')
+    expect(button.props('to')).toEqual({
+      name: 'projects.single.edit', params: { projectId: 12 }
+    })
   })
 })

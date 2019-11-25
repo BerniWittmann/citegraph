@@ -44,3 +44,17 @@ mock.onDelete(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
   db.saveDatabase()
   return [200, project]
 })
+
+mock.onPut(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  let project: Project = projects.findOne({ 'id': getProjectId(config) })
+  if (!project) {
+    return [404]
+  }
+  const projectName = JSON.parse(config.data).name.trim()
+  project = projects.update({
+    ...project,
+    name: projectName
+  })
+  db.saveDatabase()
+  return [200, project]
+})

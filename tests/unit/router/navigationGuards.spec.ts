@@ -48,6 +48,9 @@ describe('router/navigationGuards', () => {
           name: 'projects.single',
           params: {
             projectId: 12
+          },
+          meta: {
+            isSingleProjectPage: true
           }
         }],
         params: {
@@ -67,11 +70,15 @@ describe('router/navigationGuards', () => {
       const to = {
         name: 'projects.detail',
         matched: [{
-          name: 'projects.base'
+          name: 'projects.base',
+          meta: {}
         }, {
           name: 'projects.single',
           params: {
             projectId: 12
+          },
+          meta: {
+            isSingleProjectPage: true
           }
         }],
         params: {
@@ -130,6 +137,9 @@ describe('router/navigationGuards', () => {
           name: 'projects.single',
           params: {
             projectId: 12
+          },
+          meta: {
+            isSingleProjectPage: true
           }
         }],
         params: {

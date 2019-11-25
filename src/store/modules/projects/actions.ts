@@ -78,5 +78,22 @@ export const actions: ActionTree<ProjectsState, RootState> = {
       dispatch('toasts/showError', 'project.delete.error', { root: true })
       return error
     }
+  },
+
+  async updateProject ({ commit, dispatch }, data: Project): Promise<Project | undefined> {
+    try {
+      const response = await Axios(`/projects/${data.id}`, {
+        method: 'PUT',
+        data: data
+      })
+      const project = new Project(response.data)
+      commit(types.UPDATE_PROJECT, project)
+      dispatch('toasts/showSuccess', 'project.edit.successful', { root: true })
+      return project
+    } catch (error) {
+      console.error(error)
+      dispatch('toasts/showError', 'project.edit.error', { root: true })
+      return error
+    }
   }
 }

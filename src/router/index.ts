@@ -1,12 +1,14 @@
 import { Route, Next } from 'vue-router'
 import store from '@/plugins/store'
 
+import ProjectWrapperPage from '@/pages/ProjectWrapper.vue'
 import AddProjectPage from '@/pages/AddProject.vue'
 import HomePage from '@/pages/Home.vue'
 import AboutPage from '@/pages/About.vue'
 import ProjectPage from '@/pages/Project.vue'
 import ProjectsPage from '@/pages/Projects.vue'
 import SettingsPage from '@/pages/Settings.vue'
+import EditProjectPage from '@/pages/EditProject.vue'
 
 export default [
   {
@@ -39,7 +41,18 @@ export default [
   },
   {
     path: '/projects/:projectId',
-    name: 'projects.single',
-    component: ProjectPage
+    meta: {
+      isSingleProjectPage: true
+    },
+    component: ProjectWrapperPage,
+    children: [{
+      path: '',
+      name: 'projects.single',
+      component: ProjectPage
+    }, {
+      path: 'edit',
+      name: 'projects.single.edit',
+      component: EditProjectPage
+    }]
   }
 ]

@@ -46,7 +46,10 @@
     "fetch_error": "Could not load projects"
   },
   "project": {
-    "not_available": "The requested Project is not available right now",
+    "not_available": {
+      "text": "The requested Project is not available right now",
+      "button": "Back to Project Overview"
+    },
     "delete": {
       "button_text": "Delete",
       "confirm": "Delete",
@@ -54,6 +57,17 @@
       "confirm_text": "Do you really want to delete the project?",
       "successful": "Successfully deleted project",
       "error": "Could not delete project"
+    },
+    "edit": {
+      "button_text": "Edit",
+      "title": "Edit Project \"%{name}\"",
+      "name": "Name",
+      "name_hint": "Choose a name for your project",
+      "name_required": "Name is required",
+      "name_not_empty": "Name must not be empty",
+      "cancel": "Cancel",
+      "submit": "Update",
+      "successful": "Successfully updated project"
     },
     "fetch_error": "Could not load project"
   },

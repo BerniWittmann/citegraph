@@ -6,7 +6,10 @@ describe('common/helpers', () => {
       const route = {
         name: 'projects.single',
         matched: [{
-          name: 'projects.single'
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
         }]
       }
       // @ts-ignore
@@ -17,11 +20,16 @@ describe('common/helpers', () => {
       const route = {
         name: 'projects.another',
         matched: [{
-          name: 'projects.another'
+          name: 'projects.another',
+          meta: {}
         }, {
-          name: 'projects.other'
+          name: 'projects.other',
+          meta: {}
         }, {
-          name: 'projects.single'
+          name: 'projects.single',
+          meta: {
+            isSingleProjectPage: true
+          }
         }]
       }
       // @ts-ignore
@@ -32,11 +40,16 @@ describe('common/helpers', () => {
       const route = {
         name: 'about',
         matched: [{
-          name: 'home'
+          name: 'home',
+          meta: {}
         }, {
-          name: 'about'
+          name: 'about',
+          meta: {}
         }, {
-          name: 'other'
+          name: 'other',
+          meta: {
+            isSingleProjectPage: false
+          }
         }]
       }
       // @ts-ignore

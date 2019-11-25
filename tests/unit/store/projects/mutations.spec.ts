@@ -318,4 +318,122 @@ describe('store/modules/projects/mutations', () => {
       expect(state.projects.length).toEqual(0)
     })
   })
+
+  describe('UPDATE_PROJECTS', () => {
+    it('updates a project in the projects and open projects', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ],
+        openProjects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ]
+      }
+      const project = new Project({ id: 1, name: 'New Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.projects).toContainEqual(project)
+      expect(state.projects.length).toEqual(2)
+      expect(state.projects[0]).toEqual(project)
+
+      expect(state.openProjects).toContainEqual(project)
+      expect(state.openProjects.length).toEqual(2)
+      expect(state.openProjects[0]).toEqual(project)
+    })
+
+    it('updates all instances of a project', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' }),
+          new Project({ id: 1, name: 'First Project' })
+        ],
+        openProjects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' }),
+          new Project({ id: 1, name: 'First Project' })
+        ]
+      }
+      const project = new Project({ id: 1, name: 'New Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.projects).toContainEqual(project)
+      expect(state.projects.length).toEqual(3)
+      expect(state.projects[0]).toEqual(project)
+      expect(state.projects[2]).toEqual(project)
+
+      expect(state.openProjects).toContainEqual(project)
+      expect(state.openProjects.length).toEqual(3)
+      expect(state.openProjects[0]).toEqual(project)
+      expect(state.openProjects[2]).toEqual(project)
+    })
+
+    it('updates the active Project', () => {
+      const state: ProjectsState = {
+        activeProject: new Project({ id: 1, name: 'First Project' }),
+        projects: [],
+        openProjects: []
+      }
+      const project = new Project({ id: 1, name: 'New Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.activeProject).toEqual(project)
+    })
+
+    it('does not update the active Project if it is another project', () => {
+      const state: ProjectsState = {
+        activeProject: new Project({ id: 2, name: 'Other Project' }),
+        projects: [],
+        openProjects: []
+      }
+      const project = new Project({ id: 1, name: 'New Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.activeProject).not.toEqual(project)
+
+      state.activeProject = undefined
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.activeProject).not.toEqual(project)
+    })
+
+    it('does not change if project was not found', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [
+          new Project({ id: 1, name: 'First Project' }),
+          new Project({ id: 2, name: 'Second Project' })
+        ],
+        openProjects: []
+      }
+      const project = new Project({ id: 42, name: 'New Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.projects).not.toContainEqual(project)
+      expect(state.projects.length).toEqual(2)
+    })
+
+    it('can handle an empty projects array', () => {
+      const state: ProjectsState = {
+        activeProject: undefined,
+        projects: [],
+        openProjects: []
+      }
+      const project = new Project({ id: 42, name: 'Other Project' })
+
+      mutations[mutationTypes.UPDATE_PROJECT](state, project)
+
+      expect(state.projects.length).toEqual(0)
+    })
+  })
 })

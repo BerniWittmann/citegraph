@@ -40,6 +40,11 @@
                   </v-btn>
                 </template>
                 <v-list>
+                  <v-list-item :to="{ name: 'projects.single.edit', params: { projectId: project.id } }">
+                    <v-list-item-title>{{ $t('project.edit.button_text') }}
+                    </v-list-item-title>
+                  </v-list-item>
+
                   <v-menu bottom left>
                     <template v-slot:activator="{ on }">
                       <v-list-item v-on="on">

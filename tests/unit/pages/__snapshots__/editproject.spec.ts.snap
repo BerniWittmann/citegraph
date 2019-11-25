@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/EditProject.vue renders the page 1`] = `
+<div class="project-edit">
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <h1 class="display-1 mt-5">project.edit.title</h1>
+    </v-row-stub>
+    <v-form-stub class="mt-12">
+      <v-row-stub tag="div" justify="center">
+        <v-col-stub lg="6" tag="div">
+          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="v => {
+        /* istanbul ignore next */
+        cov_1q09kh53yg.f[2]++;
+        cov_1q09kh53yg.s[12]++;
+        return (
+          /* istanbul ignore next */
+          (cov_1q09kh53yg.b[0][0]++, !!v) ||
+          /* istanbul ignore next */
+          (cov_1q09kh53yg.b[0][1]++, this.$root.$t('project.edit.name_required'))
+        );
+      },v => {
+        /* istanbul ignore next */
+        cov_1q09kh53yg.f[3]++;
+        cov_1q09kh53yg.s[13]++;
+        return (
+          /* istanbul ignore next */
+          (cov_1q09kh53yg.b[1][0]++, v) &amp;&amp;
+          /* istanbul ignore next */
+          (cov_1q09kh53yg.b[1][1]++, v.trim().length > 0) ||
+          /* istanbul ignore next */
+          (cov_1q09kh53yg.b[1][2]++, this.$root.$t('project.edit.name_not_empty'))
+        );
+      }" successmessages="" value="" backgroundcolor="" hint="project.edit.name_hint" label="project.edit.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div" justify="center" direction="row" class="mt-5">
+        <v-col-stub lg="6" tag="div" class="d-flex flex-row">
+          <v-btn-stub tag="button" activeclass="" text="true" type="button">project.edit.cancel</v-btn-stub>
+          <v-spacer-stub></v-spacer-stub>
+          <v-btn-stub color="success" tag="button" activeclass="" disabled="true" type="submit">project.edit.submit
+          </v-btn-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-form-stub>
+  </v-container-stub>
+</div>
+`;

@@ -77,4 +77,15 @@ describe('pages/Projects.vue', () => {
     wrapper.vm.deleteProject(projects[1])
     expect(dispatch).toHaveBeenCalledWith('projects/deleteProject', projects[1])
   })
+
+  it('a project can be edited', () => {
+    const wrapper = getWrapper(projects)
+    const projectCard = wrapper.find('.project-card')
+    const link = projectCard.find('v-list-item-stub')
+    expect(link.exists()).toBeTruthy()
+    expect(link.text()).toEqual('project.edit.button_text')
+    expect(link.props('to')).toEqual({
+      name: 'projects.single.edit', params: { projectId: 1 }
+    })
+  })
 })

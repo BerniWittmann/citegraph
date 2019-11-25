@@ -9,5 +9,6 @@ Object {
   "fetchProjects": [Function],
   "openProject": [Function],
   "unsetActiveProject": [Function],
+  "updateProject": [Function],
 }
 `;

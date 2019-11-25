@@ -260,4 +260,60 @@ describe('store/modules/projects/actions', () => {
       })
     })
   })
+
+  describe('updateProject', () => {
+    const projectData = {
+      id: 42,
+      name: 'My awesome Project'
+    }
+
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    it('updates the project', (done) => {
+      moxios.stubRequest('/projects/42', {
+        status: 200,
+        response: projectData
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      const action = actions.updateProject as Function
+
+      action({ commit, dispatch }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalled()
+        expect(commit).toHaveBeenCalledWith(mutationTypes.UPDATE_PROJECT, new Project(projectData))
+        expect(dispatch).toHaveBeenCalledWith('toasts/showSuccess', 'project.edit.successful', { root: true })
+        done()
+      })
+    })
+
+    it('handles the error when one appeared during the update', (done) => {
+      moxios.stubRequest('/projects/42', {
+        status: 404,
+        response: 'The project could not be found'
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      console.error = jest.fn()
+      const action = actions.updateProject as Function
+
+      action({ commit, dispatch }, projectData).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 404'))
+        expect(commit).not.toHaveBeenCalledWith(mutationTypes.UPDATE_PROJECT, new Project(projectData))
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'project.edit.error', { root: true })
+        done()
+      })
+    })
+  })
 })

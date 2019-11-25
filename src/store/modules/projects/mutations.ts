@@ -8,7 +8,8 @@ import {
   OPEN_PROJECT,
   CLOSE_PROJECT,
   ADD_PROJECT,
-  DELETE_PROJECT
+  DELETE_PROJECT,
+  UPDATE_PROJECT
 } from './mutation-types'
 
 export const mutations: MutationTree<ProjectsState> = {
@@ -34,5 +35,12 @@ export const mutations: MutationTree<ProjectsState> = {
   },
   [DELETE_PROJECT] (state: ProjectsState, payload: Project) {
     state.projects = state.projects.filter(project => project.id !== payload.id)
+  },
+  [UPDATE_PROJECT] (state: ProjectsState, payload: Project) {
+    state.projects = state.projects.map(project => project.id !== payload.id ? project : payload)
+    state.openProjects = state.openProjects.map(project => project.id !== payload.id ? project : payload)
+    if (state.activeProject && state.activeProject.id === payload.id) {
+      state.activeProject = payload
+    }
   }
 }
