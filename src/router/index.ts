@@ -1,16 +1,18 @@
-import { Route, Next } from 'vue-router'
+import { Route, Next, RouteConfig } from 'vue-router'
 import store from '@/plugins/store'
 
-import ProjectWrapperPage from '@/pages/ProjectWrapper.vue'
-import AddProjectPage from '@/pages/AddProject.vue'
+import ProjectWrapperPage from '@/pages/project/ProjectWrapper.vue'
+import AddProjectPage from '@/pages/projects/AddProject.vue'
 import HomePage from '@/pages/Home.vue'
 import AboutPage from '@/pages/About.vue'
-import ProjectPage from '@/pages/Project.vue'
-import ProjectsPage from '@/pages/Projects.vue'
+import ProjectPage from '@/pages/project/Project.vue'
+import ProjectsPage from '@/pages/projects/Projects.vue'
 import SettingsPage from '@/pages/Settings.vue'
-import EditProjectPage from '@/pages/EditProject.vue'
+import EditProjectPage from '@/pages/project/EditProject.vue'
+import EmptyRouterView from '@/router/EmptyRouterView.vue'
+import ImportPage from '@/pages/project/Import.vue'
 
-export default [
+const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'home',
@@ -47,8 +49,16 @@ export default [
     component: ProjectWrapperPage,
     children: [{
       path: '',
-      name: 'projects.single',
-      component: ProjectPage
+      component: EmptyRouterView,
+      children: [{
+        path: '',
+        name: 'projects.single',
+        component: ProjectPage
+      }, {
+        path: 'import',
+        name: 'projects.single.import',
+        component: ImportPage
+      }]
     }, {
       path: 'edit',
       name: 'projects.single.edit',
@@ -56,3 +66,5 @@ export default [
     }]
   }
 ]
+
+export default routes

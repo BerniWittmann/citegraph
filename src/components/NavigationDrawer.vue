@@ -14,6 +14,7 @@
       <v-list nav>
         <v-list-item
           key="import"
+          :to="{ name: 'projects.single.import', params: { projectId: project.id } }"
           link
         >
           <v-list-item-icon>

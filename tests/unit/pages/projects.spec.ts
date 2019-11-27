@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
-import ProjectsPage from '@/pages/Projects.vue'
+import ProjectsPage from '@/pages/projects/Projects.vue'
 import Project from '@/models/project'
 import EmptySlotComponent from '../EmptySlotComponent.vue'
 

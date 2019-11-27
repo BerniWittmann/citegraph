@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../setupPlugins'
 
-import ProjectWrapperPage from '@/pages/ProjectWrapper.vue'
+import ProjectWrapperPage from '@/pages/project/ProjectWrapper.vue'
 
 describe('pages/ProjectWrapper.vue', () => {
   it('renders the page', () => {

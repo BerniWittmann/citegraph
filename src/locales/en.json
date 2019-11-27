@@ -69,6 +69,38 @@
       "submit": "Update",
       "successful": "Successfully updated project"
     },
+    "import": {
+      "steps": {
+        "upload": {
+          "title": "Upload Files",
+          "subtitle": "Please upload files for import"
+        },
+        "processing": {
+          "title": "Processing Files",
+          "subtitle": "Please wait while your data is imported"
+        },
+        "done": {
+          "title": "Your data is ready",
+          "subtitle": "You can start exploring your data"
+        }
+      },
+      "upload": {
+        "title": "Upload Files",
+        "import": "Import",
+        "drop": {
+          "title": "Drag and Drop files here",
+          "button_text": "Add files"
+        }
+      },
+      "processing": {
+        "title": "Processing Files"
+      },
+      "done": {
+        "title": "Import done",
+        "add_more": "Add more data",
+        "explore": "explore"
+      }
+    },
     "fetch_error": "Could not load project"
   },
   "navigation-drawer": {

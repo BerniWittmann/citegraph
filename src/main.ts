@@ -6,6 +6,7 @@ import store from './plugins/store'
 import i18n from './plugins/i18n'
 import './plugins/axios'
 import vuetify from './plugins/vuetify'
+import './plugins/vue-dropzone'
 import './plugins/class-component-hooks'
 
 import '@/assets/styles/index.scss'
