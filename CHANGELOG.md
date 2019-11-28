@@ -1,3 +1,10 @@
+## 0.5.0 (2019-11-28)
+
+* test: Added tests for import feature and reworked file upload look ([6730abb](https://gitlab.com/citegraph/frontend/commit/6730abb))
+* feat: Added Import steps ([53d8deb](https://gitlab.com/citegraph/frontend/commit/53d8deb))
+
+
+
 ## <small>0.4.2 (2019-11-25)</small>
 
 * build: Fixed typo public path ([551d6e6](https://gitlab.com/citegraph/frontend/commit/551d6e6))
