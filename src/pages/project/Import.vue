@@ -45,7 +45,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Project from '@/models/project'
 import ProjectImportUploadComponent from '@/components/project/import/Upload.vue'
 import ProjectImportProcessingComponent from '@/components/project/import/Processing.vue'
 import ProjectImportDoneComponent from '@/components/project/import/Done.vue'
@@ -60,10 +59,6 @@ import ProjectImportDoneComponent from '@/components/project/import/Done.vue'
 export default class ImportPage extends Vue {
   currentStep: number = 1
   isProcessing: boolean = false
-
-  get project (): Project {
-    return this.$store.getters['projects/activeProject']
-  }
 
   nextStep (): void {
     if (!this.isComplete) {

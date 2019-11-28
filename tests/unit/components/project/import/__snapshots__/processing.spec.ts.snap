@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/import/Processing.vue renders 1`] = `
+<div class="project-import-processing">
+  <h1>project.import.processing.title</h1>
+  <v-container-stub tag="div" class="mb-4 d-flex justify-center">
+    <v-progress-linear-stub color="primary" value="0" active="true" buffervalue="100" height="4" class="my-10" style="width: 80%;"></v-progress-linear-stub>
+  </v-container-stub>
+</div>
+`;

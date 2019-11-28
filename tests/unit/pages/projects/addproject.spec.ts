@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
-import { i18n } from '../setupPlugins'
-import EditProjectPage from '@/pages/project/EditProject.vue'
+import { i18n } from '../../setupPlugins'
+import AddProjectPage from '@/pages/projects/AddProject.vue'
 import Project from '@/models/project'
 
-describe('pages/EditProject.vue', () => {
+describe('pages/AddProject.vue', () => {
   const dispatch = jest.fn().mockReturnValue({
     then: (cb: Function) => cb(new Project({
       id: 42,
@@ -14,36 +14,24 @@ describe('pages/EditProject.vue', () => {
     push: jest.fn(),
     back: jest.fn()
   }
-  const project = new Project({
-    id: 42,
-    name: 'My Project'
-  })
   const getWrapper = () => {
-    return shallowMount(EditProjectPage, {
+    return shallowMount(AddProjectPage, {
       i18n,
       mocks: {
         $store: {
-          dispatch,
-          getters: {
-            'projects/activeProject': project
-          }
+          dispatch
         },
         $router: router,
         $t: (key: string) => key
       }
     })
   }
-  it('renders the page', (done) => {
+  it('renders the page', () => {
     const wrapper = getWrapper()
     // unset Rules to ensure Snapshot stability
     // @ts-ignore
     wrapper.vm.nameRules = []
-    expect.assertions(1)
-    // @ts-ignore
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot()
-      done()
-    })
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   describe('it has a text field of the name', () => {
@@ -64,31 +52,25 @@ describe('pages/EditProject.vue', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       const rule = wrapper.vm.nameRules[0]
-      expect(rule(undefined)).toEqual('project.edit.name_required')
-      expect(rule(null)).toEqual('project.edit.name_required')
-      expect(rule('')).toEqual('project.edit.name_required')
+      expect(rule(undefined)).toEqual('projects.add.name_required')
+      expect(rule(null)).toEqual('projects.add.name_required')
+      expect(rule('')).toEqual('projects.add.name_required')
     })
     it('the text can not be an empty string', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       const rule = wrapper.vm.nameRules[1]
-      expect(rule('    ')).toEqual('project.edit.name_not_empty')
+      expect(rule('    ')).toEqual('projects.add.name_not_empty')
       expect(rule('   test   ')).toBeTruthy()
-      expect(rule(' ')).toEqual('project.edit.name_not_empty')
+      expect(rule(' ')).toEqual('projects.add.name_not_empty')
     })
-  })
-
-  it('prefills the name with the name of the project', () => {
-    const wrapper = getWrapper()
-    // @ts-ignore
-    expect(wrapper.vm.name).toEqual(project.name)
   })
 
   it('has a cancel button', () => {
     const wrapper = getWrapper()
     const button = wrapper.findAll('v-btn-stub').at(0)
     expect(button.exists()).toBeTruthy()
-    expect(button.text()).toEqual('project.edit.cancel')
+    expect(button.text()).toEqual('projects.add.cancel')
 
     // @ts-ignore
     wrapper.vm.cancel()
@@ -96,12 +78,12 @@ describe('pages/EditProject.vue', () => {
     expect(router.back).toHaveBeenCalled()
   })
 
-  describe('the project can be updated', () => {
+  describe('the project can be created', () => {
     it('has a submit button', () => {
       const wrapper = getWrapper()
       const button = wrapper.findAll('v-btn-stub').at(1)
       expect(button.exists()).toBeTruthy()
-      expect(button.text()).toEqual('project.edit.submit')
+      expect(button.text()).toEqual('projects.add.submit')
     })
     it('the submit button is disabled if the form is not valid', () => {
       const wrapper = getWrapper()
@@ -112,7 +94,7 @@ describe('pages/EditProject.vue', () => {
       wrapper.vm.valid = true
       expect(button.attributes('disabled')).toBeUndefined()
     })
-    it('does not update the project if form is not valid', (done) => {
+    it('does not create the project if form is not valid', (done) => {
       const wrapper = getWrapper()
       // @ts-ignore
       wrapper.vm.name = 'My new Project'
@@ -126,7 +108,7 @@ describe('pages/EditProject.vue', () => {
         done()
       })
     })
-    it('updates the project on clicking the submit button', (done) => {
+    it('creates the project on clicking the submit button', (done) => {
       const wrapper = getWrapper()
       // @ts-ignore
       wrapper.vm.name = 'My new Project'
@@ -136,8 +118,8 @@ describe('pages/EditProject.vue', () => {
       expect.assertions(2)
       // @ts-ignore
       wrapper.vm.submit().then(() => {
-        expect(dispatch).toHaveBeenCalledWith('projects/updateProject', new Project({
-          id: 42,
+        expect(dispatch).toHaveBeenCalledWith('projects/createProject', new Project({
+          id: undefined,
           name: 'My new Project'
         }))
         expect(router.push).toHaveBeenCalledWith({

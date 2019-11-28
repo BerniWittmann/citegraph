@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/import/Upload.vue renders 1`] = `
+<div class="project-import-upload">
+  <h1>project.import.upload.title</h1>
+  <v-container-stub tag="div" fluid="true" class="mb-4">
+    <v-row-stub tag="div" class="mb-4">
+      <v-col-stub tag="div" class="mr-4">
+        <div class="dropzone" id="dropzone" options="[object Object]" use-custom-slot="" duplicate-check="">
+          <v-hover-stub opendelay="0" closedelay="0" class="mx-3"></v-hover-stub>
+        </div>
+      </v-col-stub>
+      <v-col-stub tag="div" class="ml-4">
+        <div id="dropzone-previews"></div>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div">
+      <v-spacer-stub></v-spacer-stub>
+      <!---->
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;

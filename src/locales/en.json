@@ -89,7 +89,8 @@
         "import": "Import",
         "drop": {
           "title": "Drag and Drop files here",
-          "button_text": "Add files"
+          "button_text": "Add files",
+          "file_type_hint": "Supported file types: .csv"
         }
       },
       "processing": {

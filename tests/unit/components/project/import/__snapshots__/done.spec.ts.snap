@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/import/Done.vue renders 1`] = `
+<div class="project-import-done">
+  <h1>project.import.done.title</h1>
+  <div class="my-10 d-flex justify-space-around">
+    <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+      project.import.done.add_more
+    </v-btn-stub>
+    <v-btn-stub color="primary" tag="button" activeclass="" large="true" rounded="true" type="button">project.import.done.explore</v-btn-stub>
+  </div>
+</div>
+`;

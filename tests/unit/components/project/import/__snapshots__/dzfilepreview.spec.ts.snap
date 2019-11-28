@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/import/DZFilePreview.vue renders 1`] = `
+<v-sheet-stub elevation="2" tag="div" class="mb-2">
+  <v-container-stub tag="div" class="py-1">
+    <v-row-stub tag="div">
+      <v-col-stub cols="auto" tag="div" class="d-flex justify-center py-0">
+        <file-icon-stub class="file-icon"></file-icon-stub>
+      </v-col-stub>
+      <v-col-stub tag="div" class="py-0">
+        <v-list-item-stub activeclass="" tag="div" threeline="true">
+          <v-list-item-content-stub class="align-self-centerpy-0">
+            <v-list-item-title-stub class="title mb-1"><span data-dz-name=""></span></v-list-item-title-stub>
+            <v-list-item-subtitle-stub><span data-dz-size=""></span></v-list-item-subtitle-stub>
+            <v-list-item-subtitle-stub><span data-dz-errormessage="" class="error--text"></span></v-list-item-subtitle-stub>
+          </v-list-item-content-stub>
+        </v-list-item-stub>
+      </v-col-stub>
+      <v-col-stub cols="auto" tag="div" class="py-0">
+        <v-icon-stub large="" datadzremove="" data-dz-remove="">mdi-close</v-icon-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</v-sheet-stub>
+`;

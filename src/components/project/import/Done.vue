@@ -12,14 +12,9 @@
 
 <script lang="ts">
 import { Component, Emit, Vue } from 'vue-property-decorator'
-import Project from '@/models/project'
 
 @Component
 export default class ProjectImportDoneComponent extends Vue {
-  get project (): Project {
-    return this.$store.getters['projects/activeProject']
-  }
-
   @Emit('first-step')
   addMore (): void {}
 }

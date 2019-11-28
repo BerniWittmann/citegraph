@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/project/Import.vue renders the page 1`] = `
+<div class="project-import">
+  <div class="mt-4">
+    <v-stepper-stub value="1">
+      <v-stepper-header-stub>
+        <v-stepper-step-stub color="primary" completeicon="$complete" editicon="$edit" erroricon="$error" rules="" step="1">
+          project.import.steps.upload.title
+          <small>project.import.steps.upload.subtitle</small></v-stepper-step-stub>
+        <v-divider-stub></v-divider-stub>
+        <v-stepper-step-stub color="primary" completeicon="$complete" editicon="$edit" erroricon="$error" rules="" step="2">
+          project.import.steps.processing.title
+          <small>project.import.steps.processing.subtitle</small></v-stepper-step-stub>
+        <v-divider-stub></v-divider-stub>
+        <v-stepper-step-stub color="primary" completeicon="$complete" editicon="$edit" erroricon="$error" rules="" step="3">
+          <div class="d-flex flex-column">
+            project.import.steps.done.title
+            <small>project.import.steps.done.subtitle</small></div>
+        </v-stepper-step-stub>
+      </v-stepper-header-stub>
+      <v-stepper-items-stub>
+        <v-stepper-content-stub step="1">
+          <project-import-upload-component-stub></project-import-upload-component-stub>
+        </v-stepper-content-stub>
+        <v-stepper-content-stub step="2">
+          <project-import-processing-component-stub></project-import-processing-component-stub>
+        </v-stepper-content-stub>
+        <v-stepper-content-stub step="3">
+          <project-import-done-component-stub></project-import-done-component-stub>
+        </v-stepper-content-stub>
+      </v-stepper-items-stub>
+    </v-stepper-stub>
+  </div>
+</div>
+`;
