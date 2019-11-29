@@ -1,3 +1,10 @@
+## <small>0.6.1 (2019-11-29)</small>
+
+* ci: Execute Build task on master branch not only on tags ([e0a2fc0](https://gitlab.com/citegraph/frontend/commit/e0a2fc0))
+* test: Fixed minor type error in data table test ([64627ec](https://gitlab.com/citegraph/frontend/commit/64627ec))
+
+
+
 ## 0.6.0 (2019-11-29)
 
 * test: Added the tests for the explore page and the data table ([b02b75a](https://gitlab.com/citegraph/frontend/commit/b02b75a))
