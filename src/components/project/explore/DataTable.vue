@@ -24,7 +24,14 @@
       @update:options="updateOptions"
       disable-filtering
       :server-items-length="totalItemCount"
-    ></v-data-table>
+    >
+      <template v-slot:item.authors="{ item }">
+        <v-chip class="mx-1" v-for="(author, index) in item.authors" :key="`${item.id}_${author.id}_${index}`" small>{{ getAuthorDisplayName(author) }}</v-chip>
+      </template>
+      <template v-slot:item.keywords="{ item }">
+        <v-chip class="mx-1" v-for="(keyword, index) in item.keywords" :key="`${item.id}_${index}`" small>{{ keyword }}</v-chip>
+      </template>
+    </v-data-table>
   </v-card>
 </template>
 
@@ -34,6 +41,7 @@ import { entityKeysMap, PaperEntity, PaperEntityTableColumn } from '@/models/pap
 import { debounce } from 'debounce'
 import Project from '@/models/project'
 import deepEqual from 'deep-equal'
+import Author from '@/models/paperEntities/author'
 
 type UpdateOptions = {
   page: number
@@ -81,12 +89,15 @@ export default class DataTable extends Vue {
 
   async reloadData (): Promise<void> {
     this.loading = true
+    const isSorted = this.currentOptions.sortBy.length > 0 && this.currentOptions.sortDesc.length > 0
+    const sortString = isSorted ? `${this.currentOptions.sortBy[0]}_${this.currentOptions.sortDesc[0] ? 'DESC' : 'ASC'}` : undefined
     await this.$store.dispatch('paperEntities/fetchEntities', {
       projectId: this.project.id,
       entityType: this.queryByType,
       perPage: this.currentOptions.itemsPerPage,
       pageOffset: this.currentOptions.page - 1,
-      filter: this.currentOptions.search
+      filter: this.currentOptions.search,
+      sortBy: sortString
     })
     this.loading = false
   }
@@ -96,8 +107,8 @@ export default class DataTable extends Vue {
   }
 
   @Watch('currentOptions.search')
-  handleSearch (newVal: string): void {
-    if (newVal === this.currentOptions.search) return
+  handleSearch (newVal: string, oldVal: string): void {
+    if (newVal === oldVal) return
     this.loading = true
     this.currentOptions.search = newVal
     this.currentOptions.page = 1
@@ -122,6 +133,10 @@ export default class DataTable extends Vue {
     this.currentOptions.sortBy = []
     this.currentOptions.sortDesc = []
     this.reloadData()
+  }
+
+  getAuthorDisplayName (author: Author): string {
+    return `${author.firstName.substring(0, 1)}. ${author.lastName}`
   }
 }
 </script>

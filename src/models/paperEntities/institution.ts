@@ -20,9 +20,9 @@ export default class Institution extends PaperEntity implements InstitutionField
     this.countRecords = countRecords
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Institution.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Institution.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Institution.schemaName} {
           name,

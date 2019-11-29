@@ -24,7 +24,8 @@ export function setupMocks (mock: MockAdapter, queryResponseConfiguration: Recor
     }
 
     for (const schemaName of Object.keys(queryResponseConfiguration)) {
-      if (!query.includes(schemaName)) continue
+      const regex = new RegExp('{\\n\\s*(' + schemaName + ')(\\(.*\\))?\\s{')
+      if (!regex.test(query)) continue
       const queryConfiguration = queryResponseConfiguration[schemaName]
       return createResponse(query, queryConfiguration)
     }

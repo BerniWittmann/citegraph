@@ -10,6 +10,10 @@ describe('models/paperEntities/query.ts', () => {
       expect(createFilterAndPaginationForQuery(undefined, undefined, 'test')).toEqual('(filter: test)')
     })
 
+    it('returns only the sorting parameter if only the sorting parameter is given', () => {
+      expect(createFilterAndPaginationForQuery(undefined, undefined, undefined, 'title_DESC')).toEqual('(orderBy: title_DESC)')
+    })
+
     it('returns only the pagination if only the pagination is given', () => {
       expect(createFilterAndPaginationForQuery(10, 1)).toEqual('(first: 10 skip: 10)')
       expect(createFilterAndPaginationForQuery(7, 2)).toEqual('(first: 7 skip: 14)')
@@ -17,7 +21,7 @@ describe('models/paperEntities/query.ts', () => {
     })
 
     it('if all parameters are given it returns all parameters ', () => {
-      expect(createFilterAndPaginationForQuery(7, 2, 'test')).toEqual('(filter: test first: 7 skip: 14)')
+      expect(createFilterAndPaginationForQuery(7, 2, 'test', 'title_ASC')).toEqual('(filter: test orderBy: title_ASC first: 7 skip: 14)')
     })
   })
 })

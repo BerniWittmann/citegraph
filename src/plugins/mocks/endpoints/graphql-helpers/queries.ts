@@ -4,6 +4,7 @@ type QueryArguments = {
   first?: string
   skip?: string
   filter?: string
+  orderBy?: string
 }
 
 type FilterFunction = (obj: PaperEntityFields, filter: string) => boolean
@@ -22,10 +23,13 @@ function parseQuery (query: string): QueryArguments {
   const skip = skipString ? skipString.toString().substring(6) : undefined
   const filterString = query.match(/filter: [a-zA-Z0-9]+/)
   const filter = filterString ? filterString.toString().substring(8) : undefined
+  const orderByString = query.match(/orderBy: [a-zA-Z0-9]+_((ASC)|(DESC))/)
+  const orderBy = orderByString ? orderByString[0].toString().substring(9) : undefined
   return {
     first,
     skip,
-    filter
+    filter,
+    orderBy
   }
 }
 
@@ -34,9 +38,16 @@ export function createResponse (query: string, configuration: QueryConfiguration
   let chain = configuration.collection.chain().find()
   if (queryParams.filter && configuration.filterFunction) {
     const filterLc = queryParams.filter.toLowerCase()
-    chain.where((obj: PaperEntity) => {
+    chain = chain.where((obj: PaperEntity) => {
       return configuration.filterFunction!(obj as PaperEntityFields, filterLc)
     })
+  }
+  if (queryParams.orderBy) {
+    const orderByParts = queryParams.orderBy.split('_')
+    const prop = orderByParts[0]
+    const isDescending = orderByParts[1] === 'DESC'
+    // @ts-ignore
+    chain = chain.simplesort(prop, isDescending)
   }
   const count = chain.count()
   if (queryParams.skip) {

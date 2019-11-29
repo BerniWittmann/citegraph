@@ -15,14 +15,15 @@ export const actions: ActionTree<PaperEntitiesState, RootState> = {
     entityType,
     perPage,
     pageOffset,
-    filter
+    filter,
+    sortBy
   }: PaperEntityQueryParameters): Promise<undefined> {
     try {
       const EntityClass = entityKeysMap[entityType]
       const response = await Axios(`/projects/${projectId}/paper-entities`, {
         method: 'POST',
         data: {
-          query: EntityClass.getQuery(perPage, pageOffset, filter)
+          query: EntityClass.getQuery(perPage, pageOffset, filter, sortBy)
         }
       })
       const data = response.data.data[EntityClass.queryName]

@@ -38,9 +38,9 @@ export default class Author extends PaperEntity implements AuthorFields {
     this.countRecords = countRecords
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Author.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Author.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Author.schemaName} {
           id,

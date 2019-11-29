@@ -26,8 +26,8 @@ const queryResponseConfiguration: Record<string, QueryConfiguration> = {
 function recordsFilter (obj: RecordFields, filter: string) {
   return obj.title.toLowerCase().includes(filter) ||
     obj.year.toString().includes(filter) ||
-    obj.keywords.map(keyword => keyword.toLowerCase()).includes(filter) ||
-    obj.authors.map(author => (author.firstName + ' ' + author.lastName).toLowerCase()).includes(filter)
+    obj.keywords.map(keyword => keyword.toLowerCase()).join('').includes(filter) ||
+    obj.authors.map(author => (author.firstName + ' ' + author.lastName).toLowerCase()).join(';').includes(filter)
 }
 
 function authorsFilter (obj: AuthorFields, filter: string) {

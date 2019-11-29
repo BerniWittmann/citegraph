@@ -21,8 +21,8 @@ export default class Record extends PaperEntity implements RecordFields {
     filterable: true
   }, {
     text: 'project.explore.table.headers.record.authors',
-    value: 'renderedAuthors',
-    sortable: true,
+    value: 'authors',
+    sortable: false,
     filterable: true
   }, {
     text: 'project.explore.table.headers.record.year',
@@ -37,24 +37,15 @@ export default class Record extends PaperEntity implements RecordFields {
     align: 'center'
   }, {
     text: 'project.explore.table.headers.record.keywords',
-    value: 'renderedKeywords',
-    filterable: true
+    value: 'keywords',
+    filterable: true,
+    sortable: false
   }]
   title: string
   authors: Array<Author>
   year: number
   keywords: Array<string>
   numberCitations: number
-
-  get renderedAuthors (): string {
-    return this.authors.map((author) => {
-      return `${author.firstName.substring(0, 1)}. ${author.lastName}`
-    }).join('; ')
-  }
-
-  get renderedKeywords (): string {
-    return this.keywords.join('; ')
-  }
 
   constructor ({ id, title, authors, year, keywords, numberCitations }: PaperEntityBaseFields & RecordFields) {
     super({ id })
@@ -65,9 +56,9 @@ export default class Record extends PaperEntity implements RecordFields {
     this.numberCitations = numberCitations
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Record.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Record.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Record.schemaName} {
           title,

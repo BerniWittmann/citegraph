@@ -85,6 +85,41 @@ describe('components/project/explore/DataTable.vue', () => {
         filter: ''
       })
     })
+    it('calculates the correct search parameter string', () => {
+      wrapper.vm.updateOptions({
+        page: 2,
+        itemsPerPage: 5,
+        sortBy: ['authors'],
+        sortDesc: [true],
+        search: ''
+      })
+
+      expect(store.dispatch).toHaveBeenCalledWith('paperEntities/fetchEntities', {
+        projectId: 42,
+        entityType: 'record',
+        perPage: 5,
+        pageOffset: 1,
+        filter: '',
+        sortBy: 'authors_DESC'
+      })
+
+      wrapper.vm.updateOptions({
+        page: 2,
+        itemsPerPage: 5,
+        sortBy: ['title'],
+        sortDesc: [false],
+        search: ''
+      })
+
+      expect(store.dispatch).toHaveBeenCalledWith('paperEntities/fetchEntities', {
+        projectId: 42,
+        entityType: 'record',
+        perPage: 5,
+        pageOffset: 1,
+        filter: '',
+        sortBy: 'title_ASC'
+      })
+    })
     it('prevents the reload data if the page options stays the same', () => {
       wrapper.vm.updateOptions({
         page: 1,
@@ -124,13 +159,15 @@ describe('components/project/explore/DataTable.vue', () => {
       })
     })
     it('prevents the reload data if the search stays the same', () => {
-      wrapper.vm.handleSearch('')
+      wrapper.vm.handleSearch('', '')
 
       expect(store.dispatch).not.toHaveBeenCalled()
 
       wrapper.vm.currentOptions.search = 'test'
 
-      wrapper.vm.handleSearch('test')
+      store.dispatch.mockClear()
+
+      wrapper.vm.handleSearch('test', 'test')
 
       expect(store.dispatch).not.toHaveBeenCalled()
     })
@@ -164,5 +201,12 @@ describe('components/project/explore/DataTable.vue', () => {
       pageOffset: 0,
       filter: ''
     })
+  })
+
+  it('provides a function to nicely display an authors name', () => {
+    const wrapper = getWrapper()
+    const author = { firstName: 'Hans', lastName: 'Meier' }
+    // @ts-ignore
+    expect(wrapper.vm.getAuthorDisplayName(author)).toEqual('H. Meier')
   })
 })

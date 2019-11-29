@@ -20,9 +20,9 @@ export default class Conference extends PaperEntity implements ConferenceFields 
     this.countRecords = countRecords
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Conference.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Conference.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Conference.schemaName} {
           name,

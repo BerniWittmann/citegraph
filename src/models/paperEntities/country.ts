@@ -20,9 +20,9 @@ export default class Country extends PaperEntity implements CountryFields {
     this.countRecords = countRecords
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Country.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Country.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Country.schemaName} {
           name,

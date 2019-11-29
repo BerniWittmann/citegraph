@@ -35,7 +35,7 @@ Array [
   },
   Object {
     "text": "project.explore.table.headers.record.authors",
-    "value": "renderedAuthors",
+    "value": "authors",
   },
   Object {
     "text": "project.explore.table.headers.record.year",
@@ -47,7 +47,7 @@ Array [
   },
   Object {
     "text": "project.explore.table.headers.record.keywords",
-    "value": "renderedKeywords",
+    "value": "keywords",
   },
 ]
 `;

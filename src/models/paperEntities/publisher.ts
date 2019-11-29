@@ -20,9 +20,9 @@ export default class Publisher extends PaperEntity implements PublisherFields {
     this.countRecords = countRecords
   }
 
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string): string {
+  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
     return `{
-      ${Publisher.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter)} {
+      ${Publisher.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
         count
         ${Publisher.schemaName} {
           name,

@@ -6,14 +6,16 @@ export interface PaperEntityQueryParameters {
   perPage?: number
   pageOffset?: number
   filter?: string
+  sortBy?: string
 }
 
 export type PaperEntityQueryResponse = PaperEntityFields
 
-export function createFilterAndPaginationForQuery (perPage?: number, pageOffset?: number, filter?: string): string {
-  if (!perPage && !pageOffset && !filter) return ''
+export function createFilterAndPaginationForQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
+  if (!perPage && !pageOffset && !filter && !sortBy) return ''
   const args = [
-    filter ? `filter: ${filter}` : ''
+    filter ? `filter: ${filter}` : '',
+    sortBy ? `orderBy: ${sortBy}` : ''
   ]
   if (perPage !== undefined && pageOffset !== undefined) {
     args.push(`first: ${perPage}`)

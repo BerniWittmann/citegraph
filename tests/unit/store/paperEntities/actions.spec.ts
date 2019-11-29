@@ -61,7 +61,8 @@ describe('store/modules/paperEntities/actions', () => {
             entityType: entityKey,
             perPage: 10,
             pageOffset: 1,
-            filter: 'my filter'
+            filter: 'my filter',
+            sortBy: 'title_ASC'
           }).then(onFulfilled)
 
           moxios.wait(() => {
@@ -92,7 +93,8 @@ describe('store/modules/paperEntities/actions', () => {
             entityType: entityKey,
             perPage: 10,
             pageOffset: 1,
-            filter: 'my filter'
+            filter: 'my filter',
+            sortBy: 'title_ASC'
           }).then(onFulfilled)
 
           moxios.wait(() => {
