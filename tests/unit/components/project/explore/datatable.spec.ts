@@ -143,7 +143,7 @@ describe('components/project/explore/DataTable.vue', () => {
       page: 2,
       itemsPerPage: 5,
       sortBy: ['title'],
-      sortDesc: ['title'],
+      sortDesc: [true],
       search: 'test'
     }
 
