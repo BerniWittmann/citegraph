@@ -29,7 +29,7 @@ build:
     paths:
       - dist
   only:
-    - tags
+    - master
 
 pages:
   stage: deploy
