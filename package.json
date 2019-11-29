@@ -5,6 +5,7 @@
     "axios": "^0.19.0",
     "core-js": "^3.3.2",
     "debounce": "^1.2.0",
+    "deep-equal": "^1.1.1",
     "faker": "^4.1.0",
     "js-logger": "^1.6.0",
     "lokijs": "^1.5.8",

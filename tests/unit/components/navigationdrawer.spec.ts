@@ -11,7 +11,13 @@ describe('components/NavigationDrawer.vue', () => {
       vuetify,
       mocks: {
         $route: {
-          name: 'projects.single'
+          name: 'projects.single',
+          matched: [{
+            name: 'projects.single',
+            meta: {
+              isExploreRoute: true
+            }
+          }]
         },
         $vuetify: {
           breakpoint: {

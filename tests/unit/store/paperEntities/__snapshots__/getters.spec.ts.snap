@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/paperEntities/getters provides the getters 1`] = `
+Object {
+  "entities": [Function],
+  "entityCount": [Function],
+  "entityType": [Function],
+}
+`;

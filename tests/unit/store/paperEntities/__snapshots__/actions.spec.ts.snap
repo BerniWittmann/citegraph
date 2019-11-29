@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type author fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Authors(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        author {\\\\n          id,\\\\n          firstName,\\\\n          lastName,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type conference fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type country fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Countries(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type institution fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publication fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publications(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        publication {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publisher fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publishers(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        publisher {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type record fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Records(filter: my filter first: 10 skip: 10) {\\\\n        count\\\\n        record {\\\\n          title,\\\\n          authors,\\\\n          year,\\\\n          keywords,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions provides the actions 1`] = `
+Object {
+  "fetchEntities": [Function],
+}
+`;

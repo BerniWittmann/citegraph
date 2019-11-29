@@ -25,4 +25,17 @@ describe('router/index', () => {
     expect(store.dispatch).toHaveBeenCalledWith('projects/fetchProjects')
     expect(next).toHaveBeenCalled()
   })
+
+  it('shows an error message on the catch all route', async () => {
+    const route = routes[routes.length - 1]
+    expect(route.path).toEqual('*')
+    expect(route.beforeEnter).toEqual(expect.any(Function))
+    const next = jest.fn()
+    const navigationGuard = route.beforeEnter as Function
+
+    await navigationGuard({}, {}, next)
+
+    expect(store.dispatch).toHaveBeenCalledWith('toasts/showError', 'route_not_found')
+    expect(next).toHaveBeenCalledWith('/')
+  })
 })

@@ -33,6 +33,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { entityKeysMap, PaperEntity, PaperEntityTableColumn } from '@/models/paperEntities'
 import { debounce } from 'debounce'
 import Project from '@/models/project'
+import deepEqual from 'deep-equal'
 
 type UpdateOptions = {
   page: number
@@ -95,8 +96,8 @@ export default class DataTable extends Vue {
   }
 
   @Watch('currentOptions.search')
-  handleSearch (newVal: string, oldVal: string): void {
-    if (newVal === oldVal) return
+  handleSearch (newVal: string): void {
+    if (newVal === this.currentOptions.search) return
     this.loading = true
     this.currentOptions.search = newVal
     this.currentOptions.page = 1
@@ -104,7 +105,7 @@ export default class DataTable extends Vue {
   }
 
   updateOptions (options: UpdateOptions): void {
-    if (options === this.currentOptions) return
+    if (deepEqual(options, this.currentOptions)) return
     this.loading = true
     this.currentOptions = {
       ...this.currentOptions,

@@ -1,25 +1,25 @@
 import VueRouter from 'vue-router'
 import store from '@/plugins/store'
-import setupNavigationGuards from '@/router/configuration'
+import setupConfiguration from '@/router/configuration'
 
 jest.mock('@/plugins/store', () => ({
   dispatch: jest.fn()
 }))
 
-describe('router/navigationGuards', () => {
+describe('router/configuration', () => {
   beforeEach(() => {
     // @ts-ignore
     store.dispatch.mockClear()
   })
   it('provides a setup function', () => {
-    expect(setupNavigationGuards).toEqual(expect.any(Function))
+    expect(setupConfiguration).toEqual(expect.any(Function))
   })
 
   it('sets up the beforeEach navigation guard', () => {
     const router = new VueRouter()
     router.beforeEach = jest.fn()
 
-    setupNavigationGuards(router)
+    setupConfiguration(router)
     expect(router.beforeEach).toHaveBeenCalledWith(expect.any(Function))
   })
 
@@ -27,8 +27,20 @@ describe('router/navigationGuards', () => {
     const router = new VueRouter()
     router.afterEach = jest.fn()
 
-    setupNavigationGuards(router)
+    setupConfiguration(router)
     expect(router.afterEach).toHaveBeenCalledWith(expect.any(Function))
+  })
+
+  it('sets up an on error handler', async () => {
+    const router = new VueRouter()
+    router.onError = jest.fn()
+
+    setupConfiguration(router)
+    expect(router.onError).toHaveBeenCalledWith(expect.any(Function))
+    // @ts-ignore
+    const handler = router.onError.mock.calls[0][0] as Function
+    await handler(new Error('Something failed'))
+    expect(store.dispatch).toHaveBeenCalledWith('toasts/showError', 'Something failed')
   })
 
   describe('handles the project loading in beforeEnter', () => {
@@ -37,7 +49,7 @@ describe('router/navigationGuards', () => {
       const router = new VueRouter()
       router.beforeEach = jest.fn()
 
-      setupNavigationGuards(router)
+      setupConfiguration(router)
       // @ts-ignore
       handler = router.beforeEach.mock.calls[0][0]
     })
@@ -115,7 +127,7 @@ describe('router/navigationGuards', () => {
       const router = new VueRouter()
       router.afterEach = jest.fn()
 
-      setupNavigationGuards(router)
+      setupConfiguration(router)
       // @ts-ignore
       handler = router.afterEach.mock.calls[0][0]
     })
