@@ -1,3 +1,11 @@
+## 0.6.0 (2019-11-29)
+
+* test: Added the tests for the explore page and the data table ([b02b75a](https://gitlab.com/citegraph/frontend/commit/b02b75a))
+* test: Removed obsolete test snapshot ([4c4f2c9](https://gitlab.com/citegraph/frontend/commit/4c4f2c9))
+* feat: Added Basic Data Table for Functionality and GraphQL connection to the mocks ([ec7b38c](https://gitlab.com/citegraph/frontend/commit/ec7b38c))
+
+
+
 ## 0.5.0 (2019-11-28)
 
 * test: Added tests for import feature and reworked file upload look ([6730abb](https://gitlab.com/citegraph/frontend/commit/6730abb))
