@@ -26,18 +26,30 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item
+        <v-list-group
           key="explore"
-          link
+          :value="isOnExplorePage"
         >
-          <v-list-item-icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-list-item-icon>
+          <template v-slot:activator>
+            <v-list-item-title>Users</v-list-item-title>
+          </template>
+          <template v-slot:activator>
+            <v-list-item-icon>
+              <v-icon>mdi-magnify</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('navigation-drawer.explore') }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>{{ $t('navigation-drawer.explore.title') }}</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item v-for="queryByType in queryByTypes" :key="queryByType"
+                       :to="{ name: 'projects.single.explore', params: { projectId: project.id, queryByType: queryByType } }">
+            <v-list-item-content>
+              <v-list-item-title>{{ $t('navigation-drawer.explore.query_by_type.' + queryByType) }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
 
         <v-list-item
           key="visualize"
@@ -93,10 +105,16 @@
 <script lang="ts">
 import { Component, Vue, PropSync } from 'vue-property-decorator'
 import Project from '@/models/project'
+import { entityKeys } from '@/models/paperEntities'
+import { isExploreRoute } from '@/common/helpers'
 
 @Component
 export default class NavigationDrawer extends Vue {
   @PropSync('drawerVisible', { type: Boolean }) visible!: boolean | undefined
+
+  get queryByTypes (): Array<string> {
+    return entityKeys
+  }
 
   get project (): Project | undefined {
     return this.$store.getters['projects/activeProject']
@@ -104,6 +122,10 @@ export default class NavigationDrawer extends Vue {
 
   get hasProject (): boolean {
     return this.$store.getters['projects/hasActiveProject']
+  }
+
+  get isOnExplorePage (): boolean {
+    return isExploreRoute(this.$route)
   }
 }
 </script>

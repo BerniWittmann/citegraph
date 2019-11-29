@@ -11,6 +11,7 @@ import SettingsPage from '@/pages/Settings.vue'
 import EditProjectPage from '@/pages/project/EditProject.vue'
 import EmptyRouterView from '@/router/EmptyRouterView.vue'
 import ImportPage from '@/pages/project/Import.vue'
+import ExplorePage from '@/pages/project/Explore.vue'
 
 const routes: Array<RouteConfig> = [
   {
@@ -58,12 +59,27 @@ const routes: Array<RouteConfig> = [
         path: 'import',
         name: 'projects.single.import',
         component: ImportPage
+      }, {
+        path: 'explore/:queryByType',
+        name: 'projects.single.explore',
+        component: ExplorePage,
+        meta: {
+          isExplorePage: true
+        }
       }]
     }, {
       path: 'edit',
       name: 'projects.single.edit',
       component: EditProjectPage
     }]
+  },
+  {
+    // Fallback Route
+    path: '*',
+    beforeEnter: async (to: Route, from: Route, next: Next) => {
+      await store.dispatch('toasts/showError', 'route_not_found')
+      next('/')
+    }
   }
 ]
 

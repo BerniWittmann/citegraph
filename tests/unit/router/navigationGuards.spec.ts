@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 import store from '@/plugins/store'
-import setupNavigationGuards from '@/router/navigationGuards'
+import setupNavigationGuards from '@/router/configuration'
 
 jest.mock('@/plugins/store', () => ({
   dispatch: jest.fn()

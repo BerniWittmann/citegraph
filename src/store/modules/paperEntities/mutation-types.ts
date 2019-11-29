@@ -1,0 +1,3 @@
+export const SET_ENTITIES = 'SET_ENTITIES'
+export const SET_ENTITY_TYPE = 'SET_ENTITY_TYPE'
+export const SET_ENTITY_COUNT = 'SET_ENTITY_COUNT'

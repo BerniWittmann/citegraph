@@ -102,13 +102,57 @@
         "explore": "explore"
       }
     },
-    "fetch_error": "Could not load project"
+    "fetch_error": "Could not load project",
+    "explore": {
+      "query_by_type_invalid": "The given query type for the paper was invalid",
+      "fetch_error": "Could not load entities",
+      "title": {
+        "query_by_type": {
+          "record": "Records",
+          "author": "Authors",
+          "institution": "Institutions",
+          "country": "Countries",
+          "publication": "Publications",
+          "publisher": "Publishers",
+          "conference": "Conferences"
+        }
+      },
+      "table": {
+        "search": "Search",
+        "headers": {
+          "record": {
+            "title": "Title",
+            "authors": "Authors",
+            "year": "Year",
+            "number_citations": "Total times cited",
+            "keywords": "Keywords"
+          },
+          "author": {
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "count_records": "Count Records"
+          }
+        }
+      }
+    }
   },
   "navigation-drawer": {
     "import": "Import",
-    "explore": "Explore",
+    "explore": {
+      "title": "Explore",
+      "query_by_type": {
+        "record": "Records",
+        "author": "Authors",
+        "institution": "Institutions",
+        "country": "Countries",
+        "publication": "Publications",
+        "publisher": "Publishers",
+        "conference": "Conferences"
+      }
+    },
     "visualize": "Visualize",
     "help": "Help",
     "settings": "Settings"
-  }
+  },
+  "route_not_found": "The given route was not found"
 }

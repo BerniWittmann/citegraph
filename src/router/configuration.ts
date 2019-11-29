@@ -4,7 +4,10 @@ import { Next } from 'vue-router'
 import store from '@/plugins/store'
 import { isProjectRoute } from '@/common/helpers'
 
-export default function setupNavigationGuards (router: VueRouter): void {
+export default function setupConfiguration (router: VueRouter): void {
+  router.onError(async (error: Error) => {
+    await store.dispatch('toasts/showError', error.message)
+  })
   router.beforeEach(async (to: Route, from: Route, next: Next) => {
     if (isProjectRoute(to)) {
       await loadProject(to)
