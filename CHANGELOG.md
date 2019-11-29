@@ -1,3 +1,9 @@
+## <small>0.6.3 (2019-11-29)</small>
+
+* feat: Added Sorting to the Explore Data Table ([092ded3](https://gitlab.com/citegraph/frontend/commit/092ded3)), closes [#6](https://gitlab.com/citegraph/frontend/issues/6)
+
+
+
 ## <small>0.6.2 (2019-11-29)</small>
 
 * ci: Execute Build task on master branch and on tags ([5ef38fa](https://gitlab.com/citegraph/frontend/commit/5ef38fa))
