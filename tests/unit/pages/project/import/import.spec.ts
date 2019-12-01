@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
-import { i18n } from '../../setupPlugins'
+import { i18n } from '../../../setupPlugins'
 
-import ImportPage from '@/pages/project/Import.vue'
+import ImportPage from '@/pages/project/import/Import.vue'
 import Project from '@/models/project'
 import ProjectImportUploadComponent from '@/components/project/import/Upload.vue'
 import ProjectImportProcessingComponent from '@/components/project/import/Processing.vue'

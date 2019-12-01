@@ -1,25 +1,21 @@
 import { shallowMount } from '@vue/test-utils'
-import { i18n } from '../../setupPlugins'
+import { i18n } from '../../../setupPlugins'
 
-import ExplorePage from '@/pages/project/Explore.vue'
-import Project from '@/models/project'
-import DataTable from '@/components/project/explore/DataTable.vue'
+import ExploreWrapperPage from '@/pages/project/explore/ExploreWrapper.vue'
 
-describe('pages/project/Explore.vue', () => {
+describe('pages/project/ExploreWrapper.vue', () => {
   function getWrapper () {
-    return shallowMount(ExplorePage, {
+    return shallowMount(ExploreWrapperPage, {
       i18n,
       mocks: {
-        $store: {
-          getters: {
-            'projects/activeProject': new Project({ id: 12, name: 'My awesome Project' })
-          }
-        },
         $route: {
           params: {
             queryByType: 'record'
           }
         }
+      },
+      stubs: {
+        'router-view': '<div class="router-view"></div>'
       }
     })
   }
@@ -27,13 +23,6 @@ describe('pages/project/Explore.vue', () => {
   it('renders the page', () => {
     const wrapper = getWrapper()
     expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('renders the table', () => {
-    const wrapper = getWrapper()
-    const table = wrapper.find(DataTable)
-    expect(table.exists()).toBeTruthy()
-    expect(table.props('queryByType')).toEqual('record')
   })
 
   describe('it validates the query by type', () => {
@@ -53,7 +42,7 @@ describe('pages/project/Explore.vue', () => {
           expect(next).toHaveBeenCalledWith()
         })
 
-        it('thows an error if the entity key is invalid', () => {
+        it('throws an error if the entity key is invalid', () => {
           expect(handler({ params: { queryByType: 'invalid' } }, {}, next))
           expect(next).toHaveBeenCalledWith(new Error('project.explore.query_by_type_invalid'))
         })

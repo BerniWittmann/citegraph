@@ -2,8 +2,10 @@
 
 exports[`store/modules/paperEntities/getters provides the getters 1`] = `
 Object {
+  "activeEntity": [Function],
   "entities": [Function],
   "entityCount": [Function],
   "entityType": [Function],
+  "hasActiveEntity": [Function],
 }
 `;

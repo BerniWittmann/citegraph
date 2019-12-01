@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/explore/view/Record.vue renders the page 1`] = `
+<div class="project-explore-single-record">
+  <div class="empty-slot-component-stub">
+    <h2 class="display-5">My awesome Paper</h2>
+    <v-container-stub tag="div">
+      <v-row-stub tag="div">
+        <v-col-stub tag="div">
+          <v-subheader-stub class="title">project.explore.view.record.authors</v-subheader-stub>
+          <v-chip-stub activeclass="" to="[object Object]" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">
+            Max Mustermann
+          </v-chip-stub>
+          <v-chip-stub activeclass="" to="[object Object]" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">
+            Other Author
+          </v-chip-stub>
+        </v-col-stub>
+        <v-col-stub cols="2" tag="div">
+          <v-card-stub loaderheight="4" tag="div" class="justify-center text-center pa-2 py-3"><b class="display-1 primary--text font-weight-black">24</b>
+            <p class="headline">project.explore.view.record.citations</p>
+          </v-card-stub>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div">
+        <v-col-stub tag="div">
+          <v-subheader-stub class="title">project.explore.view.record.year</v-subheader-stub>
+          <p>2016</p>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div">
+        <v-col-stub tag="div">
+          <v-subheader-stub class="title">project.explore.view.record.keywords</v-subheader-stub>
+          <v-chip-stub small="true" activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">first</v-chip-stub>
+          <v-chip-stub small="true" activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">of</v-chip-stub>
+          <v-chip-stub small="true" activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">my</v-chip-stub>
+          <v-chip-stub small="true" activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete" class="mx-1">keywords</v-chip-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-container-stub>
+  </div>
+</div>
+`;

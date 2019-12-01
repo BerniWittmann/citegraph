@@ -1,5 +1,4 @@
 import PaperEntity, { PaperEntityBaseFields, PaperEntityTableColumn } from './base'
-import { createFilterAndPaginationForQuery } from '@/models/paperEntities/query'
 
 export interface PublicationFields {
   name: string
@@ -10,6 +9,8 @@ export default class Publication extends PaperEntity implements PublicationField
   static key: string = 'publication'
   static schemaName: string = 'publication'
   static queryName: string = 'Publications'
+  static queryFields: string = `name,
+          numberCitations`
   static displayedColumns: Array<PaperEntityTableColumn> = []
   name: string
   countRecords: number
@@ -18,17 +19,5 @@ export default class Publication extends PaperEntity implements PublicationField
     super({ id })
     this.name = name
     this.countRecords = countRecords
-  }
-
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
-    return `{
-      ${Publication.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
-        count
-        ${Publication.schemaName} {
-          name,
-          numberCitations
-        }
-      }
-    }`
   }
 }

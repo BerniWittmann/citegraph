@@ -14,7 +14,8 @@ describe('store/modules/database/mutations', () => {
       const state: PaperEntitiesState = {
         entities: [],
         entityCount: -1,
-        entityType: ''
+        entityType: '',
+        activeEntity: undefined
       }
       const entities: Array<PaperEntity> = [
         new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
@@ -33,7 +34,8 @@ describe('store/modules/database/mutations', () => {
           new Author({ id: '99', firstName: 'hunter', lastName: 'Two', countRecords: 24 })
         ],
         entityCount: -1,
-        entityType: ''
+        entityType: '',
+        activeEntity: undefined
       }
       const entities: Array<PaperEntity> = [
         new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
@@ -51,7 +53,8 @@ describe('store/modules/database/mutations', () => {
       const state: PaperEntitiesState = {
         entities: [],
         entityCount: -1,
-        entityType: ''
+        entityType: '',
+        activeEntity: undefined
       }
       const type = 'record'
 
@@ -64,7 +67,8 @@ describe('store/modules/database/mutations', () => {
       const state: PaperEntitiesState = {
         entities: [],
         entityCount: -1,
-        entityType: 'author'
+        entityType: 'author',
+        activeEntity: undefined
       }
       const type = 'record'
 
@@ -79,7 +83,8 @@ describe('store/modules/database/mutations', () => {
       const state: PaperEntitiesState = {
         entities: [],
         entityCount: -1,
-        entityType: ''
+        entityType: '',
+        activeEntity: undefined
       }
       const count = 12
 
@@ -92,7 +97,8 @@ describe('store/modules/database/mutations', () => {
       const state: PaperEntitiesState = {
         entities: [],
         entityCount: 99,
-        entityType: 'author'
+        entityType: 'author',
+        activeEntity: undefined
       }
 
       const count = 12
@@ -100,6 +106,50 @@ describe('store/modules/database/mutations', () => {
       mutations[mutationTypes.SET_ENTITY_COUNT](state, count)
 
       expect(state.entityCount).toEqual(count)
+    })
+  })
+
+  describe('SET_ACTIVE_ENTITY', () => {
+    it('saves the entity to the store', () => {
+      const state: PaperEntitiesState = {
+        entities: [],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: undefined
+      }
+      const entity = new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+
+      mutations[mutationTypes.SET_ACTIVE_ENTITY](state, entity)
+
+      expect(state.activeEntity).toEqual(entity)
+    })
+
+    it('overrides existing entity ', () => {
+      const state: PaperEntitiesState = {
+        entities: [],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: new Author({ id: '2', firstName: 'Other', lastName: 'User', countRecords: 12 })
+      }
+
+      const entity = new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+
+      mutations[mutationTypes.SET_ACTIVE_ENTITY](state, entity)
+
+      expect(state.activeEntity).toEqual(entity)
+    })
+
+    it('can unset an existing entity ', () => {
+      const state: PaperEntitiesState = {
+        entities: [],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: new Author({ id: '2', firstName: 'Other', lastName: 'User', countRecords: 12 })
+      }
+
+      mutations[mutationTypes.SET_ACTIVE_ENTITY](state, undefined)
+
+      expect(state.activeEntity).toEqual(undefined)
     })
   })
 })

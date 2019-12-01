@@ -5,6 +5,7 @@ import { InstitutionFields } from '@/models/paperEntities/institution'
 import { PublicationFields } from '@/models/paperEntities/publication'
 import { PublisherFields } from '@/models/paperEntities/publisher'
 import { RecordFields } from '@/models/paperEntities/record'
+import { constructQuery, PaperEntityQueryParameters } from '@/models/paperEntities/query'
 
 export interface PaperEntityBaseFields {
   id: string;
@@ -16,13 +17,14 @@ export default abstract class PaperEntity implements PaperEntityBaseFields {
   static readonly schemaName: string;
   static readonly queryName: string;
   static readonly displayedColumns: Array<PaperEntityTableColumn>;
+  static readonly queryFields: string;
 
   protected constructor ({ id }: PaperEntityBaseFields) {
     this.id = id
   }
 
-  static getQuery (): string {
-    throw new Error('getQuery function need to be implemented')
+  static getQuery (params: PaperEntityQueryParameters): string {
+    return constructQuery(this.queryName, this.schemaName, params, this.queryFields)
   }
 }
 

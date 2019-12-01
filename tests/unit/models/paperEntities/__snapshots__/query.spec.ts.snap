@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`models/paperEntities/query.ts it has a function to create a query creates a query 1`] = `
+"{
+      Record(filter: test orderBy: title_ASC first: 7 skip: 14) {
+        count
+        record {
+          id, title, name
+        }
+      }
+    }"
+`;
+
+exports[`models/paperEntities/query.ts it has a function to create a query creates a query 2`] = `
+"{
+      Record(id: 12) {
+        count
+        record {
+          id, title, count
+        }
+      }
+    }"
+`;

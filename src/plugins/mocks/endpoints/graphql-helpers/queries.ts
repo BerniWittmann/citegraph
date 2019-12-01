@@ -5,6 +5,7 @@ type QueryArguments = {
   skip?: string
   filter?: string
   orderBy?: string
+  id?: string
 }
 
 type FilterFunction = (obj: PaperEntityFields, filter: string) => boolean
@@ -25,16 +26,18 @@ function parseQuery (query: string): QueryArguments {
   const filter = filterString ? filterString.toString().substring(8) : undefined
   const orderByString = query.match(/orderBy: [a-zA-Z0-9]+_((ASC)|(DESC))/)
   const orderBy = orderByString ? orderByString[0].toString().substring(9) : undefined
+  const idString = query.match(/id: [a-zA-Z0-9]+/)
+  const id = idString ? idString[0].toString().substring(4) : undefined
   return {
     first,
     skip,
     filter,
-    orderBy
+    orderBy,
+    id
   }
 }
 
-export function createResponse (query: string, configuration: QueryConfiguration) {
-  const queryParams = parseQuery(query)
+function findMultiple (queryParams: QueryArguments, configuration: QueryConfiguration) {
   let chain = configuration.collection.chain().find()
   if (queryParams.filter && configuration.filterFunction) {
     const filterLc = queryParams.filter.toLowerCase()
@@ -56,12 +59,37 @@ export function createResponse (query: string, configuration: QueryConfiguration
   if (queryParams.first) {
     chain = chain.limit(parseInt(queryParams.first))
   }
-  return [200, {
-    data: {
-      [configuration.queryName]: {
-        count: count,
-        [configuration.schemaName]: chain.data()
+  return {
+    count,
+    data: chain.data()
+  }
+}
+
+function findOne (queryParams: QueryArguments, configuration: QueryConfiguration) {
+  let data = configuration.collection.findOne({ id: queryParams.id })
+  if (!data) {
+    throw new Error('Entity not found')
+  }
+  return {
+    count: 1,
+    data: data
+  }
+}
+
+export function createResponse (query: string, configuration: QueryConfiguration) {
+  const queryParams = parseQuery(query)
+  const findFn = queryParams.id ? findOne : findMultiple
+  try {
+    const { count, data } = findFn(queryParams, configuration)
+    return [200, {
+      data: {
+        [configuration.queryName]: {
+          count: count,
+          [configuration.schemaName]: data
+        }
       }
-    }
-  }]
+    }]
+  } catch (err) {
+    return [404, err]
+  }
 }

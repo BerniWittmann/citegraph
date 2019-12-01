@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layouts/PaperEntity.vue renders 1`] = `
+<v-container-stub tag="div">
+  <v-card-stub loaderheight="4" tag="div" class="pa-4 paper-entity-card">
+    <v-card-title-stub class="headline">
+      <h1 class="title">Title</h1>
+      <v-spacer-stub></v-spacer-stub>
+      <v-btn-stub tag="button" activeclass="" type="button">
+        <v-icon-stub>mdi-pencil</v-icon-stub>
+        project.explore.view.edit
+      </v-btn-stub>
+    </v-card-title-stub>
+    <p class="content">Main Content</p>
+  </v-card-stub>
+</v-container-stub>
+`;

@@ -14,5 +14,13 @@ export const getters: GetterTree<PaperEntitiesState, RootState> = {
 
   entityCount (state: PaperEntitiesState): number {
     return state.entityCount
+  },
+
+  activeEntity (state: PaperEntitiesState): PaperEntity | undefined {
+    return state.activeEntity
+  },
+
+  hasActiveEntity (state: PaperEntitiesState): boolean {
+    return !!state.activeEntity
   }
 }

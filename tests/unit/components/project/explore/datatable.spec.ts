@@ -20,6 +20,9 @@ describe('components/project/explore/DataTable.vue', () => {
     },
     dispatch: jest.fn()
   }
+  const router = {
+    push: jest.fn()
+  }
 
   function getWrapper (type: string = 'record') {
     return shallowMount(DataTable, {
@@ -28,7 +31,14 @@ describe('components/project/explore/DataTable.vue', () => {
         queryByType: type
       },
       mocks: {
-        $store: store
+        $store: store,
+        $router: router,
+        $route: {
+          params: {
+            projectId: 42,
+            entityType: type
+          }
+        }
       }
     })
   }
@@ -57,6 +67,19 @@ describe('components/project/explore/DataTable.vue', () => {
             text: header.text,
             value: header.value
           }))).toMatchSnapshot()
+        })
+
+        it('navigates to an entity on row click', () => {
+          wrapper.vm.handleRowClick(store.getters['paperEntities/entities'][0])
+
+          expect(router.push).toHaveBeenCalledWith({
+            name: 'projects.single.explore.view',
+            params: {
+              projectId: 42,
+              entityType: entityKey,
+              entityId: 1
+            }
+          })
         })
       })
     })

@@ -1,6 +1,5 @@
 import PaperEntity, { PaperEntityTableColumn, PaperEntityBaseFields } from './base'
 import Author from './author'
-import { createFilterAndPaginationForQuery } from '@/models/paperEntities/query'
 
 export interface RecordFields {
   title: string;
@@ -14,6 +13,11 @@ export default class Record extends PaperEntity implements RecordFields {
   static key: string = 'record'
   static queryName: string = 'Records'
   static schemaName: string = 'record'
+  static queryFields: string = `title,
+          authors,
+          year,
+          keywords,
+          numberCitations`
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.record.title',
     value: 'title',
@@ -54,20 +58,5 @@ export default class Record extends PaperEntity implements RecordFields {
     this.year = year
     this.keywords = keywords
     this.numberCitations = numberCitations
-  }
-
-  static getQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
-    return `{
-      ${Record.queryName}${createFilterAndPaginationForQuery(perPage, pageOffset, filter, sortBy)} {
-        count
-        ${Record.schemaName} {
-          title,
-          authors,
-          year,
-          keywords,
-          numberCitations
-        }
-      }
-    }`
   }
 }

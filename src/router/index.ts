@@ -1,17 +1,20 @@
 import { Route, Next, RouteConfig } from 'vue-router'
 import store from '@/plugins/store'
 
-import ProjectWrapperPage from '@/pages/project/ProjectWrapper.vue'
+import ProjectWrapperPage from '@/pages/project/general/ProjectWrapper.vue'
 import AddProjectPage from '@/pages/projects/AddProject.vue'
 import HomePage from '@/pages/Home.vue'
 import AboutPage from '@/pages/About.vue'
-import ProjectPage from '@/pages/project/Project.vue'
+import ProjectPage from '@/pages/project/general/Project.vue'
 import ProjectsPage from '@/pages/projects/Projects.vue'
 import SettingsPage from '@/pages/Settings.vue'
-import EditProjectPage from '@/pages/project/EditProject.vue'
+import EditProjectPage from '@/pages/project/general/EditProject.vue'
 import EmptyRouterView from '@/router/EmptyRouterView.vue'
-import ImportPage from '@/pages/project/Import.vue'
-import ExplorePage from '@/pages/project/Explore.vue'
+import ImportPage from '@/pages/project/import/Import.vue'
+import ExplorePage from '@/pages/project/explore/Explore.vue'
+import ExploreWrapperPage from '@/pages/project/explore/ExploreWrapper.vue'
+import ExploreSinglePage from '@/pages/project/explore/ExploreSingle.vue'
+import ExploreSingleWrapperPage from '@/pages/project/explore/ExploreSingleWrapper.vue'
 
 const routes: Array<RouteConfig> = [
   {
@@ -61,11 +64,23 @@ const routes: Array<RouteConfig> = [
         component: ImportPage
       }, {
         path: 'explore/:queryByType',
-        name: 'projects.single.explore',
-        component: ExplorePage,
+        component: ExploreWrapperPage,
         meta: {
           isExplorePage: true
-        }
+        },
+        children: [{
+          path: '',
+          name: 'projects.single.explore',
+          component: ExplorePage
+        }, {
+          path: ':entityId',
+          component: ExploreSingleWrapperPage,
+          children: [{
+            path: '',
+            name: 'projects.single.explore.view',
+            component: ExploreSinglePage
+          }]
+        }]
       }]
     }, {
       path: 'edit',

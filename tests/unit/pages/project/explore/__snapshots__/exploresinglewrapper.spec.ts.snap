@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/ExploreSingleWrapper.vue displays an error if paper entity is not available 1`] = `
+<div class="project-explore-single-wrapper">
+  <div>
+    <v-alert-stub tag="div" value="true" closelabel="$vuetify.close" icon="" prominent="true" type="error">
+      project.explore.entity_not_available.text
+    </v-alert-stub>
+    <div class="d-flex justify-center">
+      <v-btn-stub color="blue-grey" tag="button" activeclass="" xlarge="true" type="button" class="mt-2 white--text">project.explore.entity_not_available.button</v-btn-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`pages/ExploreSingleWrapper.vue renders the page 1`] = `
+<div class="project-explore-single-wrapper">
+  <div>
+    <div class="router-view"></div>
+  </div>
+</div>
+`;

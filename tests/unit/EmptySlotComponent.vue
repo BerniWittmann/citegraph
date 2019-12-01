@@ -1,6 +1,7 @@
 <template>
   <div class="empty-slot-component-stub">
     <slot name="header"></slot>
+    <slot name="title"></slot>
     <slot name="activator"></slot>
     <slot></slot>
     <slot name="footer"></slot>

@@ -2,6 +2,7 @@
 
 exports[`store/modules/database/mutations provides the mutations 1`] = `
 Object {
+  "SET_ACTIVE_ENTITY": [Function],
   "SET_ENTITIES": [Function],
   "SET_ENTITY_COUNT": [Function],
   "SET_ENTITY_TYPE": [Function],

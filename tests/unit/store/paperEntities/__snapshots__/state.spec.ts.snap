@@ -2,6 +2,7 @@
 
 exports[`store/modules/paperEntities/state provides the initial state 1`] = `
 Object {
+  "activeEntity": undefined,
   "entities": Array [],
   "entityCount": -1,
   "entityType": undefined,

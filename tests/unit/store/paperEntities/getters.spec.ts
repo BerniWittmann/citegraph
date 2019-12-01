@@ -68,4 +68,44 @@ describe('store/modules/paperEntities/getters', () => {
       expect(getter(state)).toEqual(-1)
     })
   })
+
+  describe('activeEntity', () => {
+    it('returns the stored entity', () => {
+      const state = {
+        activeEntity: new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+      }
+      const getter = getters.activeEntity as Function
+
+      expect(getter(state)).toEqual(state.activeEntity)
+    })
+
+    it('returns undefined if no entity is available', () => {
+      const state = {
+        activeEntity: undefined
+      }
+      const getter = getters.activeEntity as Function
+
+      expect(getter(state)).toEqual(undefined)
+    })
+  })
+
+  describe('hasActiveEntity', () => {
+    it('returns true if there is a  stored entity', () => {
+      const state = {
+        activeEntity: new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+      }
+      const getter = getters.hasActiveEntity as Function
+
+      expect(getter(state)).toBeTruthy()
+    })
+
+    it('returns false if no entity is available', () => {
+      const state = {
+        activeEntity: undefined
+      }
+      const getter = getters.hasActiveEntity as Function
+
+      expect(getter(state)).toBeFalsy()
+    })
+  })
 })

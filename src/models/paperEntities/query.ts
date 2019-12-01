@@ -6,22 +6,37 @@ export interface PaperEntityQueryParameters {
   perPage?: number
   pageOffset?: number
   filter?: string
-  sortBy?: string
+  sortBy?: string,
+  id?: string
 }
 
 export type PaperEntityQueryResponse = PaperEntityFields
 
-export function createFilterAndPaginationForQuery (perPage?: number, pageOffset?: number, filter?: string, sortBy?: string): string {
-  if (!perPage && !pageOffset && !filter && !sortBy) return ''
+function createQueryParams (params: PaperEntityQueryParameters): string {
+  if (!params.id && !params.perPage && !params.pageOffset && !params.filter && !params.sortBy) return ''
+  if (params.id) {
+    return `(id: ${params.id})`
+  }
   const args = [
-    filter ? `filter: ${filter}` : '',
-    sortBy ? `orderBy: ${sortBy}` : ''
+    params.filter ? `filter: ${params.filter}` : '',
+    params.sortBy ? `orderBy: ${params.sortBy}` : ''
   ]
-  if (perPage !== undefined && pageOffset !== undefined) {
-    args.push(`first: ${perPage}`)
-    if (pageOffset > 0) {
-      args.push(`skip: ${pageOffset * perPage}`)
+  if (params.perPage !== undefined && params.pageOffset !== undefined) {
+    args.push(`first: ${params.perPage}`)
+    if (params.pageOffset > 0) {
+      args.push(`skip: ${params.pageOffset * params.perPage}`)
     }
   }
   return '(' + args.filter((arg) => arg.length > 0).join(' ') + ')'
+}
+
+export function constructQuery (queryName: string, schemaName: string, params: PaperEntityQueryParameters, fields: string): string {
+  return `{
+      ${queryName}${createQueryParams(params)} {
+        count
+        ${schemaName} {
+          ${fields}
+        }
+      }
+    }`
 }

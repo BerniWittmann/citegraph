@@ -24,6 +24,7 @@
       @update:options="updateOptions"
       disable-filtering
       :server-items-length="totalItemCount"
+      @click:row="handleRowClick"
     >
       <template v-slot:item.authors="{ item }">
         <v-chip class="mx-1" v-for="(author, index) in item.authors" :key="`${item.id}_${author.id}_${index}`" small>{{ getAuthorDisplayName(author) }}</v-chip>
@@ -137,6 +138,16 @@ export default class DataTable extends Vue {
 
   getAuthorDisplayName (author: Author): string {
     return `${author.firstName.substring(0, 1)}. ${author.lastName}`
+  }
+
+  handleRowClick (item: PaperEntity): void {
+    this.$router.push({
+      name: 'projects.single.explore.view',
+      params: {
+        ...this.$route.params,
+        entityId: item.id
+      }
+    })
   }
 }
 </script>

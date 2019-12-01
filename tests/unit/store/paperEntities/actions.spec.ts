@@ -70,6 +70,10 @@ describe('store/modules/paperEntities/actions', () => {
             // @ts-ignore
             const request = moxios.requests.mostRecent()
             expect(request.config.data).toMatchSnapshot()
+            expect(request.config.data).toContain('filter: my filter')
+            expect(request.config.data).toContain('orderBy: title_ASC')
+            expect(request.config.data).toContain('first: 10')
+            expect(request.config.data).toContain('skip: 10')
             expect(commit).toHaveBeenCalledWith('SET_ENTITIES', data)
             expect(commit).toHaveBeenCalledWith('SET_ENTITY_TYPE', entityKey)
             expect(commit).toHaveBeenCalledWith('SET_ENTITY_COUNT', 23)
@@ -103,6 +107,82 @@ describe('store/modules/paperEntities/actions', () => {
             expect(commit).toHaveBeenCalledWith('SET_ENTITIES', [])
             expect(commit).toHaveBeenCalledWith('SET_ENTITY_TYPE', undefined)
             expect(commit).toHaveBeenCalledWith('SET_ENTITY_COUNT', -1)
+            done()
+          })
+        })
+      })
+    })
+  })
+
+  describe('fetchEntity', () => {
+    const projectId = 42
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    entityKeys.forEach((entityKey) => {
+      describe('can fetch the entity type ' + entityKey, () => {
+        const EntityClass = entityKeysMap[entityKey]
+        const data = new EntityClass(createDataWithId(1))
+
+        it('fetches the entity', (done) => {
+          moxios.stubRequest(`/projects/${projectId}/paper-entities`, {
+            status: 200,
+            response: {
+              data: {
+                [EntityClass.queryName]: {
+                  count: 1,
+                  [EntityClass.schemaName]: data
+                }
+              }
+            }
+          })
+
+          const onFulfilled = jest.fn()
+          const commit = jest.fn()
+          const dispatch = jest.fn()
+          const action = actions.fetchEntity as Function
+
+          action({ commit, dispatch }, {
+            projectId,
+            entityType: entityKey,
+            id: 1
+          }).then(onFulfilled)
+
+          moxios.wait(() => {
+            expect(onFulfilled).toHaveBeenCalledWith(undefined)
+            // @ts-ignore
+            const request = moxios.requests.mostRecent()
+            expect(request.config.data).toMatchSnapshot()
+            expect(request.config.data).toContain('id: 1')
+            expect(commit).toHaveBeenCalledWith('SET_ACTIVE_ENTITY', data)
+            done()
+          })
+        })
+
+        it('handles the error when one appeared during the fetching', (done) => {
+          moxios.stubRequest(`/projects/${projectId}/paper-entities`, {
+            status: 400,
+            response: 'The given query is invalid'
+          })
+
+          const onFulfilled = jest.fn()
+          const commit = jest.fn()
+          const dispatch = jest.fn()
+          const action = actions.fetchEntity as Function
+
+          action({ commit, dispatch }, {
+            projectId,
+            entityType: entityKey,
+            id: 1
+          }).then(onFulfilled)
+
+          moxios.wait(() => {
+            expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 400'))
+            expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'project.explore.fetch_single_error', { root: true })
+            expect(commit).toHaveBeenCalledWith('SET_ACTIVE_ENTITY', undefined)
             done()
           })
         })

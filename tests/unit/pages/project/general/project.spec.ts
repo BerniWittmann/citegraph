@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
-import { i18n } from '../../setupPlugins'
+import { i18n } from '../../../setupPlugins'
 
-import ProjectPage from '@/pages/project/Project.vue'
+import ProjectPage from '@/pages/project/general/Project.vue'
 import Project from '@/models/project'
 
 describe('pages/Project.vue', () => {

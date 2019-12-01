@@ -1,14 +1,11 @@
 <template>
-  <div class="project-explore">
-    <data-table :query-by-type="queryByType"/>
-  </div>
+  <router-view/>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { entityKeys } from '@/models/paperEntities'
 import { Route, Next } from 'vue-router'
-import DataTable from '@/components/project/explore/DataTable.vue'
+import { entityKeys } from '@/models/paperEntities'
 
 function checkQueryTypeValid (to: Route): boolean {
   const queryByType: string | undefined = to.params.queryByType
@@ -28,16 +25,8 @@ function beforeRouteEnterOrUpdate (to: Route, from: Route, next: Next) {
   }
 }
 
-@Component({
-  components: {
-    DataTable
-  }
-})
-export default class ExplorePage extends Vue {
-  get queryByType (): string {
-    return this.$route.params.queryByType
-  }
-
+@Component
+export default class ExploreWrapperPage extends Vue {
   beforeRouteEnter (to: Route, from: Route, next: Next) {
     beforeRouteEnterOrUpdate(to, from, next)
   }
