@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/project/import/Upload.vue emits the next step event when the upload finished 1`] = `
+<v-btn-stub color="primary" tag="button" activeclass="" xlarge="true" type="button" class="mr-10" loading="true">
+  <v-icon-stub>mdi-play</v-icon-stub>
+  project.import.upload.import
+</v-btn-stub>
+`;
+
+exports[`components/project/import/Upload.vue emits the next step event when the upload finished 2`] = `
+<v-btn-stub color="success" tag="button" activeclass="" xlarge="true" type="button" class="mr-10">
+  <v-icon-stub>mdi-check</v-icon-stub>
+  project.import.upload.import
+</v-btn-stub>
+`;
+
 exports[`components/project/import/Upload.vue renders 1`] = `
 <div class="project-import-upload">
   <h1>project.import.upload.title</h1>

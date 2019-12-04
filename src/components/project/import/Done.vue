@@ -5,7 +5,9 @@
       <v-btn rounded large color="warning" @click="addMore">
         {{ $t('project.import.done.add_more') }}
       </v-btn>
-      <v-btn rounded large color="primary">{{ $t('project.import.done.explore') }}</v-btn>
+      <v-btn rounded large color="primary" :to="{ name: 'projects.single.explore', params: { ...this.$route.params, queryByType: 'record' } }">
+        {{ $t('project.import.done.explore') }}
+      </v-btn>
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@ import { Component, Emit, Vue } from 'vue-property-decorator'
 @Component
 export default class ProjectImportDoneComponent extends Vue {
   @Emit('first-step')
-  addMore (): void {}
+  addMore (): void {
+  }
 }
 </script>

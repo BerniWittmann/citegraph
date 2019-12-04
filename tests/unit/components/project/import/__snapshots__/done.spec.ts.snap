@@ -7,7 +7,9 @@ exports[`components/project/import/Done.vue renders 1`] = `
     <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
       project.import.done.add_more
     </v-btn-stub>
-    <v-btn-stub color="primary" tag="button" activeclass="" large="true" rounded="true" type="button">project.import.done.explore</v-btn-stub>
+    <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" large="true" rounded="true" type="button">
+      project.import.done.explore
+    </v-btn-stub>
   </div>
 </div>
 `;

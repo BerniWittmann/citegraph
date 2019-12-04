@@ -13,8 +13,9 @@
 
           <vue-dropzone v-else ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" use-custom-slot
                         :include-styling="false"
-                        @vdropzone-success="finishedUpload"
-                        @vdropzone-success-multiple="finishedUpload" duplicate-check>
+                        @vdropzone-success-multiple="finishedUpload"
+                        @vdropzone-file-added="addedFile"
+                        @vdropzone-files-added="addedFile" duplicate-check>
             <v-hover v-slot:default="{ hover }" class="mx-3">
               <v-sheet color="grey lighten-4" min-height="300" width="100%"
                        class="d-flex flex-column justify-center align-center upload-drop-zone"
@@ -40,12 +41,13 @@
 
         <v-btn
           v-if="hasFiles"
-          color="primary"
-          @click="nextStep"
+          :color="isUploaded ? 'success': 'primary'"
+          @click="uploadFiles"
           x-large
           class="mr-10"
+          :loading="isUploading"
         >
-          <v-icon>mdi-play</v-icon>
+          <v-icon>{{ isUploaded ? 'mdi-check' : 'mdi-play' }}</v-icon>
           {{ $t('project.import.upload.import') }}
         </v-btn>
       </v-row>
@@ -66,6 +68,8 @@ import DZFilePreview from '@/components/project/import/DZFilePreview.vue'
 })
 export default class ProjectImportUploadComponent extends Vue {
   isLoading: boolean = true
+  isUploading: boolean = false
+  isUploaded: boolean = false
   previewHTML: string | undefined = undefined
   hasFiles: boolean = false
 
@@ -74,16 +78,39 @@ export default class ProjectImportUploadComponent extends Vue {
       url: 'https://httpbin.org/post',
       acceptedFiles: 'text/csv',
       previewsContainer: '#dropzone-previews',
-      previewTemplate: this.previewHTML
+      previewTemplate: this.previewHTML,
+      autoProcessQueue: false,
+      uploadMultiple: true
     }
   }
 
   finishedUpload (): void {
+    this.isUploading = false
+    this.isUploaded = true
+    setTimeout(this.nextStep, 700)
+  }
+
+  addedFile (): void {
     this.hasFiles = true
+  }
+
+  uploadFiles (): void {
+    // @ts-ignore
+    const queuedFilesLength = this.$refs.myVueDropzone.getQueuedFiles().length
+    // @ts-ignore
+    const acceptedFilesLength = this.$refs.myVueDropzone.getAcceptedFiles().length
+    if (queuedFilesLength === 0 && acceptedFilesLength > 0) {
+      this.nextStep()
+    }
+    if (queuedFilesLength === 0) return
+    this.isUploading = true
+    // @ts-ignore
+    this.$refs.myVueDropzone.processQueue()
   }
 
   @Emit()
   nextStep (): void {
+    this.isUploaded = false
   }
 
   created () {

@@ -7,6 +7,13 @@ describe('components/project/import/Done.vue', () => {
   function getWrapper () {
     return shallowMount(ProjectImportDoneComponent, {
       i18n,
+      mocks: {
+        $route: {
+          params: {
+            projectId: 42
+          }
+        }
+      },
       stubs: {
         RouterLink: RouterLinkStub
       }
@@ -35,5 +42,12 @@ describe('components/project/import/Done.vue', () => {
     const btn = wrapper.findAll('v-btn-stub').at(1)
     expect(btn.exists()).toBeTruthy()
     expect(btn.text()).toEqual('project.import.done.explore')
+    expect(btn.props('to')).toEqual({
+      name: 'projects.single.explore',
+      params: {
+        projectId: 42,
+        queryByType: 'record'
+      }
+    })
   })
 })

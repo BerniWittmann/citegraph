@@ -12,6 +12,12 @@ exports[`components/project/import/DZFilePreview.vue renders 1`] = `
           <v-list-item-content-stub class="align-self-centerpy-0">
             <v-list-item-title-stub class="title mb-1"><span data-dz-name=""></span></v-list-item-title-stub>
             <v-list-item-subtitle-stub><span data-dz-size=""></span></v-list-item-subtitle-stub>
+            <v-list-item-subtitle-stub>
+              <div class="upload-progress">
+                <div class="upload-progress__background"></div>
+                <div data-dz-uploadprogress="" class="upload-progress__progress-bar"></div>
+              </div>
+            </v-list-item-subtitle-stub>
             <v-list-item-subtitle-stub><span data-dz-errormessage="" class="error--text"></span></v-list-item-subtitle-stub>
           </v-list-item-content-stub>
         </v-list-item-stub>
