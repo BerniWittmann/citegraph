@@ -4,7 +4,6 @@ import { i18n } from '../setupPlugins'
 import DefaultLayout from '@/layouts/Default.vue'
 
 import AppBar from '@/components/AppBar.vue'
-import Footer from '@/components/Footer.vue'
 import NavigationDrawer from '@/components/NavigationDrawer.vue'
 import ToastsContainer from '@/components/ToastsContainer.vue'
 
@@ -40,12 +39,6 @@ describe('layouts/Default.vue', () => {
     const content = wrapper.find('.content')
     expect(content.exists()).toBeTruthy()
     expect(content.text()).toEqual('Main Content')
-  })
-  it('renders the footer', () => {
-    const wrapper = shallowMount(DefaultLayout, {
-      i18n
-    })
-    expect(wrapper.contains(Footer)).toBeTruthy()
   })
   it('renders the toasts container', () => {
     const wrapper = shallowMount(DefaultLayout, {

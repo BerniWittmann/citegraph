@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`components/Footer.vue renders 1`] = `
-<v-footer-stub height="auto" tag="div" tile="true" app="true" inset="true">
-  <v-spacer-stub></v-spacer-stub>
-  <div>footer.version</div>
-</v-footer-stub>
-`;

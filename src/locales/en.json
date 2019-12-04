@@ -1,15 +1,13 @@
 {
   "citegraph": "CiteGraph",
-  "footer": {
-    "version": "Version %{version}"
-  },
   "home": {
     "title": "Home",
     "text": "This page is currently under construction"
   },
   "about": {
     "title": "About",
-    "text": "CiteGraph is a bibliometric tool for running literature analysis"
+    "text": "CiteGraph is a bibliometric tool for running literature analysis",
+    "version": "Version %{version}"
   },
   "settings": {
     "title": "Settings",

@@ -12,7 +12,6 @@
     </v-content>
 
     <toasts-container></toasts-container>
-    <app-footer></app-footer>
   </v-app>
 </template>
 
@@ -20,7 +19,6 @@
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import AppBar from '@/components/AppBar.vue'
 import NavigationDrawer from '@/components/NavigationDrawer.vue'
-import Footer from '@/components/Footer.vue'
 import { Route } from 'vue-router'
 import { isProjectRoute } from '@/common/helpers'
 import ToastsContainer from '@/components/ToastsContainer.vue'
@@ -29,8 +27,7 @@ import ToastsContainer from '@/components/ToastsContainer.vue'
   components: {
     ToastsContainer,
     AppBar,
-    NavigationDrawer,
-    AppFooter: Footer
+    NavigationDrawer
   }
 })
 export default class DefaultLayout extends Vue {
