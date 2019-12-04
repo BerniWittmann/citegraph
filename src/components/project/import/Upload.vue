@@ -102,6 +102,7 @@ export default class ProjectImportUploadComponent extends Vue {
   .upload-drop-zone {
     transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
     will-change: box-shadow;
+    cursor: pointer;
   }
 }
 </style>
