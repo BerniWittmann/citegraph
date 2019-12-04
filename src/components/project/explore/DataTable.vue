@@ -36,10 +36,14 @@
       @click:row="handleRowClick"
     >
       <template v-slot:item.authors="{ item }">
-        <v-chip class="mx-1" v-for="(author, index) in item.authors" :key="`${item.id}_${author.id}_${index}`" small>{{ getAuthorDisplayName(author) }}</v-chip>
+        <v-chip-group>
+          <v-chip v-for="(author, index) in item.authors" :key="`${item.id}_${author.id}_${index}`" small>{{ getAuthorDisplayName(author) }}</v-chip>
+        </v-chip-group>
       </template>
       <template v-slot:item.keywords="{ item }">
-        <v-chip class="mx-1" v-for="(keyword, index) in item.keywords" :key="`${item.id}_${index}`" small>{{ keyword }}</v-chip>
+        <v-chip-group>
+          <v-chip v-for="(keyword, index) in item.keywords" :key="`${item.id}_${index}`" small>{{ keyword }}</v-chip>
+        </v-chip-group>
       </template>
       <template v-slot:item.flagUrl="{ item }">
           <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>

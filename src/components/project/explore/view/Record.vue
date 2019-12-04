@@ -8,10 +8,12 @@
         <v-row>
           <v-col>
             <v-subheader class="title">{{ $t('project.explore.view.record.authors') }}</v-subheader>
-            <v-chip class="mx-1" v-for="(author, index) in record.authors" :key="index"
-                    :to="{ name: 'projects.single.explore.view', params: { ...$route.params, queryByType: 'author', entityId: author.id } }">
-              {{ author.firstName }} {{ author.lastName }}
-            </v-chip>
+            <v-chip-group column>
+              <v-chip v-for="(author, index) in record.authors" :key="index"
+                      :to="{ name: 'projects.single.explore.view', params: { ...$route.params, queryByType: 'author', entityId: author.id } }">
+                {{ author.firstName }} {{ author.lastName }}
+              </v-chip>
+            </v-chip-group>
           </v-col>
           <v-col :cols="2">
             <v-card class="justify-center text-center pa-2 py-3">
@@ -29,7 +31,9 @@
         <v-row>
           <v-col>
             <v-subheader class="title">{{ $t('project.explore.view.record.keywords') }}</v-subheader>
-            <v-chip class="mx-1" v-for="(keyword, index) in record.keywords" small :key="index">{{ keyword }}</v-chip>
+            <v-chip-group column>
+              <v-chip v-for="(keyword, index) in record.keywords" small :key="index">{{ keyword }}</v-chip>
+            </v-chip-group>
           </v-col>
         </v-row>
       </v-container>

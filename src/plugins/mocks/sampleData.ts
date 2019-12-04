@@ -56,6 +56,16 @@ export function insertSampleRecordsData (db: Loki): void {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         countRecords: randomNumberFromInterval(0, 100)
+      }, {
+        id: randomNumberFromInterval(1, 10).toString(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        countRecords: randomNumberFromInterval(0, 100)
+      }, {
+        id: randomNumberFromInterval(1, 10).toString(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        countRecords: randomNumberFromInterval(0, 100)
       }]
     }))
   }
