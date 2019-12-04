@@ -9,7 +9,7 @@
       </template>
       <v-container>
         <v-row>
-          <v-col :cols="3">
+          <v-col :xl="3" :lg="6">
             <v-list>
               <v-subheader class="title">{{ $t('project.explore.view.author.metrics') }}</v-subheader>
               <v-list-item>

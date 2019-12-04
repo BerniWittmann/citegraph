@@ -19,7 +19,22 @@ Array [
 
 exports[`components/project/explore/DataTable.vue it renders the different entity types conference renders the correct headers 1`] = `Array []`;
 
-exports[`components/project/explore/DataTable.vue it renders the different entity types country renders the correct headers 1`] = `Array []`;
+exports[`components/project/explore/DataTable.vue it renders the different entity types country renders the correct headers 1`] = `
+Array [
+  Object {
+    "text": "project.explore.table.headers.country.name",
+    "value": "name",
+  },
+  Object {
+    "text": "project.explore.table.headers.country.flag",
+    "value": "flagUrl",
+  },
+  Object {
+    "text": "project.explore.table.headers.country.count_records",
+    "value": "countRecords",
+  },
+]
+`;
 
 exports[`components/project/explore/DataTable.vue it renders the different entity types institution renders the correct headers 1`] = `Array []`;
 

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/explore/view/Country.vue renders a question mark icon if the flag is not available 1`] = `
+<div class="project-explore-single-country">
+  <div class="empty-slot-component-stub">
+    <v-sheet-stub color="grey lighten-1" width="60" tag="div" class="text-center">
+      <v-icon-stub dark="">mdi-help</v-icon-stub>
+    </v-sheet-stub>
+    <h2 class="display-5 ml-5">Germany</h2>
+    <v-container-stub tag="div">
+      <v-row-stub tag="div">
+        <v-col-stub lg="6" xl="3" tag="div">
+          <v-list-stub tag="div" tile="true">
+            <v-subheader-stub class="title">project.explore.view.country.metrics</v-subheader-stub>
+            <v-list-item-stub activeclass="" tag="div">
+              <v-list-item-content-stub>project.explore.view.country.count_records:</v-list-item-content-stub>
+              <v-list-item-content-stub class="align-end">12</v-list-item-content-stub>
+            </v-list-item-stub>
+          </v-list-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-container-stub>
+  </div>
+</div>
+`;
+
+exports[`components/project/explore/view/Country.vue renders the page 1`] = `
+<div class="project-explore-single-country">
+  <div class="empty-slot-component-stub">
+    <v-img-stub maxwidth="60" width="60" contain="true" options="[object Object]" position="center center" src="https://flag.url" transition="fade-transition"></v-img-stub>
+    <h2 class="display-5 ml-5">Germany</h2>
+    <v-container-stub tag="div">
+      <v-row-stub tag="div">
+        <v-col-stub lg="6" xl="3" tag="div">
+          <v-list-stub tag="div" tile="true">
+            <v-subheader-stub class="title">project.explore.view.country.metrics</v-subheader-stub>
+            <v-list-item-stub activeclass="" tag="div">
+              <v-list-item-content-stub>project.explore.view.country.count_records:</v-list-item-content-stub>
+              <v-list-item-content-stub class="align-end">12</v-list-item-content-stub>
+            </v-list-item-stub>
+          </v-list-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-container-stub>
+  </div>
+</div>
+`;

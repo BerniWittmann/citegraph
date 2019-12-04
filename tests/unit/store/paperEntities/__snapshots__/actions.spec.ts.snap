@@ -4,7 +4,7 @@ exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity 
 
 exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type conference fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(filter: my filter orderBy: title_ASC first: 10 skip: 10) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type country fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Countries(filter: my filter orderBy: title_ASC first: 10 skip: 10) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type country fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Countries(filter: my filter orderBy: title_ASC first: 10 skip: 10) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations,\\\\n          flagUrl\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type institution fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(filter: my filter orderBy: title_ASC first: 10 skip: 10) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
@@ -18,7 +18,7 @@ exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity ty
 
 exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type conference fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type country fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Countries(id: 1) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type country fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Countries(id: 1) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations,\\\\n          flagUrl\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type institution fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(id: 1) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 

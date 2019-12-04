@@ -32,6 +32,9 @@
       <template v-slot:item.keywords="{ item }">
         <v-chip class="mx-1" v-for="(keyword, index) in item.keywords" :key="`${item.id}_${index}`" small>{{ keyword }}</v-chip>
       </template>
+      <template v-slot:item.flagUrl="{ item }">
+          <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>
+      </template>
     </v-data-table>
   </v-card>
 </template>

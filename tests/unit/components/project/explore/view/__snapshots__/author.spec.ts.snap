@@ -7,7 +7,7 @@ exports[`components/project/explore/view/Author.vue renders the page 1`] = `
     <h2 class="display-5">Max Mustermann</h2>
     <v-container-stub tag="div">
       <v-row-stub tag="div">
-        <v-col-stub cols="3" tag="div">
+        <v-col-stub lg="6" xl="3" tag="div">
           <v-list-stub tag="div" tile="true">
             <v-subheader-stub class="title">project.explore.view.author.metrics</v-subheader-stub>
             <v-list-item-stub activeclass="" tag="div">

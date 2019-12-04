@@ -3,6 +3,7 @@ import PaperEntity, { PaperEntityBaseFields, PaperEntityTableColumn } from './ba
 export interface CountryFields {
   name: string
   countRecords: number
+  flagUrl?: string
 }
 
 export default class Country extends PaperEntity implements CountryFields {
@@ -10,14 +11,33 @@ export default class Country extends PaperEntity implements CountryFields {
   static schemaName: string = 'country'
   static queryName: string = 'Countries'
   static queryFields: string = `name,
-          numberCitations`
-  static displayedColumns: Array<PaperEntityTableColumn> = []
+          numberCitations,
+          flagUrl`
+  static displayedColumns: Array<PaperEntityTableColumn> = [{
+    text: 'project.explore.table.headers.country.name',
+    value: 'name',
+    sortable: true,
+    filterable: true
+  }, {
+    text: 'project.explore.table.headers.country.flag',
+    value: 'flagUrl',
+    sortable: false,
+    filterable: false,
+    align: 'center'
+  }, {
+    text: 'project.explore.table.headers.country.count_records',
+    value: 'countRecords',
+    sortable: true,
+    align: 'center'
+  }]
   name: string
   countRecords: number
+  flagUrl?: string
 
-  constructor ({ id, name, countRecords }: PaperEntityBaseFields & CountryFields) {
+  constructor ({ id, name, countRecords, flagUrl }: PaperEntityBaseFields & CountryFields) {
     super({ id })
     this.name = name
     this.countRecords = countRecords
+    this.flagUrl = flagUrl
   }
 }

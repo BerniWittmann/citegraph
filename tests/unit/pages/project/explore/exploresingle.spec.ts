@@ -4,6 +4,7 @@ import { i18n } from '../../../setupPlugins'
 import ExploreSinglePage from '@/pages/project/explore/ExploreSingle.vue'
 import RecordViewPage from '@/components/project/explore/view/Record.vue'
 import AuthorViewPage from '@/components/project/explore/view/Author.vue'
+import CountryViewPage from '@/components/project/explore/view/Country.vue'
 
 describe('pages/project/ExploreSinglePage.vue', () => {
   function getWrapper (queryByType: string = 'record') {
@@ -31,7 +32,8 @@ describe('pages/project/ExploreSinglePage.vue', () => {
 
   const components: Record<string, any> = {
     record: RecordViewPage,
-    author: AuthorViewPage
+    author: AuthorViewPage,
+    country: CountryViewPage
   }
 
   describe('it renders the correct component', () => {
