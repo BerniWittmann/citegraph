@@ -70,11 +70,19 @@ Array [
 exports[`components/project/explore/DataTable.vue renders 1`] = `
 <v-card-stub loaderheight="4" tag="div" style="width: 100%;">
   <v-card-title-stub>
-    <h1 class="display-1 my-5">
-      project.explore.title.query_by_type.record
-    </h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="mdi-magnify" backgroundcolor="" hidedetails="true" label="project.explore.table.search" loaderheight="2" clearable="true" clearicon="$clear" singleline="true" type="text"></v-text-field-stub>
+    <v-row-stub tag="div" align="center" justify="space-between">
+      <v-col-stub cols="auto" tag="div">
+        <h1 class="display-1">
+          project.explore.title.query_by_type.record
+        </h1>
+      </v-col-stub>
+      <v-col-stub cols="auto" tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="mdi-magnify" backgroundcolor="" hidedetails="true" label="project.explore.table.search" loaderheight="2" clearable="true" clearicon="$clear" singleline="true" type="text" class="pt-0 mt-0"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub cols="auto" tag="div">
+        <p class="mb-0">project.explore.table.total_items</p>
+      </v-col-stub>
+    </v-row-stub>
   </v-card-title-stub>
   <v-data-table-stub items="[object Object],[object Object]" options="[object Object]" sortby="" sortdesc="" customsort="function sortItems(items, sortBy, sortDesc, locale, customSorters) {
   if (sortBy === null || !sortBy.length) return items;

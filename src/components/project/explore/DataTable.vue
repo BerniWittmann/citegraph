@@ -1,18 +1,27 @@
 <template>
   <v-card style="width: 100%">
     <v-card-title>
-      <h1 class="display-1 my-5">
-        {{ $t('project.explore.title.query_by_type.' + queryByType ) }}
-      </h1>
-      <v-spacer></v-spacer>
-      <v-text-field
-        v-model="currentOptions.search"
-        append-icon="mdi-magnify"
-        :label="$t('project.explore.table.search' )"
-        single-line
-        hide-details
-        clearable
-      ></v-text-field>
+      <v-row align="center" justify="space-between">
+        <v-col cols="auto">
+          <h1 class="display-1">
+            {{ $t('project.explore.title.query_by_type.' + queryByType ) }}
+          </h1>
+        </v-col>
+        <v-col cols="auto">
+          <v-text-field
+            v-model="currentOptions.search"
+            append-icon="mdi-magnify"
+            :label="$t('project.explore.table.search' )"
+            single-line
+            hide-details
+            clearable
+            class="pt-0 mt-0"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="auto">
+          <p class="mb-0">{{ $t('project.explore.table.total_items', { number: totalItemCount } ) }}</p>
+        </v-col>
+      </v-row>
     </v-card-title>
     <v-data-table
       :loading="loading"
