@@ -1,3 +1,18 @@
+## <small>0.6.4 (2019-12-04)</small>
+
+* feat: Added Countries ([2823ab7](https://gitlab.com/citegraph/frontend/commit/2823ab7)), closes [#7](https://gitlab.com/citegraph/frontend/issues/7)
+* feat: Added View Pages for the paper entities ([db0028d](https://gitlab.com/citegraph/frontend/commit/db0028d)), closes [#9](https://gitlab.com/citegraph/frontend/issues/9)
+* feat: Display overflowing authors and keywords in an overhang menu ([74fa6c8](https://gitlab.com/citegraph/frontend/commit/74fa6c8)), closes [#23](https://gitlab.com/citegraph/frontend/issues/23)
+* feat: Display total count in Data Table ([d29f144](https://gitlab.com/citegraph/frontend/commit/d29f144)), closes [#11](https://gitlab.com/citegraph/frontend/issues/11) [#22](https://gitlab.com/citegraph/frontend/issues/22)
+* feat: Reworked Import Upload Flow ([9be49e8](https://gitlab.com/citegraph/frontend/commit/9be49e8)), closes [#20](https://gitlab.com/citegraph/frontend/issues/20) [#21](https://gitlab.com/citegraph/frontend/issues/21)
+* test: Fixed failing snapshot test for chip group ([976a7d4](https://gitlab.com/citegraph/frontend/commit/976a7d4))
+* fix: Display hand cursor in import dropzone ([f99aa8e](https://gitlab.com/citegraph/frontend/commit/f99aa8e)), closes [#19](https://gitlab.com/citegraph/frontend/issues/19)
+* fix: Use chip groups to prevent overlaps in author and keyword chips ([59986b8](https://gitlab.com/citegraph/frontend/commit/59986b8)), closes [#24](https://gitlab.com/citegraph/frontend/issues/24)
+* refactor: Move Projects Tabs and Title in the same row in App bar ([fc81f51](https://gitlab.com/citegraph/frontend/commit/fc81f51)), closes [#16](https://gitlab.com/citegraph/frontend/issues/16)
+* refactor: Removed the Footer ([a69c18b](https://gitlab.com/citegraph/frontend/commit/a69c18b)), closes [#25](https://gitlab.com/citegraph/frontend/issues/25)
+
+
+
 ## <small>0.6.3 (2019-11-29)</small>
 
 * feat: Added Sorting to the Explore Data Table ([092ded3](https://gitlab.com/citegraph/frontend/commit/092ded3)), closes [#6](https://gitlab.com/citegraph/frontend/issues/6)
