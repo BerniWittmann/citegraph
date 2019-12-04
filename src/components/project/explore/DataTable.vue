@@ -36,14 +36,10 @@
       @click:row="handleRowClick"
     >
       <template v-slot:item.authors="{ item }">
-        <v-chip-group>
-          <v-chip v-for="(author, index) in item.authors" :key="`${item.id}_${author.id}_${index}`" small>{{ getAuthorDisplayName(author) }}</v-chip>
-        </v-chip-group>
+        <expandable-chip-group :small="true" :contents="getAuthorNames(item)" color="#F37F21" :dark="true" more-chip-color="#FBBF35"></expandable-chip-group>
       </template>
       <template v-slot:item.keywords="{ item }">
-        <v-chip-group>
-          <v-chip v-for="(keyword, index) in item.keywords" :key="`${item.id}_${index}`" small>{{ keyword }}</v-chip>
-        </v-chip-group>
+        <expandable-chip-group :small="true" :contents="item.keywords"></expandable-chip-group>
       </template>
       <template v-slot:item.flagUrl="{ item }">
           <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>
@@ -59,6 +55,7 @@ import { debounce } from 'debounce'
 import Project from '@/models/project'
 import deepEqual from 'deep-equal'
 import Author from '@/models/paperEntities/author'
+import ExpandableChipGroup from '@/components/ExpandableChipGroup.vue'
 
 type UpdateOptions = {
   page: number
@@ -68,7 +65,11 @@ type UpdateOptions = {
   search?: string
 }
 
-@Component
+@Component({
+  components: {
+    ExpandableChipGroup
+  }
+})
 export default class DataTable extends Vue {
   loading: boolean = false
   currentOptions: UpdateOptions = {
@@ -150,6 +151,10 @@ export default class DataTable extends Vue {
     this.currentOptions.sortBy = []
     this.currentOptions.sortDesc = []
     this.reloadData()
+  }
+
+  getAuthorNames (item: any): Array<string> {
+    return item.authors.map((author: Author) => this.getAuthorDisplayName(author))
   }
 
   getAuthorDisplayName (author: Author): string {

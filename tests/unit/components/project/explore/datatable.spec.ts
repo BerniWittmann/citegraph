@@ -226,6 +226,18 @@ describe('components/project/explore/DataTable.vue', () => {
     })
   })
 
+  it('provides a function to nicely display all authors names', () => {
+    const wrapper = getWrapper()
+    const item = {
+      authors: [
+        { firstName: 'Hans', lastName: 'Meier' },
+        { firstName: 'Max', lastName: 'Dorfer' }
+      ]
+    }
+    // @ts-ignore
+    expect(wrapper.vm.getAuthorNames(item)).toEqual(['H. Meier', 'M. Dorfer'])
+  })
+
   it('provides a function to nicely display an authors name', () => {
     const wrapper = getWrapper()
     const author = { firstName: 'Hans', lastName: 'Meier' }

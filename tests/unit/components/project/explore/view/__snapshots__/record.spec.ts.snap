@@ -8,11 +8,11 @@ exports[`components/project/explore/view/Record.vue renders the page 1`] = `
       <v-row-stub tag="div">
         <v-col-stub tag="div">
           <v-subheader-stub class="title">project.explore.view.record.authors</v-subheader-stub>
-          <v-chip-group-stub activeclass="v-slide-item--active" nexticon="$next" mobilebreakpoint="1264" previcon="$prev" column="true">
-            <v-chip-stub activeclass="" to="[object Object]" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+          <v-chip-group-stub dark="true" activeclass="v-slide-item--active" nexticon="$next" mobilebreakpoint="1264" previcon="$prev" column="true">
+            <v-chip-stub color="#F37F21" activeclass="" to="[object Object]" tag="span" dark="true" active="true" closeicon="$delete" filtericon="$complete">
               Max Mustermann
             </v-chip-stub>
-            <v-chip-stub activeclass="" to="[object Object]" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+            <v-chip-stub color="#F37F21" activeclass="" to="[object Object]" tag="span" dark="true" active="true" closeicon="$delete" filtericon="$complete">
               Other Author
             </v-chip-stub>
           </v-chip-group-stub>

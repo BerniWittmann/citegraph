@@ -8,8 +8,8 @@
         <v-row>
           <v-col>
             <v-subheader class="title">{{ $t('project.explore.view.record.authors') }}</v-subheader>
-            <v-chip-group column>
-              <v-chip v-for="(author, index) in record.authors" :key="index"
+            <v-chip-group column dark>
+              <v-chip v-for="(author, index) in record.authors" :key="index" color="#F37F21" dark
                       :to="{ name: 'projects.single.explore.view', params: { ...$route.params, queryByType: 'author', entityId: author.id } }">
                 {{ author.firstName }} {{ author.lastName }}
               </v-chip>
