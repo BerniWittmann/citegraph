@@ -8,31 +8,31 @@
 
     <v-toolbar-title @click="$router.push('/').catch(() => {})">{{ $t('citegraph') }}</v-toolbar-title>
 
-    <template v-slot:extension>
-      <v-tabs
-        align-with-title
-        background-color="transparent"
-        optional
-        @change="onProjectChange"
-        ref="projectTabs"
-      >
-        <v-tab :to="{ name: 'projects' }" key="projects">
-          <v-icon class="mr-2">mdi-view-dashboard</v-icon>
-          {{ $t('projects.title') }}
-        </v-tab>
+    <v-tabs
+      align-with-title
+      background-color="transparent"
+      optional
+      @change="onProjectChange"
+      ref="projectTabs"
+    >
+      <v-tab :to="{ name: 'projects' }" key="projects">
+        <v-icon class="mr-2">mdi-view-dashboard</v-icon>
+        {{ $t('projects.title') }}
+      </v-tab>
 
-        <v-hover v-slot:default="{ hover }"
-                 v-for="project in projects"
-                 :key="project.id">
-          <v-tab
-            :to="{ name: 'projects.single', params: { projectId: project.id } }"
-          >
-            {{ project.name }}
-            <v-icon v-show="isActiveProject(project)" small class="ml-2" @click.stop.prevent="closeProject(project)">mdi-close</v-icon>
-          </v-tab>
-        </v-hover>
-      </v-tabs>
-    </template>
+      <v-hover v-slot:default="{ hover }"
+               v-for="project in projects"
+               :key="project.id">
+        <v-tab
+          :to="{ name: 'projects.single', params: { projectId: project.id } }"
+        >
+          {{ project.name }}
+          <v-icon v-show="isActiveProject(project)" small class="ml-2" @click.stop.prevent="closeProject(project)">
+            mdi-close
+          </v-icon>
+        </v-tab>
+      </v-hover>
+    </v-tabs>
   </v-app-bar>
 </template>
 <script lang="ts">
@@ -73,5 +73,8 @@ export default class AppBar extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.v-toolbar__title {
+  flex-shrink: 0;
+}
 </style>
