@@ -46,27 +46,12 @@ export function insertSampleRecordsData (db: Loki): void {
       year: randomNumberFromInterval(1980, 2019),
       keywords: faker.company.bs().split(' '),
       numberCitations: randomNumberFromInterval(0, 100),
-      authors: [{
+      authors: [...Array(randomNumberFromInterval(1, 6)).keys()].map(() => ({
         id: randomNumberFromInterval(1, 10).toString(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         countRecords: randomNumberFromInterval(0, 100)
-      }, {
-        id: randomNumberFromInterval(1, 10).toString(),
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        countRecords: randomNumberFromInterval(0, 100)
-      }, {
-        id: randomNumberFromInterval(1, 10).toString(),
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        countRecords: randomNumberFromInterval(0, 100)
-      }, {
-        id: randomNumberFromInterval(1, 10).toString(),
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        countRecords: randomNumberFromInterval(0, 100)
-      }]
+      }))
     }))
   }
 }
