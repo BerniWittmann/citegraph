@@ -166,6 +166,31 @@
           "count_records": "Count Records"
         }
       }
+    },
+    "single": {
+      "dataset": {
+        "title": "Dataset",
+        "records": "Records",
+        "authors": "Authors",
+        "institutions": "Institutions",
+        "countries": "Countries",
+        "publications": "Publications",
+        "publishers": "Publishers",
+        "conferences": "Conferences",
+        "keywords": "Keywords"
+      },
+      "overview": {
+        "top_10_authors": "Top 10 Authors",
+        "top_10_records": "Top 10 Records",
+        "top_10_keywords": "Top 10 Keywords",
+        "country_relevance": "Country Relevance",
+        "visualizations": "Visualizations"
+      },
+      "no_data": {
+        "description": "Your project is empty",
+        "import_data": "You haven't imported any data yet. Let's import a data set!",
+        "button": "Import Data"
+      }
     }
   },
   "navigation-drawer": {

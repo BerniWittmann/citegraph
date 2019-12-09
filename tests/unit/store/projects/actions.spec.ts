@@ -223,7 +223,7 @@ describe('store/modules/projects/actions', () => {
       const dispatch = jest.fn()
       const action = actions.deleteProject as Function
 
-      action({ commit, dispatch }, projectData).then(onFulfilled)
+      action({ commit, dispatch }, new Project(projectData)).then(onFulfilled)
 
       moxios.wait(() => {
         expect(onFulfilled).toHaveBeenCalled()

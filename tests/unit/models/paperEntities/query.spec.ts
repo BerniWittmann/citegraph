@@ -51,5 +51,11 @@ describe('models/paperEntities/query.ts', () => {
           .toContain('(filter: test; orderBy: title_ASC; filterBy: title author; first: 7; skip: 14)')
       })
     })
+
+    it('can include a belongs to filter', () => {
+      const query = constructQuery('Record', 'record', { ...baseParams, belongsTo: '123', belongsToType: 'author' }, 'id')
+      expect(query).toContain('belongsTo: 123')
+      expect(query).toContain('belongsToType: author')
+    })
   })
 })

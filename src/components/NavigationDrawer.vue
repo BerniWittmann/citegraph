@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer app v-model="visible" :clipped="$vuetify.breakpoint.lgAndUp">
     <div v-if="hasProject">
-      <v-list-item class="mt-12">
+      <v-list-item class="mt-12" :to="{ name: 'projects.single', params: { projectId: project.id } }">
         <v-list-item-content>
           <v-list-item-title class="title">
             {{ project.name }}
