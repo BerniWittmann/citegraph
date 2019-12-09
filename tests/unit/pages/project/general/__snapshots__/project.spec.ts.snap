@@ -218,31 +218,6 @@ exports[`pages/Project.vue renders an alternate page depending on the import pro
 </div>
 `;
 
-exports[`pages/Project.vue renders an alternate page depending on the project state 1`] = `
-<div class="project">
-  <div class="d-flex mr-5 mt-4">
-    <h1>My awesome Project</h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
-      <v-icon-stub>mdi-pencil</v-icon-stub>
-      project.edit.button_text
-    </v-btn-stub>
-  </div>
-  <v-container-stub tag="div">
-    <v-row-stub tag="div" justify="center">
-      <v-col-stub lg="3" tag="div" class="d-flex justify-center flex-column text-center">
-        <empty-icon-stub class="align-self-center mb-6"></empty-icon-stub>
-        <h3 class="headline">project.single.no_data.description</h3>
-        <p>project.single.no_data.import_data</p>
-        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" large="true" rounded="true" type="button">
-          project.single.no_data.button
-        </v-btn-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-container-stub>
-</div>
-`;
-
 exports[`pages/Project.vue renders the page 1`] = `
 <div class="project">
   <div class="d-flex mr-5 mt-4">
