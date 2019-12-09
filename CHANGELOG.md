@@ -1,3 +1,17 @@
+## <small>0.6.5 (2019-12-09)</small>
+
+* test: Removed obsolete test snapshot ([c8c7955](https://gitlab.com/citegraph/frontend/commit/c8c7955))
+* feat: Added Project Single View ([4162afc](https://gitlab.com/citegraph/frontend/commit/4162afc)), closes [#17](https://gitlab.com/citegraph/frontend/issues/17)
+* feat: Added Search Options ([2737a56](https://gitlab.com/citegraph/frontend/commit/2737a56)), closes [#15](https://gitlab.com/citegraph/frontend/issues/15)
+* feat: Allow the columns of the table to be selected ([704aa63](https://gitlab.com/citegraph/frontend/commit/704aa63)), closes [#12](https://gitlab.com/citegraph/frontend/issues/12)
+* feat: Display a data table on the detail view pages ([2366828](https://gitlab.com/citegraph/frontend/commit/2366828)), closes [#14](https://gitlab.com/citegraph/frontend/issues/14)
+* feat: Display create visualization button on project page when there are no visualizations yet ([e3f0356](https://gitlab.com/citegraph/frontend/commit/e3f0356))
+* refactor: Replaced more dots in expandable chipgroup with dots icon ([4e80549](https://gitlab.com/citegraph/frontend/commit/4e80549))
+* refactor: Reworked No Data Display in Data Table ([a411c4b](https://gitlab.com/citegraph/frontend/commit/a411c4b)), closes [#27](https://gitlab.com/citegraph/frontend/issues/27)
+* refactor: Reworked Projects Overview No projects ([f4a3ec1](https://gitlab.com/citegraph/frontend/commit/f4a3ec1)), closes [#26](https://gitlab.com/citegraph/frontend/issues/26)
+
+
+
 ## <small>0.6.4 (2019-12-04)</small>
 
 * feat: Added Countries ([2823ab7](https://gitlab.com/citegraph/frontend/commit/2823ab7)), closes [#7](https://gitlab.com/citegraph/frontend/issues/7)
