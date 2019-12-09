@@ -9,7 +9,7 @@
     >
       <template v-slot:activator="{ on }">
         <v-chip v-on="on" :small="small" :dark="dark" :color="moreChipColor">
-          {{ moreText }}
+          <v-icon>mdi-dots-horizontal</v-icon>
         </v-chip>
       </template>
       <v-card class="pl-2">
@@ -29,7 +29,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export default class ExpandableChipGroup extends Vue {
   @Prop({ default: [] }) readonly contents!: Array<string>
   @Prop({ default: 2 }) readonly maxDisplayed!: 2
-  @Prop({ default: '...' }) readonly moreText!: string
   @Prop() readonly color: string | undefined
   @Prop() readonly moreChipColor: string | undefined
   @Prop({ default: false }) readonly dark!: boolean
