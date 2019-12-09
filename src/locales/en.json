@@ -124,6 +124,7 @@
       },
       "table": {
         "search": "Search",
+        "search_by_title": "Search in fields",
         "total_items": "Total items: %{number}",
         "no_data": "No Data available",
         "no_headers": "No Columns selected. Please choose at least one column of data to display",

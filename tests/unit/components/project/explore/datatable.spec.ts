@@ -3,7 +3,7 @@ import { i18n } from '../../../setupPlugins'
 
 import DataTable from '@/components/project/explore/DataTable.vue'
 import Project from '@/models/project'
-import { entityKeys, entityKeysMap } from '@/models/paperEntities'
+import { entityKeys, entityKeysMap, PaperEntityTableColumn } from '@/models/paperEntities'
 
 jest.mock('debounce', () => {
   return {
@@ -97,23 +97,26 @@ describe('components/project/explore/DataTable.vue', () => {
         itemsPerPage: 5,
         sortBy: [],
         sortDesc: [],
+        searchBy: [],
         search: ''
       })
 
       expect(store.dispatch).toHaveBeenCalledWith('paperEntities/fetchEntities', {
         projectId: 42,
         entityType: 'record',
+        filterBy: undefined,
         perPage: 5,
         pageOffset: 1,
         filter: ''
       })
     })
-    it('calculates the correct search parameter string', () => {
+    it('calculates the correct sort parameter string', () => {
       wrapper.vm.updateOptions({
         page: 2,
         itemsPerPage: 5,
         sortBy: ['authors'],
         sortDesc: [true],
+        searchBy: [],
         search: ''
       })
 
@@ -122,6 +125,7 @@ describe('components/project/explore/DataTable.vue', () => {
         entityType: 'record',
         perPage: 5,
         pageOffset: 1,
+        filterBy: undefined,
         filter: '',
         sortBy: 'authors_DESC'
       })
@@ -149,7 +153,8 @@ describe('components/project/explore/DataTable.vue', () => {
         itemsPerPage: 10,
         sortBy: [],
         sortDesc: [],
-        search: ''
+        search: '',
+        searchBy: []
       })
 
       expect(store.dispatch).not.toHaveBeenCalled()
@@ -215,6 +220,7 @@ describe('components/project/explore/DataTable.vue', () => {
       itemsPerPage: 10,
       sortBy: [],
       sortDesc: [],
+      searchBy: [],
       search: ''
     })
     expect(store.dispatch).toHaveBeenCalledWith('paperEntities/fetchEntities', {
@@ -248,17 +254,36 @@ describe('components/project/explore/DataTable.vue', () => {
   })
 
   it('display no items if no headers are selected', () => {
+    const backUp = entityKeysMap['record']
     // @ts-ignore
     Object.defineProperty(entityKeysMap, 'record', {
       value: {
         displayedColumns: []
       }
     })
+
     const wrapper = getWrapper()
     expect(wrapper.html()).toMatchSnapshot()
     // @ts-ignore
     expect(wrapper.vm.headers).toEqual([])
     // @ts-ignore
     expect(wrapper.vm.items).toEqual([])
+
+    // @ts-ignore
+    Object.defineProperty(entityKeysMap, 'record', {
+      value: backUp
+    })
+  })
+
+  it('provides the search options', () => {
+    const wrapper = getWrapper()
+    // @ts-ignore
+    const options = wrapper.vm.searchByOptions as Array<PaperEntityTableColumn>
+    expect.assertions(options.length + 2)
+    expect(options).toMatchSnapshot()
+    expect(options).toEqual(expect.any(Array))
+    options.forEach((option) => {
+      expect(option.filterable).toBeTruthy()
+    })
   })
 })

@@ -16,7 +16,33 @@
             hide-details
             clearable
             class="pt-0 mt-0"
-          ></v-text-field>
+          >
+            <template v-slot:append-outer>
+              <v-menu :close-on-content-click="false">
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    v-on="on"
+                    icon
+                  >
+                    <v-icon>
+                      mdi-dots-horizontal
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-subheader>
+                    {{ $t('project.explore.table.search_by_title') }}
+                  </v-subheader>
+                  <v-list-item
+                    v-for="(header, index) in searchByOptions"
+                    :key="index"
+                  >
+                    <v-checkbox v-model="currentOptions.searchBy" :label="header.text" :value="header.value"></v-checkbox>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </template>
+          </v-text-field>
         </v-col>
         <v-col cols="auto">
           <p class="mb-0">{{ $t('project.explore.table.total_items', { number: Math.max(totalItemCount, 0) } ) }}</p>
@@ -47,7 +73,7 @@
       </template>
 
       <template v-slot:no-data>
-        <empty-icon class="mb-6"></empty-icon>
+        <empty-icon class="my-6"></empty-icon>
         <p v-if="currentHeaders.length > 0">{{ $t('project.explore.table.no_data') }}</p>
         <p v-else>{{ $t('project.explore.table.no_headers') }}</p>
       </template>
@@ -88,6 +114,7 @@ type UpdateOptions = {
   sortBy: string[]
   sortDesc: boolean[],
   search?: string
+  searchBy?: string[]
 }
 
 @Component({
@@ -103,7 +130,8 @@ export default class DataTable extends Vue {
     itemsPerPage: 10,
     sortBy: [],
     sortDesc: [],
-    search: ''
+    search: '',
+    searchBy: []
   }
   selectedHeaders: Array<string> = []
 
@@ -142,6 +170,10 @@ export default class DataTable extends Vue {
     }))
   }
 
+  get searchByOptions (): Array<PaperEntityTableColumn> {
+    return this.headers.filter((header) => header.filterable)
+  }
+
   get project (): Project {
     return this.$store.getters['projects/activeProject']
   }
@@ -154,12 +186,14 @@ export default class DataTable extends Vue {
     this.loading = true
     const isSorted = this.currentOptions.sortBy.length > 0 && this.currentOptions.sortDesc.length > 0
     const sortString = isSorted ? `${this.currentOptions.sortBy[0]}_${this.currentOptions.sortDesc[0] ? 'DESC' : 'ASC'}` : undefined
+    const filterByString = this.currentOptions.searchBy && this.currentOptions.searchBy.length > 0 ? this.currentOptions.searchBy.join(' ') : undefined
     await this.$store.dispatch('paperEntities/fetchEntities', {
       projectId: this.project.id,
       entityType: this.queryByType,
       perPage: this.currentOptions.itemsPerPage,
       pageOffset: this.currentOptions.page - 1,
       filter: this.currentOptions.search,
+      filterBy: filterByString,
       sortBy: sortString
     })
     this.loading = false
@@ -174,6 +208,14 @@ export default class DataTable extends Vue {
     if (newVal === oldVal) return
     this.loading = true
     this.currentOptions.search = newVal
+    this.currentOptions.page = 1
+    this.debouncedReloadData()
+  }
+
+  @Watch('currentOptions.searchBy')
+  handleSearchBy (newVal: Array<string>, oldVal: Array<string>): void {
+    if (deepEqual(newVal, oldVal)) return
+    this.loading = true
     this.currentOptions.page = 1
     this.debouncedReloadData()
   }
@@ -193,6 +235,7 @@ export default class DataTable extends Vue {
     this.currentOptions.page = 1
     this.currentOptions.itemsPerPage = 10
     this.currentOptions.search = ''
+    this.currentOptions.searchBy = []
     this.currentOptions.sortBy = []
     this.currentOptions.sortDesc = []
     this.initializeHeaders()

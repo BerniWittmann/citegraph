@@ -135,6 +135,38 @@ Array [
 ]
 `;
 
+exports[`components/project/explore/DataTable.vue provides the search options 1`] = `
+Array [
+  Object {
+    "displayedByDefault": true,
+    "filterable": true,
+    "sortable": true,
+    "text": "project.explore.table.headers.record.title",
+    "value": "title",
+  },
+  Object {
+    "displayedByDefault": true,
+    "filterable": true,
+    "sortable": false,
+    "text": "project.explore.table.headers.record.authors",
+    "value": "authors",
+  },
+  Object {
+    "align": "center",
+    "filterable": true,
+    "sortable": true,
+    "text": "project.explore.table.headers.record.year",
+    "value": "year",
+  },
+  Object {
+    "filterable": true,
+    "sortable": false,
+    "text": "project.explore.table.headers.record.keywords",
+    "value": "keywords",
+  },
+]
+`;
+
 exports[`components/project/explore/DataTable.vue renders 1`] = `
 <v-card-stub loaderheight="4" tag="div" style="width: 100%;">
   <v-card-title-stub>

@@ -26,18 +26,29 @@ describe('models/paperEntities/query.ts', () => {
         expect(constructQuery('Record', 'record', { ...baseParams, filter: 'test' }, 'id')).toContain('(filter: test)')
       })
 
+      it('does not return the filter by if no filter given', () => {
+        expect(constructQuery('Record', 'record', { ...baseParams, filterBy: 'title author' }, 'id')).not.toContain('filterBy: title author')
+      })
+
+      it('returns the filter and the fitler by if only those two is given', () => {
+        const query = constructQuery('Record', 'record', { ...baseParams, filter: 'test', filterBy: 'title author' }, 'id')
+        expect(query).toContain('filter: test')
+        expect(query).toContain('filterBy: title author')
+      })
+
       it('returns only the sorting parameter if only the sorting parameter is given', () => {
         expect(constructQuery('Record', 'record', { ...baseParams, sortBy: 'title_DESC' }, 'id')).toContain('(orderBy: title_DESC)')
       })
 
       it('returns only the pagination if only the pagination is given', () => {
-        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 10, pageOffset: 1 }, 'id')).toContain('(first: 10 skip: 10)')
-        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 7, pageOffset: 2 }, 'id')).toContain('(first: 7 skip: 14)')
+        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 10, pageOffset: 1 }, 'id')).toContain('(first: 10; skip: 10)')
+        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 7, pageOffset: 2 }, 'id')).toContain('(first: 7; skip: 14)')
         expect(constructQuery('Record', 'record', { ...baseParams, perPage: 7, pageOffset: 0 }, 'id')).toContain('(first: 7)')
       })
 
       it('if all parameters are given it returns all parameters ', () => {
-        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 7, pageOffset: 2, filter: 'test', sortBy: 'title_ASC' }, 'id')).toContain('(filter: test orderBy: title_ASC first: 7 skip: 14)')
+        expect(constructQuery('Record', 'record', { ...baseParams, perPage: 7, pageOffset: 2, filter: 'test', sortBy: 'title_ASC', filterBy: 'title author' }, 'id'))
+          .toContain('(filter: test; orderBy: title_ASC; filterBy: title author; first: 7; skip: 14)')
       })
     })
   })

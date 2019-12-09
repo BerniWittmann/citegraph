@@ -2,7 +2,7 @@
 
 exports[`models/paperEntities/query.ts it has a function to create a query creates a query 1`] = `
 "{
-      Record(filter: test orderBy: title_ASC first: 7 skip: 14) {
+      Record(filter: test; orderBy: title_ASC; first: 7; skip: 14) {
         count
         record {
           id, title, name
