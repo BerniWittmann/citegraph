@@ -19,7 +19,7 @@
           ></v-text-field>
         </v-col>
         <v-col cols="auto">
-          <p class="mb-0">{{ $t('project.explore.table.total_items', { number: totalItemCount } ) }}</p>
+          <p class="mb-0">{{ $t('project.explore.table.total_items', { number: Math.max(totalItemCount, 0) } ) }}</p>
         </v-col>
       </v-row>
     </v-card-title>
@@ -44,6 +44,11 @@
       <template v-slot:item.flagUrl="{ item }">
           <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>
       </template>
+
+      <template v-slot:no-data>
+        <empty-icon class="mb-6"></empty-icon>
+        <p>{{ $t('project.explore.table.no_data') }}</p>
+      </template>
     </v-data-table>
   </v-card>
 </template>
@@ -56,6 +61,7 @@ import Project from '@/models/project'
 import deepEqual from 'deep-equal'
 import Author from '@/models/paperEntities/author'
 import ExpandableChipGroup from '@/components/ExpandableChipGroup.vue'
+import EmptyIcon from '@/assets/svgs/Empty.vue'
 
 type UpdateOptions = {
   page: number
@@ -67,7 +73,8 @@ type UpdateOptions = {
 
 @Component({
   components: {
-    ExpandableChipGroup
+    ExpandableChipGroup,
+    EmptyIcon
   }
 })
 export default class DataTable extends Vue {
@@ -87,6 +94,9 @@ export default class DataTable extends Vue {
   }
 
   get items (): Array<PaperEntity> {
+    if (this.headers.length === 0) {
+      return []
+    }
     return this.$store.getters['paperEntities/entities']
   }
 

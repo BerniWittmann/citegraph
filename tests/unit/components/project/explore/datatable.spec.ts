@@ -3,7 +3,7 @@ import { i18n } from '../../../setupPlugins'
 
 import DataTable from '@/components/project/explore/DataTable.vue'
 import Project from '@/models/project'
-import { entityKeys } from '@/models/paperEntities'
+import { entityKeys, entityKeysMap } from '@/models/paperEntities'
 
 jest.mock('debounce', () => {
   return {
@@ -243,5 +243,20 @@ describe('components/project/explore/DataTable.vue', () => {
     const author = { firstName: 'Hans', lastName: 'Meier' }
     // @ts-ignore
     expect(wrapper.vm.getAuthorDisplayName(author)).toEqual('H. Meier')
+  })
+
+  it('display no items if no headers are selected', () => {
+    // @ts-ignore
+    Object.defineProperty(entityKeysMap, 'record', {
+      value: {
+        displayedColumns: []
+      }
+    })
+    const wrapper = getWrapper()
+    expect(wrapper.html()).toMatchSnapshot()
+    // @ts-ignore
+    expect(wrapper.vm.headers).toEqual([])
+    // @ts-ignore
+    expect(wrapper.vm.items).toEqual([])
   })
 })

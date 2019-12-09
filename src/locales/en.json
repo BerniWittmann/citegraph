@@ -125,6 +125,7 @@
       "table": {
         "search": "Search",
         "total_items": "Total items: %{number}",
+        "no_data": "No Data available",
         "headers": {
           "record": {
             "title": "Title",
