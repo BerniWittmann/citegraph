@@ -63,6 +63,9 @@ describe('pages/Projects.vue', () => {
     expect(wrapper.html()).toMatchSnapshot()
     const projectCards = wrapper.findAll('.project-card')
     expect(projectCards.length).toEqual(0)
+    const addButton = wrapper.find('v-btn-stub')
+    expect(addButton.exists()).toBeTruthy()
+    expect(addButton.props('to')).toEqual({ name: 'projects.add' })
   })
   it('renders a button to add projects', () => {
     const wrapper = getWrapper(projects)

@@ -4,7 +4,7 @@
       <v-row>
         <h1 class="display-1 mt-5">{{ $t('projects.your_projects') }}</h1>
       </v-row>
-      <v-row>
+      <v-row v-if="projects.length > 0">
         <v-col
           v-for="project in projects"
           :key="project.id"
@@ -92,6 +92,17 @@
           </v-tooltip>
         </v-col>
       </v-row>
+      <v-row v-else justify="center">
+        <v-col :lg="3" class="d-flex justify-center flex-column text-center">
+          <empty-icon class="align-self-center mb-6"></empty-icon>
+          <h3 class="headline">{{ $t('projects.add.description') }}</h3>
+          <p>{{ $t('projects.add.text') }}</p>
+          <v-btn color="primary" rounded large :to="{ name: 'projects.add' }">
+            <v-icon>mdi-plus</v-icon>
+            {{ $t('projects.add.title') }}
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -99,8 +110,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Project from '@/models/project'
+import EmptyIcon from '@/assets/svgs/Empty.vue'
 
-@Component
+@Component({
+  components: {
+    EmptyIcon
+  }
+})
 export default class ProjectsPage extends Vue {
   get projects (): Array<Project> {
     return this.$store.getters['projects/projects']

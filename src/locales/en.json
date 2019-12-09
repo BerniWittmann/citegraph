@@ -39,7 +39,9 @@
       "name_not_empty": "Name must not be empty",
       "cancel": "Cancel",
       "submit": "Create",
-      "successful": "Successfully created project"
+      "successful": "Successfully created project",
+      "description": "You have no projects",
+      "text": "There exist no projects yet. Let's create a project!"
     },
     "fetch_error": "Could not load projects"
   },

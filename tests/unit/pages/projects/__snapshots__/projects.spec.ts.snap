@@ -6,13 +6,15 @@ exports[`pages/Projects.vue can handle if no projects are available 1`] = `
     <v-row-stub tag="div">
       <h1 class="display-1 mt-5">projects.your_projects</h1>
     </v-row-stub>
-    <v-row-stub tag="div">
-      <v-col-stub cols="3" tag="div">
-        <div class="empty-slot-component-stub" top="">
-          <v-card-stub loaderheight="4" to="[object Object]" tag="div" height="100%" minheight="130" hover="true" outlined="true" class="d-flex justify-center align-center text--primary add-card">
-            <v-icon-stub color="primary">mdi-plus</v-icon-stub>
-          </v-card-stub> <span>projects.add.title</span>
-        </div>
+    <v-row-stub tag="div" justify="center">
+      <v-col-stub lg="3" tag="div" class="d-flex justify-center flex-column text-center">
+        <empty-icon-stub class="align-self-center mb-6"></empty-icon-stub>
+        <h3 class="headline">projects.add.description</h3>
+        <p>projects.add.text</p>
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" large="true" rounded="true" type="button">
+          <v-icon-stub>mdi-plus</v-icon-stub>
+          projects.add.title
+        </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>
