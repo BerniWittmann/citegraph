@@ -22,12 +22,14 @@ export default class Record extends PaperEntity implements RecordFields {
     text: 'project.explore.table.headers.record.title',
     value: 'title',
     sortable: true,
-    filterable: true
+    filterable: true,
+    displayedByDefault: true
   }, {
     text: 'project.explore.table.headers.record.authors',
     value: 'authors',
     sortable: false,
-    filterable: true
+    filterable: true,
+    displayedByDefault: true
   }, {
     text: 'project.explore.table.headers.record.year',
     value: 'year',

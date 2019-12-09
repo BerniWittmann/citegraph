@@ -236,6 +236,8 @@ describe('components/project/explore/DataTable.vue', () => {
     }
     // @ts-ignore
     expect(wrapper.vm.getAuthorNames(item)).toEqual(['H. Meier', 'M. Dorfer'])
+    // @ts-ignore
+    expect(wrapper.vm.getAuthorNames({})).toEqual([])
   })
 
   it('provides a function to nicely display an authors name', () => {

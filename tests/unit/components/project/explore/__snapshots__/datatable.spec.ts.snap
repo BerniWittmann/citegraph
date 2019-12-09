@@ -199,6 +199,6 @@ exports[`components/project/explore/DataTable.vue renders 1`] = `
   });
 }" page="1" itemsperpage="10" groupby="" groupdesc="" locale="en-US" disablefiltering="true" customfilter="function defaultFilter(value, search, item) {
   return value != null &amp;&amp; search != null &amp;&amp; typeof value !== 'boolean' &amp;&amp; value.toString().toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
-}" serveritemslength="12" itemkey="id" value="" expanded="" noresultstext="$vuetify.dataIterator.noResultsText" nodatatext="$vuetify.noDataText" loadingtext="$vuetify.dataIterator.loadingText" headers="[object Object],[object Object],[object Object],[object Object],[object Object]" mobilebreakpoint="600" expandicon="$expand" style="width: 100%;"></v-data-table-stub>
+}" serveritemslength="12" itemkey="id" value="" expanded="" noresultstext="$vuetify.dataIterator.noResultsText" nodatatext="$vuetify.noDataText" loadingtext="$vuetify.dataIterator.loadingText" headers="[object Object],[object Object]" mobilebreakpoint="600" expandicon="$expand" style="width: 100%;"></v-data-table-stub>
 </v-card-stub>
 `;

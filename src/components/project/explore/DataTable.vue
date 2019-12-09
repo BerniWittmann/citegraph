@@ -26,7 +26,7 @@
     <v-data-table
       :loading="loading"
       style="width: 100%"
-      :headers="headers"
+      :headers="currentHeaders"
       :items="items"
       :page.sync="currentOptions.page"
       :items-per-page.sync="currentOptions.itemsPerPage"
@@ -36,18 +36,37 @@
       @click:row="handleRowClick"
     >
       <template v-slot:item.authors="{ item }">
-        <expandable-chip-group :small="true" :contents="getAuthorNames(item)" color="#F37F21" :dark="true" more-chip-color="#FBBF35"></expandable-chip-group>
+        <expandable-chip-group :small="true" :contents="getAuthorNames(item)" color="#F37F21" :dark="true"
+                               more-chip-color="#FBBF35"></expandable-chip-group>
       </template>
       <template v-slot:item.keywords="{ item }">
         <expandable-chip-group :small="true" :contents="item.keywords"></expandable-chip-group>
       </template>
       <template v-slot:item.flagUrl="{ item }">
-          <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>
+        <v-img v-if="item.flagUrl" :src="item.flagUrl" :width="40" class="mx-auto"></v-img>
       </template>
 
       <template v-slot:no-data>
         <empty-icon class="mb-6"></empty-icon>
-        <p>{{ $t('project.explore.table.no_data') }}</p>
+        <p v-if="currentHeaders.length > 0">{{ $t('project.explore.table.no_data') }}</p>
+        <p v-else>{{ $t('project.explore.table.no_headers') }}</p>
+      </template>
+
+      <template v-slot:top>
+        <div class="ml-auto px-6" style="width: max-content">
+          <v-select
+            v-model="selectedHeaders"
+            :items="headers"
+            chips
+            item-text="text"
+            item-value="value"
+            :label="$t('project.explore.table.columns')"
+            multiple
+            small-chips
+            deletable-chips
+            prepend-icon="mdi-view-column"
+          ></v-select>
+        </div>
       </template>
     </v-data-table>
   </v-card>
@@ -86,6 +105,7 @@ export default class DataTable extends Vue {
     sortDesc: [],
     search: ''
   }
+  selectedHeaders: Array<string> = []
 
   @Prop(String) readonly queryByType!: string
 
@@ -94,10 +114,25 @@ export default class DataTable extends Vue {
   }
 
   get items (): Array<PaperEntity> {
-    if (this.headers.length === 0) {
+    if (this.currentHeaders.length === 0) {
       return []
     }
     return this.$store.getters['paperEntities/entities']
+  }
+
+  get currentHeaders (): Array<PaperEntityTableColumn> {
+    const selectedItems = this.selectedHeaders
+    return selectedItems.map((key) => {
+      return this.headerMap[key]
+    }).filter(val => !!val)
+  }
+
+  get headerMap (): Record<string, PaperEntityTableColumn> {
+    const map: Record<string, PaperEntityTableColumn> = {}
+    this.headers.forEach((header) => {
+      map[header.value] = header
+    })
+    return map
   }
 
   get headers (): Array<PaperEntityTableColumn> {
@@ -160,10 +195,12 @@ export default class DataTable extends Vue {
     this.currentOptions.search = ''
     this.currentOptions.sortBy = []
     this.currentOptions.sortDesc = []
+    this.initializeHeaders()
     this.reloadData()
   }
 
   getAuthorNames (item: any): Array<string> {
+    if (!item.authors) return []
     return item.authors.map((author: Author) => this.getAuthorDisplayName(author))
   }
 
@@ -179,6 +216,14 @@ export default class DataTable extends Vue {
         entityId: item.id
       }
     })
+  }
+
+  initializeHeaders (): void {
+    this.selectedHeaders = this.headers.filter((header) => header.displayedByDefault).map((header) => header.value)
+  }
+
+  beforeMount (): void {
+    this.initializeHeaders()
   }
 }
 </script>

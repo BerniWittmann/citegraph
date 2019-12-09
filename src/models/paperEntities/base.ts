@@ -38,7 +38,8 @@ export interface PaperEntityTableColumn {
   class?: string | string[]
   width?: string | number
   filter?: (value: any, search: string, item: any) => boolean
-  sort?: (a: any, b: any) => number
+  sort?: (a: any, b: any) => number,
+  displayedByDefault?: boolean
 }
 
 export type PaperEntityFields = PaperEntityBaseFields & (

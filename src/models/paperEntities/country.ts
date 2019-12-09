@@ -17,7 +17,8 @@ export default class Country extends PaperEntity implements CountryFields {
     text: 'project.explore.table.headers.country.name',
     value: 'name',
     sortable: true,
-    filterable: true
+    filterable: true,
+    displayedByDefault: true
   }, {
     text: 'project.explore.table.headers.country.flag',
     value: 'flagUrl',

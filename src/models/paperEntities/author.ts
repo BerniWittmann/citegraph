@@ -18,12 +18,14 @@ export default class Author extends PaperEntity implements AuthorFields {
     text: 'project.explore.table.headers.author.first_name',
     value: 'firstName',
     sortable: true,
-    filterable: true
+    filterable: true,
+    displayedByDefault: true
   }, {
     text: 'project.explore.table.headers.author.last_name',
     value: 'lastName',
     sortable: true,
-    filterable: true
+    filterable: true,
+    displayedByDefault: true
   }, {
     text: 'project.explore.table.headers.author.count_records',
     value: 'countRecords',
