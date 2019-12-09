@@ -29,6 +29,195 @@ exports[`pages/Project.vue can handle incomplete data on the project object 1`] 
 </div>
 `;
 
+exports[`pages/Project.vue renders an alternate page depending on the explore project state 1`] = `
+<div class="project">
+  <div class="d-flex mr-5 mt-4">
+    <h1>My awesome Project</h1>
+    <v-spacer-stub></v-spacer-stub>
+    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+      <v-icon-stub>mdi-pencil</v-icon-stub>
+      project.edit.button_text
+    </v-btn-stub>
+  </div>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub tag="div">
+        <v-card-stub loaderheight="4" tag="div">
+          <v-card-title-stub>project.single.dataset.title</v-card-title-stub>
+          <v-card-text-stub>
+            <v-container-stub tag="div">
+              <v-row-stub tag="div">
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">1234</p>
+                    <p class="mb-0">project.single.dataset.records</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">23</p>
+                    <p class="mb-0">project.single.dataset.authors</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">21</p>
+                    <p class="mb-0">project.single.dataset.institutions</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">14</p>
+                    <p class="mb-0">project.single.dataset.countries</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">54</p>
+                    <p class="mb-0">project.single.dataset.publications</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">23</p>
+                    <p class="mb-0">project.single.dataset.publishers</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">25</p>
+                    <p class="mb-0">project.single.dataset.conferences</p>
+                  </v-card-stub>
+                </v-col-stub>
+                <v-col-stub tag="div">
+                  <v-card-stub loaderheight="4" tag="div" outlined="true" class="d-flex flex-column justify-center text-center pa-5">
+                    <p class="headline">46</p>
+                    <p class="mb-0">project.single.dataset.keywords</p>
+                  </v-card-stub>
+                </v-col-stub>
+              </v-row-stub>
+            </v-container-stub>
+          </v-card-text-stub>
+        </v-card-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div">
+      <v-col-stub cols="12" md="6" lg="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div">
+          <v-card-title-stub>
+            project.single.overview.top_10_authors
+          </v-card-title-stub>
+          <v-card-text-stub>
+            <v-list-stub tag="div" tile="true">
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                Hans Meier
+              </v-list-item-stub>
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                Heinz Schmidt
+              </v-list-item-stub>
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                Friedrich Bauer
+              </v-list-item-stub>
+            </v-list-stub>
+          </v-card-text-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" md="6" lg="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div">
+          <v-card-title-stub>
+            project.single.overview.top_10_records
+          </v-card-title-stub>
+          <v-card-text-stub>
+            <v-list-stub tag="div" tile="true">
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                This is the first record
+              </v-list-item-stub>
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                This is the second record
+              </v-list-item-stub>
+              <v-list-item-stub activeclass="" to="[object Object]" tag="div">
+                This is the third record
+              </v-list-item-stub>
+            </v-list-stub>
+          </v-card-text-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" md="6" lg="3" tag="div">
+        <v-card-stub loaderheight="4" tag="div">
+          <v-card-title-stub>
+            project.single.overview.country_relevance
+          </v-card-title-stub>
+          <v-card-text-stub>
+            TODO Diagram here
+          </v-card-text-stub>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" md="6" lg="3" tag="div">
+        <v-row-stub tag="div" nogutters="true">
+          <v-col-stub tag="div" class="mb-6">
+            <v-card-stub loaderheight="4" tag="div">
+              <v-card-title-stub>
+                project.single.overview.top_10_keywords
+              </v-card-title-stub>
+              <v-card-text-stub>
+                <v-chip-group-stub activeclass="v-slide-item--active" multiple="true" nexticon="$next" mobilebreakpoint="1264" previcon="$prev" column="true">
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">these</v-chip-stub>
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">are</v-chip-stub>
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">the</v-chip-stub>
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">most</v-chip-stub>
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">popular</v-chip-stub>
+                  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">keywords</v-chip-stub>
+                </v-chip-group-stub>
+              </v-card-text-stub>
+            </v-card-stub>
+          </v-col-stub>
+        </v-row-stub>
+        <v-row-stub tag="div" nogutters="true">
+          <v-col-stub tag="div">
+            <v-card-stub loaderheight="4" tag="div">
+              <v-card-title-stub>
+                project.single.overview.visualizations
+              </v-card-title-stub>
+              <v-card-text-stub>
+                <div class="d-flex flex-column justify-center text-center pa-5">
+                  <p class="mb-0">project.single.overview.no_visualizations_yet</p>
+                  <v-btn-stub color="primary" tag="button" activeclass="" rounded="true" type="button">project.single.overview.add_visualization</v-btn-stub>
+                </div>
+              </v-card-text-stub>
+            </v-card-stub>
+          </v-col-stub>
+        </v-row-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
+exports[`pages/Project.vue renders an alternate page depending on the import project state 1`] = `
+<div class="project">
+  <div class="d-flex mr-5 mt-4">
+    <h1>My awesome Project</h1>
+    <v-spacer-stub></v-spacer-stub>
+    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+      <v-icon-stub>mdi-pencil</v-icon-stub>
+      project.edit.button_text
+    </v-btn-stub>
+  </div>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div" justify="center">
+      <v-col-stub lg="3" tag="div" class="d-flex justify-center flex-column text-center">
+        <empty-icon-stub class="align-self-center mb-6"></empty-icon-stub>
+        <h3 class="headline">project.single.no_data.description</h3>
+        <p>project.single.no_data.import_data</p>
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" large="true" rounded="true" type="button">
+          project.single.no_data.button
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
 exports[`pages/Project.vue renders an alternate page depending on the project state 1`] = `
 <div class="project">
   <div class="d-flex mr-5 mt-4">

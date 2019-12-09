@@ -10,7 +10,7 @@ import Country from '@/models/paperEntities/country'
 const projectData = {
   id: 12,
   name: 'My awesome Project',
-  state: ProjectStates.EXPLORE,
+  state: ProjectStates.VISUALIZE,
   counts: {
     records: 1234,
     authors: 23,
@@ -87,10 +87,18 @@ describe('pages/Project.vue', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('renders an alternate page depending on the project state', () => {
+  it('renders an alternate page depending on the import project state', () => {
     const wrapper = getWrapper(new Project({
       ...projectData,
       state: ProjectStates.IMPORT
+    }))
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('renders an alternate page depending on the explore project state', () => {
+    const wrapper = getWrapper(new Project({
+      ...projectData,
+      state: ProjectStates.EXPLORE
     }))
     expect(wrapper.html()).toMatchSnapshot()
   })

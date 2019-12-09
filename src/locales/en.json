@@ -184,7 +184,9 @@
         "top_10_records": "Top 10 Records",
         "top_10_keywords": "Top 10 Keywords",
         "country_relevance": "Country Relevance",
-        "visualizations": "Visualizations"
+        "visualizations": "Visualizations",
+        "add_visualization": "Create a visualization",
+        "no_visualizations_yet": "You have no visualizations yet"
       },
       "no_data": {
         "description": "Your project is empty",

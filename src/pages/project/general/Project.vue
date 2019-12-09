@@ -110,7 +110,11 @@ import { ProjectStates } from '@/models/project'
                   {{ $t('project.single.overview.visualizations') }}
                 </v-card-title>
                 <v-card-text>
-                  <v-card outlined class="d-flex flex-column justify-center text-center pa-5">
+                  <div class="d-flex flex-column justify-center text-center pa-5" v-if="hasNoVisualizationsYet">
+                    <p class="mb-0">{{ $t('project.single.overview.no_visualizations_yet') }}</p>
+                    <v-btn color="primary" rounded>{{ $t('project.single.overview.add_visualization') }}</v-btn>
+                  </div>
+                  <v-card outlined class="d-flex flex-column justify-center text-center pa-5" v-else>
                     <p class="headline">{{ project.counts.visualizations }}</p>
                     <p class="mb-0">{{ $t('project.single.overview.visualizations') }}</p>
                   </v-card>
@@ -148,6 +152,10 @@ export default class ProjectPage extends Vue {
 
   get hasNoDataYet (): boolean {
     return this.project.state === ProjectStates.IMPORT
+  }
+
+  get hasNoVisualizationsYet (): boolean {
+    return this.project.state === ProjectStates.EXPLORE
   }
 }
 </script>
