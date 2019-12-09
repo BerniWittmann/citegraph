@@ -4,7 +4,7 @@
       <v-row align="center" justify="space-between">
         <v-col cols="auto">
           <h1 class="display-1">
-            {{ $t('project.explore.title.query_by_type.' + queryByType ) }}
+            {{ displayedTitle }}
           </h1>
         </v-col>
         <v-col cols="auto">
@@ -136,6 +136,13 @@ export default class DataTable extends Vue {
   selectedHeaders: Array<string> = []
 
   @Prop(String) readonly queryByType!: string
+  @Prop() readonly title: string | undefined
+  @Prop() readonly belongsTo: string | undefined
+  @Prop() readonly belongsToType: string | undefined
+
+  get displayedTitle () {
+    return this.title ? this.title : this.$t('project.explore.title.query_by_type.' + this.queryByType)
+  }
 
   get entityClass () {
     return entityKeysMap[this.queryByType]
@@ -194,7 +201,9 @@ export default class DataTable extends Vue {
       pageOffset: this.currentOptions.page - 1,
       filter: this.currentOptions.search,
       filterBy: filterByString,
-      sortBy: sortString
+      sortBy: sortString,
+      belongsTo: this.belongsTo,
+      belongsToType: this.belongsToType
     })
     this.loading = false
   }

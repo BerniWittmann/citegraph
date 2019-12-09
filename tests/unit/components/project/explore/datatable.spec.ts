@@ -286,4 +286,13 @@ describe('components/project/explore/DataTable.vue', () => {
       expect(option.filterable).toBeTruthy()
     })
   })
+
+  it('can render a title', () => {
+    const wrapper = getWrapper()
+    wrapper.setProps({
+      title: 'This is my title'
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+    expect(wrapper.text()).toContain('This is my title')
+  })
 })

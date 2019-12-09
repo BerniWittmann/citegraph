@@ -19,6 +19,9 @@ exports[`components/project/explore/view/Country.vue renders a question mark ico
           </v-list-stub>
         </v-col-stub>
       </v-row-stub>
+      <v-row-stub tag="div">
+        <data-table-stub querybytype="record" belongsto="1" belongstotype="country"></data-table-stub>
+      </v-row-stub>
     </v-container-stub>
   </div>
 </div>
@@ -40,6 +43,9 @@ exports[`components/project/explore/view/Country.vue renders the page 1`] = `
             </v-list-item-stub>
           </v-list-stub>
         </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div">
+        <data-table-stub querybytype="record" belongsto="1" belongstotype="country"></data-table-stub>
       </v-row-stub>
     </v-container-stub>
   </div>

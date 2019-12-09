@@ -17,6 +17,9 @@ exports[`components/project/explore/view/Author.vue renders the page 1`] = `
           </v-list-stub>
         </v-col-stub>
       </v-row-stub>
+      <v-row-stub tag="div">
+        <data-table-stub querybytype="record" belongsto="1" belongstotype="author"></data-table-stub>
+      </v-row-stub>
     </v-container-stub>
   </div>
 </div>

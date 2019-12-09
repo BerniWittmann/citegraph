@@ -47,4 +47,15 @@ describe('components/project/explore/view/Country.vue', () => {
     const img = wrapper.find('v-icon-stub')
     expect(img.exists()).toBeTruthy()
   })
+
+  it('renders a data table for the records', () => {
+    const wrapper = getWrapper('https://flag.url')
+    const table = wrapper.find('data-table-stub')
+    expect(table.exists()).toBeTruthy()
+    expect(table.props()).toEqual({
+      belongsTo: '1',
+      belongsToType: 'country',
+      queryByType: 'record'
+    })
+  })
 })

@@ -31,4 +31,15 @@ describe('components/project/explore/view/Author.vue', () => {
     const wrapper = getWrapper()
     expect(wrapper.text()).toContain('Max Mustermann')
   })
+
+  it('renders a data table for the records', () => {
+    const wrapper = getWrapper()
+    const table = wrapper.find('data-table-stub')
+    expect(table.exists()).toBeTruthy()
+    expect(table.props()).toEqual({
+      belongsTo: '1',
+      belongsToType: 'author',
+      queryByType: 'record'
+    })
+  })
 })

@@ -19,6 +19,9 @@
             </v-list>
           </v-col>
         </v-row>
+        <v-row>
+          <data-table belongs-to-type="author" :belongs-to="author.id" query-by-type="record"></data-table>
+        </v-row>
       </v-container>
     </layout>
   </div>
@@ -28,9 +31,11 @@
 import { Component, Vue } from 'vue-property-decorator'
 import PaperEntityLayout from '@/layouts/PaperEntity.vue'
 import Author from '@/models/paperEntities/author'
+import DataTable from '@/components/project/explore/DataTable.vue'
 
 @Component({
   components: {
+    DataTable,
     Layout: PaperEntityLayout
   }
 })
