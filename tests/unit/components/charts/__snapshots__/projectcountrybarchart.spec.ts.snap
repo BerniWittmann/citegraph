@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/charts/ProjectCountryBarChart.vue does not render the chart if the country data does not exist 1`] = `<div class=""><canvas id="pie-chart" width="400" height="400"></canvas></div>`;
+
+exports[`components/charts/ProjectCountryBarChart.vue renders 1`] = `<div class=""><canvas id="pie-chart" width="400" height="400"></canvas></div>`;

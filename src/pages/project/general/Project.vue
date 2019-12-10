@@ -84,7 +84,7 @@ import { ProjectStates } from '@/models/project'
               {{ $t('project.single.overview.country_relevance') }}
             </v-card-title>
             <v-card-text>
-              TODO Diagram here
+              <project-country-bar-chart :project="project"/>
             </v-card-text>
           </v-card>
         </v-col>
@@ -132,9 +132,11 @@ import { ProjectStates } from '@/models/project'
 import { Component, Vue } from 'vue-property-decorator'
 import Project, { ProjectStates } from '@/models/project'
 import EmptyIcon from '@/assets/svgs/Empty.vue'
+import ProjectCountryBarChart from '@/components/charts/ProjectCountryBarChart.vue'
 
 @Component({
   components: {
+    ProjectCountryBarChart,
     EmptyIcon
   }
 })

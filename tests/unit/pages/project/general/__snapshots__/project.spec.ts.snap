@@ -148,7 +148,7 @@ exports[`pages/Project.vue renders an alternate page depending on the explore pr
             project.single.overview.country_relevance
           </v-card-title-stub>
           <v-card-text-stub>
-            TODO Diagram here
+            <project-country-bar-chart-stub chartid="pie-chart" width="400" height="400" cssclasses="" plugins="" project="[object Object]"></project-country-bar-chart-stub>
           </v-card-text-stub>
         </v-card-stub>
       </v-col-stub>
@@ -337,7 +337,7 @@ exports[`pages/Project.vue renders the page 1`] = `
             project.single.overview.country_relevance
           </v-card-title-stub>
           <v-card-text-stub>
-            TODO Diagram here
+            <project-country-bar-chart-stub chartid="pie-chart" width="400" height="400" cssclasses="" plugins="" project="[object Object]"></project-country-bar-chart-stub>
           </v-card-text-stub>
         </v-card-stub>
       </v-col-stub>
