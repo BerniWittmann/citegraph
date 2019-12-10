@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/visualizations/state provides the initial state 1`] = `
+Object {
+  "visualizations": Array [],
+}
+`;

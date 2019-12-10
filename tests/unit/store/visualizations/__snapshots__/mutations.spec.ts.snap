@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/modules/visualizations/mutations provides the mutations 1`] = `
+Object {
+  "SET_VISUALIZATIONS": [Function],
+}
+`;

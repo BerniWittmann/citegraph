@@ -11,7 +11,7 @@ function getProjectId (config: AxiosRequestConfig): number {
 }
 
 export function setupMocks (mock: MockAdapter, queryResponseConfiguration: Record<string, QueryConfiguration>) {
-  mock.onPost(/\/projects\/\d+\/paper-entities/).reply((config: AxiosRequestConfig) => {
+  mock.onPost(/\/projects\/\d+\/paper-entities$/).reply((config: AxiosRequestConfig) => {
     const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
     if (!project) {
       return [404]

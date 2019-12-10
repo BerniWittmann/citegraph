@@ -15,6 +15,8 @@ import ExplorePage from '@/pages/project/explore/Explore.vue'
 import ExploreWrapperPage from '@/pages/project/explore/ExploreWrapper.vue'
 import ExploreSinglePage from '@/pages/project/explore/ExploreSingle.vue'
 import ExploreSingleWrapperPage from '@/pages/project/explore/ExploreSingleWrapper.vue'
+import VisualizationsPage from '@/pages/visualizations/Visualizations.vue'
+import AddVisualizationPage from '@/pages/visualizations/AddVisualization.vue'
 
 const routes: Array<RouteConfig> = [
   {
@@ -80,6 +82,21 @@ const routes: Array<RouteConfig> = [
             name: 'projects.single.explore.view',
             component: ExploreSinglePage
           }]
+        }]
+      }, {
+        path: 'visualizations',
+        component: EmptyRouterView,
+        beforeEnter: (to: Route, from: Route, next: Next) => {
+          store.dispatch('visualizations/fetchVisualizations', to.params.projectId).then(next)
+        },
+        children: [{
+          path: '',
+          name: 'projects.single.visualizations',
+          component: VisualizationsPage
+        }, {
+          path: 'add',
+          name: 'project.single.visualizations.add',
+          component: AddVisualizationPage
         }]
       }]
     }, {

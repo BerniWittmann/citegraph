@@ -97,7 +97,7 @@ import { ProjectStates } from '@/models/project'
                 </v-card-title>
                 <v-card-text>
                   <v-chip-group multiple column>
-                    <v-chip v-for="keyword in project.topKeywords" :key="keyword">{{ keyword }}</v-chip>
+                    <v-chip v-for="(keyword, index) in project.topKeywords" :key="`${keyword}_${index}`">{{ keyword }}</v-chip>
                   </v-chip-group>
                 </v-card-text>
               </v-card>

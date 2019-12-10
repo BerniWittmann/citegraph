@@ -11,7 +11,7 @@ function getProjectId (config: AxiosRequestConfig): number {
 }
 
 export function setupMocks (mock: MockAdapter) {
-  mock.onGet(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  mock.onGet(/\/projects\/\d+$/).reply((config: AxiosRequestConfig) => {
     const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
     if (!project) {
       return [404]
@@ -35,7 +35,7 @@ export function setupMocks (mock: MockAdapter) {
     }
   })
 
-  mock.onDelete(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  mock.onDelete(/\/projects\/\d+$/).reply((config: AxiosRequestConfig) => {
     const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
     if (!project) {
       return [404]
@@ -45,7 +45,7 @@ export function setupMocks (mock: MockAdapter) {
     return [200, project]
   })
 
-  mock.onPut(/\/projects\/\d+/).reply((config: AxiosRequestConfig) => {
+  mock.onPut(/\/projects\/\d+$/).reply((config: AxiosRequestConfig) => {
     let project: Project = projects.findOne({ 'id': getProjectId(config) })
     if (!project) {
       return [404]

@@ -2,15 +2,21 @@ import routes from '@/router'
 import { RouteConfig } from 'vue-router'
 
 export function getRouteConfigByName (name: string) : RouteConfig | undefined {
-  return getRouteConfigByNameRec(name, routes)
+  return getRouteConfigByKeyRec('name', name, routes)
 }
 
-function getRouteConfigByNameRec (name: string, currentRoutes: Array<RouteConfig>): RouteConfig | undefined {
-  return currentRoutes.find(currentRoute => {
-    if (currentRoute.name === name) return currentRoute
+export function getRouteConfigByPath (path: string) : RouteConfig | undefined {
+  return getRouteConfigByKeyRec('path', path, routes)
+}
+
+function getRouteConfigByKeyRec (key: string, name: string, currentRoutes: Array<RouteConfig>): RouteConfig | undefined {
+  return currentRoutes.reduce((acc: RouteConfig | undefined, currentRoute: RouteConfig) => {
+    if (acc) return acc
+    // @ts-ignore
+    if (currentRoute[key] && currentRoute[key] === name) return currentRoute
     if (currentRoute.children) {
-      return getRouteConfigByNameRec(name, currentRoute.children)
+      acc = getRouteConfigByKeyRec(key, name, currentRoute.children)
     }
-    return undefined
-  })
+    return acc
+  }, undefined)
 }

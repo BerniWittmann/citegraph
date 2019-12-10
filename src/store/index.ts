@@ -4,12 +4,14 @@ import { toasts } from './modules/toasts'
 import { database } from './modules/database'
 import { paperEntities } from './modules/paperEntities'
 import { ActionTree, GetterTree, MutationTree } from 'vuex'
+import { visualizations } from '@/store/modules/visualizations'
 
 export const modules = {
   projects,
   toasts,
   database,
-  paperEntities
+  paperEntities,
+  visualizations
 }
 
 export const state: RootState = {}

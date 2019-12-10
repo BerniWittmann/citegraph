@@ -1,5 +1,5 @@
 import routes from '@/router'
-import { getRouteConfigByName } from '../testHelpers'
+import { getRouteConfigByName, getRouteConfigByPath } from '../testHelpers'
 import store from '@/plugins/store'
 
 jest.mock('@/plugins/store', () => ({
@@ -15,6 +15,7 @@ describe('router/index', () => {
 
   it('fetches the projects on the projects page', () => {
     const route = getRouteConfigByName('projects')!
+    expect(route).not.toBeUndefined()
     expect(route.name).toEqual('projects')
     expect(route.beforeEnter).toEqual(expect.any(Function))
     const next = jest.fn()
@@ -23,6 +24,19 @@ describe('router/index', () => {
     navigationGuard({}, {}, next)
 
     expect(store.dispatch).toHaveBeenCalledWith('projects/fetchProjects')
+    expect(next).toHaveBeenCalled()
+  })
+
+  it('fetches the visualizations on the visualizations page', () => {
+    const route = getRouteConfigByPath('visualizations')!
+    expect(route).not.toBeUndefined()
+    expect(route.beforeEnter).toEqual(expect.any(Function))
+    const next = jest.fn()
+    const navigationGuard = route.beforeEnter as Function
+
+    navigationGuard({ params: { projectId: 42 } }, {}, next)
+
+    expect(store.dispatch).toHaveBeenCalledWith('visualizations/fetchVisualizations', 42)
     expect(next).toHaveBeenCalled()
   })
 

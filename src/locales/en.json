@@ -213,5 +213,56 @@
     "help": "Help",
     "settings": "Settings"
   },
-  "route_not_found": "The given route was not found"
+  "route_not_found": "The given route was not found",
+  "visualizations": {
+    "information": {
+      "word_cloud": {
+        "title": "Word Cloud",
+        "description": "A visual representation of text data",
+        "long_description": "A word cloud is typically used to depict keyword metadata (tags) on websites,  or to visualize free form text. Tags are usually single words, and the importance of each tag is shown with font size or color. This format is useful for quickly perceiving the most prominent terms to determine its relative prominence."
+      },
+      "bar_chart": {
+        "title": "Bar Chart",
+        "description": "Plots data over time",
+        "long_description": "A bar chart presents categorical data with rectangular bars with heights proportional to the values that they represent. The bars can be plotted vertically. It shows comparisons among discrete categories. One axis of the chart shows the specific categories being compared, and the other axis represents a measured value. Some bar charts present bars clustered in groups of more than one, showing the values of more than one measured variable. "
+      }
+    },
+    "card": {
+      "processing": "processing %{percent}%",
+      "ready": "ready",
+      "show": "Show",
+      "edit": "Edit"
+    },
+    "your_visualizations": "Your Visualizations",
+    "add": {
+      "title": "Create new Visualization",
+      "description": "You have no visualizations",
+      "text": "There exist no visualizations yet. Let's create one!",
+      "steps": {
+        "type": {
+          "title": "Choose Visualization Type",
+          "subtitle": "Please choose a type"
+        },
+        "general": {
+          "title": "General Information",
+          "subtitle": "Please enter some general information"
+        },
+        "data": {
+          "title": "Choose Data",
+          "subtitle": "Please choose data to visualize"
+        },
+        "parameters": {
+          "title": "Set Parameters",
+          "subtitle": "Please parameterize the algorithms"
+        }
+      },
+      "type": {
+        "title": "Choose visualization type",
+        "back": "Back",
+        "choose": "Choose",
+        "info": "Info"
+      }
+    },
+    "fetch_error": "Could not load Visualizations"
+  }
 }

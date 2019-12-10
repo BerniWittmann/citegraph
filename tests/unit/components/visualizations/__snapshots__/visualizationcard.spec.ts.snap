@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type barchart does not render a progress bar for 100% 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="100" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress" style="display: none;"></v-progress-linear-stub>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type barchart renders 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="0" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress" style="display: none;"></v-progress-linear-stub>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type barchart renders a progress bar 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.processing</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="30" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress"></v-progress-linear-stub>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type wordcloud does not render a progress bar for 100% 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="100" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress" style="display: none;"></v-progress-linear-stub>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type wordcloud renders 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="0" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress" style="display: none;"></v-progress-linear-stub>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/VisualizationCard.vue can display a card of type wordcloud renders a progress bar 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true" class="visualization-card">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-3">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="undefinedvisualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-center">
+      <v-card-title-stub>My awesome Visualization</v-card-title-stub>
+      <v-card-text-stub class="progress-information text-center"><span>visualizations.card.processing</span></v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.show
+        </v-btn-stub>
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.card.edit
+        </v-btn-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+  <v-progress-linear-stub color="#F37F21" value="30" active="true" backgroundcolor="#FBBF35" backgroundopacity="0.5" buffervalue="100" height="4" max="100" class="progress"></v-progress-linear-stub>
+</v-card-stub>
+`;

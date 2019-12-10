@@ -3,7 +3,8 @@ import {
   insertSampleAuthorsData,
   insertSampleProjectsData,
   insertSampleRecordsData,
-  insertSampleCountriesData
+  insertSampleCountriesData,
+  insertSampleVisualizationsData
 } from './sampleData'
 
 const db = new Loki('mock.db', {
@@ -26,10 +27,11 @@ export function initializeDB (): void {
   checkAndAddCollection('authors', insertSampleAuthorsData)
   checkAndAddCollection('records', insertSampleRecordsData)
   checkAndAddCollection('countries', insertSampleCountriesData)
+  checkAndAddCollection('visualizations', insertSampleVisualizationsData)
 }
 
 export async function clearDB (): Promise<undefined> {
-  ['projects', 'authors', 'records', 'countries'].forEach(await clearCollection)
+  ['projects', 'authors', 'records', 'countries', 'visualizations'].forEach(await clearCollection)
   db.saveDatabase()
   return undefined
 }

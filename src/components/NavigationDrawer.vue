@@ -54,6 +54,7 @@
         <v-list-item
           key="visualize"
           link
+          :to="{ name: 'projects.single.visualizations', params: { projectId: project.id } }"
         >
           <v-list-item-icon>
             <v-icon>mdi-clipboard-text</v-icon>

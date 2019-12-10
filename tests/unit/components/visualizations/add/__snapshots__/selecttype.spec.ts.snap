@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/visualizations/add/SelectType.vue renders 1`] = `
+<div class="visualization-add-type">
+  <h1>visualizations.add.type.title</h1>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub cols="12" md="4" tag="div">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
+          <div class="d-flex flex-no-wrap justify-space-between">
+            <v-avatar-stub size="125" tile="true" class="ma-2">
+              <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+            </v-avatar-stub>
+            <div class="flex-grow-1 d-flex flex-column align-stretch">
+              <v-card-title-stub>visualizations.information.word_cloud.title</v-card-title-stub>
+              <v-card-text-stub>
+                visualizations.information.word_cloud.description
+              </v-card-text-stub>
+              <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+              <v-card-actions-stub class="d-flex justify-space-around">
+                <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+                  visualizations.add.type.choose
+                </v-btn-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div" maxwidth="500px">
+                    <v-card-title-stub class="d-flex justify-space-between">
+                      visualizations.information.word_cloud.title
+                      <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                        <v-icon-stub>mdi-close</v-icon-stub>
+                      </v-btn-stub>
+                    </v-card-title-stub>
+                    <v-card-text-stub class="d-flex justify-space-between align-center">
+                      <v-avatar-stub size="175" tile="true" class="ma-3">
+                        <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+                      </v-avatar-stub>
+                      visualizations.information.word_cloud.long_description
+                    </v-card-text-stub>
+                  </v-card-stub>
+                </v-menu-stub>
+              </v-card-actions-stub>
+            </div>
+          </div>
+        </v-card-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" md="4" tag="div">
+        <v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
+          <div class="d-flex flex-no-wrap justify-space-between">
+            <v-avatar-stub size="125" tile="true" class="ma-2">
+              <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+            </v-avatar-stub>
+            <div class="flex-grow-1 d-flex flex-column align-stretch">
+              <v-card-title-stub>visualizations.information.bar_chart.title</v-card-title-stub>
+              <v-card-text-stub>
+                visualizations.information.bar_chart.description
+              </v-card-text-stub>
+              <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+              <v-card-actions-stub class="d-flex justify-space-around">
+                <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+                  visualizations.add.type.choose
+                </v-btn-stub>
+                <v-menu-stub opendelay="0" closedelay="0" contentclass="" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+                  <v-card-stub loaderheight="4" tag="div" maxwidth="500px">
+                    <v-card-title-stub class="d-flex justify-space-between">
+                      visualizations.information.bar_chart.title
+                      <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                        <v-icon-stub>mdi-close</v-icon-stub>
+                      </v-btn-stub>
+                    </v-card-title-stub>
+                    <v-card-text-stub class="d-flex justify-space-between align-center">
+                      <v-avatar-stub size="175" tile="true" class="ma-3">
+                        <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+                      </v-avatar-stub>
+                      visualizations.information.bar_chart.long_description
+                    </v-card-text-stub>
+                  </v-card-stub>
+                </v-menu-stub>
+              </v-card-actions-stub>
+            </div>
+          </div>
+        </v-card-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+  <div class="my-10 d-flex">
+    <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+      <v-icon-stub>mdi-menu-left</v-icon-stub> visualizations.add.type.back
+    </v-btn-stub>
+  </div>
+</div>
+`;
+
+exports[`components/visualizations/add/SelectType.vue renders a card for type barchart renders 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-2">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-stretch">
+      <v-card-title-stub>visualizations.information.bar_chart.title</v-card-title-stub>
+      <v-card-text-stub>
+        visualizations.information.bar_chart.description
+      </v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub class="d-flex justify-space-around">
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.add.type.choose
+        </v-btn-stub>
+        <v-menu-stub opendelay="0" closedelay="0" contentclass="" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+          <v-card-stub loaderheight="4" tag="div" maxwidth="500px">
+            <v-card-title-stub class="d-flex justify-space-between">
+              visualizations.information.bar_chart.title
+              <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                <v-icon-stub>mdi-close</v-icon-stub>
+              </v-btn-stub>
+            </v-card-title-stub>
+            <v-card-text-stub class="d-flex justify-space-between align-center">
+              <v-avatar-stub size="175" tile="true" class="ma-3">
+                <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/bar_chart.png" transition="fade-transition"></v-img-stub>
+              </v-avatar-stub>
+              visualizations.information.bar_chart.long_description
+            </v-card-text-stub>
+          </v-card-stub>
+        </v-menu-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+</v-card-stub>
+`;
+
+exports[`components/visualizations/add/SelectType.vue renders a card for type wordcloud renders 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
+  <div class="d-flex flex-no-wrap justify-space-between">
+    <v-avatar-stub size="125" tile="true" class="ma-2">
+      <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+    </v-avatar-stub>
+    <div class="flex-grow-1 d-flex flex-column align-stretch">
+      <v-card-title-stub>visualizations.information.word_cloud.title</v-card-title-stub>
+      <v-card-text-stub>
+        visualizations.information.word_cloud.description
+      </v-card-text-stub>
+      <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
+      <v-card-actions-stub class="d-flex justify-space-around">
+        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+          visualizations.add.type.choose
+        </v-btn-stub>
+        <v-menu-stub opendelay="0" closedelay="0" contentclass="" left="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" closeoncontentclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
+          <v-card-stub loaderheight="4" tag="div" maxwidth="500px">
+            <v-card-title-stub class="d-flex justify-space-between">
+              visualizations.information.word_cloud.title
+              <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                <v-icon-stub>mdi-close</v-icon-stub>
+              </v-btn-stub>
+            </v-card-title-stub>
+            <v-card-text-stub class="d-flex justify-space-between align-center">
+              <v-avatar-stub size="175" tile="true" class="ma-3">
+                <v-img-stub contain="true" options="[object Object]" position="center center" src="visualization_images/word_cloud.jpg" transition="fade-transition"></v-img-stub>
+              </v-avatar-stub>
+              visualizations.information.word_cloud.long_description
+            </v-card-text-stub>
+          </v-card-stub>
+        </v-menu-stub>
+      </v-card-actions-stub>
+    </div>
+  </div>
+</v-card-stub>
+`;

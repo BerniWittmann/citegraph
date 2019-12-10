@@ -3,6 +3,8 @@ import Project, { ProjectStates } from '@/models/project'
 import Author from '@/models/paperEntities/author'
 import Record from '@/models/paperEntities/record'
 import Country from '@/models/paperEntities/country'
+import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
+import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 
 function getRandomFromArray (arr: Array<any>): any {
   if (!arr || arr.length === 0) return undefined
@@ -18,6 +20,7 @@ export default function insertSampleData (db: Loki): void {
   insertSampleAuthorsData(db)
   insertSampleRecordsData(db)
   insertSampleCountriesData(db)
+  insertSampleVisualizationsData(db)
 }
 
 export function insertSampleProjectsData (db: Loki): void {
@@ -175,4 +178,18 @@ export function insertSampleCountriesData (db: Loki): void {
   countriesData.forEach((country) => {
     countries.insert(country)
   })
+}
+
+export function insertSampleVisualizationsData (db: Loki): void {
+  const visualizations = db.getCollection('visualizations')
+  visualizations.insert(new WordCloudVisualization({
+    id: '1',
+    name: 'My Word Cloud',
+    progress: 0.8
+  }))
+  visualizations.insert(new BarChartVisualization({
+    id: '2',
+    name: 'My Bar Chart',
+    progress: 1
+  }))
 }
