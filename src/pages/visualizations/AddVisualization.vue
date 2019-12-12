@@ -48,8 +48,11 @@
           </v-stepper-content>
 
           <v-stepper-content step="3">
-            Test Drei
-            {{ this.visualization }}
+            <visualization-add-choose-data-component
+              :visualization="visualization"
+              @next-step="nextStep"
+              @previous-step="previousStep"
+            ></visualization-add-choose-data-component>
           </v-stepper-content>
 
           <v-stepper-content step="4">
@@ -67,11 +70,13 @@ import VisualizationAddSelectTypeComponent from '@/components/visualizations/add
 import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
 import Visualization from '@/models/visualizations/Visualization'
 import { visualizations } from '@/models/visualizations'
+import VisualizationAddChooseDataComponent from '@/components/visualizations/add/ChooseData.vue'
 
 @Component({
   components: {
     VisualizationAddSelectTypeComponent,
-    VisualizationAddGeneralInformationComponent
+    VisualizationAddGeneralInformationComponent,
+    VisualizationAddChooseDataComponent
   }
 })
 export default class AddVisualizationPage extends Vue {

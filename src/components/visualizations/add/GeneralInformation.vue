@@ -30,7 +30,6 @@
               :disabled="!valid"
               color="success"
               type="submit"
-              @click="submit"
             >{{ $t('visualizations.add.general.submit') }}
             </v-btn>
           </v-col>

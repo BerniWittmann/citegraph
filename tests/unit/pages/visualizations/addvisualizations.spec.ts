@@ -6,6 +6,7 @@ import VisualizationAddSelectTypeComponent from '@/components/visualizations/add
 import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
 import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
+import VisualizationAddChooseDataComponent from '@/components/visualizations/add/ChooseData.vue'
 
 describe('pages/visualizations/AddVisualization.vue', () => {
   const router = {
@@ -105,6 +106,33 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
         name: 'New Name'
       }))
+    })
+  })
+
+  describe('has a choose data step', () => {
+    it('renders the choose data component', () => {
+      const wrapper = getWrapper()
+      expect(wrapper.contains(VisualizationAddChooseDataComponent)).toBeTruthy()
+    })
+
+    it('goes to the next Step on the next step event', () => {
+      const wrapper = getWrapper()
+      const infoComponent = wrapper.find(VisualizationAddChooseDataComponent)
+      infoComponent.vm.$emit('next-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(2)
+    })
+
+    it('goes to previous Step on the previous step event', () => {
+      const wrapper = getWrapper()
+      // @ts-ignore
+      wrapper.vm.currentStep = 3
+      const infoComponent = wrapper.find(VisualizationAddChooseDataComponent)
+      infoComponent.vm.$emit('previous-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(2)
     })
   })
 

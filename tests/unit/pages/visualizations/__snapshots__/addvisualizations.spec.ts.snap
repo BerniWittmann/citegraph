@@ -29,11 +29,7 @@ exports[`pages/visualizations/AddVisualization.vue renders the page 1`] = `
           <visualization-add-general-information-component-stub name=""></visualization-add-general-information-component-stub>
         </v-stepper-content-stub>
         <v-stepper-content-stub step="3">
-          Test Drei
-          {
-          "name": "",
-          "key": "wordcloud"
-          }
+          <visualization-add-choose-data-component-stub visualization="[object Object]"></visualization-add-choose-data-component-stub>
         </v-stepper-content-stub>
         <v-stepper-content-stub step="4">
           Test Vier

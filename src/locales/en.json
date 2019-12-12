@@ -271,6 +271,34 @@
         "submit": "Continue",
         "name_required": "Name is required",
         "name_not_empty": "Name must not be empty"
+      },
+      "data": {
+        "title": "Choose data to visualize",
+        "back": "Back",
+        "next": "Continue",
+        "choose_type": "Choose data type",
+        "data_types": {
+          "record": "Records",
+          "author": "Authors",
+          "institution": "Institutions",
+          "country": "Countries",
+          "publication": "Publications",
+          "publisher": "Publishers",
+          "conference": "Conferences"
+        },
+        "set_time_period": "Set Time Period",
+        "amount_time_periods": "Amount of Time Periods",
+        "period": {
+          "from": "From",
+          "until": "Until",
+          "enter_year": "Enter Year",
+          "elements": "%{count} Elements",
+          "add": "Add Time Period",
+          "year_min": "Use a year after 1970",
+          "year_max": "Use a year in the past",
+          "year_required": "Please give a year",
+          "data": "Data"
+        }
       }
     },
     "fetch_error": "Could not load Visualizations"
