@@ -3,6 +3,9 @@ import { i18n } from '../../setupPlugins'
 
 import AddVisualizationsPage from '@/pages/visualizations/AddVisualization.vue'
 import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
+import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
+import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
+import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 
 describe('pages/visualizations/AddVisualization.vue', () => {
   const router = {
@@ -42,11 +45,66 @@ describe('pages/visualizations/AddVisualization.vue', () => {
 
     it('goes to the next Step on the next step event', () => {
       const wrapper = getWrapper()
-      const uploadComponent = wrapper.find(VisualizationAddSelectTypeComponent)
-      uploadComponent.vm.$emit('next-step')
+      const selectTypeComponent = wrapper.find(VisualizationAddSelectTypeComponent)
+      selectTypeComponent.vm.$emit('next-step')
 
       // @ts-ignore
       expect(wrapper.vm.currentStep).toEqual(2)
+    })
+
+    it('can update the type', () => {
+      const wrapper = getWrapper()
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
+        name: ''
+      }))
+      const selectTypeComponent = wrapper.find(VisualizationAddSelectTypeComponent)
+      selectTypeComponent.vm.$emit('update-type', BarChartVisualization)
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(new BarChartVisualization({
+        name: ''
+      }))
+    })
+  })
+
+  describe('has a general information step', () => {
+    it('renders the general information component', () => {
+      const wrapper = getWrapper()
+      expect(wrapper.contains(VisualizationAddGeneralInformationComponent)).toBeTruthy()
+    })
+
+    it('goes to the next Step on the next step event', () => {
+      const wrapper = getWrapper()
+      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      infoComponent.vm.$emit('next-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(2)
+    })
+
+    it('goes to previous Step on the previous step event', () => {
+      const wrapper = getWrapper()
+      // @ts-ignore
+      wrapper.vm.currentStep = 2
+      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      infoComponent.vm.$emit('previous-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(1)
+    })
+
+    it('can update the name', () => {
+      const wrapper = getWrapper()
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
+        name: ''
+      }))
+      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      infoComponent.vm.$emit('update:name', 'New Name')
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
+        name: 'New Name'
+      }))
     })
   })
 

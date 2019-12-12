@@ -4,6 +4,8 @@ import { i18n } from '../../../setupPlugins'
 import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
 import { visualizations } from '@/models/visualizations'
 
+jest.useFakeTimers()
+
 describe('components/visualizations/add/SelectType.vue', () => {
   const router = {
     back: jest.fn()
@@ -61,8 +63,20 @@ describe('components/visualizations/add/SelectType.vue', () => {
         expect(btn.exists()).toBeTruthy()
         expect(btn.text()).toEqual('visualizations.add.type.choose')
         expect(wrapper.emitted('next-step')).toBeFalsy()
+        expect(wrapper.emitted('update-type')).toBeFalsy()
         btn.vm.$emit('click')
+        expect(wrapper.emitted('update-type')).toBeTruthy()
+        expect(wrapper.emitted('update-type')[0][0]).toEqual(VisualizationClass)
+        jest.runAllTimers()
         expect(wrapper.emitted('next-step')).toBeTruthy()
+      })
+
+      it('renders the card active if the type is active', () => {
+        wrapper.setProps({
+          currentType: VisualizationClass.key
+        })
+        expect(card.html()).toMatchSnapshot()
+        expect(card.props('raised')).toBeTruthy()
       })
     })
   })

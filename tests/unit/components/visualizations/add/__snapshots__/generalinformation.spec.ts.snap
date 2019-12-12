@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/visualizations/add/GeneralInformation.vue renders 1`] = `
+<div class="visualization-add-general">
+  <h1>visualizations.add.general.title</h1>
+  <v-container-stub tag="div">
+    <v-form-stub class="mt-12">
+      <v-row-stub tag="div" justify="center">
+        <v-col-stub lg="6" tag="div">
+          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hint="visualizations.add.general.name_hint" label="visualizations.add.general.name" loaderheight="2" autofocus="true" clearicon="$clear" solo="true" type="text" required=""></v-text-field-stub>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div" justify="space-between" class="my-10">
+        <v-col-stub cols="auto" tag="div">
+          <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+            <v-icon-stub>mdi-menu-left</v-icon-stub>
+            visualizations.add.general.back
+          </v-btn-stub>
+        </v-col-stub>
+        <v-col-stub cols="auto" tag="div">
+          <v-btn-stub color="success" tag="button" activeclass="" disabled="true" large="true" rounded="true" type="submit">visualizations.add.general.submit
+          </v-btn-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-form-stub>
+  </v-container-stub>
+</div>
+`;

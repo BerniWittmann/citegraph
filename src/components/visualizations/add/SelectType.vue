@@ -4,7 +4,7 @@
     <v-container>
       <v-row>
         <v-col v-for="type in types" :key="type.key" cols="12" md="4">
-          <v-card :hover="true"
+          <v-card hover :raised="isActive(type)"
                   height="100%">
             <div class="d-flex flex-no-wrap justify-space-between">
               <v-avatar
@@ -21,8 +21,9 @@
                 </v-card-text>
                 <v-divider style="width: 90%" class="mx-auto"></v-divider>
                 <v-card-actions class="d-flex justify-space-around">
-                  <v-btn color="primary" text @click="choose(type)">
-                    {{ $t('visualizations.add.type.choose') }}
+                  <v-btn :color="isActive(type) ? 'success' : 'primary'" text @click="choose(type)">
+                    <v-icon v-if="isActive(type)">mdi-check</v-icon>
+                    {{ $t(isActive(type) ? 'visualizations.add.type.chosen' : 'visualizations.add.type.choose') }}
                   </v-btn>
                   <v-menu left>
                     <template v-slot:activator="{ on }">
@@ -63,17 +64,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Emit, Vue } from 'vue-property-decorator'
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 import { visualizations } from '@/models/visualizations'
 
 @Component
 export default class VisualizationAddSelectTypeComponent extends Vue {
+  @Prop(String) currentType: string | undefined
   get types (): Array<any> {
     return visualizations
   }
 
-  choose (): void {
-    this.nextStep()
+  choose (type: any): any {
+    this.updateType(type)
+    setTimeout(this.nextStep, 750)
+  }
+
+  @Emit('update-type')
+  updateType (type: any): any {
+    return type
+  }
+
+  isActive (type: any): boolean {
+    return type.key === this.currentType
   }
 
   @Emit()

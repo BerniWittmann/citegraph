@@ -260,7 +260,17 @@
         "title": "Choose visualization type",
         "back": "Back",
         "choose": "Choose",
+        "chosen": "Chosen",
         "info": "Info"
+      },
+      "general": {
+        "title": "General Information",
+        "name": "Name",
+        "name_hint": "Choose a name for your visualization",
+        "back": "Back",
+        "submit": "Continue",
+        "name_required": "Name is required",
+        "name_not_empty": "Name must not be empty"
       }
     },
     "fetch_error": "Could not load Visualizations"

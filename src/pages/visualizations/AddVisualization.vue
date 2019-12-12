@@ -3,28 +3,28 @@
     <div class="mt-4">
       <v-stepper v-model="currentStep">
         <v-stepper-header>
-          <v-stepper-step :complete="currentStep > 1" step="1">
+          <v-stepper-step :complete="currentStep > 1" step="1" :editable="furthestStep > 0">
             {{ $t('visualizations.add.steps.type.title') }}
             <small>{{ $t('visualizations.add.steps.type.subtitle') }}</small>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="currentStep > 2" step="2">
+          <v-stepper-step :complete="currentStep > 2" step="2" :editable="furthestStep > 1">
             {{ $t('visualizations.add.steps.general.title') }}
             <small>{{ $t('visualizations.add.steps.general.subtitle') }}</small>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="3">
+          <v-stepper-step :complete="currentStep > 3" step="3" :editable="furthestStep > 2">
             {{ $t('visualizations.add.steps.data.title') }}
             <small>{{ $t('visualizations.add.steps.data.subtitle') }}</small>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="4">
+          <v-stepper-step :complete="currentStep > 4" step="4" :editable="furthestStep > 3">
             {{ $t('visualizations.add.steps.parameters.title') }}
             <small>{{ $t('visualizations.add.steps.parameters.subtitle') }}</small>
           </v-stepper-step>
@@ -32,15 +32,24 @@
 
         <v-stepper-items>
           <v-stepper-content step="1">
-            <visualization-add-select-type-component @next-step="nextStep"></visualization-add-select-type-component>
+            <visualization-add-select-type-component
+              :current-type="currentType"
+              @next-step="nextStep"
+              @update-type="updateType"
+            ></visualization-add-select-type-component>
           </v-stepper-content>
 
           <v-stepper-content step="2">
-            Test Zwei
+            <visualization-add-general-information-component
+              :name="visualization.name"
+              @update:name="updateName"
+              @next-step="nextStep"
+              @previous-step="previousStep"></visualization-add-general-information-component>
           </v-stepper-content>
 
           <v-stepper-content step="3">
             Test Drei
+            {{ this.visualization }}
           </v-stepper-content>
 
           <v-stepper-content step="4">
@@ -55,20 +64,34 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
+import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
+import Visualization from '@/models/visualizations/Visualization'
+import { visualizations } from '@/models/visualizations'
 
 @Component({
   components: {
-    VisualizationAddSelectTypeComponent
+    VisualizationAddSelectTypeComponent,
+    VisualizationAddGeneralInformationComponent
   }
 })
 export default class AddVisualizationPage extends Vue {
   currentStep: number = 1
+  furthestStep: number = 1
   isProcessing: boolean = false
+  hasChosenType: boolean = false
+  visualization: Visualization = new visualizations[0]({
+    name: ''
+  })
 
   nextStep (): void {
     if (!this.isComplete) {
       this.currentStep++
     }
+    this.setFurthestStep()
+  }
+
+  setFurthestStep (): void {
+    this.furthestStep = Math.max(this.currentStep, this.furthestStep)
   }
 
   previousStep (): void {
@@ -77,6 +100,20 @@ export default class AddVisualizationPage extends Vue {
 
   get isComplete (): boolean {
     return this.currentStep >= 4
+  }
+
+  get currentType (): string | undefined {
+    if (!this.hasChosenType) return undefined
+    return this.visualization.key
+  }
+
+  updateType (Type: any): void {
+    this.visualization = new Type(this.visualization)
+    this.hasChosenType = true
+  }
+
+  updateName (name: string): void {
+    this.visualization.name = name
   }
 }
 </script>
