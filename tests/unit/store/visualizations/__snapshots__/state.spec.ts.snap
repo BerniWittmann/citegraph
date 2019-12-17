@@ -2,6 +2,7 @@
 
 exports[`store/modules/visualizations/state provides the initial state 1`] = `
 Object {
+  "currentVisualization": undefined,
   "visualizations": Array [],
 }
 `;

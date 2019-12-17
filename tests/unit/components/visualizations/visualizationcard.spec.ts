@@ -15,6 +15,13 @@ describe('components/visualizations/VisualizationCard.vue', () => {
       i18n,
       propsData: {
         visualization
+      },
+      mocks: {
+        $route: {
+          params: {
+            projectId: 42
+          }
+        }
       }
     })
   }

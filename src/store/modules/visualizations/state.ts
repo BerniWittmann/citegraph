@@ -1,5 +1,6 @@
 import { VisualizationsState } from './types'
 
 export const state: VisualizationsState = {
-  visualizations: []
+  visualizations: [],
+  currentVisualization: undefined
 }

@@ -1,20 +1,28 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../../setupPlugins'
 
-import AddVisualizationsPage from '@/pages/visualizations/AddVisualization.vue'
-import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
-import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
+import EditVisualizationsPage from '@/pages/visualizations/visualization/EditVisualization.vue'
+import VisualizationEditSelectTypeComponent from '@/components/visualizations/edit/SelectType.vue'
+import VisualizationEditGeneralInformationComponent from '@/components/visualizations/edit/GeneralInformation.vue'
 import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
-import VisualizationAddChooseDataComponent from '@/components/visualizations/add/ChooseData.vue'
+import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
+import Visualization from '@/models/visualizations/Visualization'
 
-describe('pages/visualizations/AddVisualization.vue', () => {
+describe('pages/visualizations/EditVisualization.vue', () => {
   const router = {
     back: jest.fn()
   }
 
-  function getWrapper () {
-    return shallowMount(AddVisualizationsPage, {
+  function getWrapper (visualization?: Visualization) {
+    const store = {
+      getters: {
+        'visualizations/hasCurrentVisualization': !!visualization,
+        'visualizations/currentVisualization': visualization
+      }
+    }
+
+    return shallowMount(EditVisualizationsPage, {
       i18n,
       mocks: {
         $route: {
@@ -22,6 +30,7 @@ describe('pages/visualizations/AddVisualization.vue', () => {
             projectId: 23
           }
         },
+        $store: store,
         $router: router
       }
     })
@@ -41,12 +50,12 @@ describe('pages/visualizations/AddVisualization.vue', () => {
   describe('has a select type step', () => {
     it('renders the select Type component', () => {
       const wrapper = getWrapper()
-      expect(wrapper.contains(VisualizationAddSelectTypeComponent)).toBeTruthy()
+      expect(wrapper.contains(VisualizationEditSelectTypeComponent)).toBeTruthy()
     })
 
     it('goes to the next Step on the next step event', () => {
       const wrapper = getWrapper()
-      const selectTypeComponent = wrapper.find(VisualizationAddSelectTypeComponent)
+      const selectTypeComponent = wrapper.find(VisualizationEditSelectTypeComponent)
       selectTypeComponent.vm.$emit('next-step')
 
       // @ts-ignore
@@ -59,7 +68,7 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
         name: ''
       }))
-      const selectTypeComponent = wrapper.find(VisualizationAddSelectTypeComponent)
+      const selectTypeComponent = wrapper.find(VisualizationEditSelectTypeComponent)
       selectTypeComponent.vm.$emit('update-type', BarChartVisualization)
       // @ts-ignore
       expect(wrapper.vm.visualization).toEqual(new BarChartVisualization({
@@ -71,12 +80,12 @@ describe('pages/visualizations/AddVisualization.vue', () => {
   describe('has a general information step', () => {
     it('renders the general information component', () => {
       const wrapper = getWrapper()
-      expect(wrapper.contains(VisualizationAddGeneralInformationComponent)).toBeTruthy()
+      expect(wrapper.contains(VisualizationEditGeneralInformationComponent)).toBeTruthy()
     })
 
     it('goes to the next Step on the next step event', () => {
       const wrapper = getWrapper()
-      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      const infoComponent = wrapper.find(VisualizationEditGeneralInformationComponent)
       infoComponent.vm.$emit('next-step')
 
       // @ts-ignore
@@ -87,7 +96,7 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       wrapper.vm.currentStep = 2
-      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      const infoComponent = wrapper.find(VisualizationEditGeneralInformationComponent)
       infoComponent.vm.$emit('previous-step')
 
       // @ts-ignore
@@ -100,7 +109,7 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
         name: ''
       }))
-      const infoComponent = wrapper.find(VisualizationAddGeneralInformationComponent)
+      const infoComponent = wrapper.find(VisualizationEditGeneralInformationComponent)
       infoComponent.vm.$emit('update:name', 'New Name')
       // @ts-ignore
       expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
@@ -112,12 +121,12 @@ describe('pages/visualizations/AddVisualization.vue', () => {
   describe('has a choose data step', () => {
     it('renders the choose data component', () => {
       const wrapper = getWrapper()
-      expect(wrapper.contains(VisualizationAddChooseDataComponent)).toBeTruthy()
+      expect(wrapper.contains(VisualizationEditChooseDataComponent)).toBeTruthy()
     })
 
     it('goes to the next Step on the next step event', () => {
       const wrapper = getWrapper()
-      const infoComponent = wrapper.find(VisualizationAddChooseDataComponent)
+      const infoComponent = wrapper.find(VisualizationEditChooseDataComponent)
       infoComponent.vm.$emit('next-step')
 
       // @ts-ignore
@@ -128,7 +137,7 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       wrapper.vm.currentStep = 3
-      const infoComponent = wrapper.find(VisualizationAddChooseDataComponent)
+      const infoComponent = wrapper.find(VisualizationEditChooseDataComponent)
       infoComponent.vm.$emit('previous-step')
 
       // @ts-ignore
@@ -184,5 +193,13 @@ describe('pages/visualizations/AddVisualization.vue', () => {
       // @ts-ignore
       expect(wrapper.vm.currentStep).toEqual(1)
     })
+  })
+
+  it('if a visualization already exists the visualization data is prefilled', () => {
+    const vis = new BarChartVisualization({ id: '42', name: 'My Chart' })
+    const wrapper = getWrapper(vis)
+    expect(wrapper.html()).toMatchSnapshot()
+    // @ts-ignore
+    expect(wrapper.vm.visualization).toEqual(vis)
   })
 })

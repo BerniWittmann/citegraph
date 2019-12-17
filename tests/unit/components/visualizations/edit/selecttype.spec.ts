@@ -1,17 +1,17 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../../../setupPlugins'
 
-import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
+import VisualizationEditSelectTypeComponent from '@/components/visualizations/edit/SelectType.vue'
 import { visualizations } from '@/models/visualizations'
 
 jest.useFakeTimers()
 
-describe('components/visualizations/add/SelectType.vue', () => {
+describe('components/visualizations/edit/SelectType.vue', () => {
   const router = {
     back: jest.fn()
   }
   const getWrapper = () => {
-    return shallowMount(VisualizationAddSelectTypeComponent, {
+    return shallowMount(VisualizationEditSelectTypeComponent, {
       i18n,
       mocks: {
         $router: router

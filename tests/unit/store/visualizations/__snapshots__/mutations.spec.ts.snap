@@ -2,6 +2,7 @@
 
 exports[`store/modules/visualizations/mutations provides the mutations 1`] = `
 Object {
+  "SET_CURRENT_VISUALIZATION": [Function],
   "SET_VISUALIZATIONS": [Function],
 }
 `;

@@ -1,13 +1,13 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../../../setupPlugins'
 
-import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
+import VisualizationEditGeneralInformationComponent from '@/components/visualizations/edit/GeneralInformation.vue'
 
 jest.useFakeTimers()
 
-describe('components/visualizations/add/GeneralInformation.vue', () => {
+describe('components/visualizations/edit/GeneralInformation.vue', () => {
   const getWrapper = () => {
-    return shallowMount(VisualizationAddGeneralInformationComponent, {
+    return shallowMount(VisualizationEditGeneralInformationComponent, {
       i18n,
       mocks: {
         $t: (key: string) => key

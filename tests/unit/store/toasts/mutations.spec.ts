@@ -87,7 +87,7 @@ describe('store/modules/toasts/mutations', () => {
       expect(state.toasts).toContain(toast)
     })
 
-    it('can add a project to an empty store', () => {
+    it('can edit a project to an empty store', () => {
       const state: ToastsState = {
         toasts: []
       }

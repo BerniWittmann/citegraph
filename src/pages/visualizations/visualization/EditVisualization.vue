@@ -32,27 +32,27 @@
 
         <v-stepper-items>
           <v-stepper-content step="1">
-            <visualization-add-select-type-component
+            <visualization-edit-select-type-component
               :current-type="currentType"
               @next-step="nextStep"
               @update-type="updateType"
-            ></visualization-add-select-type-component>
+            ></visualization-edit-select-type-component>
           </v-stepper-content>
 
           <v-stepper-content step="2">
-            <visualization-add-general-information-component
+            <visualization-edit-general-information-component
               :name="visualization.name"
               @update:name="updateName"
               @next-step="nextStep"
-              @previous-step="previousStep"></visualization-add-general-information-component>
+              @previous-step="previousStep"></visualization-edit-general-information-component>
           </v-stepper-content>
 
           <v-stepper-content step="3">
-            <visualization-add-choose-data-component
+            <visualization-edit-choose-data-component
               :visualization="visualization"
               @next-step="nextStep"
               @previous-step="previousStep"
-            ></visualization-add-choose-data-component>
+            ></visualization-edit-choose-data-component>
           </v-stepper-content>
 
           <v-stepper-content step="4">
@@ -66,20 +66,20 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import VisualizationAddSelectTypeComponent from '@/components/visualizations/add/SelectType.vue'
-import VisualizationAddGeneralInformationComponent from '@/components/visualizations/add/GeneralInformation.vue'
+import VisualizationEditSelectTypeComponent from '@/components/visualizations/edit/SelectType.vue'
+import VisualizationEditGeneralInformationComponent from '@/components/visualizations/edit/GeneralInformation.vue'
 import Visualization from '@/models/visualizations/Visualization'
 import { visualizations } from '@/models/visualizations'
-import VisualizationAddChooseDataComponent from '@/components/visualizations/add/ChooseData.vue'
+import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
 
 @Component({
   components: {
-    VisualizationAddSelectTypeComponent,
-    VisualizationAddGeneralInformationComponent,
-    VisualizationAddChooseDataComponent
+    VisualizationEditSelectTypeComponent,
+    VisualizationEditGeneralInformationComponent,
+    VisualizationEditChooseDataComponent
   }
 })
-export default class AddVisualizationPage extends Vue {
+export default class EditVisualizationPage extends Vue {
   currentStep: number = 1
   furthestStep: number = 1
   isProcessing: boolean = false
@@ -119,6 +119,21 @@ export default class AddVisualizationPage extends Vue {
 
   updateName (name: string): void {
     this.visualization.name = name
+  }
+
+  get hasCurrentVisualization (): boolean {
+    return this.$store.getters['visualizations/hasCurrentVisualization']
+  }
+
+  get currentVisualization (): Visualization | undefined {
+    return this.$store.getters['visualizations/currentVisualization']
+  }
+
+  beforeMount (): void {
+    if (this.hasCurrentVisualization) {
+      this.visualization = this.currentVisualization!
+      this.hasChosenType = true
+    }
   }
 }
 </script>

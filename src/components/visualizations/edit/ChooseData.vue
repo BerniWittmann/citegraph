@@ -117,7 +117,7 @@ interface timePeriod {
     VisualizationDataSelectionBarChart
   }
 })
-export default class VisualizationAddChooseDataComponent extends Vue {
+export default class VisualizationEditChooseDataComponent extends Vue {
   @Prop() readonly visualization!: Visualization
   dataType: string = this.queryByTypes[0]
   timePeriodData: Array<timePeriod> = []

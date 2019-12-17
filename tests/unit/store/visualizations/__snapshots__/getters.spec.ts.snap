@@ -2,6 +2,8 @@
 
 exports[`store/modules/visualizations/getters provides the getters 1`] = `
 Object {
+  "currentVisualization": [Function],
+  "hasCurrentVisualization": [Function],
   "visualizations": [Function],
 }
 `;

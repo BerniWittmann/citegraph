@@ -68,7 +68,7 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 import { visualizations } from '@/models/visualizations'
 
 @Component
-export default class VisualizationAddSelectTypeComponent extends Vue {
+export default class VisualizationEditSelectTypeComponent extends Vue {
   @Prop(String) currentType: string | undefined
   get types (): Array<any> {
     return visualizations

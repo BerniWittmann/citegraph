@@ -22,7 +22,7 @@
           <v-btn color="primary" text>
             {{ $t('visualizations.card.show') }}
           </v-btn>
-          <v-btn color="primary" text>
+          <v-btn color="primary" text :to="{ name: 'project.single.visualization.edit', params: { projectId: $route.params.projectId, visualizationId: visualization.id } }">
             {{ $t('visualizations.card.edit') }}
           </v-btn>
         </v-card-actions>

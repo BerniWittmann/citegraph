@@ -7,3 +7,7 @@ export function isProjectRoute (route: Route): boolean {
 export function isExploreRoute (route: Route): boolean {
   return !!route.matched.find((current: RouteRecord) => current.meta.isExplorePage)
 }
+
+export function isVisualizationRoute (route: Route): boolean {
+  return !!route.matched.find((current: RouteRecord) => current.meta.isVisualizationPage)
+}

@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../../../setupPlugins'
 
-import VisualizationAddChooseDataComponent from '@/components/visualizations/add/ChooseData.vue'
+import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
 import VisualizationDataSelectionBarChart from '@/components/charts/VisualizationDataSelectionBarChart.vue'
 
 const store = {
@@ -17,9 +17,9 @@ const store = {
   dispatch: jest.fn()
 }
 
-describe('components/visualizations/add/ChooseData.vue', () => {
+describe('components/visualizations/edit/ChooseData.vue', () => {
   const getWrapper = () => {
-    return shallowMount(VisualizationAddChooseDataComponent, {
+    return shallowMount(VisualizationEditChooseDataComponent, {
       i18n,
       mocks: {
         $t: (key: string) => key,

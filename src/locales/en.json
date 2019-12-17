@@ -301,6 +301,7 @@
         }
       }
     },
-    "fetch_error": "Could not load Visualizations"
+    "fetch_error": "Could not load Visualizations",
+    "fetch_single_error": "Could not load Visualization"
   }
 }

@@ -16,7 +16,7 @@ import ExploreWrapperPage from '@/pages/project/explore/ExploreWrapper.vue'
 import ExploreSinglePage from '@/pages/project/explore/ExploreSingle.vue'
 import ExploreSingleWrapperPage from '@/pages/project/explore/ExploreSingleWrapper.vue'
 import VisualizationsPage from '@/pages/visualizations/Visualizations.vue'
-import AddVisualizationPage from '@/pages/visualizations/AddVisualization.vue'
+import EditVisualizationPage from '@/pages/visualizations/visualization/EditVisualization.vue'
 
 const routes: Array<RouteConfig> = [
   {
@@ -96,7 +96,18 @@ const routes: Array<RouteConfig> = [
         }, {
           path: 'add',
           name: 'project.single.visualizations.add',
-          component: AddVisualizationPage
+          component: EditVisualizationPage
+        }, {
+          path: ':visualizationId',
+          component: EmptyRouterView,
+          meta: {
+            isVisualizationPage: true
+          },
+          children: [{
+            path: 'edit',
+            name: 'project.single.visualization.edit',
+            component: EditVisualizationPage
+          }]
         }]
       }]
     }, {

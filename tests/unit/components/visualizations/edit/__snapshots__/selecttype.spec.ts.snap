@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/visualizations/add/SelectType.vue renders 1`] = `
+exports[`components/visualizations/edit/SelectType.vue renders 1`] = `
 <div class="visualization-add-type">
   <h1>visualizations.add.type.title</h1>
   <v-container-stub tag="div">
@@ -91,7 +91,7 @@ exports[`components/visualizations/add/SelectType.vue renders 1`] = `
 </div>
 `;
 
-exports[`components/visualizations/add/SelectType.vue renders a card for type barchart renders 1`] = `
+exports[`components/visualizations/edit/SelectType.vue renders a card for type barchart renders 1`] = `
 <v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
   <div class="d-flex flex-no-wrap justify-space-between">
     <v-avatar-stub size="125" tile="true" class="ma-2">
@@ -130,7 +130,7 @@ exports[`components/visualizations/add/SelectType.vue renders a card for type ba
 </v-card-stub>
 `;
 
-exports[`components/visualizations/add/SelectType.vue renders a card for type barchart renders the card active if the type is active 1`] = `
+exports[`components/visualizations/edit/SelectType.vue renders a card for type barchart renders the card active if the type is active 1`] = `
 <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" raised="true">
   <div class="d-flex flex-no-wrap justify-space-between">
     <v-avatar-stub size="125" tile="true" class="ma-2">
@@ -169,7 +169,7 @@ exports[`components/visualizations/add/SelectType.vue renders a card for type ba
 </v-card-stub>
 `;
 
-exports[`components/visualizations/add/SelectType.vue renders a card for type wordcloud renders 1`] = `
+exports[`components/visualizations/edit/SelectType.vue renders a card for type wordcloud renders 1`] = `
 <v-card-stub loaderheight="4" tag="div" height="100%" hover="true">
   <div class="d-flex flex-no-wrap justify-space-between">
     <v-avatar-stub size="125" tile="true" class="ma-2">
@@ -208,7 +208,7 @@ exports[`components/visualizations/add/SelectType.vue renders a card for type wo
 </v-card-stub>
 `;
 
-exports[`components/visualizations/add/SelectType.vue renders a card for type wordcloud renders the card active if the type is active 1`] = `
+exports[`components/visualizations/edit/SelectType.vue renders a card for type wordcloud renders the card active if the type is active 1`] = `
 <v-card-stub loaderheight="4" tag="div" height="100%" hover="true" raised="true">
   <div class="d-flex flex-no-wrap justify-space-between">
     <v-avatar-stub size="125" tile="true" class="ma-2">

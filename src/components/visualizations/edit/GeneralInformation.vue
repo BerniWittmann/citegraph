@@ -43,7 +43,7 @@
 import { Component, Emit, PropSync, Vue } from 'vue-property-decorator'
 
 @Component
-export default class VisualizationAddGeneralInformationComponent extends Vue {
+export default class VisualizationEditGeneralInformationComponent extends Vue {
   @PropSync('name', { type: String }) currentName!: string
   valid: boolean = false
 

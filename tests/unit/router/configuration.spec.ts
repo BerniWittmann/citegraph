@@ -165,4 +165,139 @@ describe('router/configuration', () => {
       expect(store.dispatch).not.toHaveBeenCalledWith('projects/unsetActiveProject')
     })
   })
+
+  describe('handles the visualization loading in beforeEnter', () => {
+    let handler: Function
+    beforeEach(() => {
+      const router = new VueRouter()
+      router.beforeEach = jest.fn()
+
+      setupConfiguration(router)
+      // @ts-ignore
+      handler = router.beforeEach.mock.calls[0][0]
+    })
+    it('loads the project on project pages', async () => {
+      const to = {
+        name: 'projects.single',
+        matched: [{
+          name: 'projects.single',
+          params: {
+            projectId: 12,
+            visualizationId: 99
+          },
+          meta: {
+            isVisualizationPage: true
+          }
+        }],
+        params: {
+          projectId: 12,
+          visualizationId: 99
+        }
+      }
+      const from = {
+        name: 'home'
+      }
+      const next = jest.fn()
+      await handler(to, from, next)
+      expect(store.dispatch).toHaveBeenCalledWith('visualizations/fetchVisualization', {
+        projectId: 12,
+        visualizationId: 99
+      })
+      expect(next).toHaveBeenCalledWith()
+    })
+
+    it('loads the visualization on nested visualization pages', async () => {
+      const to = {
+        name: 'projects.detail',
+        matched: [{
+          name: 'projects.base',
+          meta: {}
+        }, {
+          name: 'projects.single',
+          params: {
+            projectId: 12,
+            visualizationId: 99
+          },
+          meta: {
+            isVisualizationPage: true
+          }
+        }],
+        params: {
+          projectId: 12,
+          visualizationId: 99
+        }
+      }
+      const from = {
+        name: 'home'
+      }
+      const next = jest.fn()
+      await handler(to, from, next)
+      expect(store.dispatch).toHaveBeenCalledWith('visualizations/fetchVisualization', {
+        projectId: 12,
+        visualizationId: 99
+      })
+      expect(next).toHaveBeenCalledWith()
+    })
+
+    it('does not load the visualization on other pages', async () => {
+      const to = {
+        name: 'about',
+        matched: []
+      }
+      const from = {
+        name: 'home'
+      }
+      const next = jest.fn()
+      await handler(to, from, next)
+      expect(store.dispatch).not.toHaveBeenCalledWith('visualizations/fetchVisualization', expect.any(Object))
+      expect(next).toHaveBeenCalledWith()
+    })
+  })
+
+  describe('handles the visualization unloading in afterEach', () => {
+    let handler: Function
+    beforeEach(() => {
+      const router = new VueRouter()
+      router.afterEach = jest.fn()
+
+      setupConfiguration(router)
+      // @ts-ignore
+      handler = router.afterEach.mock.calls[0][0]
+    })
+    it('unloads the visualization on non visualization pages', async () => {
+      const to = {
+        name: 'about',
+        matched: []
+      }
+      const from = {
+        name: 'home'
+      }
+      await handler(to, from)
+      expect(store.dispatch).toHaveBeenCalledWith('visualizations/unsetCurrentVisualization')
+    })
+    it('does not unload the visualization on visualization pages', async () => {
+      const to = {
+        name: 'projects.single',
+        matched: [{
+          name: 'projects.single',
+          params: {
+            projectId: 12,
+            visualizationId: 99
+          },
+          meta: {
+            isVisualizationPage: true
+          }
+        }],
+        params: {
+          projectId: 12,
+          visualizationId: 99
+        }
+      }
+      const from = {
+        name: 'home'
+      }
+      await handler(to, from)
+      expect(store.dispatch).not.toHaveBeenCalledWith('visualizations/unsetCurrentVisualization')
+    })
+  })
 })

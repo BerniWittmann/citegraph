@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/visualizations/add/ChooseData.vue it handles the time periods can add a time period 1`] = `
+exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can add a time period 1`] = `
 <div class="visualization-add-data" name="">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
@@ -109,7 +109,7 @@ exports[`components/visualizations/add/ChooseData.vue it handles the time period
 </div>
 `;
 
-exports[`components/visualizations/add/ChooseData.vue it handles the time periods can remove a time period 1`] = `
+exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can remove a time period 1`] = `
 <div class="visualization-add-data" name="">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
@@ -218,7 +218,7 @@ exports[`components/visualizations/add/ChooseData.vue it handles the time period
 </div>
 `;
 
-exports[`components/visualizations/add/ChooseData.vue it handles the time periods can remove a time period 2`] = `
+exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can remove a time period 2`] = `
 <div class="visualization-add-data" name="">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
@@ -311,7 +311,7 @@ exports[`components/visualizations/add/ChooseData.vue it handles the time period
 </div>
 `;
 
-exports[`components/visualizations/add/ChooseData.vue renders 1`] = `
+exports[`components/visualizations/edit/ChooseData.vue renders 1`] = `
 <div class="visualization-add-data" name="">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">

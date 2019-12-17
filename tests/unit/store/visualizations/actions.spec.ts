@@ -66,4 +66,99 @@ describe('store/modules/visualizations/actions', () => {
       })
     })
   })
+
+  describe('unsetCurrentVisualization', () => {
+    it('unsets the visualization', () => {
+      const commit = jest.fn()
+      const action = actions.unsetCurrentVisualization as Function
+
+      action({ commit })
+      expect(commit).toHaveBeenCalledWith(mutationTypes.SET_CURRENT_VISUALIZATION, undefined)
+    })
+  })
+
+  describe('fetchVisualization', () => {
+    const visualizationData = { id: '1', name: 'First Project', progress: 0.8, key: WordCloudVisualization.key }
+
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    it('fetches the visualization', (done) => {
+      moxios.stubRequest('/projects/42/visualizations/1', {
+        status: 200,
+        response: visualizationData
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const action = actions.fetchVisualization as Function
+
+      action({ commit }, {
+        projectId: 42,
+        visualizationId: 1
+      }).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalled()
+        expect(commit).toHaveBeenCalledWith(mutationTypes.SET_CURRENT_VISUALIZATION,
+          new WordCloudVisualization({ id: '1', name: 'First Project', progress: 0.8 })
+        )
+        done()
+      })
+    })
+
+    it('handles the error when one appeared during the fetching', (done) => {
+      moxios.stubRequest('/projects/42/visualizations/1', {
+        status: 500,
+        response: 'An error occured'
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      const action = actions.fetchVisualization as Function
+
+      action({ commit, dispatch }, {
+        projectId: 42,
+        visualizationId: 1
+      }).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 500'))
+        expect(commit).not.toHaveBeenCalled()
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'visualizations.fetch_single_error', { root: true })
+        done()
+      })
+    })
+
+    it('handles the error when one appeared during the parsing', (done) => {
+      moxios.stubRequest('/projects/42/visualizations/1', {
+        status: 200,
+        response: {
+          ...visualizationData,
+          key: 'invalid'
+        }
+      })
+
+      const onFulfilled = jest.fn()
+      const commit = jest.fn()
+      const dispatch = jest.fn()
+      const action = actions.fetchVisualization as Function
+
+      action({ commit, dispatch }, {
+        projectId: 42,
+        visualizationId: 1
+      }).then(onFulfilled)
+
+      moxios.wait(() => {
+        expect(onFulfilled).toHaveBeenCalledWith(new Error('Could not parse visualization'))
+        expect(commit).not.toHaveBeenCalled()
+        expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'visualizations.fetch_single_error', { root: true })
+        done()
+      })
+    })
+  })
 })

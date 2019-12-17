@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/visualizations/add/GeneralInformation.vue renders 1`] = `
+exports[`components/visualizations/edit/GeneralInformation.vue renders 1`] = `
 <div class="visualization-add-general">
   <h1>visualizations.add.general.title</h1>
   <v-container-stub tag="div">
