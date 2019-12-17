@@ -2,14 +2,15 @@
   <v-card :hover="true"
           class="visualization-card"
           height="100%">
-    <div class="d-flex flex-no-wrap justify-space-between">
-      <v-avatar
-        class="ma-3"
-        size="125"
-        tile
-      >
-        <v-img contain :src="imageUrl"/>
-      </v-avatar>
+    <div class="d-flex flex-wrap justify-space-between">
+      <div class="ma-3 flex-shrink-0 flex-grow-1 d-flex justify-center">
+        <v-avatar
+          size="100"
+          tile
+        >
+          <v-img contain :src="imageUrl"/>
+        </v-avatar>
+      </div>
       <div class="flex-grow-1 d-flex flex-column align-center">
         <v-card-title>{{ visualization.name }}</v-card-title>
         <v-card-text class="progress-information text-center">

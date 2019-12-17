@@ -8,14 +8,14 @@
         <v-col
           v-for="visualization in visualizations"
           :key="visualization.id"
-          cols="3"
+          cols="12" md="6" lg="3"
         >
           <visualization-card :visualization="visualization"></visualization-card>
         </v-col>
 
         <v-col
           key="add"
-          cols="3"
+          cols="12" md="6" lg="3"
         >
           <v-tooltip top>
             <template v-slot:activator="{ on }">
