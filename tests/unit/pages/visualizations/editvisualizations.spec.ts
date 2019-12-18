@@ -22,7 +22,7 @@ describe('pages/visualizations/EditVisualization.vue', () => {
       }
     }
 
-    return shallowMount(EditVisualizationsPage, {
+    const wrapper = shallowMount(EditVisualizationsPage, {
       i18n,
       mocks: {
         $route: {
@@ -34,6 +34,10 @@ describe('pages/visualizations/EditVisualization.vue', () => {
         $router: router
       }
     })
+
+    // @ts-ignore
+    wrapper.vm.$refs.chooseDataComponent.updateChart = jest.fn()
+    return wrapper
   }
 
   it('renders the page', () => {
@@ -201,5 +205,20 @@ describe('pages/visualizations/EditVisualization.vue', () => {
     expect(wrapper.html()).toMatchSnapshot()
     // @ts-ignore
     expect(wrapper.vm.visualization).toEqual(vis)
+  })
+
+  it('updates the bar chart when going to the fitting step', (done) => {
+    const wrapper = getWrapper()
+    // @ts-ignore
+    expect(wrapper.vm.$refs.chooseDataComponent.updateChart).not.toHaveBeenCalled()
+    // @ts-ignore
+    wrapper.vm.currentStep = 2
+    // @ts-ignore
+    wrapper.vm.nextStep()
+    wrapper.vm.$nextTick(() => {
+      // @ts-ignore
+      expect(wrapper.vm.$refs.chooseDataComponent.updateChart).toHaveBeenCalled()
+      done()
+    })
   })
 })

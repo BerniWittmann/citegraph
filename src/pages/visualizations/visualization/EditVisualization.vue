@@ -49,6 +49,7 @@
 
           <v-stepper-content step="3">
             <visualization-edit-choose-data-component
+              ref="chooseDataComponent"
               :visualization="visualization"
               @next-step="nextStep"
               @previous-step="previousStep"
@@ -93,6 +94,12 @@ export default class EditVisualizationPage extends Vue {
       this.currentStep++
     }
     this.setFurthestStep()
+    if (this.currentStep === 3) {
+      this.$nextTick(() => {
+        // @ts-ignore
+        this.$refs.chooseDataComponent.updateChart()
+      })
+    }
   }
 
   setFurthestStep (): void {

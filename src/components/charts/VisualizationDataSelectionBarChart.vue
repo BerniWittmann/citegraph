@@ -54,6 +54,11 @@ export default class VisualizationDataSelectionBarChart extends Mixins(Bar) {
   }
 
   get chartData (): Object {
+    if (this.barData.length === 0) {
+      return {
+        datasets: []
+      }
+    }
     return {
       datasets: [{
         data: this.barData.map(d => ({
@@ -66,6 +71,9 @@ export default class VisualizationDataSelectionBarChart extends Mixins(Bar) {
   }
 
   get minYear (): number {
+    if (this.barData.length === 0) {
+      return 1971
+    }
     return this.barData.reduce((acc: number, val: ChartData) => {
       return val.x < acc ? val.x : acc
     }, Number.MAX_SAFE_INTEGER)
@@ -78,6 +86,10 @@ export default class VisualizationDataSelectionBarChart extends Mixins(Bar) {
   }
 
   get maxYear (): number {
+    if (this.barData.length === 0) {
+      return (new Date()).getFullYear()
+    }
+
     return this.barData.reduce((acc: number, val: ChartData) => {
       if (val.x > acc) {
         return val.x

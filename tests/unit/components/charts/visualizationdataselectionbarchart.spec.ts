@@ -115,4 +115,9 @@ describe('components/charts/VisualizationDataSelectionBarChart.vue', () => {
       }]
     }, expect.any(Object))
   })
+
+  it('handles empty data', () => {
+    getWrapper({}, [])
+    expect(renderChart).toHaveBeenCalledWith({ datasets: [] }, expect.any(Object))
+  })
 })

@@ -218,4 +218,18 @@ describe('components/visualizations/edit/ChooseData.vue', () => {
       }])
     })
   })
+
+  it('has a function to update the chart', () => {
+    const wrapper = getWrapper()
+    // @ts-ignore
+    wrapper.vm.$refs.chart.updateChart = jest.fn()
+    // @ts-ignore
+    expect(wrapper.vm.updateChart).toEqual(expect.any(Function))
+    // @ts-ignore
+    expect(wrapper.vm.$refs.chart.updateChart).not.toHaveBeenCalled()
+    // @ts-ignore
+    wrapper.vm.updateChart()
+    // @ts-ignore
+    expect(wrapper.vm.$refs.chart.updateChart).toHaveBeenCalled()
+  })
 })

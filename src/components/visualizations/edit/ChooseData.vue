@@ -26,6 +26,7 @@
         </v-col>
         <v-col lg="7" cols="12" v-if="canSelectByYear">
           <visualization-data-selection-bar-chart
+            ref="chart"
             :entity-type="$t('visualizations.add.data.data_types.' + dataType)"
             :entity-data="entitiesAggregatedByYear"
             :time-periods="timePeriodData"
@@ -213,6 +214,11 @@ export default class VisualizationEditChooseDataComponent extends Vue {
 
   beforeMount () {
     this.loadData()
+  }
+
+  updateChart () {
+    // @ts-ignore
+    this.$refs.chart.updateChart()
   }
 }
 </script>
