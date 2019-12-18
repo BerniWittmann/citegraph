@@ -8,6 +8,7 @@ export default abstract class Visualization implements VisualizationBaseFields {
   id?: string;
   progress?: number;
   name: string;
+  abstract parameters: Object;
   abstract readonly key: string;
   static readonly key: string;
   static readonly title: string;

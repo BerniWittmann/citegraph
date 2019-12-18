@@ -1,5 +1,9 @@
 import Visualization, { VisualizationBaseFields } from './Visualization'
 
+export interface BarChartVisualizationParameters {
+  pruneLeastCitedPercentage: number
+}
+
 export interface BarChartVisualizationFields {}
 
 export default class BarChartVisualization extends Visualization implements BarChartVisualizationFields {
@@ -9,8 +13,12 @@ export default class BarChartVisualization extends Visualization implements BarC
   static description: string = 'visualizations.information.bar_chart.description'
   static longDescription: string = 'visualizations.information.bar_chart.long_description'
   static imageUrl: string = 'visualization_images/bar_chart.png'
+  parameters: BarChartVisualizationParameters
 
   constructor ({ id, name, progress }: VisualizationBaseFields & BarChartVisualizationFields) {
     super({ id, name, progress })
+    this.parameters = {
+      pruneLeastCitedPercentage: 5
+    }
   }
 }

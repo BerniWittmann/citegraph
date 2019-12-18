@@ -8,6 +8,7 @@ import WordCloudVisualization from '@/models/visualizations/WordCloudVisualizati
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
 import Visualization from '@/models/visualizations/Visualization'
+import VisualizationEditParametersComponent from '@/components/visualizations/edit/Parameters.vue'
 
 describe('pages/visualizations/EditVisualization.vue', () => {
   const router = {
@@ -146,6 +147,33 @@ describe('pages/visualizations/EditVisualization.vue', () => {
 
       // @ts-ignore
       expect(wrapper.vm.currentStep).toEqual(2)
+    })
+  })
+
+  describe('has a parameters step', () => {
+    it('renders the parameters component', () => {
+      const wrapper = getWrapper()
+      expect(wrapper.contains(VisualizationEditParametersComponent)).toBeTruthy()
+    })
+
+    it('goes to the next Step on the next step event', () => {
+      const wrapper = getWrapper()
+      const infoComponent = wrapper.find(VisualizationEditParametersComponent)
+      infoComponent.vm.$emit('next-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(2)
+    })
+
+    it('goes to previous Step on the previous step event', () => {
+      const wrapper = getWrapper()
+      // @ts-ignore
+      wrapper.vm.currentStep = 4
+      const infoComponent = wrapper.find(VisualizationEditParametersComponent)
+      infoComponent.vm.$emit('previous-step')
+
+      // @ts-ignore
+      expect(wrapper.vm.currentStep).toEqual(3)
     })
   })
 

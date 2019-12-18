@@ -32,7 +32,7 @@ exports[`pages/visualizations/EditVisualization.vue if a visualization already e
           <visualization-edit-choose-data-component-stub visualization="[object Object]"></visualization-edit-choose-data-component-stub>
         </v-stepper-content-stub>
         <v-stepper-content-stub step="4">
-          Test Vier
+          <visualization-edit-parameters-component-stub visualization="[object Object]"></visualization-edit-parameters-component-stub>
         </v-stepper-content-stub>
       </v-stepper-items-stub>
     </v-stepper-stub>
@@ -72,7 +72,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page 1`] = `
           <visualization-edit-choose-data-component-stub visualization="[object Object]"></visualization-edit-choose-data-component-stub>
         </v-stepper-content-stub>
         <v-stepper-content-stub step="4">
-          Test Vier
+          <visualization-edit-parameters-component-stub visualization="[object Object]"></visualization-edit-parameters-component-stub>
         </v-stepper-content-stub>
       </v-stepper-items-stub>
     </v-stepper-stub>

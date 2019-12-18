@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/visualizations/edit/Parameters.vue renders 1`] = `
+<div class="visualization-add-parameters">
+  <h1>visualizations.add.parameters.title</h1>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub tag="div">
+        <barchartparameters-stub visualization="[object Object]"></barchartparameters-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
+exports[`components/visualizations/edit/Parameters.vue renders if no correct visualization type was found 1`] = `
+<div class="visualization-add-parameters">
+  <h1>visualizations.add.parameters.title</h1>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub tag="div">
+        <!---->
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
+exports[`components/visualizations/edit/Parameters.vue renders the correct component for barchart 1`] = `
+<div class="visualization-add-parameters">
+  <h1>visualizations.add.parameters.title</h1>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub tag="div">
+        <barchartparameters-stub visualization="[object Object]"></barchartparameters-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;
+
+exports[`components/visualizations/edit/Parameters.vue renders the correct component for wordcloud 1`] = `
+<div class="visualization-add-parameters">
+  <h1>visualizations.add.parameters.title</h1>
+  <v-container-stub tag="div">
+    <v-row-stub tag="div">
+      <v-col-stub tag="div">
+        <wordcloudparameters-stub visualization="[object Object]"></wordcloudparameters-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-container-stub>
+</div>
+`;

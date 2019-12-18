@@ -57,7 +57,11 @@
           </v-stepper-content>
 
           <v-stepper-content step="4">
-            Test Vier
+            <visualization-edit-parameters-component
+              :visualization="visualization"
+              @next-step="nextStep"
+              @previous-step="previousStep"
+            ></visualization-edit-parameters-component>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -72,12 +76,14 @@ import VisualizationEditGeneralInformationComponent from '@/components/visualiza
 import Visualization from '@/models/visualizations/Visualization'
 import { visualizations } from '@/models/visualizations'
 import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
+import VisualizationEditParametersComponent from '@/components/visualizations/edit/Parameters.vue'
 
 @Component({
   components: {
     VisualizationEditSelectTypeComponent,
     VisualizationEditGeneralInformationComponent,
-    VisualizationEditChooseDataComponent
+    VisualizationEditChooseDataComponent,
+    VisualizationEditParametersComponent
   }
 })
 export default class EditVisualizationPage extends Vue {

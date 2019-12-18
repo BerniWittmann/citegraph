@@ -263,6 +263,17 @@
         "chosen": "Chosen",
         "info": "Info"
       },
+      "parameters": {
+        "title": "Set Parameters",
+        "back": "Back",
+        "submit": "Save",
+        "wordcloud": {
+          "prune_least_cited": "Prune least cited records (%{percent} %)"
+        },
+        "barchart": {
+          "prune_least_cited": "Prune least cited records (%{percent} %)"
+        }
+      },
       "general": {
         "title": "General Information",
         "name": "Name",
