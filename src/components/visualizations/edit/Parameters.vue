@@ -16,16 +16,19 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 import Visualization from '@/models/visualizations/Visualization'
 import BarChartParameters from '@/components/visualizations/edit/parameters/BarChartParameters.vue'
 import WordCloudParameters from '@/components/visualizations/edit/parameters/WordCloudParameters.vue'
+import NetworkParameters from '@/components/visualizations/edit/parameters/NetworkParameters.vue'
 
 const componentMap: Record<string, any> = {
   'barchart': BarChartParameters,
-  'wordcloud': WordCloudParameters
+  'wordcloud': WordCloudParameters,
+  'network': NetworkParameters
 }
 
 @Component({
   components: {
     BarChartParameters,
-    WordCloudParameters
+    WordCloudParameters,
+    NetworkParameters
   }
 })
 export default class VisualizationEditParametersComponent extends Vue {

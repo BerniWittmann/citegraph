@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/visualizations/edit/parameters/NetworkParameters.vue renders 1`] = `
+<v-container-stub tag="div">
+  <v-form-stub class="mt-12">
+    <v-row-stub tag="div" justify="center">
+      <v-col-stub lg="6" tag="div">
+        <v-slider-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="5" backgroundcolor="" label="visualizations.add.parameters.network.prune_least_cited" loaderheight="2" max="100" min="0" step="1" thumblabel="always" thumbsize="32" ticklabels="" ticksize="2"></v-slider-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" justify="center">
+      <v-col-stub lg="6" tag="div">
+        <p>visualizations.add.parameters.network.weights</p>
+        <v-slider-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="50" backgroundcolor="" loaderheight="2" max="100" min="0" step="1" thumblabel="always" thumbsize="32" ticklabels="" ticksize="2"></v-slider-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" justify="space-between" class="my-10">
+      <v-col-stub cols="auto" tag="div">
+        <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+          <v-icon-stub>mdi-menu-left</v-icon-stub>
+          visualizations.add.parameters.back
+        </v-btn-stub>
+      </v-col-stub>
+      <v-col-stub cols="auto" tag="div">
+        <v-btn-stub color="success" tag="button" activeclass="" disabled="true" large="true" rounded="true" type="submit">visualizations.add.parameters.submit
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-form-stub>
+</v-container-stub>
+`;

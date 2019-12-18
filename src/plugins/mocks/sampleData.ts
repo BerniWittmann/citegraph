@@ -5,6 +5,7 @@ import Record from '@/models/paperEntities/record'
 import Country from '@/models/paperEntities/country'
 import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
+import NetworkVisualization from '@/models/visualizations/NetworkVisualization'
 
 function getRandomFromArray (arr: Array<any>): any {
   if (!arr || arr.length === 0) return undefined
@@ -191,5 +192,9 @@ export function insertSampleVisualizationsData (db: Loki): void {
     id: '2',
     name: 'My Bar Chart',
     progress: 1
+  }))
+  visualizations.insert(new NetworkVisualization({
+    id: '3',
+    name: 'Network Chart'
   }))
 }
