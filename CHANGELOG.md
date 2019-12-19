@@ -1,3 +1,22 @@
+## 0.7.0 (2019-12-19)
+
+* feat: Added ability to save newly created visualization ([09d4272](https://gitlab.com/citegraph/frontend/commit/09d4272))
+* feat: Added ability to update a visualization ([66157c9](https://gitlab.com/citegraph/frontend/commit/66157c9))
+* feat: Added basic parameters page ([69f58b0](https://gitlab.com/citegraph/frontend/commit/69f58b0))
+* feat: Added basic visualizations and overview ([697a89c](https://gitlab.com/citegraph/frontend/commit/697a89c))
+* feat: Added Choose Data Step to Add Visualisation process ([5595d00](https://gitlab.com/citegraph/frontend/commit/5595d00))
+* feat: Added Continue Button to visualization type selection for UX ([78afffd](https://gitlab.com/citegraph/frontend/commit/78afffd))
+* feat: Added Country Pie Chart to Project Page ([827dc5e](https://gitlab.com/citegraph/frontend/commit/827dc5e))
+* feat: Added Name Information Form to Visualization Add Process ([1fcd254](https://gitlab.com/citegraph/frontend/commit/1fcd254))
+* feat: Added Network Visualization ([8162a8b](https://gitlab.com/citegraph/frontend/commit/8162a8b))
+* feat: Added Network Visualization View ([96fec03](https://gitlab.com/citegraph/frontend/commit/96fec03))
+* feat: Added WordCloud Visualization View ([c009fa5](https://gitlab.com/citegraph/frontend/commit/c009fa5))
+* feat: Allow Visualizations to be edited ([7780356](https://gitlab.com/citegraph/frontend/commit/7780356))
+* fix: Fixed a bug with bar chart not rendering correctly ([871097d](https://gitlab.com/citegraph/frontend/commit/871097d))
+* fix: Made Visualization Card responsive ([a5590bc](https://gitlab.com/citegraph/frontend/commit/a5590bc))
+
+
+
 ## <small>0.6.5 (2019-12-09)</small>
 
 * test: Removed obsolete test snapshot ([c8c7955](https://gitlab.com/citegraph/frontend/commit/c8c7955))
