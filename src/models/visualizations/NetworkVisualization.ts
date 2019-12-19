@@ -5,7 +5,9 @@ export interface NetworkVisualizationParameters {
   bibliographicCouplingWeight: number
 }
 
-export interface NetworkVisualizationFields {}
+export interface NetworkVisualizationFields {
+  data?: Object
+}
 
 export default class NetworkVisualization extends Visualization implements NetworkVisualizationFields {
   static key: string = 'network'
@@ -15,12 +17,14 @@ export default class NetworkVisualization extends Visualization implements Netwo
   static longDescription: string = 'visualizations.information.network.long_description'
   static imageUrl: string = 'visualization_images/network.jpg'
   parameters: NetworkVisualizationParameters
+  data?: Object
 
-  constructor ({ id, name, progress }: VisualizationBaseFields & NetworkVisualizationFields) {
+  constructor ({ id, name, progress, data }: VisualizationBaseFields & NetworkVisualizationFields) {
     super({ id, name, progress })
     this.parameters = {
       pruneLeastCitedPercentage: 5,
       bibliographicCouplingWeight: 50
     }
+    this.data = data
   }
 }

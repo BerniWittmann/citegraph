@@ -13,7 +13,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -39,7 +39,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -65,7 +65,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.processing</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -91,7 +91,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -117,7 +117,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -143,7 +143,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.processing</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -169,7 +169,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -195,7 +195,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.ready</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
@@ -221,7 +221,7 @@ exports[`components/visualizations/VisualizationCard.vue can display a card of t
       <v-card-text-stub class="progress-information text-center"><span>visualizations.card.processing</span></v-card-text-stub>
       <v-divider-stub class="mx-auto" style="width: 90%;"></v-divider-stub>
       <v-card-actions-stub>
-        <v-btn-stub color="primary" tag="button" activeclass="" text="true" type="button">
+        <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">
           visualizations.card.show
         </v-btn-stub>
         <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" text="true" type="button">

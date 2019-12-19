@@ -19,7 +19,7 @@
         </v-card-text>
         <v-divider style="width: 90%" class="mx-auto"></v-divider>
         <v-card-actions>
-          <v-btn color="primary" text>
+          <v-btn color="primary" text :to="{ name: 'project.single.visualization', params: { projectId: $route.params.projectId, visualizationId: visualization.id } }">
             {{ $t('visualizations.card.show') }}
           </v-btn>
           <v-btn color="primary" text :to="{ name: 'project.single.visualization.edit', params: { projectId: $route.params.projectId, visualizationId: visualization.id } }">

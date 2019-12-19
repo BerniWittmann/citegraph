@@ -326,5 +326,12 @@
     },
     "fetch_error": "Could not load Visualizations",
     "fetch_single_error": "Could not load Visualization"
+  },
+  "visualization": {
+    "title": "%{name}",
+    "edit": "Edit",
+    "progressing": "The visualization is still progressing. Check back later",
+    "no_data": "There is no data yet",
+    "progress": "%{progress} %"
   }
 }

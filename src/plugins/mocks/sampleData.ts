@@ -3,7 +3,7 @@ import Project, { ProjectStates } from '@/models/project'
 import Author from '@/models/paperEntities/author'
 import Record from '@/models/paperEntities/record'
 import Country from '@/models/paperEntities/country'
-import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
+import WordCloudVisualization, { WordCloudDataPoint } from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 import NetworkVisualization from '@/models/visualizations/NetworkVisualization'
 
@@ -181,17 +181,32 @@ export function insertSampleCountriesData (db: Loki): void {
   })
 }
 
+function createWordData (): Array<WordCloudDataPoint> {
+  const count = randomNumberFromInterval(50, 100)
+  const arr: Array<WordCloudDataPoint> = []
+  for (let i = 0; i < count; i++) {
+    arr.push({
+      word: faker.company.catchPhraseDescriptor(),
+      weight: randomNumberFromInterval(10, 80)
+    })
+  }
+  return arr
+}
+
 export function insertSampleVisualizationsData (db: Loki): void {
   const visualizations = db.getCollection('visualizations')
   visualizations.insert(new WordCloudVisualization({
     id: '1',
     name: 'My Word Cloud',
-    progress: 0.8
+    progress: 1,
+    data: {
+      data: createWordData()
+    }
   }))
   visualizations.insert(new BarChartVisualization({
     id: '2',
     name: 'My Bar Chart',
-    progress: 1
+    progress: 0.8
   }))
   visualizations.insert(new NetworkVisualization({
     id: '3',
