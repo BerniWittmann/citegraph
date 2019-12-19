@@ -49,11 +49,42 @@ export function setupMocks (mock: MockAdapter) {
       if (!data || !data.key) throw new Error()
       const VisualizationClass = visualizationsKeyMap[data.key]
       if (!VisualizationClass) throw new Error()
-      data.id = visualizations.count() + 1
+      data.id = (visualizations.count() + 1).toString()
       const visualization: Visualization = new VisualizationClass(data)
       visualization.progress = 0.1
       visualization.data = undefined
       visualizations.insert(visualization)
+      db.saveDatabase()
+      return [200, visualization]
+    } catch {
+      return [400, 'Could not read body']
+    }
+  })
+
+  mock.onPut(/\/projects\/\d+\/visualizations\/\d+$/).reply((config: AxiosRequestConfig) => {
+    const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
+    if (!project) {
+      return [404]
+    }
+    let visualization: Resultset<Visualization> = visualizations.findOne({ 'id': getVisualizationId(config) })
+    if (!visualization) {
+      return [404]
+    }
+    try {
+      const data = JSON.parse(config.data)
+      if (!data || !data.key) throw new Error()
+      const VisualizationClass = visualizationsKeyMap[data.key]
+      if (!VisualizationClass) throw new Error()
+      const updateData = {
+        ...visualization,
+        ...{
+          ...new VisualizationClass(data),
+          ...data,
+          data: undefined,
+          progress: 0.1
+        }
+      }
+      visualization = visualizations.update(updateData)
       db.saveDatabase()
       return [200, visualization]
     } catch {

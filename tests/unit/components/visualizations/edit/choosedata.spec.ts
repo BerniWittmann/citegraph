@@ -269,12 +269,12 @@ describe('components/visualizations/edit/ChooseData.vue', () => {
     const btn = btns.at(btns.length - 1)
     // @ts-ignore
     wrapper.vm.timePeriodData = [
-      { min: 2000, max: 2010 },
-      { min: 1990, max: 2000 },
-      { min: 2010, max: 1909 },
-      { min: undefined, max: 2000 },
-      { min: 1990, max: undefined },
-      { min: undefined, max: undefined }
+      { min: 2000, max: 2010, id: 1, count: 0 },
+      { min: 1990, max: 2000, id: 2, count: 0 },
+      { min: 2010, max: 1909, id: 3, count: 0 },
+      { min: undefined, max: 2000, id: 4, count: 0 },
+      { min: 1990, max: undefined, id: 5, count: 0 },
+      { min: undefined, max: undefined, id: 6, count: 0 }
     ]
     btn.vm.$emit('click')
 

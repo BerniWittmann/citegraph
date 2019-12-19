@@ -6,5 +6,6 @@ Object {
   "fetchVisualization": [Function],
   "fetchVisualizations": [Function],
   "unsetCurrentVisualization": [Function],
+  "updateVisualization": [Function],
 }
 `;

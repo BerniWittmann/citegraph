@@ -69,5 +69,26 @@ export const actions: ActionTree<VisualizationsState, RootState> = {
       dispatch('toasts/showError', 'visualizations.add.error', { root: true })
       return error
     }
+  },
+
+  async updateVisualization ({ commit, dispatch }, { projectId, visualizationData }: { projectId: number, visualizationData: Visualization }): Promise<Visualization | undefined> {
+    try {
+      const response = await Axios(`/projects/${projectId}/visualizations/${visualizationData.id}`, {
+        method: 'PUT',
+        data: {
+          ...visualizationData,
+          data: undefined
+        }
+      })
+      const visualization: Visualization | undefined = parseVisualization(response.data)
+      if (!visualization) throw new Error('Could not parse visualization')
+      commit(types.UPDATE_VISUALIZATION, visualization)
+      dispatch('toasts/showSuccess', 'visualization.edit.successful', { root: true })
+      return visualization
+    } catch (error) {
+      logger.error(error)
+      dispatch('toasts/showError', 'visualization.edit.error', { root: true })
+      return error
+    }
   }
 }

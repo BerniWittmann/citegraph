@@ -331,7 +331,11 @@
   },
   "visualization": {
     "title": "%{name}",
-    "edit": "Edit",
+    "edit_button": "Edit",
+    "edit": {
+      "successful": "Updated Visualization",
+      "error": "Could not update Visualization"
+    },
     "progressing": "The visualization is still progressing. Check back later",
     "no_data": "There is no data yet",
     "progress": "%{progress} %"

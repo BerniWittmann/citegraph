@@ -4,7 +4,7 @@ import Visualization from '@/models/visualizations/Visualization'
 import {
   ADD_VISUALIZATION,
   SET_CURRENT_VISUALIZATION,
-  SET_VISUALIZATIONS
+  SET_VISUALIZATIONS, UPDATE_VISUALIZATION
 } from './mutation-types'
 
 export const mutations: MutationTree<VisualizationsState> = {
@@ -16,5 +16,8 @@ export const mutations: MutationTree<VisualizationsState> = {
   },
   [ADD_VISUALIZATION] (state: VisualizationsState, payload: Visualization) {
     state.visualizations.push(payload)
+  },
+  [UPDATE_VISUALIZATION] (state: VisualizationsState, payload: Visualization) {
+    state.visualizations = state.visualizations.map(visualization => visualization.id !== payload.id ? visualization : payload)
   }
 }

@@ -250,11 +250,21 @@ describe('pages/visualizations/EditVisualization.vue', () => {
     })
 
     describe('saves the visualization', () => {
-      it('does not create the new visualization', async () => {
+      it('does not create the visualization', async () => {
         // @ts-ignore
         await wrapper.vm.nextStep()
 
         expect(dispatch).not.toHaveBeenCalledWith('visualizations/createVisualization', expect.any(Object))
+      })
+
+      it('does update the visualization', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(dispatch).toHaveBeenCalledWith('visualizations/updateVisualization', {
+          projectId: 23,
+          visualizationData: new BarChartVisualization({ name: 'My Chart', id: '42' })
+        })
       })
 
       it('navigates to the visualizations overview', async () => {
@@ -296,6 +306,13 @@ describe('pages/visualizations/EditVisualization.vue', () => {
           projectId: 23,
           visualizationData: new WordCloudVisualization({ name: '' })
         })
+      })
+
+      it('does not try to update the visualization', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(dispatch).not.toHaveBeenCalledWith('visualizations/updateVisualization', expect.any(Object))
       })
 
       it('navigates to the visualizations overview', async () => {

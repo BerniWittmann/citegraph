@@ -5,5 +5,6 @@ Object {
   "ADD_VISUALIZATION": [Function],
   "SET_CURRENT_VISUALIZATION": [Function],
   "SET_VISUALIZATIONS": [Function],
+  "UPDATE_VISUALIZATION": [Function],
 }
 `;

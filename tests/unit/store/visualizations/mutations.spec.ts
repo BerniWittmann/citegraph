@@ -108,4 +108,66 @@ describe('store/modules/visualizations/mutations', () => {
       expect(state.visualizations.length).toEqual(1)
     })
   })
+
+  describe('UPDATE_VISUALIZATION', () => {
+    it('updates a visualization', () => {
+      const state: VisualizationsState = {
+        visualizations: [
+          new WordCloudVisualization({ id: '1', name: 'First Project' }),
+          new WordCloudVisualization({ id: '2', name: 'Second Project' })
+        ]
+      }
+      const visualization = new WordCloudVisualization(({ id: '1', name: 'New' }))
+
+      mutations[mutationTypes.UPDATE_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations).toContainEqual(visualization)
+      expect(state.visualizations.length).toEqual(2)
+      expect(state.visualizations[0]).toEqual(visualization)
+    })
+
+    it('updates all instances of a visualization', () => {
+      const state: VisualizationsState = {
+        visualizations: [
+          new WordCloudVisualization({ id: '1', name: 'First Project' }),
+          new WordCloudVisualization({ id: '2', name: 'Second Project' }),
+          new WordCloudVisualization({ id: '1', name: 'Other Project' })
+        ]
+      }
+      const visualization = new WordCloudVisualization(({ id: '1', name: 'New' }))
+
+      mutations[mutationTypes.UPDATE_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations).toContainEqual(visualization)
+      expect(state.visualizations.length).toEqual(3)
+      expect(state.visualizations[0]).toEqual(visualization)
+      expect(state.visualizations[2]).toEqual(visualization)
+    })
+
+    it('does not change if project was not found', () => {
+      const state: VisualizationsState = {
+        visualizations: [
+          new WordCloudVisualization({ id: '1', name: 'First Project' }),
+          new WordCloudVisualization({ id: '2', name: 'Second Project' })
+        ]
+      }
+      const visualization = new WordCloudVisualization(({ id: '42', name: 'Other' }))
+
+      mutations[mutationTypes.UPDATE_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations).not.toContainEqual(visualization)
+      expect(state.visualizations.length).toEqual(2)
+    })
+
+    it('can handle an empty projects array', () => {
+      const state: VisualizationsState = {
+        visualizations: []
+      }
+      const visualization = new WordCloudVisualization(({ id: '42', name: 'Other' }))
+
+      mutations[mutationTypes.UPDATE_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations.length).toEqual(0)
+    })
+  })
 })

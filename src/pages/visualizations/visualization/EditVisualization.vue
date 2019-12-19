@@ -116,6 +116,11 @@ export default class EditVisualizationPage extends Vue {
         projectId: this.$route.params.projectId,
         visualizationData: this.visualization
       })
+    } else {
+      await this.$store.dispatch('visualizations/updateVisualization', {
+        projectId: this.$route.params.projectId,
+        visualizationData: this.visualization
+      })
     }
     await this.$router.push({
       name: 'projects.single.visualizations',

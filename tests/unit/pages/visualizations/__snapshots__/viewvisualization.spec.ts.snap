@@ -9,7 +9,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for an inva
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -33,7 +33,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -55,7 +55,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -79,7 +79,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -103,7 +103,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -125,7 +125,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -147,7 +147,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -171,7 +171,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -195,7 +195,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -217,7 +217,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -239,7 +239,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -263,7 +263,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -287,7 +287,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
         <v-spacer-stub></v-spacer-stub>
         <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
           <v-icon-stub>mdi-pencil</v-icon-stub>
-          visualization.edit
+          visualization.edit_button
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>

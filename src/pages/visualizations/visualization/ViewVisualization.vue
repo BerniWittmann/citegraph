@@ -7,7 +7,7 @@
           <v-spacer/>
           <v-btn :to="{ name: 'project.single.visualization.edit', params: $route.params }">
             <v-icon>mdi-pencil</v-icon>
-            {{ $t('visualization.edit') }}
+            {{ $t('visualization.edit_button') }}
           </v-btn>
         </v-col>
       </v-row>
