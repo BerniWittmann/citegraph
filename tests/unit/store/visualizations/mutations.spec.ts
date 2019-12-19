@@ -79,4 +79,33 @@ describe('store/modules/visualizations/mutations', () => {
       expect(state.currentVisualization).toEqual(visualization)
     })
   })
+
+  describe('ADD_VISUALIZATION', () => {
+    it('adds a visualization to the store', () => {
+      const state: VisualizationsState = {
+        visualizations: [
+          new WordCloudVisualization({ id: '1', name: 'First Project' }),
+          new WordCloudVisualization({ id: '2', name: 'Second Project' })
+        ]
+      }
+      const visualization = new WordCloudVisualization(({ id: '42', name: 'New' }))
+
+      mutations[mutationTypes.ADD_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations).toContain(visualization)
+      expect(state.visualizations.length).toEqual(3)
+    })
+
+    it('adds to empty store', () => {
+      const state: VisualizationsState = {
+        visualizations: []
+      }
+      const visualization = new WordCloudVisualization(({ id: '42', name: 'New' }))
+
+      mutations[mutationTypes.ADD_VISUALIZATION](state, visualization)
+
+      expect(state.visualizations).toContain(visualization)
+      expect(state.visualizations.length).toEqual(1)
+    })
+  })
 })

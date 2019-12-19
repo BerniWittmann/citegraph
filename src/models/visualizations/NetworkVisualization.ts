@@ -43,8 +43,8 @@ export default class NetworkVisualization extends Visualization implements Netwo
   parameters: NetworkVisualizationParameters
   data?: NetworkVisualizationData
 
-  constructor ({ id, name, progress, data }: VisualizationBaseFields & NetworkVisualizationFields) {
-    super({ id, name, progress })
+  constructor ({ id, name, progress, data, timePeriods }: VisualizationBaseFields & NetworkVisualizationFields) {
+    super({ id, name, progress, timePeriods })
     this.parameters = {
       pruneLeastCitedPercentage: 5,
       bibliographicCouplingWeight: 50

@@ -28,7 +28,7 @@ describe('components/visualizations/edit/Parameters.vue', () => {
   })
 
   it('renders if no correct visualization type was found', () => {
-    const wrapper = getWrapper({ name: 'False', key: 'invalid', parameters: {} })
+    const wrapper = getWrapper({ name: 'False', key: 'invalid', parameters: {}, timePeriods: [] })
     expect(wrapper.html()).toMatchSnapshot()
   })
 

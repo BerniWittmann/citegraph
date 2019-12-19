@@ -237,16 +237,28 @@ export function insertSampleVisualizationsData (db: Loki): void {
     progress: 1,
     data: {
       data: createWordData()
-    }
+    },
+    timePeriods: [{
+      from: 1990,
+      to: 2014
+    }]
   }))
   visualizations.insert(new BarChartVisualization({
     id: '2',
     name: 'My Bar Chart',
-    progress: 0.8
+    progress: 0.8,
+    timePeriods: []
   }))
   visualizations.insert(new NetworkVisualization({
     id: '3',
     name: 'Network Chart',
-    data: createNetworkVisualizationData()
+    data: createNetworkVisualizationData(),
+    timePeriods: [{
+      from: 1990,
+      to: 2000
+    }, {
+      from: 2000,
+      to: 2010
+    }]
   }))
 }

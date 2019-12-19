@@ -26,8 +26,8 @@ export default class WordCloudVisualization extends Visualization implements Wor
   parameters: WordCloudVisualizationParameters
   data?: WordCloudData
 
-  constructor ({ id, name, progress, data }: VisualizationBaseFields & WordCloudVisualizationFields) {
-    super({ id, name, progress })
+  constructor ({ id, name, progress, data, timePeriods }: VisualizationBaseFields & WordCloudVisualizationFields) {
+    super({ id, name, progress, timePeriods })
     this.parameters = {
       pruneLeastCitedPercentage: 5
     }

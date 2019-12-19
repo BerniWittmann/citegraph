@@ -1,7 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/visualizations/edit/ChooseData.vue has a function to set the time periods 1`] = `
+<div class="visualization-add-data">
+  <h1>visualizations.add.data.title</h1>
+  <v-container-stub tag="div" fluid="true">
+    <v-row-stub tag="div">
+      <v-col-stub cols="12" lg="2" tag="div">
+        <h4>visualizations.add.data.choose_type</h4>
+        <v-list-stub tag="div" tile="true">
+          <v-list-item-group-stub value="record" activeclass="v-item--active" mandatory="true" color="primary">
+            <v-list-item-stub activeclass="" tag="div" value="record">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.record
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="author">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.author
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="institution">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.institution
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="country">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.country
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="publication">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.publication
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="publisher">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.publisher
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" value="conference">
+              <v-list-item-content-stub>
+                <v-list-item-title-stub>
+                  visualizations.add.data.data_types.conference
+                </v-list-item-title-stub>
+              </v-list-item-content-stub>
+            </v-list-item-stub>
+          </v-list-item-group-stub>
+        </v-list-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" lg="7" tag="div">
+        <visualization-data-selection-bar-chart-stub chartid="bar-chart" width="400" height="400" cssclasses="" plugins="" entitydata="[object Object]" entitytype="visualizations.add.data.data_types.record" timeperiods="[object Object],[object Object]"></visualization-data-selection-bar-chart-stub>
+      </v-col-stub>
+      <v-col-stub cols="12" lg="3" tag="div">
+        <h4>visualizations.add.data.set_time_period</h4>
+        <v-container-stub tag="div" fluid="true">
+          <v-row-stub tag="div" align="center">
+            <v-col-stub cols="3" tag="div">
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols="3" tag="div">
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2010" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols="auto" tag="div">
+              visualizations.add.data.period.elements
+            </v-col-stub>
+            <v-col-stub cols="auto" tag="div">
+              <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                <v-icon-stub>mdi-trash-can-outline</v-icon-stub>
+              </v-btn-stub>
+            </v-col-stub>
+          </v-row-stub>
+          <v-row-stub tag="div" align="center">
+            <v-col-stub cols="3" tag="div">
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1990" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols="3" tag="div">
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols="auto" tag="div">
+              visualizations.add.data.period.elements
+            </v-col-stub>
+            <v-col-stub cols="auto" tag="div">
+              <v-btn-stub tag="button" activeclass="" icon="true" type="button">
+                <v-icon-stub>mdi-trash-can-outline</v-icon-stub>
+              </v-btn-stub>
+            </v-col-stub>
+          </v-row-stub>
+          <v-row-stub tag="div">
+            <v-col-stub tag="div">
+              <v-btn-stub tag="button" activeclass="" type="button">visualizations.add.data.period.add</v-btn-stub>
+            </v-col-stub>
+          </v-row-stub>
+        </v-container-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-container-stub tag="div">
+      <v-row-stub tag="div" justify="space-between" class="my-10">
+        <v-col-stub cols="auto" tag="div">
+          <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+            <v-icon-stub>mdi-menu-left</v-icon-stub>
+            visualizations.add.data.back
+          </v-btn-stub>
+        </v-col-stub>
+        <v-col-stub cols="auto" tag="div">
+          <v-btn-stub color="success" tag="button" activeclass="" large="true" rounded="true" type="submit">visualizations.add.data.next
+          </v-btn-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-container-stub>
+  </v-container-stub>
+</div>
+`;
+
 exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can add a time period 1`] = `
-<div class="visualization-add-data" name="">
+<div class="visualization-add-data">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
     <v-row-stub tag="div">
@@ -110,7 +235,7 @@ exports[`components/visualizations/edit/ChooseData.vue it handles the time perio
 `;
 
 exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can remove a time period 1`] = `
-<div class="visualization-add-data" name="">
+<div class="visualization-add-data">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
     <v-row-stub tag="div">
@@ -219,7 +344,7 @@ exports[`components/visualizations/edit/ChooseData.vue it handles the time perio
 `;
 
 exports[`components/visualizations/edit/ChooseData.vue it handles the time periods can remove a time period 2`] = `
-<div class="visualization-add-data" name="">
+<div class="visualization-add-data">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
     <v-row-stub tag="div">
@@ -312,7 +437,7 @@ exports[`components/visualizations/edit/ChooseData.vue it handles the time perio
 `;
 
 exports[`components/visualizations/edit/ChooseData.vue renders 1`] = `
-<div class="visualization-add-data" name="">
+<div class="visualization-add-data">
   <h1>visualizations.add.data.title</h1>
   <v-container-stub tag="div" fluid="true">
     <v-row-stub tag="div">

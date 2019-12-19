@@ -12,15 +12,21 @@ import VisualizationEditParametersComponent from '@/components/visualizations/ed
 
 describe('pages/visualizations/EditVisualization.vue', () => {
   const router = {
-    back: jest.fn()
+    back: jest.fn(),
+    push: jest.fn()
   }
 
+  const dispatch = jest.fn().mockResolvedValue(undefined)
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
   function getWrapper (visualization?: Visualization) {
     const store = {
       getters: {
         'visualizations/hasCurrentVisualization': !!visualization,
         'visualizations/currentVisualization': visualization
-      }
+      },
+      dispatch
     }
 
     const wrapper = shallowMount(EditVisualizationsPage, {
@@ -227,12 +233,83 @@ describe('pages/visualizations/EditVisualization.vue', () => {
     })
   })
 
-  it('if a visualization already exists the visualization data is prefilled', () => {
-    const vis = new BarChartVisualization({ id: '42', name: 'My Chart' })
-    const wrapper = getWrapper(vis)
-    expect(wrapper.html()).toMatchSnapshot()
-    // @ts-ignore
-    expect(wrapper.vm.visualization).toEqual(vis)
+  describe('a visualization already exists', () => {
+    let wrapper: any
+    let vis: Visualization
+    beforeEach(() => {
+      vis = new BarChartVisualization({ id: '42', name: 'My Chart' })
+      wrapper = getWrapper(vis)
+      // @ts-ignore
+      wrapper.vm.currentStep = 4
+    })
+
+    it('prefills the visualization data ', () => {
+      expect(wrapper.html()).toMatchSnapshot()
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(vis)
+    })
+
+    describe('saves the visualization', () => {
+      it('does not create the new visualization', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(dispatch).not.toHaveBeenCalledWith('visualizations/createVisualization', expect.any(Object))
+      })
+
+      it('navigates to the visualizations overview', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'projects.single.visualizations',
+          params: {
+            projectId: 23
+          }
+        })
+      })
+    })
+  })
+
+  describe('is a new visualization', () => {
+    let wrapper: any
+    beforeEach(() => {
+      wrapper = getWrapper()
+      // @ts-ignore
+      wrapper.vm.currentStep = 4
+    })
+
+    it('does not prefill the visualization data ', () => {
+      expect(wrapper.html()).toMatchSnapshot()
+      // @ts-ignore
+      expect(wrapper.vm.visualization).toEqual(new WordCloudVisualization({
+        name: ''
+      }))
+    })
+
+    describe('saves the visualization', () => {
+      it('does create the new visualization', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(dispatch).toHaveBeenCalledWith('visualizations/createVisualization', {
+          projectId: 23,
+          visualizationData: new WordCloudVisualization({ name: '' })
+        })
+      })
+
+      it('navigates to the visualizations overview', async () => {
+        // @ts-ignore
+        await wrapper.vm.nextStep()
+
+        expect(router.push).toHaveBeenCalledWith({
+          name: 'projects.single.visualizations',
+          params: {
+            projectId: 23
+          }
+        })
+      })
+    })
   })
 
   it('updates the bar chart when going to the fitting step', (done) => {

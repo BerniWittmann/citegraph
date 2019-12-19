@@ -95,9 +95,11 @@ export default class EditVisualizationPage extends Vue {
     name: ''
   })
 
-  nextStep (): void {
+  async nextStep (): Promise<void> {
     if (!this.isComplete) {
       this.currentStep++
+    } else {
+      await this.save()
     }
     this.setFurthestStep()
     if (this.currentStep === 3) {
@@ -106,6 +108,19 @@ export default class EditVisualizationPage extends Vue {
         this.$refs.chooseDataComponent.updateChart()
       })
     }
+  }
+
+  async save (): Promise<void> {
+    if (!this.visualization.id) {
+      await this.$store.dispatch('visualizations/createVisualization', {
+        projectId: this.$route.params.projectId,
+        visualizationData: this.visualization
+      })
+    }
+    await this.$router.push({
+      name: 'projects.single.visualizations',
+      params: this.$route.params
+    })
   }
 
   setFurthestStep (): void {

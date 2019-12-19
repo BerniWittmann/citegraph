@@ -101,7 +101,7 @@
 
 <script lang="ts">
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
-import Visualization from '@/models/visualizations/Visualization'
+import Visualization, { TimePeriod } from '@/models/visualizations/Visualization'
 import { entityKeys, entityKeysMap, PaperEntityFields } from '@/models/paperEntities'
 import VisualizationDataSelectionBarChart from '@/components/charts/VisualizationDataSelectionBarChart.vue'
 import Project from '@/models/project'
@@ -175,6 +175,12 @@ export default class VisualizationEditChooseDataComponent extends Vue {
 
   @Emit()
   nextStep (): void {
+    this.visualization.timePeriods = this.timePeriodData.filter((t: timePeriod) => {
+      return !!t.min && !!t.max && t.min <= t.max
+    }).map((t: timePeriod) => ({
+      from: t.min!,
+      to: t.max!
+    }))
   }
 
   @Emit('previous-step')
@@ -198,6 +204,18 @@ export default class VisualizationEditChooseDataComponent extends Vue {
     })
   }
 
+  updateVisualization (newVal: Visualization): void {
+    this.timePeriodData = newVal.timePeriods.map((t: TimePeriod, index: number) => {
+      return {
+        id: index,
+        min: t.from,
+        max: t.to,
+        count: 0
+      }
+    })
+    this.nextTimePeriodNumber = this.timePeriodData.length
+  }
+
   addTimePeriod (): void {
     this.timePeriodData.push({
       id: this.nextTimePeriodNumber,
@@ -213,6 +231,7 @@ export default class VisualizationEditChooseDataComponent extends Vue {
   }
 
   beforeMount () {
+    this.updateVisualization(this.visualization)
     this.loadData()
   }
 

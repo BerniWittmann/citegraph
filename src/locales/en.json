@@ -322,7 +322,9 @@
           "year_required": "Please give a year",
           "data": "Data"
         }
-      }
+      },
+      "successful": "Successfully created Visualization",
+      "error": "Could not create Visualization"
     },
     "fetch_error": "Could not load Visualizations",
     "fetch_single_error": "Could not load Visualization"

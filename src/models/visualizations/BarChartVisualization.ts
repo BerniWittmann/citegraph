@@ -18,8 +18,8 @@ export default class BarChartVisualization extends Visualization implements BarC
   parameters: BarChartVisualizationParameters
   data?: Object
 
-  constructor ({ id, name, progress, data }: VisualizationBaseFields & BarChartVisualizationFields) {
-    super({ id, name, progress })
+  constructor ({ id, name, progress, data, timePeriods }: VisualizationBaseFields & BarChartVisualizationFields) {
+    super({ id, name, progress, timePeriods })
     this.parameters = {
       pruneLeastCitedPercentage: 5
     }

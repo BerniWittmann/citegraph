@@ -3,6 +3,7 @@ import { i18n } from '../../../setupPlugins'
 
 import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
 import VisualizationDataSelectionBarChart from '@/components/charts/VisualizationDataSelectionBarChart.vue'
+import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 
 const store = {
   getters: {
@@ -17,6 +18,8 @@ const store = {
   dispatch: jest.fn()
 }
 
+const vis = new BarChartVisualization({ id: '2', name: 'My Vis' })
+
 describe('components/visualizations/edit/ChooseData.vue', () => {
   const getWrapper = () => {
     return shallowMount(VisualizationEditChooseDataComponent, {
@@ -26,7 +29,7 @@ describe('components/visualizations/edit/ChooseData.vue', () => {
         $store: store
       },
       propsData: {
-        name: ''
+        visualization: vis
       }
     })
   }
@@ -231,5 +234,51 @@ describe('components/visualizations/edit/ChooseData.vue', () => {
     wrapper.vm.updateChart()
     // @ts-ignore
     expect(wrapper.vm.$refs.chart.updateChart).toHaveBeenCalled()
+  })
+
+  it('has a function to set the time periods', () => {
+    const wrapper = getWrapper()
+    // @ts-ignore
+    wrapper.vm.updateVisualization(new BarChartVisualization({
+      name: 'Test',
+      timePeriods: [{ from: 2000, to: 2010 }, { from: 1990, to: 2000 }]
+    }))
+    // unset Rules to ensure Snapshot stability
+    // @ts-ignore
+    wrapper.vm.yearRules = []
+    expect(wrapper.html()).toMatchSnapshot()
+    // @ts-ignore
+    expect(wrapper.vm.timePeriodData).toEqual([{
+      id: 0,
+      min: 2000,
+      max: 2010,
+      count: 0
+    }, {
+      id: 1,
+      min: 1990,
+      max: 2000,
+      count: 0
+    }])
+    // @ts-ignore
+    expect(wrapper.vm.nextTimePeriodNumber).toEqual(2)
+  })
+
+  it('saves the time periods on next step', () => {
+    const wrapper = getWrapper()
+    const btns = wrapper.findAll('v-btn-stub')
+    const btn = btns.at(btns.length - 1)
+    // @ts-ignore
+    wrapper.vm.timePeriodData = [
+      { min: 2000, max: 2010 },
+      { min: 1990, max: 2000 },
+      { min: 2010, max: 1909 },
+      { min: undefined, max: 2000 },
+      { min: 1990, max: undefined },
+      { min: undefined, max: undefined }
+    ]
+    btn.vm.$emit('click')
+
+    // @ts-ignore
+    expect(wrapper.vm.visualization.timePeriods).toEqual([{ from: 2000, to: 2010 }, { from: 1990, to: 2000 }])
   })
 })

@@ -2,6 +2,7 @@
 
 exports[`store/modules/visualizations/actions provides the actions 1`] = `
 Object {
+  "createVisualization": [Function],
   "fetchVisualization": [Function],
   "fetchVisualizations": [Function],
   "unsetCurrentVisualization": [Function],
