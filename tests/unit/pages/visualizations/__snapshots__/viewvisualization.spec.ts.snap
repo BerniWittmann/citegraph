@@ -131,7 +131,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
       <v-col-stub cols="auto" tag="div">
-        <!---->
+        <network-stub visualization="[object Object]"></network-stub>
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>
@@ -201,7 +201,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
       <v-col-stub cols="auto" tag="div">
-        <!---->
+        <network-stub visualization="[object Object]"></network-stub>
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>

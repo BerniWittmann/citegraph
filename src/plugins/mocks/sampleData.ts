@@ -5,7 +5,10 @@ import Record from '@/models/paperEntities/record'
 import Country from '@/models/paperEntities/country'
 import WordCloudVisualization, { WordCloudDataPoint } from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
-import NetworkVisualization from '@/models/visualizations/NetworkVisualization'
+import NetworkVisualization, {
+  NetworkVisualizationData, NetworkVisualizationDataEdge,
+  NetworkVisualizationDataNode
+} from '@/models/visualizations/NetworkVisualization'
 
 function getRandomFromArray (arr: Array<any>): any {
   if (!arr || arr.length === 0) return undefined
@@ -193,6 +196,39 @@ function createWordData (): Array<WordCloudDataPoint> {
   return arr
 }
 
+function createNetworkVisualizationData (): NetworkVisualizationData {
+  const padding = 20
+  const result: NetworkVisualizationData = {
+    data: {
+      nodes: [],
+      edges: []
+    },
+    options: {
+      width: 600,
+      height: 450
+    }
+  }
+  const amountNodes = 30
+  for (let i = 0; i < amountNodes; i++) {
+    const node: NetworkVisualizationDataNode = {
+      id: i.toString(),
+      weight: randomNumberFromInterval(3, 20),
+      x: randomNumberFromInterval(padding, result.options.width - padding),
+      y: randomNumberFromInterval(padding, result.options.height - padding),
+      color: faker.internet.color()
+    }
+    result.data.nodes.push(node)
+    for (let j = 0; j < randomNumberFromInterval(0, 5); j++) {
+      const edge: NetworkVisualizationDataEdge = {
+        source: i.toString(),
+        target: randomNumberFromInterval(0, amountNodes - 1).toString()
+      }
+      result.data.edges.push(edge)
+    }
+  }
+  return result
+}
+
 export function insertSampleVisualizationsData (db: Loki): void {
   const visualizations = db.getCollection('visualizations')
   visualizations.insert(new WordCloudVisualization({
@@ -210,6 +246,7 @@ export function insertSampleVisualizationsData (db: Loki): void {
   }))
   visualizations.insert(new NetworkVisualization({
     id: '3',
-    name: 'Network Chart'
+    name: 'Network Chart',
+    data: createNetworkVisualizationData()
   }))
 }

@@ -37,15 +37,18 @@ import { Component, Vue } from 'vue-property-decorator'
 import EmptyIcon from '@/assets/svgs/Empty.vue'
 import Visualization from '@/models/visualizations/Visualization'
 import WordCloud from '@/components/visualizations/view/WordCloud.vue'
+import Network from '@/components/visualizations/view/Network.vue'
 
 const componentMap: Record<string, any> = {
-  'wordcloud': WordCloud
+  'wordcloud': WordCloud,
+  'network': Network
 }
 
 @Component({
   components: {
     EmptyIcon,
-    WordCloud
+    WordCloud,
+    Network
   }
 })
 export default class ViewVisualizationPage extends Vue {
