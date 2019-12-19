@@ -121,11 +121,18 @@ exports[`components/visualizations/edit/SelectType.vue renders 1`] = `
       </v-col-stub>
     </v-row-stub>
   </v-container-stub>
-  <div class="my-10 d-flex">
-    <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
-      <v-icon-stub>mdi-menu-left</v-icon-stub> visualizations.add.type.back
-    </v-btn-stub>
-  </div>
+  <v-row-stub tag="div" justify="space-between" class="my-10">
+    <v-col-stub cols="auto" tag="div">
+      <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+        <v-icon-stub>mdi-menu-left</v-icon-stub>
+        visualizations.add.type.back
+      </v-btn-stub>
+    </v-col-stub>
+    <v-col-stub cols="auto" tag="div">
+      <v-btn-stub color="success" tag="button" activeclass="" disabled="true" large="true" rounded="true" type="button">visualizations.add.type.submit
+      </v-btn-stub>
+    </v-col-stub>
+  </v-row-stub>
 </div>
 `;
 

@@ -27,11 +27,30 @@ describe('components/visualizations/edit/SelectType.vue', () => {
   it('has a back Button', () => {
     const wrapper = getWrapper()
     const btns = wrapper.findAll('v-btn-stub')
-    const btn = btns.at(btns.length - 1)
+    const btn = btns.at(btns.length - 2)
     expect(btn.exists()).toBeTruthy()
     expect(btn.text()).toContain('visualizations.add.type.back')
     btn.vm.$emit('click')
     expect(router.back).toHaveBeenCalled()
+  })
+
+  it('has a submit button', () => {
+    const wrapper = getWrapper()
+    const btns = wrapper.findAll('v-btn-stub')
+    const btn = btns.at(btns.length - 1)
+    expect(btn.exists()).toBeTruthy()
+    expect(btn.text()).toContain('visualizations.add.type.submit')
+    expect(btn.props('disabled')).toBeTruthy()
+    expect(wrapper.emitted('next-step')).toBeFalsy()
+    wrapper.setProps({
+      currentType: 'wordcloud'
+    })
+
+    expect(btn.props('disabled')).toBeFalsy()
+    expect(wrapper.emitted('next-step')).toBeFalsy()
+
+    btn.vm.$emit('click')
+    expect(wrapper.emitted('next-step')).toBeTruthy()
   })
 
   visualizations.forEach((VisualizationClass: any, index: number) => {
@@ -62,13 +81,10 @@ describe('components/visualizations/edit/SelectType.vue', () => {
         const btn = card.find('v-btn-stub')
         expect(btn.exists()).toBeTruthy()
         expect(btn.text()).toEqual('visualizations.add.type.choose')
-        expect(wrapper.emitted('next-step')).toBeFalsy()
         expect(wrapper.emitted('update-type')).toBeFalsy()
         btn.vm.$emit('click')
         expect(wrapper.emitted('update-type')).toBeTruthy()
         expect(wrapper.emitted('update-type')[0][0]).toEqual(VisualizationClass)
-        jest.runAllTimers()
-        expect(wrapper.emitted('next-step')).toBeTruthy()
       })
 
       it('renders the card active if the type is active', () => {

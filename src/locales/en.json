@@ -266,7 +266,8 @@
         "back": "Back",
         "choose": "Choose",
         "chosen": "Chosen",
-        "info": "Info"
+        "info": "Info",
+        "submit": "Continue"
       },
       "parameters": {
         "title": "Set Parameters",

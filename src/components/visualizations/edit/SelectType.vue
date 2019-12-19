@@ -55,11 +55,24 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="my-10 d-flex">
-      <v-btn rounded large color="warning" @click="back">
-        <v-icon>mdi-menu-left</v-icon> {{ $t('visualizations.add.type.back') }}
-      </v-btn>
-    </div>
+    <v-row class="my-10" justify="space-between">
+      <v-col cols="auto">
+        <v-btn rounded large color="warning" @click="back">
+          <v-icon>mdi-menu-left</v-icon>
+          {{ $t('visualizations.add.type.back') }}
+        </v-btn>
+      </v-col>
+
+      <v-col cols="auto">
+        <v-btn
+          rounded large
+          :disabled="!hasType"
+          color="success"
+          @click="nextStep"
+        >{{ $t('visualizations.add.type.submit') }}
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -74,9 +87,12 @@ export default class VisualizationEditSelectTypeComponent extends Vue {
     return visualizations
   }
 
+  get hasType (): boolean {
+    return !!this.currentType
+  }
+
   choose (type: any): any {
     this.updateType(type)
-    setTimeout(this.nextStep, 750)
   }
 
   @Emit('update-type')
