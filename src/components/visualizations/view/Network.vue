@@ -6,24 +6,17 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import * as d3 from 'd3'
 import NetworkVisualization, {
-  NetworkVisualizationData, NetworkVisualizationDataEdge,
+  NetworkVisualizationData,
   NetworkVisualizationDataNode
 } from '@/models/visualizations/NetworkVisualization'
-
-interface Coordinate {
-  x: number
-  y: number
-}
-interface Edge {
-  source: Coordinate
-  target: Coordinate
-}
 
 @Component
 export default class Network extends Vue {
   @Prop() readonly visualization!: NetworkVisualization
 
-  layout: any
+  width: number = 400
+  height: number = 400
+  padding: number = 10
 
   get diagramData (): NetworkVisualizationData {
     return this.visualization.data!
@@ -33,54 +26,46 @@ export default class Network extends Vue {
     return this.diagramData.data.nodes
   }
 
-  get nodesIdMap (): Record<string, NetworkVisualizationDataNode> {
-    const result: Record<string, NetworkVisualizationDataNode> = {}
-    this.nodes.forEach((node: NetworkVisualizationDataNode) => {
-      result[node.id] = node
-    })
-    return result
+  get maxX (): number {
+    return Math.max(...this.nodes.map(n => Math.abs(n.x)))
   }
 
-  get edges (): Array<Edge> {
-    return this.diagramData.data.edges.map((edge: NetworkVisualizationDataEdge) => {
-      return {
-        source: this.nodesIdMap[edge.source],
-        target: this.nodesIdMap[edge.target]
-      }
-    })
+  get maxY (): number {
+    return Math.max(...this.nodes.map(n => Math.abs(n.y)))
+  }
+
+  get countClusters (): number {
+    return this.diagramData.data.nodes.reduce((max, node) => {
+      return (node.cluster > max) ? node.cluster : max
+    }, 0)
+  }
+
+  scaleX (x: number): number {
+    return Math.round(x / this.maxX * ((this.width / 2) - this.padding))
+  }
+
+  scaleY (y: number): number {
+    return Math.round(y / this.maxY * ((this.height / 2) - this.padding))
   }
 
   mounted () {
     const svg = d3.select(this.$el).append('svg')
-      .attr('width', this.diagramData.options.width)
-      .attr('height', this.diagramData.options.height)
+      .attr('width', this.width)
+      .attr('height', this.height)
 
     const g = svg.append('g')
+      .attr('transform', 'translate(' + this.width / 2 + ',' + this.height / 2 + ')')
 
     g.selectAll('circle .node')
       .data(this.nodes)
       .enter()
       .append('svg:circle')
       .attr('class', 'node')
-      .attr('cx', (d: NetworkVisualizationDataNode) => d.x)
-      .attr('cy', (d: NetworkVisualizationDataNode) => d.y)
-      .attr('r', (d: NetworkVisualizationDataNode) => d.weight + 'px')
-      .style('fill', (d: NetworkVisualizationDataNode) => d.color)
-      .style('stroke', (d: NetworkVisualizationDataNode) => d.color)
-      .style('stroke-width', 2)
-      .style('fill-opacity', '0.8')
-
-    g.selectAll('.line')
-      .data(this.edges)
-      .enter()
-      .append('line')
-      .attr('class', 'line')
-      .attr('x1', (d: Edge) => d.source.x)
-      .attr('y1', (d: Edge) => d.source.y)
-      .attr('x2', (d: Edge) => d.target.x)
-      .attr('y2', (d: Edge) => d.target.y)
-      .style('stroke', 'black')
-      .style('stroke-opacity', 0.1)
+      .attr('cx', (d: NetworkVisualizationDataNode) => this.scaleX(d.x))
+      .attr('cy', (d: NetworkVisualizationDataNode) => this.scaleY(d.y))
+      .attr('r', '5px')
+      .style('fill', (d: NetworkVisualizationDataNode) => d3.interpolateViridis(d.cluster / this.countClusters))
+      .style('fill-opacity', '1')
   }
 }
 </script>

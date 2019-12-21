@@ -7,25 +7,14 @@ export interface NetworkVisualizationParameters {
 
 export interface NetworkVisualizationDataNode {
   id: string
-  weight: number
-  color: string
+  cluster: number
   x: number
   y: number
-}
-
-export interface NetworkVisualizationDataEdge {
-  source: string
-  target: string
 }
 
 export interface NetworkVisualizationData {
   data: {
     nodes: Array<NetworkVisualizationDataNode>
-    edges: Array<NetworkVisualizationDataEdge>
-  }
-  options: {
-    width: number
-    height: number
   }
 }
 

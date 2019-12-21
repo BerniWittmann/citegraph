@@ -6,7 +6,7 @@ import Country from '@/models/paperEntities/country'
 import WordCloudVisualization, { WordCloudDataPoint } from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
 import NetworkVisualization, {
-  NetworkVisualizationData, NetworkVisualizationDataEdge,
+  NetworkVisualizationData,
   NetworkVisualizationDataNode
 } from '@/models/visualizations/NetworkVisualization'
 
@@ -16,7 +16,11 @@ function getRandomFromArray (arr: Array<any>): any {
 }
 
 function randomNumberFromInterval (min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
+  return Math.floor(randomFloatFromInterval(min, max))
+}
+
+function randomFloatFromInterval (min: number, max: number) {
+  return Math.random() * (max - min + 1) + min
 }
 
 export default function insertSampleData (db: Loki): void {
@@ -197,34 +201,20 @@ function createWordData (): Array<WordCloudDataPoint> {
 }
 
 function createNetworkVisualizationData (): NetworkVisualizationData {
-  const padding = 20
   const result: NetworkVisualizationData = {
     data: {
-      nodes: [],
-      edges: []
-    },
-    options: {
-      width: 600,
-      height: 450
+      nodes: []
     }
   }
-  const amountNodes = 30
+  const amountNodes = 100
   for (let i = 0; i < amountNodes; i++) {
     const node: NetworkVisualizationDataNode = {
-      id: i.toString(),
-      weight: randomNumberFromInterval(3, 20),
-      x: randomNumberFromInterval(padding, result.options.width - padding),
-      y: randomNumberFromInterval(padding, result.options.height - padding),
-      color: faker.internet.color()
+      id: 'WOS:00000' + i,
+      x: randomFloatFromInterval(-15, 15),
+      y: randomFloatFromInterval(-10, 10),
+      cluster: randomNumberFromInterval(1, 10)
     }
     result.data.nodes.push(node)
-    for (let j = 0; j < randomNumberFromInterval(0, 5); j++) {
-      const edge: NetworkVisualizationDataEdge = {
-        source: i.toString(),
-        target: randomNumberFromInterval(0, amountNodes - 1).toString()
-      }
-      result.data.edges.push(edge)
-    }
   }
   return result
 }

@@ -13,18 +13,10 @@ jest.mock('d3', () => {
     attr: jest.fn(function (attr, handler) {
       if (typeof handler === 'function') {
         handler({
-          weight: 12,
+          cluster: 12,
           x: 0,
           y: 19,
-          color: '#FF0000',
-          source: {
-            x: 0,
-            y: 19
-          },
-          target: {
-            x: 24,
-            y: 54
-          }
+          id: '#FF0000'
         })
       }
       // @ts-ignore
@@ -36,23 +28,16 @@ jest.mock('d3', () => {
     style: jest.fn(function (attr, handler) {
       if (typeof handler === 'function') {
         handler({
-          weight: 12,
+          cluster: 12,
           x: 0,
           y: 19,
-          color: '#FF0000',
-          source: {
-            x: 0,
-            y: 19
-          },
-          target: {
-            x: 24,
-            y: 54
-          }
+          id: '#FF0000'
         })
       }
       // @ts-ignore
       return this
-    })
+    }),
+    interpolateViridis: jest.fn().mockReturnValue('#FF0000')
   }
 })
 
@@ -77,34 +62,20 @@ describe('components/visualizations/view/Network.vue', () => {
       data: {
         nodes: [{
           id: '1',
-          color: '#FF0000',
           x: 12,
           y: 24,
-          weight: 24
+          cluster: 3
         }, {
           id: '2',
-          color: '#FF0000',
           x: 12,
           y: 24,
-          weight: 24
+          cluster: 1
         }, {
           id: '3',
-          color: '#FF0000',
           x: 12,
           y: 24,
-          weight: 24
-        }],
-        edges: [{
-          source: '1',
-          target: '2'
-        }, {
-          source: '3',
-          target: '2'
+          cluster: 2
         }]
-      },
-      options: {
-        width: 700,
-        height: 300
       }
     }
   })
