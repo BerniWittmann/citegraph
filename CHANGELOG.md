@@ -1,3 +1,10 @@
+## <small>0.7.1 (2019-12-21)</small>
+
+* feat: Added link from project page to visualizations ([1e816f0](https://gitlab.com/citegraph/frontend/commit/1e816f0))
+* refactor: Adjusted data structure of Network Data ([0ad72c1](https://gitlab.com/citegraph/frontend/commit/0ad72c1))
+
+
+
 ## 0.7.0 (2019-12-19)
 
 * feat: Added ability to save newly created visualization ([09d4272](https://gitlab.com/citegraph/frontend/commit/09d4272))
