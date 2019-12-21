@@ -181,7 +181,9 @@ exports[`pages/Project.vue renders an alternate page depending on the explore pr
               <v-card-text-stub>
                 <div class="d-flex flex-column justify-center text-center pa-5">
                   <p class="mb-0">project.single.overview.no_visualizations_yet</p>
-                  <v-btn-stub color="primary" tag="button" activeclass="" rounded="true" type="button">project.single.overview.add_visualization</v-btn-stub>
+                  <v-btn-stub color="primary" tag="button" activeclass="" to="[object Object]" rounded="true" type="button">
+                    project.single.overview.add_visualization
+                  </v-btn-stub>
                 </div>
               </v-card-text-stub>
             </v-card-stub>

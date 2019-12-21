@@ -112,7 +112,9 @@ import { ProjectStates } from '@/models/project'
                 <v-card-text>
                   <div class="d-flex flex-column justify-center text-center pa-5" v-if="hasNoVisualizationsYet">
                     <p class="mb-0">{{ $t('project.single.overview.no_visualizations_yet') }}</p>
-                    <v-btn color="primary" rounded>{{ $t('project.single.overview.add_visualization') }}</v-btn>
+                    <v-btn color="primary" rounded :to="{ name: 'projects.single.visualizations', params: { projectId: project.id }}">
+                      {{ $t('project.single.overview.add_visualization') }}
+                    </v-btn>
                   </div>
                   <v-card outlined class="d-flex flex-column justify-center text-center pa-5" v-else>
                     <p class="headline">{{ project.counts.visualizations }}</p>
