@@ -6,7 +6,7 @@ exports[`layouts/PaperEntity.vue renders 1`] = `
     <v-card-title-stub class="headline">
       <h1 class="title">Title</h1>
       <v-spacer-stub></v-spacer-stub>
-      <v-btn-stub tag="button" activeclass="" type="button">
+      <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
         <v-icon-stub>mdi-pencil</v-icon-stub>
         project.explore.view.edit
       </v-btn-stub>

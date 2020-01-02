@@ -3,6 +3,7 @@ import { AxiosRequestConfig } from 'axios'
 import Project from '@/models/project'
 import db from '@/plugins/mocks/db'
 import { createResponse, QueryConfiguration } from '@/plugins/mocks/endpoints/graphql-helpers/queries'
+import { createMutationResponse } from '@/plugins/mocks/endpoints/graphql-helpers/mutations'
 const projects = db.getCollection('projects')
 
 function getProjectId (config: AxiosRequestConfig): number {
@@ -16,18 +17,33 @@ export function setupMocks (mock: MockAdapter, queryResponseConfiguration: Recor
     if (!project) {
       return [404]
     }
-    let query
+    let data
+    let isQuery = false
+    let isMutation = false
     try {
-      query = JSON.parse(config.data).query
+      data = JSON.parse(config.data)
+      isQuery = data.hasOwnProperty('query')
+      isMutation = data.hasOwnProperty('mutation')
     } catch {
       return [400, 'Could not read body']
     }
 
-    for (const schemaName of Object.keys(queryResponseConfiguration)) {
-      const regex = new RegExp('{\\n\\s*(' + schemaName + ')(\\(.*\\))?\\s{')
-      if (!regex.test(query)) continue
-      const queryConfiguration = queryResponseConfiguration[schemaName]
-      return createResponse(query, queryConfiguration)
+    if (isQuery) {
+      const query = data.query
+      for (const schemaName of Object.keys(queryResponseConfiguration)) {
+        const regex = new RegExp('{\\n\\s*(' + schemaName + ')(\\(.*\\))?\\s{')
+        if (!regex.test(query)) continue
+        const queryConfiguration = queryResponseConfiguration[schemaName]
+        return createResponse(query, queryConfiguration)
+      }
+    } else if (isMutation) {
+      const mutation = data.mutation
+      for (const schemaName of Object.keys(queryResponseConfiguration)) {
+        const regex = new RegExp('{\\n\\s*(' + schemaName + ')(\\(.*\\))?\\s{')
+        if (!regex.test(mutation)) continue
+        const queryConfiguration = queryResponseConfiguration[schemaName]
+        return createMutationResponse(mutation, queryConfiguration)
+      }
     }
     return [400, 'Could not process query']
   })

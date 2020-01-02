@@ -10,6 +10,13 @@ describe('layouts/PaperEntity.vue', () => {
       slots: {
         title: '<h1 class="title">Title</h1>',
         default: '<p class="content">Main Content</p>'
+      },
+      mocks: {
+        $route: {
+          params: {
+            id: 12
+          }
+        }
       }
     })
     expect(wrapper.html()).toMatchSnapshot()
@@ -21,6 +28,13 @@ describe('layouts/PaperEntity.vue', () => {
       slots: {
         title: '<h1 class="title">Title</h1>',
         default: '<p class="content">Main Content</p>'
+      },
+      mocks: {
+        $route: {
+          params: {
+            id: 12
+          }
+        }
       }
     })
     const btn = wrapper.find('v-btn-stub')

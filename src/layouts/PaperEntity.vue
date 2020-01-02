@@ -2,14 +2,14 @@
   <v-container>
     <v-card class="pa-4 paper-entity-card">
       <v-card-title class="headline">
-        <slot name="title"></slot>
+        <slot name="title"/>
         <v-spacer/>
-        <v-btn>
+        <v-btn :to="{ name: 'projects.single.explore.edit', params: $route.params }">
           <v-icon>mdi-pencil</v-icon>
           {{ $t('project.explore.view.edit') }}
         </v-btn>
       </v-card-title>
-      <slot></slot>
+      <slot/>
     </v-card>
   </v-container>
 </template>

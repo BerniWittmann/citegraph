@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/project/ExploreSingleEditPage.vue handles an invalid type 1`] = `
+<div>
+  <!---->
+</div>
+`;
+
+exports[`pages/project/ExploreSingleEditPage.vue renders the page 1`] = `
+<div>
+  <!---->
+</div>
+`;

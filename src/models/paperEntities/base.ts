@@ -6,6 +6,7 @@ import { PublicationFields } from '@/models/paperEntities/publication'
 import { PublisherFields } from '@/models/paperEntities/publisher'
 import { RecordFields } from '@/models/paperEntities/record'
 import { constructQuery, PaperEntityQueryParameters } from '@/models/paperEntities/query'
+import { constructMutation, PaperEntityMutationParameters } from '@/models/paperEntities/mutation'
 
 export interface PaperEntityBaseFields {
   id: string;
@@ -18,6 +19,7 @@ export default abstract class PaperEntity implements PaperEntityBaseFields {
   static readonly queryName: string;
   static readonly displayedColumns: Array<PaperEntityTableColumn>;
   static readonly queryFields: string;
+  static readonly mutationFields: Array<string> = [];
 
   protected constructor ({ id }: PaperEntityBaseFields) {
     this.id = id
@@ -25,6 +27,10 @@ export default abstract class PaperEntity implements PaperEntityBaseFields {
 
   static getQuery (params: PaperEntityQueryParameters): string {
     return constructQuery(this.queryName, this.schemaName, params, this.queryFields)
+  }
+
+  static getMutation (params: PaperEntityMutationParameters, data: Partial<PaperEntityFields>): string {
+    return constructMutation(this.queryName, this.schemaName, params, this.mutationFields, data)
   }
 }
 

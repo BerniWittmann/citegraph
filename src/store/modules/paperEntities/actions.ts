@@ -5,7 +5,8 @@ import { PaperEntityQueryParameters, PaperEntityQueryResponse } from '@/models/p
 import Axios from 'axios'
 import * as types from '@/store/modules/paperEntities/mutation-types'
 import jsLogger from 'js-logger'
-import { entityKeysMap, PaperEntity } from '@/models/paperEntities'
+import { entityKeysMap, PaperEntity, PaperEntityFields } from '@/models/paperEntities'
+import { PaperEntityMutationParameters } from '@/models/paperEntities/mutation'
 
 const logger = jsLogger.get('paperEntities/actions')
 
@@ -53,6 +54,29 @@ export const actions: ActionTree<PaperEntitiesState, RootState> = {
       logger.error(error)
       dispatch('toasts/showError', 'project.explore.fetch_single_error', { root: true })
       commit(types.SET_ACTIVE_ENTITY, undefined)
+      return error
+    }
+  },
+
+  async updateEntity ({ commit, dispatch }, {
+    params,
+    data
+  }: { params: PaperEntityMutationParameters, data: Partial<PaperEntityFields>}): Promise<void> {
+    try {
+      const EntityClass = entityKeysMap[params.entityType]
+      const response = await Axios(`/projects/${params.projectId}/paper-entities`, {
+        method: 'POST',
+        data: {
+          mutation: EntityClass.getMutation(params, data)
+        }
+      })
+      const responseData = response.data.data[EntityClass.queryName]
+      const payload: PaperEntity = new EntityClass(responseData)
+      commit(types.UPDATE_ENTITY, payload)
+      return undefined
+    } catch (error) {
+      logger.error(error)
+      dispatch('toasts/showError', 'project.explore.update_single_error', { root: true })
       return error
     }
   }

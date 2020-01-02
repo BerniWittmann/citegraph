@@ -13,6 +13,7 @@ export default class Country extends PaperEntity implements CountryFields {
   static queryFields: string = `name,
           numberCitations,
           flagUrl`
+  static mutationFields: Array<string> = ['name', 'flagUrl']
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.country.name',
     value: 'name',

@@ -6,5 +6,6 @@ Object {
   "SET_ENTITIES": [Function],
   "SET_ENTITY_COUNT": [Function],
   "SET_ENTITY_TYPE": [Function],
+  "UPDATE_ENTITY": [Function],
 }
 `;

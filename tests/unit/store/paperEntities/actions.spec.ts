@@ -189,4 +189,84 @@ describe('store/modules/paperEntities/actions', () => {
       })
     })
   })
+
+  describe('updateEntity', () => {
+    const projectId = 42
+    beforeEach(() => {
+      moxios.install()
+    })
+    afterEach(() => {
+      moxios.uninstall()
+    })
+    entityKeys.forEach((entityKey) => {
+      describe('can update the entity type ' + entityKey, () => {
+        const EntityClass = entityKeysMap[entityKey]
+        const data = new EntityClass(createDataWithId(1))
+
+        it('updates the entity', (done) => {
+          moxios.stubRequest(`/projects/${projectId}/paper-entities`, {
+            status: 200,
+            response: {
+              data: {
+                [EntityClass.queryName]: data
+              }
+            }
+          })
+
+          const onFulfilled = jest.fn()
+          const commit = jest.fn()
+          const dispatch = jest.fn()
+          const action = actions.updateEntity as Function
+
+          action({ commit, dispatch }, {
+            params: {
+              projectId,
+              entityType: entityKey,
+              id: 1
+            },
+            data
+          }).then(onFulfilled)
+
+          moxios.wait(() => {
+            expect(onFulfilled).toHaveBeenCalledWith(undefined)
+            // @ts-ignore
+            const request = moxios.requests.mostRecent()
+            expect(request.config.data).toMatchSnapshot()
+            expect(commit).toHaveBeenCalledWith('UPDATE_ENTITY', data)
+            done()
+          })
+        })
+
+        it('handles the error when one appeared during the update', (done) => {
+          moxios.stubRequest(`/projects/${projectId}/paper-entities`, {
+            status: 400,
+            response: 'The given query is invalid'
+          })
+
+          const onFulfilled = jest.fn()
+          const commit = jest.fn()
+          const dispatch = jest.fn()
+          const action = actions.updateEntity as Function
+
+          action({ commit, dispatch }, {
+            params: {
+              projectId,
+              entityType: entityKey,
+              id: 1
+            },
+            data: {
+              name: 'New Data'
+            }
+          }).then(onFulfilled)
+
+          moxios.wait(() => {
+            expect(onFulfilled).toHaveBeenCalledWith(new Error('Request failed with status code 400'))
+            expect(dispatch).toHaveBeenCalledWith('toasts/showError', 'project.explore.update_single_error', { root: true })
+            expect(commit).not.toHaveBeenCalledWith('UPDATE_ENTITY')
+            done()
+          })
+        })
+      })
+    })
+  })
 })

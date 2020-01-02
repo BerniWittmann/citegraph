@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/explore/edit/Country.vue renders the page 1`] = `
+<div class="project-explore-single-country-edit">
+  <v-card-stub loaderheight="4" tag="div" class="pa-4">
+    <v-card-title-stub class="headline">
+      <h2 class="display-5">Germany</h2>
+    </v-card-title-stub>
+    <v-container-stub tag="div">
+      <v-form-stub value="true" class="mt-12">
+        <v-row-stub tag="div" justify="center">
+          <v-col-stub lg="6" tag="div">
+            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="v => {
+        /* istanbul ignore next */
+        cov_jge693piu.f[2]++;
+        cov_jge693piu.s[14]++;
+        return (
+          /* istanbul ignore next */
+          (cov_jge693piu.b[0][0]++, !!v) ||
+          /* istanbul ignore next */
+          (cov_jge693piu.b[0][1]++, this.$root.$t('project.explore.edit.country.name_required'))
+        );
+      },v => {
+        /* istanbul ignore next */
+        cov_jge693piu.f[3]++;
+        cov_jge693piu.s[15]++;
+        return (
+          /* istanbul ignore next */
+          (cov_jge693piu.b[1][0]++, v) &amp;&amp;
+          /* istanbul ignore next */
+          (cov_jge693piu.b[1][1]++, v.trim().length > 0) ||
+          /* istanbul ignore next */
+          (cov_jge693piu.b[1][2]++, this.$root.$t('project.explore.edit.country.name_not_empty'))
+        );
+      }" successmessages="" value="Germany" backgroundcolor="" label="project.explore.edit.country.name" loaderheight="2" autofocus="true" clearicon="$clear" type="text" required=""></v-text-field-stub>
+          </v-col-stub>
+        </v-row-stub>
+        <v-row-stub tag="div" justify="center">
+          <v-col-stub lg="6" tag="div">
+            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="https://flag.url" backgroundcolor="" label="project.explore.edit.country.flag_url" loaderheight="2" clearicon="$clear" type="text"></v-text-field-stub>
+          </v-col-stub>
+        </v-row-stub>
+        <v-row-stub tag="div" justify="space-between" class="my-10">
+          <v-col-stub cols="auto" tag="div">
+            <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+              <v-icon-stub>mdi-menu-left</v-icon-stub>
+              project.explore.edit.back
+            </v-btn-stub>
+          </v-col-stub>
+          <v-col-stub cols="auto" tag="div">
+            <v-btn-stub color="success" tag="button" activeclass="" large="true" rounded="true" type="submit">project.explore.edit.submit
+            </v-btn-stub>
+          </v-col-stub>
+        </v-row-stub>
+      </v-form-stub>
+    </v-container-stub>
+  </v-card-stub>
+</div>
+`;

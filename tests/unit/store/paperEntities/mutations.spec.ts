@@ -152,4 +152,63 @@ describe('store/modules/database/mutations', () => {
       expect(state.activeEntity).toEqual(undefined)
     })
   })
+
+  describe('UPDATE_ENTITY', () => {
+    it('updates the correct entity', () => {
+      const state: PaperEntitiesState = {
+        entities: [
+          new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '2', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '3', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+        ],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: undefined
+      }
+      const entity = new Author({ id: '2', firstName: 'Neuer', lastName: 'Name', countRecords: 10 })
+
+      mutations[mutationTypes.UPDATE_ENTITY](state, entity)
+
+      expect(state.entities.length).toEqual(3)
+      expect(state.entities).toContain(entity)
+    })
+
+    it('does nothing if entity does not exist', () => {
+      const state: PaperEntitiesState = {
+        entities: [
+          new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '2', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '3', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+        ],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: new Author({ id: '3', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+      }
+      const entity = new Author({ id: '99', firstName: 'Neuer', lastName: 'Name', countRecords: 10 })
+
+      mutations[mutationTypes.UPDATE_ENTITY](state, entity)
+
+      expect(state.entities.length).toEqual(3)
+      expect(state.entities).not.toContain(entity)
+      expect(state.activeEntity).not.toEqual(entity)
+    })
+
+    it('updates the active Entity', () => {
+      const state: PaperEntitiesState = {
+        entities: [
+          new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '2', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 }),
+          new Author({ id: '3', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+        ],
+        entityCount: -1,
+        entityType: '',
+        activeEntity: new Author({ id: '2', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+      }
+      const entity = new Author({ id: '2', firstName: 'Neuer', lastName: 'Name', countRecords: 10 })
+
+      mutations[mutationTypes.UPDATE_ENTITY](state, entity)
+
+      expect(state.activeEntity).toEqual(entity)
+    })
+  })
 })

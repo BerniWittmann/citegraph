@@ -107,6 +107,7 @@
       "query_by_type_invalid": "The given query type for the paper was invalid",
       "fetch_error": "Could not load entities",
       "fetch_single_error": "Could not load entity",
+      "update_single_error": "Could not update entity",
       "entity_not_available": {
         "text": "The requested entity is currently not available",
         "button": "Back to previous page"
@@ -164,6 +165,16 @@
         "country": {
           "metrics": "Metrics",
           "count_records": "Count Records"
+        }
+      },
+      "edit": {
+        "submit": "Save",
+        "back": "Cancel",
+        "country": {
+          "name": "Name",
+          "flag_url": "Flag Image URL",
+          "name_required": "Please specify a name",
+          "name_not_empty": "An empty name is not valid"
         }
       }
     },

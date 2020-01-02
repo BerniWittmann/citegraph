@@ -32,5 +32,20 @@ exports[`store/modules/paperEntities/actions provides the actions 1`] = `
 Object {
   "fetchEntities": [Function],
   "fetchEntity": [Function],
+  "updateEntity": [Function],
 }
 `;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type author updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Authors(id: 1) {\\\\n        author {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type conference updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        conference {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type country updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Countries(id: 1) {\\\\n        country {\\\\n          name: \\\\\\"Institution or CountryName\\\\\\", \\\\nflagUrl: \\\\\\"undefined\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type institution updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Institutions(id: 1) {\\\\n        institution {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type publication updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Publications(id: 1) {\\\\n        publication {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type publisher updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Publishers(id: 1) {\\\\n        publisher {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type record updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Records(id: 1) {\\\\n        record {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;

@@ -69,10 +69,10 @@ exports[`components/visualizations/edit/ChooseData.vue has a function to set the
         <v-container-stub tag="div" fluid="true">
           <v-row-stub tag="div" align="center">
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2010" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2010" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="auto" tag="div">
               visualizations.add.data.period.elements
@@ -85,10 +85,10 @@ exports[`components/visualizations/edit/ChooseData.vue has a function to set the
           </v-row-stub>
           <v-row-stub tag="div" align="center">
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1990" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1990" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2000" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="auto" tag="div">
               visualizations.add.data.period.elements
@@ -194,10 +194,10 @@ exports[`components/visualizations/edit/ChooseData.vue it handles the time perio
         <v-container-stub tag="div" fluid="true">
           <v-row-stub tag="div" align="center">
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="auto" tag="div">
               visualizations.add.data.period.elements
@@ -303,10 +303,10 @@ exports[`components/visualizations/edit/ChooseData.vue it handles the time perio
         <v-container-stub tag="div" fluid="true">
           <v-row-stub tag="div" align="center">
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.from" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="3" tag="div">
-              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2019"></v-text-field-stub>
+              <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" label="visualizations.add.data.period.until" loaderheight="2" clearicon="$clear" placeholder="visualizations.add.data.period.enter_year" type="number" min="1970" max="2020"></v-text-field-stub>
             </v-col-stub>
             <v-col-stub cols="auto" tag="div">
               visualizations.add.data.period.elements

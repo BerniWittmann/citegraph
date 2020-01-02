@@ -18,6 +18,7 @@ import ExploreSingleWrapperPage from '@/pages/project/explore/ExploreSingleWrapp
 import VisualizationsPage from '@/pages/visualizations/Visualizations.vue'
 import EditVisualizationPage from '@/pages/visualizations/visualization/EditVisualization.vue'
 import ViewVisualizationPage from '@/pages/visualizations/visualization/ViewVisualization.vue'
+import ExploreSingleEditPage from '@/pages/project/explore/ExploreSingleEdit.vue'
 
 const routes: Array<RouteConfig> = [
   {
@@ -82,6 +83,10 @@ const routes: Array<RouteConfig> = [
             path: '',
             name: 'projects.single.explore.view',
             component: ExploreSinglePage
+          }, {
+            path: 'edit',
+            name: 'projects.single.explore.edit',
+            component: ExploreSingleEditPage
           }]
         }]
       }, {
