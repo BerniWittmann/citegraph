@@ -14,6 +14,7 @@ export default class Author extends PaperEntity implements AuthorFields {
           firstName,
           lastName,
           numberCitations`
+  static mutationFields: Array<string> = ['firstName', 'lastName']
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.author.first_name',
     value: 'firstName',

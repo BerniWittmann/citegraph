@@ -175,6 +175,12 @@
           "flag_url": "Flag Image URL",
           "name_required": "Please specify a name",
           "name_not_empty": "An empty name is not valid"
+        },
+        "author": {
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "name_required": "Please specify a name",
+          "name_not_empty": "An empty name is not valid"
         }
       }
     },

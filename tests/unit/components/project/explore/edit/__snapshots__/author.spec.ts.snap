@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/project/explore/edit/Country.vue renders the page 1`] = `
-<div class="project-explore-single-country-edit">
+exports[`components/project/explore/edit/Author.vue renders the page 1`] = `
+<div class="project-explore-single-author-edit">
   <v-card-stub loaderheight="4" tag="div" class="pa-4">
     <v-card-title-stub class="headline">
-      <h2 class="display-5">Germany</h2>
+      <h2 class="display-5">Hans Meier</h2>
     </v-card-title-stub>
     <v-container-stub tag="div">
       <v-form-stub value="true" class="mt-12">
         <v-row-stub tag="div" justify="center">
           <v-col-stub lg="6" tag="div">
-            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="Germany" backgroundcolor="" label="project.explore.edit.country.name" loaderheight="2" autofocus="true" clearicon="$clear" type="text" required=""></v-text-field-stub>
+            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="Hans" backgroundcolor="" label="project.explore.edit.author.first_name" loaderheight="2" autofocus="true" clearicon="$clear" type="text" required=""></v-text-field-stub>
           </v-col-stub>
         </v-row-stub>
         <v-row-stub tag="div" justify="center">
           <v-col-stub lg="6" tag="div">
-            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="https://flag.url" backgroundcolor="" label="project.explore.edit.country.flag_url" loaderheight="2" clearicon="$clear" type="text"></v-text-field-stub>
+            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="Meier" backgroundcolor="" label="project.explore.edit.author.last_name" loaderheight="2" autofocus="true" clearicon="$clear" type="text" required=""></v-text-field-stub>
           </v-col-stub>
         </v-row-stub>
         <v-row-stub tag="div" justify="space-between" class="my-10">

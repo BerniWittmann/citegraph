@@ -2,25 +2,25 @@ import { shallowMount } from '@vue/test-utils'
 import { i18n } from '../../../../setupPlugins'
 
 import EmptySlotComponent from '../../../../EmptySlotComponent.vue'
-import CountryEditPage from '@/components/project/explore/edit/Country.vue'
-import Country from '@/models/paperEntities/country'
+import AuthorEditPage from '@/components/project/explore/edit/Author.vue'
+import Author from '@/models/paperEntities/author'
 
-describe('components/project/explore/edit/Country.vue', () => {
+describe('components/project/explore/edit/Author.vue', () => {
   const router = {
     back: jest.fn()
   }
   const dispatch = jest.fn()
 
   function getWrapper () {
-    return shallowMount(CountryEditPage, {
+    return shallowMount(AuthorEditPage, {
       i18n,
       mocks: {
         $store: {
           getters: {
-            'paperEntities/activeEntity': new Country({
+            'paperEntities/activeEntity': new Author({
               id: '1',
-              name: 'Germany',
-              flagUrl: 'https://flag.url',
+              firstName: 'Hans',
+              lastName: 'Meier',
               countRecords: 12
             })
           },
@@ -30,7 +30,7 @@ describe('components/project/explore/edit/Country.vue', () => {
         $route: {
           params: {
             projectId: 42,
-            queryByType: 'country',
+            queryByType: 'author',
             entityId: '1'
           }
         },
@@ -86,38 +86,38 @@ describe('components/project/explore/edit/Country.vue', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       const rule = wrapper.vm.nameRules[0]
-      expect(rule(undefined)).toEqual('project.explore.edit.country.name_required')
-      expect(rule(null)).toEqual('project.explore.edit.country.name_required')
-      expect(rule('')).toEqual('project.explore.edit.country.name_required')
+      expect(rule(undefined)).toEqual('project.explore.edit.author.name_required')
+      expect(rule(null)).toEqual('project.explore.edit.author.name_required')
+      expect(rule('')).toEqual('project.explore.edit.author.name_required')
     })
     it('the text can not be an empty string', () => {
       const wrapper = getWrapper()
       // @ts-ignore
       const rule = wrapper.vm.nameRules[1]
-      expect(rule('    ')).toEqual('project.explore.edit.country.name_not_empty')
+      expect(rule('    ')).toEqual('project.explore.edit.author.name_not_empty')
       expect(rule('   test   ')).toBeTruthy()
-      expect(rule(' ')).toEqual('project.explore.edit.country.name_not_empty')
+      expect(rule(' ')).toEqual('project.explore.edit.author.name_not_empty')
     })
   })
 
   describe('it can submit the form', () => {
-    it('saves the country on submit', async () => {
+    it('saves the author on submit', async () => {
       const wrapper = getWrapper()
       // @ts-ignore
-      wrapper.vm.name = 'New Name'
+      wrapper.vm.firstName = 'Olli'
       // @ts-ignore
-      wrapper.vm.flagUrl = 'https://new-flag.url'
+      wrapper.vm.lastName = 'Kahn'
       // @ts-ignore
       await wrapper.vm.submit()
       expect(dispatch).toHaveBeenCalledWith('paperEntities/updateEntity', {
         params: {
           projectId: 42,
-          entityType: 'country',
+          entityType: 'author',
           id: '1'
         },
         data: {
-          name: 'New Name',
-          flagUrl: 'https://new-flag.url'
+          firstName: 'Olli',
+          lastName: 'Kahn'
         }
       })
       expect(router.back).toHaveBeenCalled()

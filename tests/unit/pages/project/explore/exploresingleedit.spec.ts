@@ -3,6 +3,7 @@ import { i18n } from '../../../setupPlugins'
 
 import ExploreSingleEditPage from '@/pages/project/explore/ExploreSingleEdit.vue'
 import CountryEditPage from '@/components/project/explore/edit/Country.vue'
+import AuthorEditPage from '@/components/project/explore/edit/Author.vue'
 
 describe('pages/project/ExploreSingleEditPage.vue', () => {
   function getWrapper (queryByType: string = 'record') {
@@ -29,7 +30,8 @@ describe('pages/project/ExploreSingleEditPage.vue', () => {
   })
 
   const components: Record<string, any> = {
-    country: CountryEditPage
+    country: CountryEditPage,
+    author: AuthorEditPage
   }
 
   describe('it renders the correct component', () => {

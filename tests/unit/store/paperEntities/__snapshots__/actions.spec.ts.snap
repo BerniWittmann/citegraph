@@ -36,7 +36,7 @@ Object {
 }
 `;
 
-exports[`store/modules/paperEntities/actions updateEntity can update the entity type author updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Authors(id: 1) {\\\\n        author {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type author updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Authors(id: 1) {\\\\n        author {\\\\n          firstName: \\\\\\"Hans\\\\\\", \\\\nlastName: \\\\\\"Maier\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions updateEntity can update the entity type conference updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        conference {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
