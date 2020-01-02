@@ -1,3 +1,11 @@
+## 0.8.0 (2020-01-02)
+
+* feat: Added Authors edit page ([f703775](https://gitlab.com/citegraph/frontend/commit/f703775))
+* feat: Added Edit country page ([3087cab](https://gitlab.com/citegraph/frontend/commit/3087cab))
+* feat: Added records edit page ([2ed6b9d](https://gitlab.com/citegraph/frontend/commit/2ed6b9d))
+
+
+
 ## <small>0.7.1 (2019-12-21)</small>
 
 * feat: Added link from project page to visualizations ([1e816f0](https://gitlab.com/citegraph/frontend/commit/1e816f0))
