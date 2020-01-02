@@ -13,6 +13,7 @@ export default class Record extends PaperEntity implements RecordFields {
   static key: string = 'record'
   static queryName: string = 'Records'
   static schemaName: string = 'record'
+  static mutationFields: Array<string> = ['title']
   static queryFields: string = `title,
           authors,
           year,

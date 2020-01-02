@@ -48,4 +48,4 @@ exports[`store/modules/paperEntities/actions updateEntity can update the entity 
 
 exports[`store/modules/paperEntities/actions updateEntity can update the entity type publisher updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Publishers(id: 1) {\\\\n        publisher {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions updateEntity can update the entity type record updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Records(id: 1) {\\\\n        record {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type record updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Records(id: 1) {\\\\n        record {\\\\n          title: \\\\\\"My title\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;

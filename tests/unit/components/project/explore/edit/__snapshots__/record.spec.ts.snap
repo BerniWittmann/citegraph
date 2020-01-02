@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/project/explore/edit/Record.vue renders the page 1`] = `
+<div class="project-explore-single-record-edit">
+  <v-card-stub loaderheight="4" tag="div" class="pa-4">
+    <v-card-title-stub class="headline">
+      <h2 class="display-5">My awesome Title</h2>
+    </v-card-title-stub>
+    <v-container-stub tag="div">
+      <v-form-stub value="true" class="mt-12">
+        <v-row-stub tag="div" justify="center">
+          <v-col-stub lg="6" tag="div">
+            <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="My awesome Title" backgroundcolor="" label="project.explore.edit.record.title" loaderheight="2" autofocus="true" clearicon="$clear" type="text" required=""></v-text-field-stub>
+          </v-col-stub>
+        </v-row-stub>
+        <v-row-stub tag="div" justify="space-between" class="my-10">
+          <v-col-stub cols="auto" tag="div">
+            <v-btn-stub color="warning" tag="button" activeclass="" large="true" rounded="true" type="button">
+              <v-icon-stub>mdi-menu-left</v-icon-stub>
+              project.explore.edit.back
+            </v-btn-stub>
+          </v-col-stub>
+          <v-col-stub cols="auto" tag="div">
+            <v-btn-stub color="success" tag="button" activeclass="" large="true" rounded="true" type="submit">project.explore.edit.submit
+            </v-btn-stub>
+          </v-col-stub>
+        </v-row-stub>
+      </v-form-stub>
+    </v-container-stub>
+  </v-card-stub>
+</div>
+`;
