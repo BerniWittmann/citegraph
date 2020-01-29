@@ -1,3 +1,12 @@
+## 0.9.0 (2020-01-29)
+
+* feat: Added transformers to map between entities and Data Transfer Objects ([c62cf5f](https://gitlab.com/citegraph/frontend/commit/c62cf5f)), closes [#33](https://gitlab.com/citegraph/frontend/issues/33)
+* feat: Display Cluster information next to network visualization ([ecb1d50](https://gitlab.com/citegraph/frontend/commit/ecb1d50)), closes [#34](https://gitlab.com/citegraph/frontend/issues/34)
+* feat: Made Authors in Data Table clickable ([e430325](https://gitlab.com/citegraph/frontend/commit/e430325)), closes [#29](https://gitlab.com/citegraph/frontend/issues/29)
+* fix: Indent Project Name on Project Overview page ([9735b69](https://gitlab.com/citegraph/frontend/commit/9735b69)), closes [#32](https://gitlab.com/citegraph/frontend/issues/32)
+
+
+
 ## 0.8.0 (2020-01-02)
 
 * feat: Added Authors edit page ([f703775](https://gitlab.com/citegraph/frontend/commit/f703775))
