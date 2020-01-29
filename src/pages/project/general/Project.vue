@@ -1,14 +1,16 @@
 import { ProjectStates } from '@/models/project'
 <template>
   <div class="project">
-    <div class="d-flex mr-5 mt-4">
-      <h1>{{ project.name }}</h1>
-      <v-spacer/>
-      <v-btn :to="{ name: 'projects.single.edit', params: { projectId: project.id } }">
-        <v-icon>mdi-pencil</v-icon>
-        {{ $t('project.edit.button_text') }}
-      </v-btn>
-    </div>
+    <v-container class="mt-4">
+      <v-row>
+        <h1>{{ project.name }}</h1>
+        <v-spacer/>
+        <v-btn :to="{ name: 'projects.single.edit', params: { projectId: project.id } }">
+          <v-icon>mdi-pencil</v-icon>
+          {{ $t('project.edit.button_text') }}
+        </v-btn>
+      </v-row>
+    </v-container>
     <v-container v-if="hasNoDataYet">
       <v-row justify="center">
         <v-col :lg="3" class="d-flex justify-center flex-column text-center">

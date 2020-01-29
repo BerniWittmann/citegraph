@@ -2,14 +2,16 @@
 
 exports[`pages/Project.vue can handle incomplete data on the project object 1`] = `
 <div class="project">
-  <div class="d-flex mr-5 mt-4">
-    <h1>My awesome Project</h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
-      <v-icon-stub>mdi-pencil</v-icon-stub>
-      project.edit.button_text
-    </v-btn-stub>
-  </div>
+  <v-container-stub tag="div" class="mt-4">
+    <v-row-stub tag="div">
+      <h1>My awesome Project</h1>
+      <v-spacer-stub></v-spacer-stub>
+      <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+        <v-icon-stub>mdi-pencil</v-icon-stub>
+        project.edit.button_text
+      </v-btn-stub>
+    </v-row-stub>
+  </v-container-stub>
   <v-container-stub tag="div">
     <!---->
     <v-row-stub tag="div">
@@ -31,14 +33,16 @@ exports[`pages/Project.vue can handle incomplete data on the project object 1`] 
 
 exports[`pages/Project.vue renders an alternate page depending on the explore project state 1`] = `
 <div class="project">
-  <div class="d-flex mr-5 mt-4">
-    <h1>My awesome Project</h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
-      <v-icon-stub>mdi-pencil</v-icon-stub>
-      project.edit.button_text
-    </v-btn-stub>
-  </div>
+  <v-container-stub tag="div" class="mt-4">
+    <v-row-stub tag="div">
+      <h1>My awesome Project</h1>
+      <v-spacer-stub></v-spacer-stub>
+      <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+        <v-icon-stub>mdi-pencil</v-icon-stub>
+        project.edit.button_text
+      </v-btn-stub>
+    </v-row-stub>
+  </v-container-stub>
   <v-container-stub tag="div">
     <v-row-stub tag="div">
       <v-col-stub tag="div">
@@ -197,14 +201,16 @@ exports[`pages/Project.vue renders an alternate page depending on the explore pr
 
 exports[`pages/Project.vue renders an alternate page depending on the import project state 1`] = `
 <div class="project">
-  <div class="d-flex mr-5 mt-4">
-    <h1>My awesome Project</h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
-      <v-icon-stub>mdi-pencil</v-icon-stub>
-      project.edit.button_text
-    </v-btn-stub>
-  </div>
+  <v-container-stub tag="div" class="mt-4">
+    <v-row-stub tag="div">
+      <h1>My awesome Project</h1>
+      <v-spacer-stub></v-spacer-stub>
+      <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+        <v-icon-stub>mdi-pencil</v-icon-stub>
+        project.edit.button_text
+      </v-btn-stub>
+    </v-row-stub>
+  </v-container-stub>
   <v-container-stub tag="div">
     <v-row-stub tag="div" justify="center">
       <v-col-stub lg="3" tag="div" class="d-flex justify-center flex-column text-center">
@@ -222,14 +228,16 @@ exports[`pages/Project.vue renders an alternate page depending on the import pro
 
 exports[`pages/Project.vue renders the page 1`] = `
 <div class="project">
-  <div class="d-flex mr-5 mt-4">
-    <h1>My awesome Project</h1>
-    <v-spacer-stub></v-spacer-stub>
-    <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
-      <v-icon-stub>mdi-pencil</v-icon-stub>
-      project.edit.button_text
-    </v-btn-stub>
-  </div>
+  <v-container-stub tag="div" class="mt-4">
+    <v-row-stub tag="div">
+      <h1>My awesome Project</h1>
+      <v-spacer-stub></v-spacer-stub>
+      <v-btn-stub tag="button" activeclass="" to="[object Object]" type="button">
+        <v-icon-stub>mdi-pencil</v-icon-stub>
+        project.edit.button_text
+      </v-btn-stub>
+    </v-row-stub>
+  </v-container-stub>
   <v-container-stub tag="div">
     <v-row-stub tag="div">
       <v-col-stub tag="div">
