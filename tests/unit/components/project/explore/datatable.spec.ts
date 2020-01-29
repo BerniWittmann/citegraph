@@ -78,7 +78,8 @@ describe('components/project/explore/DataTable.vue', () => {
             params: {
               projectId: 42,
               entityType: entityKey,
-              entityId: 1
+              entityId: 1,
+              queryByType: entityKey
             }
           })
         })

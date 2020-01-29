@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/WordCloudVisualizationTransformer can fetch a WordCloudVisualization fetches a WordCloudVisualization 1`] = `
+WordCloudVisualization {
+  "data": undefined,
+  "id": "1",
+  "key": "wordcloud",
+  "name": "First",
+  "parameters": Object {
+    "pruneLeastCitedPercentage": 5,
+  },
+  "progress": 0.1,
+  "timePeriods": Array [],
+}
+`;
+
+exports[`transformers/WordCloudVisualizationTransformer can fetch a WordCloudVisualization fetches the data 1`] = `
+WordCloudVisualization {
+  "data": Object {
+    "data": Array [],
+  },
+  "id": "1",
+  "key": "wordcloud",
+  "name": "First",
+  "parameters": Object {
+    "pruneLeastCitedPercentage": 5,
+  },
+  "progress": 0.1,
+  "timePeriods": Array [],
+}
+`;
+
+exports[`transformers/WordCloudVisualizationTransformer can send a WordCloudVisualization sends an WordCloudVisualization 1`] = `
+Object {
+  "data": undefined,
+  "id": "1",
+  "key": "wordcloud",
+  "name": "First",
+  "progress": 0.1,
+  "time_periods": Array [],
+}
+`;
+
+exports[`transformers/WordCloudVisualizationTransformer can send a WordCloudVisualization sends the data 1`] = `
+Object {
+  "data": Array [],
+  "id": "1",
+  "key": "wordcloud",
+  "name": "First",
+  "progress": 0.1,
+  "time_periods": Array [],
+}
+`;

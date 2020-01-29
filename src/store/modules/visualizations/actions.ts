@@ -16,7 +16,7 @@ function parseVisualization (visualization: VisualizationResponseFields): Visual
   if (!visualization || !visualization.key) return undefined
   const VisualizationClass = visualizationsKeyMap[visualization.key]
   if (!VisualizationClass) return undefined
-  return new VisualizationClass(visualization)
+  return VisualizationClass.transformer.fetch(visualization)
 }
 
 export const actions: ActionTree<VisualizationsState, RootState> = {
@@ -50,12 +50,12 @@ export const actions: ActionTree<VisualizationsState, RootState> = {
     commit(types.SET_CURRENT_VISUALIZATION, undefined)
   },
 
-  async createVisualization ({ commit, dispatch }, { projectId, visualizationData }: { projectId: number, visualizationData: Visualization }): Promise<Visualization | undefined> {
+  async createVisualization ({ commit, dispatch }, { projectId, visualizationData, visualizationClass }: { projectId: number, visualizationData: Visualization, visualizationClass: typeof Visualization }): Promise<Visualization | undefined> {
     try {
       const response = await Axios(`/projects/${projectId}/visualizations`, {
         method: 'POST',
         data: {
-          ...visualizationData,
+          ...visualizationClass.transformer.send(visualizationData),
           data: undefined
         }
       })
@@ -71,12 +71,12 @@ export const actions: ActionTree<VisualizationsState, RootState> = {
     }
   },
 
-  async updateVisualization ({ commit, dispatch }, { projectId, visualizationData }: { projectId: number, visualizationData: Visualization }): Promise<Visualization | undefined> {
+  async updateVisualization ({ commit, dispatch }, { projectId, visualizationData, visualizationClass }: { projectId: number, visualizationData: Visualization, visualizationClass: typeof Visualization }): Promise<Visualization | undefined> {
     try {
       const response = await Axios(`/projects/${projectId}/visualizations/${visualizationData.id}`, {
         method: 'PUT',
         data: {
-          ...visualizationData,
+          ...visualizationClass.transformer.send(visualizationData),
           data: undefined
         }
       })

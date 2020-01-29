@@ -1,4 +1,5 @@
 import Visualization, { VisualizationBaseFields } from './Visualization'
+import WordCloudVisualizationTransformer from '@/transformers/WordCloudVisualizationTransformer'
 
 export interface WordCloudVisualizationParameters {
   pruneLeastCitedPercentage: number
@@ -23,6 +24,7 @@ export default class WordCloudVisualization extends Visualization implements Wor
   static description: string = 'visualizations.information.word_cloud.description'
   static longDescription: string = 'visualizations.information.word_cloud.long_description'
   static imageUrl: string = 'visualization_images/word_cloud.jpg'
+  static transformer = WordCloudVisualizationTransformer
   parameters: WordCloudVisualizationParameters
   data?: WordCloudData
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/Countrytransformer can fetch an country fetches an country 1`] = `
+Country {
+  "countRecords": 1,
+  "flagUrl": "",
+  "id": "1",
+  "name": "First",
+}
+`;
+
+exports[`transformers/Countrytransformer can send a country sends an country 1`] = `
+Object {
+  "count_records": 1,
+  "flag_url": "",
+  "id": "1",
+  "name": "First",
+}
+`;

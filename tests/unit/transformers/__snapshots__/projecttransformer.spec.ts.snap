@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/ProjectTransformer can fetch a project fetches a project 1`] = `
+Project {
+  "countryRelevanceData": undefined,
+  "counts": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "topAuthors": undefined,
+  "topKeywords": undefined,
+  "topRecords": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can fetch a project fetches the authors 1`] = `
+Project {
+  "countryRelevanceData": undefined,
+  "counts": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "topAuthors": Array [
+    Author {
+      "countRecords": 1,
+      "firstName": "First",
+      "id": "1",
+      "lastName": "Author",
+    },
+    Author {
+      "countRecords": 2,
+      "firstName": "Second",
+      "id": "2",
+      "lastName": "Author",
+    },
+  ],
+  "topKeywords": undefined,
+  "topRecords": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can fetch a project fetches the country relevance data 1`] = `
+Project {
+  "countryRelevanceData": Array [
+    Object {
+      "country": Country {
+        "countRecords": 1,
+        "flagUrl": undefined,
+        "id": "1",
+        "name": "Deutschland",
+      },
+      "relevance": 0.4,
+    },
+  ],
+  "counts": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "topAuthors": undefined,
+  "topKeywords": undefined,
+  "topRecords": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can fetch a project fetches the counts 1`] = `
+Project {
+  "countryRelevanceData": undefined,
+  "counts": Object {
+    "authors": 2,
+    "conferences": 7,
+    "countries": 4,
+    "institutions": 3,
+    "keywords": 8,
+    "publications": 5,
+    "publishers": 5,
+    "records": 1,
+    "visualizations": 9,
+  },
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "topAuthors": undefined,
+  "topKeywords": undefined,
+  "topRecords": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can fetch a project fetches the records 1`] = `
+Project {
+  "countryRelevanceData": undefined,
+  "counts": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "topAuthors": undefined,
+  "topKeywords": undefined,
+  "topRecords": Array [
+    Record {
+      "authors": Array [],
+      "id": "1",
+      "keywords": Array [],
+      "numberCitations": 1,
+      "title": "First",
+      "year": 2000,
+    },
+    Record {
+      "authors": Array [],
+      "id": "2",
+      "keywords": Array [],
+      "numberCitations": 1,
+      "title": "Second",
+      "year": 2000,
+    },
+  ],
+}
+`;
+
+exports[`transformers/ProjectTransformer can send a project sends a project 1`] = `
+Object {
+  "count_authors": undefined,
+  "count_conferences": undefined,
+  "count_countries": undefined,
+  "count_institutions": undefined,
+  "count_keywords": undefined,
+  "count_publications": undefined,
+  "count_publishers": undefined,
+  "count_records": undefined,
+  "count_visualizations": undefined,
+  "countries": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "top_authors": undefined,
+  "top_keywords": undefined,
+  "top_records": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can send a project sends the authors 1`] = `
+Object {
+  "count_authors": undefined,
+  "count_conferences": undefined,
+  "count_countries": undefined,
+  "count_institutions": undefined,
+  "count_keywords": undefined,
+  "count_publications": undefined,
+  "count_publishers": undefined,
+  "count_records": undefined,
+  "count_visualizations": undefined,
+  "countries": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "top_authors": Array [
+    Object {
+      "count_records": 1,
+      "first_name": "First",
+      "id": "1",
+      "last_name": "Author",
+    },
+    Object {
+      "count_records": 2,
+      "first_name": "Second",
+      "id": "2",
+      "last_name": "Author",
+    },
+  ],
+  "top_keywords": undefined,
+  "top_records": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can send a project sends the country relevance data 1`] = `
+Object {
+  "count_authors": undefined,
+  "count_conferences": undefined,
+  "count_countries": undefined,
+  "count_institutions": undefined,
+  "count_keywords": undefined,
+  "count_publications": undefined,
+  "count_publishers": undefined,
+  "count_records": undefined,
+  "count_visualizations": undefined,
+  "countries": Array [
+    Object {
+      "count_records": 1,
+      "flag_url": undefined,
+      "id": "1",
+      "name": "Deutschland",
+      "relevance": 0.4,
+    },
+  ],
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "top_authors": undefined,
+  "top_keywords": undefined,
+  "top_records": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can send a project sends the counts 1`] = `
+Object {
+  "count_authors": 2,
+  "count_conferences": 7,
+  "count_countries": 4,
+  "count_institutions": 3,
+  "count_keywords": 8,
+  "count_publications": 5,
+  "count_publishers": 6,
+  "count_records": 1,
+  "count_visualizations": 9,
+  "countries": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "top_authors": undefined,
+  "top_keywords": undefined,
+  "top_records": undefined,
+}
+`;
+
+exports[`transformers/ProjectTransformer can send a project sends the records 1`] = `
+Object {
+  "count_authors": undefined,
+  "count_conferences": undefined,
+  "count_countries": undefined,
+  "count_institutions": undefined,
+  "count_keywords": undefined,
+  "count_publications": undefined,
+  "count_publishers": undefined,
+  "count_records": undefined,
+  "count_visualizations": undefined,
+  "countries": undefined,
+  "id": undefined,
+  "name": "Project",
+  "state": "IMPORT",
+  "top_authors": undefined,
+  "top_keywords": undefined,
+  "top_records": Array [
+    Object {
+      "authors": Array [],
+      "id": "1",
+      "keywords": Array [],
+      "number_citations": 1,
+      "title": "First",
+      "year": 2000,
+    },
+    Object {
+      "authors": Array [],
+      "id": "2",
+      "keywords": Array [],
+      "number_citations": 1,
+      "title": "Second",
+      "year": 2000,
+    },
+  ],
+}
+`;

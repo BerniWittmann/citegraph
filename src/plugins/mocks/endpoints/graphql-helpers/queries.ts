@@ -14,7 +14,8 @@ export type QueryConfiguration = {
   schemaName: string,
   queryName: string,
   collection: Collection<PaperEntity>,
-  filterFunction?: FilterFunction
+  filterFunction?: FilterFunction,
+  class: any
 }
 
 function parseQuery (query: string): QueryArguments {
@@ -61,7 +62,7 @@ function findMultiple (queryParams: QueryArguments, configuration: QueryConfigur
   }
   return {
     count,
-    data: chain.data()
+    data: configuration.class.transformer.sendCollection(chain.data())
   }
 }
 
@@ -72,7 +73,7 @@ function findOne (queryParams: QueryArguments, configuration: QueryConfiguration
   }
   return {
     count: 1,
-    data: data
+    data: configuration.class.transformer.send(data)
   }
 }
 

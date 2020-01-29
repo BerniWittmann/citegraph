@@ -6,13 +6,13 @@ import EmptySlotComponent from '../../../../EmptySlotComponent.vue'
 import Author from '@/models/paperEntities/author'
 
 describe('components/project/explore/view/Author.vue', () => {
-  function getWrapper () {
+  function getWrapper (author?: any) {
     return shallowMount(AuthorViewPage, {
       i18n,
       mocks: {
         $store: {
           getters: {
-            'paperEntities/activeEntity': new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
+            'paperEntities/activeEntity': author || new Author({ id: '1', firstName: 'Max', lastName: 'Mustermann', countRecords: 12 })
           }
         }
       },
@@ -41,5 +41,10 @@ describe('components/project/explore/view/Author.vue', () => {
       belongsToType: 'author',
       queryByType: 'record'
     })
+  })
+
+  it('can handle an empty author', () => {
+    const wrapper = getWrapper({})
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

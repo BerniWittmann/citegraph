@@ -10,7 +10,7 @@ export default class Publisher extends PaperEntity implements PublisherFields {
   static schemaName: string = 'publisher'
   static queryName: string = 'Publishers'
   static queryFields: string = `name,
-          numberCitations`
+          number_citations`
   static displayedColumns: Array<PaperEntityTableColumn> = []
   name: string
   countRecords: number

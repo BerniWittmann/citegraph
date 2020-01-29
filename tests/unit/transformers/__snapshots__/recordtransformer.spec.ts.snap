@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/Recordtransformer can fetch a record fetches a record 1`] = `
+Record {
+  "authors": Array [],
+  "id": "1",
+  "keywords": Array [],
+  "numberCitations": 1,
+  "title": "First",
+  "year": 2000,
+}
+`;
+
+exports[`transformers/Recordtransformer can fetch a record fetches the authors 1`] = `
+Record {
+  "authors": Array [
+    Author {
+      "countRecords": 12,
+      "firstName": "First",
+      "id": "1",
+      "lastName": "Author",
+    },
+  ],
+  "id": "1",
+  "keywords": Array [],
+  "numberCitations": 1,
+  "title": "First",
+  "year": 2000,
+}
+`;
+
+exports[`transformers/Recordtransformer can send a record sends a record 1`] = `
+Object {
+  "authors": Array [],
+  "id": "1",
+  "keywords": Array [],
+  "number_citations": 1,
+  "title": "First",
+  "year": 2000,
+}
+`;
+
+exports[`transformers/Recordtransformer can send a record sends the authors 1`] = `
+Object {
+  "authors": Array [
+    Object {
+      "count_records": 12,
+      "first_name": "First",
+      "id": "1",
+      "last_name": "Author",
+    },
+  ],
+  "id": "1",
+  "keywords": Array [],
+  "number_citations": 1,
+  "title": "First",
+  "year": 2000,
+}
+`;

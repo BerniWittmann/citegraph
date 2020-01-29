@@ -263,7 +263,8 @@ describe('pages/visualizations/EditVisualization.vue', () => {
 
         expect(dispatch).toHaveBeenCalledWith('visualizations/updateVisualization', {
           projectId: 23,
-          visualizationData: new BarChartVisualization({ name: 'My Chart', id: '42' })
+          visualizationData: new BarChartVisualization({ name: 'My Chart', id: '42' }),
+          visualizationClass: BarChartVisualization
         })
       })
 
@@ -304,7 +305,8 @@ describe('pages/visualizations/EditVisualization.vue', () => {
 
         expect(dispatch).toHaveBeenCalledWith('visualizations/createVisualization', {
           projectId: 23,
-          visualizationData: new WordCloudVisualization({ name: '' })
+          visualizationData: new WordCloudVisualization({ name: '' }),
+          visualizationClass: WordCloudVisualization
         })
       })
 

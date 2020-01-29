@@ -1,4 +1,5 @@
 import Visualization, { VisualizationBaseFields } from './Visualization'
+import BarChartVisualizationTransformer from '@/transformers/BarChartVisualizationTransformer'
 
 export interface BarChartVisualizationParameters {
   pruneLeastCitedPercentage: number
@@ -15,6 +16,7 @@ export default class BarChartVisualization extends Visualization implements BarC
   static description: string = 'visualizations.information.bar_chart.description'
   static longDescription: string = 'visualizations.information.bar_chart.long_description'
   static imageUrl: string = 'visualization_images/bar_chart.png'
+  static transformer = BarChartVisualizationTransformer
   parameters: BarChartVisualizationParameters
   data?: Object
 

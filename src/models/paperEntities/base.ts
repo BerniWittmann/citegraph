@@ -7,6 +7,7 @@ import { PublisherFields } from '@/models/paperEntities/publisher'
 import { RecordFields } from '@/models/paperEntities/record'
 import { constructQuery, PaperEntityQueryParameters } from '@/models/paperEntities/query'
 import { constructMutation, PaperEntityMutationParameters } from '@/models/paperEntities/mutation'
+import Transformer from '@/transformers/Transformer'
 
 export interface PaperEntityBaseFields {
   id: string;
@@ -20,6 +21,7 @@ export default abstract class PaperEntity implements PaperEntityBaseFields {
   static readonly displayedColumns: Array<PaperEntityTableColumn>;
   static readonly queryFields: string;
   static readonly mutationFields: Array<string> = [];
+  static readonly transformer: typeof Transformer = Transformer;
 
   protected constructor ({ id }: PaperEntityBaseFields) {
     this.id = id

@@ -18,13 +18,23 @@ function getVisualizationId (config: AxiosRequestConfig): string {
   return urlParts[6]
 }
 
+function getVisualizationClass (visualization: Visualization): typeof Visualization | undefined {
+  if (!visualization || !visualization.key) return undefined
+  return visualizationsKeyMap[visualization.key]
+}
+
 export function setupMocks (mock: MockAdapter) {
   mock.onGet(/\/projects\/\d+\/visualizations$/).reply((config: AxiosRequestConfig) => {
     const project: Resultset<Project> = projects.findOne({ 'id': getProjectId(config) })
     if (!project) {
       return [404]
     }
-    return [200, visualizations.find()]
+    const vis = visualizations.find().map(v => {
+      const c = getVisualizationClass(v)
+      if (!c) return undefined
+      return c!.transformer.send(v)
+    })
+    return [200, vis]
   })
 
   mock.onGet(/\/projects\/\d+\/visualizations\/\d+$/).reply((config: AxiosRequestConfig) => {
@@ -33,10 +43,13 @@ export function setupMocks (mock: MockAdapter) {
       return [404]
     }
     const visualization: Resultset<Visualization> = visualizations.findOne({ 'id': getVisualizationId(config) })
-    if (!visualization) {
+
+    const c = getVisualizationClass(visualization as any)
+    const data = c ? c.transformer.send(visualization) : undefined
+    if (!data) {
       return [404]
     }
-    return [200, visualization]
+    return [200, data]
   })
 
   mock.onPost(/\/projects\/\d+\/visualizations$/).reply((config: AxiosRequestConfig) => {
@@ -50,12 +63,12 @@ export function setupMocks (mock: MockAdapter) {
       const VisualizationClass = visualizationsKeyMap[data.key]
       if (!VisualizationClass) throw new Error()
       data.id = (visualizations.count() + 1).toString()
-      const visualization: Visualization = new VisualizationClass(data)
+      const visualization: Visualization = VisualizationClass.transformer.fetch(data)
       visualization.progress = 0.1
       visualization.data = undefined
       visualizations.insert(visualization)
       db.saveDatabase()
-      return [200, visualization]
+      return [200, VisualizationClass.transformer.send(visualization)]
     } catch {
       return [400, 'Could not read body']
     }
@@ -71,14 +84,14 @@ export function setupMocks (mock: MockAdapter) {
       return [404]
     }
     try {
-      const data = JSON.parse(config.data)
+      let data = JSON.parse(config.data)
       if (!data || !data.key) throw new Error()
       const VisualizationClass = visualizationsKeyMap[data.key]
       if (!VisualizationClass) throw new Error()
+      data = VisualizationClass.transformer.fetch(data)
       const updateData = {
         ...visualization,
         ...{
-          ...new VisualizationClass(data),
           ...data,
           data: undefined,
           progress: 0.1
@@ -86,7 +99,7 @@ export function setupMocks (mock: MockAdapter) {
       }
       visualization = visualizations.update(updateData)
       db.saveDatabase()
-      return [200, visualization]
+      return [200, VisualizationClass.transformer.send(visualization)]
     } catch {
       return [400, 'Could not read body']
     }

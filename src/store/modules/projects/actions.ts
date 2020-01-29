@@ -5,13 +5,14 @@ import { RootState } from '@/store/types'
 import Project from '@/models/project'
 import * as types from './mutation-types'
 import jsLogger from 'js-logger'
+import ProjectTransformer from '@/transformers/ProjectTransformer'
 const logger = jsLogger.get('project/actions')
 
 export const actions: ActionTree<ProjectsState, RootState> = {
   async fetchProject ({ commit, dispatch }, id: string): Promise<undefined> {
     try {
       const response = await Axios(`/projects/${id}`)
-      const payload: Project = new Project(response && response.data)
+      const payload: Project = ProjectTransformer.fetch(response && response.data)
       commit(types.SET_ACTIVE_PROJECT, payload)
       commit(types.OPEN_PROJECT, payload)
       return undefined
@@ -30,7 +31,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
   async fetchProjects ({ commit, dispatch }): Promise<undefined> {
     try {
       const response = await Axios(`/projects`)
-      const projects = response.data.map((project: Project) => new Project(project))
+      const projects = ProjectTransformer.fetchCollection(response.data)
       commit(types.SET_PROJECTS, projects)
       return undefined
     } catch (error) {
@@ -52,7 +53,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
     try {
       const response = await Axios(`/projects`, {
         method: 'POST',
-        data: data
+        data: ProjectTransformer.send(data)
       })
       const project = new Project(response.data)
       commit(types.ADD_PROJECT, project)
@@ -86,7 +87,7 @@ export const actions: ActionTree<ProjectsState, RootState> = {
     try {
       const response = await Axios(`/projects/${data.id}`, {
         method: 'PUT',
-        data: data
+        data: ProjectTransformer.send(data)
       })
       const project = new Project(response.data)
       commit(types.UPDATE_PROJECT, project)

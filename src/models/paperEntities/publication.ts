@@ -10,7 +10,7 @@ export default class Publication extends PaperEntity implements PublicationField
   static schemaName: string = 'publication'
   static queryName: string = 'Publications'
   static queryFields: string = `name,
-          numberCitations`
+          number_citations`
   static displayedColumns: Array<PaperEntityTableColumn> = []
   name: string
   countRecords: number

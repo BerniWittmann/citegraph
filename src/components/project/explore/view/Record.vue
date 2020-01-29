@@ -1,5 +1,5 @@
 <template>
-  <div class="project-explore-single-record">
+  <div class="project-explore-single-record" v-if="record">
     <layout>
       <template v-slot:title>
         <h2 class="display-5">{{ record.title }}</h2>

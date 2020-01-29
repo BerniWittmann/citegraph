@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`models/paperEntities/mutation.ts it has a function to create a mutation creates a mutation 1`] = `
+"{
+      Record(id: 42) {
+        record {
+          id: \\"42\\", 
+name: \\"Name\\"
+        }
+      }
+    }"
+`;
+
+exports[`models/paperEntities/mutation.ts it has a function to create a mutation handles invalid field declaration 1`] = `
+"{
+      Record(id: 42) {
+        record {
+          id: \\"42\\", 
+name: \\"Name\\"
+        }
+      }
+    }"
+`;

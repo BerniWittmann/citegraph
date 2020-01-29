@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/Authortransformer can fetch an author fetches an author 1`] = `
+Author {
+  "countRecords": 1,
+  "firstName": "First",
+  "id": "1",
+  "lastName": "Author",
+}
+`;
+
+exports[`transformers/Authortransformer can send an author sends an author 1`] = `
+Object {
+  "count_records": 1,
+  "first_name": "First",
+  "id": "1",
+  "last_name": "Author",
+}
+`;

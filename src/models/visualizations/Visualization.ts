@@ -1,3 +1,5 @@
+import Transformer from '@/transformers/Transformer'
+
 export interface TimePeriod {
   from: number
   to: number
@@ -8,6 +10,15 @@ export interface VisualizationBaseFields {
   progress?: number;
   name: string;
   timePeriods?: Array<TimePeriod>
+}
+
+export interface VisualizationBaseFieldsDTO {
+  id?: string;
+  progress?: number;
+  name: string;
+  key: string;
+  // eslint-disable-next-line camelcase
+  time_periods?: Array<TimePeriod>
 }
 
 export default abstract class Visualization implements VisualizationBaseFields {
@@ -23,6 +34,7 @@ export default abstract class Visualization implements VisualizationBaseFields {
   static readonly imageUrl: string;
   static readonly description: string;
   static readonly longDescription: string;
+  static readonly transformer: typeof Transformer;
 
   protected constructor ({ id, progress, name, timePeriods }: VisualizationBaseFields) {
     this.id = id

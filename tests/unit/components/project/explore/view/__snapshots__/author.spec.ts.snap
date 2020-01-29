@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/project/explore/view/Author.vue can handle an empty author 1`] = `
+<div class="project-explore-single-author">
+  <div class="empty-slot-component-stub">
+    <v-avatar-stub color="primary" size="62" class="mr-5"><b class="white--text"></b></v-avatar-stub>
+    <h2 class="display-5"> </h2>
+    <v-container-stub tag="div">
+      <v-row-stub tag="div">
+        <v-col-stub lg="6" xl="3" tag="div">
+          <v-list-stub tag="div" tile="true">
+            <v-subheader-stub class="title">project.explore.view.author.metrics</v-subheader-stub>
+            <v-list-item-stub activeclass="" tag="div">
+              <v-list-item-content-stub>project.explore.view.author.count_records:</v-list-item-content-stub>
+              <v-list-item-content-stub class="align-end"></v-list-item-content-stub>
+            </v-list-item-stub>
+          </v-list-stub>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div">
+        <data-table-stub querybytype="record" belongstotype="author"></data-table-stub>
+      </v-row-stub>
+    </v-container-stub>
+  </div>
+</div>
+`;
+
 exports[`components/project/explore/view/Author.vue renders the page 1`] = `
 <div class="project-explore-single-author">
   <div class="empty-slot-component-stub">

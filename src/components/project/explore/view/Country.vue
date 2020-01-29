@@ -1,5 +1,5 @@
 <template>
-  <div class="project-explore-single-country">
+  <div class="project-explore-single-country" v-if="country">
     <layout>
       <template v-slot:title>
         <v-img v-if="country.flagUrl" :src="country.flagUrl" max-width="60" width="60" contain></v-img>

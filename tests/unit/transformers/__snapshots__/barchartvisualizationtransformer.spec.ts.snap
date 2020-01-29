@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/BarChartVisualizationTransformer can fetch a BarChartVisualization fetches a BarChartVisualization 1`] = `
+BarChartVisualization {
+  "data": undefined,
+  "id": "1",
+  "key": "barchart",
+  "name": "First",
+  "parameters": Object {
+    "pruneLeastCitedPercentage": 5,
+  },
+  "progress": 0.1,
+  "timePeriods": Array [],
+}
+`;
+
+exports[`transformers/BarChartVisualizationTransformer can send a BarChartVisualization sends an BarChartVisualization 1`] = `
+Object {
+  "data": undefined,
+  "id": "1",
+  "key": "barchart",
+  "name": "First",
+  "progress": 0.1,
+  "time_periods": Array [],
+}
+`;

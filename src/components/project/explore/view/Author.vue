@@ -1,5 +1,5 @@
 <template>
-  <div class="project-explore-single-author">
+  <div class="project-explore-single-author" v-if="author">
     <layout>
       <template v-slot:title>
         <v-avatar color="primary" class="mr-5" size="62">
@@ -45,7 +45,7 @@ export default class AuthorViewPage extends Vue {
   }
 
   get initials (): string {
-    return (this.author.firstName.substring(0, 1) + this.author.lastName.substring(0, 1)).toUpperCase()
+    return ((this.author.firstName ? this.author.firstName.substring(0, 1) : '') + (this.author.lastName ? this.author.lastName.substring(0, 1) : '')).toUpperCase()
   }
 }
 </script>

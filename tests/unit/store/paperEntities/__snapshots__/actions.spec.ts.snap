@@ -1,32 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type author fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Authors(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        author {\\\\n          id,\\\\n          firstName,\\\\n          lastName,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type author fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Authors(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        author {\\\\n          id,\\\\n          first_name,\\\\n          last_name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type conference fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type conference fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type country fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Countries(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations,\\\\n          flagUrl\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type country fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Countries(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          number_citations,\\\\n          flag_url\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type institution fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type institution fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publication fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publications(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        publication {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publication fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publications(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        publication {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publisher fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publishers(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        publisher {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type publisher fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Publishers(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        publisher {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type record fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Records(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        record {\\\\n          title,\\\\n          authors,\\\\n          year,\\\\n          keywords,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntities can fetch the entity type record fetches the entities 1`] = `"{\\"query\\":\\"{\\\\n      Records(filter: my filter; orderBy: title_ASC; first: 10; skip: 10) {\\\\n        count\\\\n        record {\\\\n          title,\\\\n          authors,\\\\n          year,\\\\n          keywords,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type author fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Authors(id: 1) {\\\\n        count\\\\n        author {\\\\n          id,\\\\n          firstName,\\\\n          lastName,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type author fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Authors(id: 1) {\\\\n        count\\\\n        author {\\\\n          id,\\\\n          first_name,\\\\n          last_name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type conference fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type conference fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        count\\\\n        conference {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type country fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Countries(id: 1) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          numberCitations,\\\\n          flagUrl\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type country fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Countries(id: 1) {\\\\n        count\\\\n        country {\\\\n          name,\\\\n          number_citations,\\\\n          flag_url\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type institution fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(id: 1) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type institution fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Institutions(id: 1) {\\\\n        count\\\\n        institution {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type publication fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Publications(id: 1) {\\\\n        count\\\\n        publication {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type publication fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Publications(id: 1) {\\\\n        count\\\\n        publication {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type publisher fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Publishers(id: 1) {\\\\n        count\\\\n        publisher {\\\\n          name,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type publisher fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Publishers(id: 1) {\\\\n        count\\\\n        publisher {\\\\n          name,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type record fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Records(id: 1) {\\\\n        count\\\\n        record {\\\\n          title,\\\\n          authors,\\\\n          year,\\\\n          keywords,\\\\n          numberCitations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions fetchEntity can fetch the entity type record fetches the entity 1`] = `"{\\"query\\":\\"{\\\\n      Records(id: 1) {\\\\n        count\\\\n        record {\\\\n          title,\\\\n          authors,\\\\n          year,\\\\n          keywords,\\\\n          number_citations\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions provides the actions 1`] = `
 Object {
@@ -36,11 +36,11 @@ Object {
 }
 `;
 
-exports[`store/modules/paperEntities/actions updateEntity can update the entity type author updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Authors(id: 1) {\\\\n        author {\\\\n          firstName: \\\\\\"Hans\\\\\\", \\\\nlastName: \\\\\\"Maier\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type author updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Authors(id: 1) {\\\\n        author {\\\\n          first_name: \\\\\\"Hans\\\\\\", \\\\nlast_name: \\\\\\"Maier\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions updateEntity can update the entity type conference updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Conferences(id: 1) {\\\\n        conference {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
-exports[`store/modules/paperEntities/actions updateEntity can update the entity type country updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Countries(id: 1) {\\\\n        country {\\\\n          name: \\\\\\"Institution or CountryName\\\\\\", \\\\nflagUrl: \\\\\\"undefined\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
+exports[`store/modules/paperEntities/actions updateEntity can update the entity type country updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Countries(id: 1) {\\\\n        country {\\\\n          name: \\\\\\"Institution or CountryName\\\\\\", \\\\nflag_url: \\\\\\"undefined\\\\\\"\\\\n        }\\\\n      }\\\\n    }\\"}"`;
 
 exports[`store/modules/paperEntities/actions updateEntity can update the entity type institution updates the entity 1`] = `"{\\"mutation\\":\\"{\\\\n      Institutions(id: 1) {\\\\n        institution {\\\\n          \\\\n        }\\\\n      }\\\\n    }\\"}"`;
 

@@ -10,7 +10,7 @@ export default class Conference extends PaperEntity implements ConferenceFields 
   static schemaName: string = 'conference'
   static queryName: string = 'Conferences'
   static queryFields: string = `name,
-          numberCitations`
+          number_citations`
   static displayedColumns: Array<PaperEntityTableColumn> = []
   name: string
   countRecords: number

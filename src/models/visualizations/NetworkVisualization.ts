@@ -1,4 +1,5 @@
 import Visualization, { VisualizationBaseFields } from './Visualization'
+import NetworkVisualizationTransformer from '@/transformers/NetworkVisualizationTransformer'
 
 export interface NetworkVisualizationParameters {
   pruneLeastCitedPercentage: number
@@ -29,6 +30,7 @@ export default class NetworkVisualization extends Visualization implements Netwo
   static description: string = 'visualizations.information.network.description'
   static longDescription: string = 'visualizations.information.network.long_description'
   static imageUrl: string = 'visualization_images/network.jpg'
+  static transformer = NetworkVisualizationTransformer
   parameters: NetworkVisualizationParameters
   data?: NetworkVisualizationData
 

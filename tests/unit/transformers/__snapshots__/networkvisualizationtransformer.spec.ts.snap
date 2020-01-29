@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformers/NetworkVisualizationTransformer can fetch a NetworkVisualization fetches a NetworkVisualization 1`] = `
+NetworkVisualization {
+  "data": undefined,
+  "id": "1",
+  "key": "network",
+  "name": "First",
+  "parameters": Object {
+    "bibliographicCouplingWeight": 50,
+    "pruneLeastCitedPercentage": 5,
+  },
+  "progress": 0.1,
+  "timePeriods": Array [],
+}
+`;
+
+exports[`transformers/NetworkVisualizationTransformer can fetch a NetworkVisualization fetches the data 1`] = `
+NetworkVisualization {
+  "data": Object {
+    "data": Object {
+      "nodes": Array [],
+    },
+  },
+  "id": "1",
+  "key": "network",
+  "name": "First",
+  "parameters": Object {
+    "bibliographicCouplingWeight": 50,
+    "pruneLeastCitedPercentage": 5,
+  },
+  "progress": 0.1,
+  "timePeriods": Array [],
+}
+`;
+
+exports[`transformers/NetworkVisualizationTransformer can send a NetworkVisualization sends an NetworkVisualization 1`] = `
+Object {
+  "data": undefined,
+  "id": "1",
+  "key": "network",
+  "name": "First",
+  "progress": 0.1,
+  "time_periods": Array [],
+}
+`;
+
+exports[`transformers/NetworkVisualizationTransformer can send a NetworkVisualization sends the data 1`] = `
+Object {
+  "data": Array [],
+  "id": "1",
+  "key": "network",
+  "name": "First",
+  "progress": 0.1,
+  "time_periods": Array [],
+}
+`;

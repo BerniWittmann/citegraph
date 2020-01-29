@@ -3,6 +3,7 @@ import { actions } from '@/store/modules/visualizations/actions'
 import * as mutationTypes from '@/store/modules/visualizations/mutation-types'
 import WordCloudVisualization from '@/models/visualizations/WordCloudVisualization'
 import BarChartVisualization from '@/models/visualizations/BarChartVisualization'
+import WordCloudVisualizationTransformer from '@/transformers/WordCloudVisualizationTransformer'
 
 describe('store/modules/visualizations/actions', () => {
   it('provides the actions', () => {
@@ -174,7 +175,7 @@ describe('store/modules/visualizations/actions', () => {
     it('creates the visualization', (done) => {
       moxios.stubRequest('/projects/42/visualizations', {
         status: 200,
-        response: visualizationData
+        response: WordCloudVisualizationTransformer.send(visualizationData as any)
       })
 
       const onFulfilled = jest.fn()
@@ -184,7 +185,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {
@@ -210,7 +212,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {
@@ -225,7 +228,7 @@ describe('store/modules/visualizations/actions', () => {
       moxios.stubRequest('/projects/42/visualizations', {
         status: 200,
         response: {
-          ...visualizationData,
+          ...WordCloudVisualizationTransformer.send(visualizationData as any),
           key: 'invalid'
         }
       })
@@ -237,7 +240,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {
@@ -261,7 +265,7 @@ describe('store/modules/visualizations/actions', () => {
     it('updates the visualization', (done) => {
       moxios.stubRequest('/projects/42/visualizations/1', {
         status: 200,
-        response: visualizationData
+        response: WordCloudVisualizationTransformer.send(visualizationData as any)
       })
 
       const onFulfilled = jest.fn()
@@ -271,7 +275,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {
@@ -297,7 +302,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {
@@ -312,7 +318,7 @@ describe('store/modules/visualizations/actions', () => {
       moxios.stubRequest('/projects/42/visualizations/1', {
         status: 200,
         response: {
-          ...visualizationData,
+          ...WordCloudVisualizationTransformer.send(visualizationData as any),
           key: 'invalid'
         }
       })
@@ -324,7 +330,8 @@ describe('store/modules/visualizations/actions', () => {
 
       action({ commit, dispatch }, {
         projectId: 42,
-        visualizationData
+        visualizationData,
+        visualizationClass: WordCloudVisualization
       }).then(onFulfilled)
 
       moxios.wait(() => {

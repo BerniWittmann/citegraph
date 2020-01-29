@@ -1,5 +1,6 @@
 import PaperEntity, { PaperEntityTableColumn, PaperEntityBaseFields } from './base'
 import Author from './author'
+import RecordTransformer from '@/transformers/RecordTransformer'
 
 export interface RecordFields {
   title: string;
@@ -18,7 +19,7 @@ export default class Record extends PaperEntity implements RecordFields {
           authors,
           year,
           keywords,
-          numberCitations`
+          number_citations`
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.record.title',
     value: 'title',
@@ -48,6 +49,7 @@ export default class Record extends PaperEntity implements RecordFields {
     filterable: true,
     sortable: false
   }]
+  static transformer = RecordTransformer
   title: string
   authors: Array<Author>
   year: number

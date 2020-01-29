@@ -265,7 +265,8 @@ export default class DataTable extends Vue {
       name: 'projects.single.explore.view',
       params: {
         ...this.$route.params,
-        entityId: item.id
+        entityId: item.id,
+        queryByType: this.queryByType
       }
     })
   }

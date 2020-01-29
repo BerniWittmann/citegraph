@@ -16,6 +16,7 @@ function createDataWithId (id: number) {
     name: 'Institution or CountryName'
   }
 }
+const keys: Array<string> = entityKeys
 
 describe('store/modules/paperEntities/actions', () => {
   it('provides the actions', () => {
@@ -30,7 +31,7 @@ describe('store/modules/paperEntities/actions', () => {
     afterEach(() => {
       moxios.uninstall()
     })
-    entityKeys.forEach((entityKey) => {
+    keys.forEach((entityKey: string) => {
       describe('can fetch the entity type ' + entityKey, () => {
         const EntityClass = entityKeysMap[entityKey]
         const data = [
@@ -45,7 +46,7 @@ describe('store/modules/paperEntities/actions', () => {
               data: {
                 [EntityClass.queryName]: {
                   count: 23,
-                  [EntityClass.schemaName]: data
+                  [EntityClass.schemaName]: EntityClass.transformer.sendCollection(data)
                 }
               }
             }
@@ -122,7 +123,7 @@ describe('store/modules/paperEntities/actions', () => {
     afterEach(() => {
       moxios.uninstall()
     })
-    entityKeys.forEach((entityKey) => {
+    keys.forEach((entityKey) => {
       describe('can fetch the entity type ' + entityKey, () => {
         const EntityClass = entityKeysMap[entityKey]
         const data = new EntityClass(createDataWithId(1))
@@ -134,7 +135,7 @@ describe('store/modules/paperEntities/actions', () => {
               data: {
                 [EntityClass.queryName]: {
                   count: 1,
-                  [EntityClass.schemaName]: data
+                  [EntityClass.schemaName]: EntityClass.transformer.send(data)
                 }
               }
             }
@@ -198,7 +199,7 @@ describe('store/modules/paperEntities/actions', () => {
     afterEach(() => {
       moxios.uninstall()
     })
-    entityKeys.forEach((entityKey) => {
+    keys.forEach((entityKey) => {
       describe('can update the entity type ' + entityKey, () => {
         const EntityClass = entityKeysMap[entityKey]
         const data = new EntityClass(createDataWithId(1))
@@ -208,7 +209,7 @@ describe('store/modules/paperEntities/actions', () => {
             status: 200,
             response: {
               data: {
-                [EntityClass.queryName]: data
+                [EntityClass.queryName]: EntityClass.transformer.send(data)
               }
             }
           })
@@ -224,7 +225,10 @@ describe('store/modules/paperEntities/actions', () => {
               entityType: entityKey,
               id: 1
             },
-            data
+            data: {
+              ...data,
+              additionalData: 'bar'
+            }
           }).then(onFulfilled)
 
           moxios.wait(() => {
@@ -255,7 +259,8 @@ describe('store/modules/paperEntities/actions', () => {
               id: 1
             },
             data: {
-              name: 'New Data'
+              name: 'New Data',
+              entityType: entityKey
             }
           }).then(onFulfilled)
 

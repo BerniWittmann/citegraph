@@ -1,4 +1,5 @@
 import PaperEntity, { PaperEntityBaseFields, PaperEntityTableColumn } from './base'
+import AuthorTransformer from '@/transformers/AuthorTransformer'
 
 export interface AuthorFields {
   firstName: string
@@ -11,10 +12,10 @@ export default class Author extends PaperEntity implements AuthorFields {
   static schemaName: string = 'author'
   static queryName: string = 'Authors'
   static queryFields: string = `id,
-          firstName,
-          lastName,
-          numberCitations`
-  static mutationFields: Array<string> = ['firstName', 'lastName']
+          first_name,
+          last_name,
+          number_citations`
+  static mutationFields: Array<string> = ['first_name', 'last_name']
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.author.first_name',
     value: 'firstName',
@@ -33,6 +34,7 @@ export default class Author extends PaperEntity implements AuthorFields {
     sortable: true,
     align: 'center'
   }]
+  static transformer = AuthorTransformer
   firstName: string
   lastName: string
   countRecords: number

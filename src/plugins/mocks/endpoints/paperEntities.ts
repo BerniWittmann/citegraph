@@ -5,6 +5,7 @@ import { setupMocks as setupGraphQLMocks } from './graphql-helpers/endpoint'
 import { QueryConfiguration } from './graphql-helpers/queries'
 import { AuthorFields } from '@/models/paperEntities/author'
 import { CountryFields } from '@/models/paperEntities/country'
+import entities from '@/models/paperEntities'
 
 const records = db.getCollection('records')
 const authors = db.getCollection('authors')
@@ -15,18 +16,21 @@ const queryResponseConfiguration: Record<string, QueryConfiguration> = {
     schemaName: 'record',
     queryName: 'Records',
     collection: records,
+    class: entities.Record,
     filterFunction: recordsFilter
   },
   'Authors': {
     schemaName: 'author',
     queryName: 'Authors',
     collection: authors,
+    class: entities.Author,
     filterFunction: authorsFilter
   },
   'Countries': {
     schemaName: 'country',
     queryName: 'Countries',
     collection: countries,
+    class: entities.Country,
     filterFunction: countriesFilter
   }
 }

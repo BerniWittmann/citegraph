@@ -10,7 +10,7 @@ export default class Institution extends PaperEntity implements InstitutionField
   static schemaName: string = 'institution'
   static queryName: string = 'Institutions'
   static queryFields: string = `name,
-          numberCitations`
+          number_citations`
   static displayedColumns: Array<PaperEntityTableColumn> = []
   name: string
   countRecords: number

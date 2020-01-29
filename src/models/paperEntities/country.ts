@@ -1,4 +1,5 @@
 import PaperEntity, { PaperEntityBaseFields, PaperEntityTableColumn } from './base'
+import CountryTransformer from '@/transformers/CountryTransformer'
 
 export interface CountryFields {
   name: string
@@ -11,9 +12,9 @@ export default class Country extends PaperEntity implements CountryFields {
   static schemaName: string = 'country'
   static queryName: string = 'Countries'
   static queryFields: string = `name,
-          numberCitations,
-          flagUrl`
-  static mutationFields: Array<string> = ['name', 'flagUrl']
+          number_citations,
+          flag_url`
+  static mutationFields: Array<string> = ['name', 'flag_url']
   static displayedColumns: Array<PaperEntityTableColumn> = [{
     text: 'project.explore.table.headers.country.name',
     value: 'name',
@@ -32,6 +33,7 @@ export default class Country extends PaperEntity implements CountryFields {
     sortable: true,
     align: 'center'
   }]
+  static transformer = CountryTransformer
   name: string
   countRecords: number
   flagUrl?: string

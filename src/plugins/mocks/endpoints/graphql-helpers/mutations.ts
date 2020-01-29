@@ -31,9 +31,10 @@ function updateOne (queryParams: MutationArguments, data: Partial<PaperEntityFie
   if (!entity) {
     throw new Error('Entity not found')
   }
-  for (let key in data) {
+  const updateData: Object = configuration.class.transformer.fetch(data)
+  for (let key of configuration.class.mutationFields) {
     // @ts-ignore
-    entity[key] = data[key]
+    entity[key] = updateData[key]
   }
   return configuration.collection.update(entity)
 }
@@ -49,7 +50,7 @@ export function createMutationResponse (query: string, configuration: QueryConfi
     return [200, {
       data: {
         [configuration.queryName]: {
-          ...response
+          ...configuration.class.transformer.send(response)
         }
       }
     }]

@@ -74,7 +74,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import VisualizationEditSelectTypeComponent from '@/components/visualizations/edit/SelectType.vue'
 import VisualizationEditGeneralInformationComponent from '@/components/visualizations/edit/GeneralInformation.vue'
 import Visualization from '@/models/visualizations/Visualization'
-import { visualizations } from '@/models/visualizations'
+import { visualizations, visualizationsKeyMap } from '@/models/visualizations'
 import VisualizationEditChooseDataComponent from '@/components/visualizations/edit/ChooseData.vue'
 import VisualizationEditParametersComponent from '@/components/visualizations/edit/Parameters.vue'
 
@@ -110,16 +110,23 @@ export default class EditVisualizationPage extends Vue {
     }
   }
 
+  get visualizationClass (): typeof Visualization | undefined {
+    if (!this.visualization || !this.visualization.key) return undefined
+    return visualizationsKeyMap[this.visualization.key]
+  }
+
   async save (): Promise<void> {
     if (!this.visualization.id) {
       await this.$store.dispatch('visualizations/createVisualization', {
         projectId: this.$route.params.projectId,
-        visualizationData: this.visualization
+        visualizationData: this.visualization,
+        visualizationClass: this.visualizationClass
       })
     } else {
       await this.$store.dispatch('visualizations/updateVisualization', {
         projectId: this.$route.params.projectId,
-        visualizationData: this.visualization
+        visualizationData: this.visualization,
+        visualizationClass: this.visualizationClass
       })
     }
     await this.$router.push({
