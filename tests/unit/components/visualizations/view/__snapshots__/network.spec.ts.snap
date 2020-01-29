@@ -1,3 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/visualizations/view/Network.vue renders 1`] = `<div></div>`;
+exports[`components/visualizations/view/Network.vue renders 1`] = `
+<v-container-stub tag="div">
+  <v-row-stub tag="div" align="start">
+    <v-col-stub sm="12" md="3" ordersm="last" ordermd="first" tag="div">
+      <v-card-stub loaderheight="4" tag="div">
+        <v-card-title-stub>visualization.network.cluster_title</v-card-title-stub>
+        <v-card-text-stub>
+          <v-simple-table-stub></v-simple-table-stub>
+        </v-card-text-stub>
+      </v-card-stub>
+    </v-col-stub>
+    <v-col-stub sm="12" md="9" ordersm="first" ordermd="last" tag="div" class="d-flex justify-center">
+      <v-card-stub loaderheight="4" tag="div" class="pa-5">
+        <div></div>
+      </v-card-stub>
+    </v-col-stub>
+  </v-row-stub>
+</v-container-stub>
+`;
+
+exports[`components/visualizations/view/Network.vue renders the cluster information 1`] = `
+<div class="container">
+  <div class="row align-start">
+    <div class="col-sm-12 col-md-3 order-sm-last order-md-first col">
+      <div class="v-card v-sheet theme--light">
+        <div class="v-card__title">visualization.network.cluster_title</div>
+        <div class="v-card__text">
+          <div class="v-data-table theme--light">
+            <div class="v-data-table__wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-center">visualization.network.cluster_id</th>
+                    <th class="text-center">visualization.network.cluster_color</th>
+                    <th class="text-center">visualization.network.cluster_node_count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td class="d-flex justify-center align-center">
+                      <div style="width: 10px; height: 10px; border-radius: 50%; background-color: rgb(255, 0, 0);"></div>
+                    </td>
+                    <td class="text-center">1</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">2</td>
+                    <td class="d-flex justify-center align-center">
+                      <div style="width: 10px; height: 10px; border-radius: 50%; background-color: rgb(255, 0, 0);"></div>
+                    </td>
+                    <td class="text-center">2</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">3</td>
+                    <td class="d-flex justify-center align-center">
+                      <div style="width: 10px; height: 10px; border-radius: 50%; background-color: rgb(255, 0, 0);"></div>
+                    </td>
+                    <td class="text-center">1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-center col-sm-12 col-md-9 order-sm-first order-md-last col">
+      <div class="pa-5 v-card v-sheet theme--light">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

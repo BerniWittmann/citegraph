@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/visualizations/view/WordCloud.vue renders 1`] = `<div></div>`;
+exports[`components/visualizations/view/WordCloud.vue renders 1`] = `
+<v-container-stub tag="div">
+  <v-row-stub tag="div" justify="center">
+    <v-col-stub cols="auto" tag="div">
+      <v-card-stub loaderheight="4" tag="div" class="pa-5">
+        <div></div>
+      </v-card-stub>
+    </v-col-stub>
+  </v-row-stub>
+</v-container-stub>
+`;

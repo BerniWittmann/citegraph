@@ -38,7 +38,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <!---->
       </v-col-stub>
     </v-row-stub>
@@ -108,7 +108,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for barchar
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <!---->
       </v-col-stub>
     </v-row-stub>
@@ -130,7 +130,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <network-stub visualization="[object Object]"></network-stub>
       </v-col-stub>
     </v-row-stub>
@@ -200,7 +200,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for network
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <network-stub visualization="[object Object]"></network-stub>
       </v-col-stub>
     </v-row-stub>
@@ -222,7 +222,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <wordcloud-stub visualization="[object Object]"></wordcloud-stub>
       </v-col-stub>
     </v-row-stub>
@@ -292,7 +292,7 @@ exports[`pages/visualizations/EditVisualization.vue renders the page for wordclo
       </v-col-stub>
     </v-row-stub>
     <v-row-stub tag="div" justify="center">
-      <v-col-stub cols="auto" tag="div">
+      <v-col-stub tag="div">
         <wordcloud-stub visualization="[object Object]"></wordcloud-stub>
       </v-col-stub>
     </v-row-stub>

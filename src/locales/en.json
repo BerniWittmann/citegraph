@@ -360,6 +360,12 @@
     },
     "progressing": "The visualization is still progressing. Check back later",
     "no_data": "There is no data yet",
-    "progress": "%{progress} %"
+    "progress": "%{progress} %",
+    "network": {
+      "cluster_title": "Clusters",
+      "cluster_id": "ID",
+      "cluster_color": "Color",
+      "cluster_node_count": "Count Nodes"
+    }
   }
 }

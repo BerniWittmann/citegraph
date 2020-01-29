@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import { i18n } from '../../../setupPlugins'
 
 import NetworkVisualization from '@/models/visualizations/NetworkVisualization'
@@ -42,8 +42,9 @@ jest.mock('d3', () => {
 })
 
 describe('components/visualizations/view/Network.vue', () => {
-  const getWrapper = (vis: NetworkVisualization) => {
-    return shallowMount(Network, {
+  const getWrapper = (vis: NetworkVisualization, shallow = true) => {
+    const mountFn = shallow ? shallowMount : mount
+    return mountFn(Network, {
       i18n,
       mocks: {
         $t: (key: string) => key
@@ -75,6 +76,11 @@ describe('components/visualizations/view/Network.vue', () => {
           x: 12,
           y: 24,
           cluster: 2
+        }, {
+          id: '4',
+          x: 12,
+          y: 24,
+          cluster: 2
         }]
       }
     }
@@ -82,6 +88,11 @@ describe('components/visualizations/view/Network.vue', () => {
 
   it('renders', () => {
     const wrapper = getWrapper(visualization)
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('renders the cluster information', () => {
+    const wrapper = getWrapper(visualization, false)
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

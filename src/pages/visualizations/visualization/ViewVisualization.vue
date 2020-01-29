@@ -12,7 +12,7 @@
         </v-col>
       </v-row>
       <v-row v-if="hasData" justify="center">
-        <v-col cols="auto">
+        <v-col>
           <component :is="currentComponent" :visualization="visualization"></component>
         </v-col>
       </v-row>

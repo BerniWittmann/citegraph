@@ -1,5 +1,13 @@
 <template>
-  <div></div>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-card class="pa-5">
+          <div ref="vis"></div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -24,7 +32,7 @@ export default class WordCloud extends Vue {
 
   draw (words: any): void {
     const fill = d3.scaleOrdinal(d3.schemeCategory10)
-    const svg = d3.select(this.$el).append('svg')
+    const svg = d3.select(this.$refs.vis as HTMLElement).append('svg')
       .attr('width', this.layout.size()[0])
       .attr('height', this.layout.size()[1])
 
