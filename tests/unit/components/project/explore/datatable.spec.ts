@@ -15,7 +15,7 @@ describe('components/project/explore/DataTable.vue', () => {
   const store = {
     getters: {
       'projects/activeProject': new Project({ id: 42, name: 'Awesome Project' }),
-      'paperEntities/entities': [{ id: 1, title: 'First Record' }, { id: 2, title: 'Second Record' }],
+      'paperEntities/entities': [{ id: 1, title: 'First Record', authors: [{ id: 42, firstName: 'Phil', lastName: 'Collins' }] }, { id: 2, title: 'Second Record' }],
       'paperEntities/entityCount': 12
     },
     dispatch: jest.fn()
@@ -54,6 +54,7 @@ describe('components/project/explore/DataTable.vue', () => {
         let wrapper: any
         beforeEach(() => {
           wrapper = getWrapper(entityKey)
+          jest.clearAllMocks()
         })
         it('renders the title', () => {
           const title = wrapper.find('h1')
@@ -80,6 +81,26 @@ describe('components/project/explore/DataTable.vue', () => {
               entityId: 1
             }
           })
+        })
+
+        it('navigates to an author on author click', () => {
+          wrapper.vm.handleAuthorClick(store.getters['paperEntities/entities'][0], 0)
+
+          expect(router.push).toHaveBeenCalledWith({
+            name: 'projects.single.explore.view',
+            params: {
+              projectId: 42,
+              entityType: entityKey,
+              entityId: 42,
+              queryByType: 'author'
+            }
+          })
+        })
+
+        it('handles no author array on author click', () => {
+          wrapper.vm.handleAuthorClick(store.getters['paperEntities/entities'][1], 0)
+
+          expect(router.push).not.toHaveBeenCalled()
         })
       })
     })

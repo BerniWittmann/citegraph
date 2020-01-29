@@ -1,6 +1,8 @@
 <template>
   <v-chip-group :dark="dark" :text-color="dark ? 'white' : undefined">
-    <v-chip :small="small" :color="color" v-for="(content, index) in displayedContents" :key="index">{{ content }}
+    <v-chip :small="small" :color="color" v-for="(content, index) in displayedContents" :key="index"
+            @click.stop.prevent="handleClick(index)">
+      {{ content }}
     </v-chip>
     <v-menu
       :close-on-content-click="false"
@@ -14,7 +16,8 @@
       </template>
       <v-card class="pl-2">
         <v-chip-group :dark="dark" :text-color="dark ? 'white' : undefined" column>
-          <v-chip :small="small" :color="color" v-for="(content, index) in hiddenContents" :key="index">
+          <v-chip :small="small" :color="color" v-for="(content, index) in hiddenContents" :key="index"
+                  @click.stop.prevent="handleClick(index + maxDisplayed)">
             {{ content }}
           </v-chip>
         </v-chip-group>
@@ -33,6 +36,13 @@ export default class ExpandableChipGroup extends Vue {
   @Prop() readonly moreChipColor: string | undefined
   @Prop({ default: false }) readonly dark!: boolean
   @Prop({ default: false }) readonly small!: boolean
+  @Prop() readonly clickHandler: Function | undefined
+
+  handleClick (index: number): void {
+    if (this.clickHandler) {
+      this.clickHandler(index)
+    }
+  }
 
   get displayedContents (): Array<string> {
     return this.contents.slice(0, this.maxDisplayed)

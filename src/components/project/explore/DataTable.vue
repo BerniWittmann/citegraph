@@ -63,7 +63,7 @@
     >
       <template v-slot:item.authors="{ item }">
         <expandable-chip-group :small="true" :contents="getAuthorNames(item)" color="#F37F21" :dark="true"
-                               more-chip-color="#FBBF35"></expandable-chip-group>
+                               more-chip-color="#FBBF35" :click-handler="(index) => handleAuthorClick(item, index)"></expandable-chip-group>
       </template>
       <template v-slot:item.keywords="{ item }">
         <expandable-chip-group :small="true" :contents="item.keywords"></expandable-chip-group>
@@ -272,6 +272,19 @@ export default class DataTable extends Vue {
 
   initializeHeaders (): void {
     this.selectedHeaders = this.headers.filter((header) => header.displayedByDefault).map((header) => header.value)
+  }
+
+  handleAuthorClick (item: any, index: number): void {
+    if (!item.authors) return
+    const author = item.authors[index]
+    this.$router.push({
+      name: 'projects.single.explore.view',
+      params: {
+        ...this.$route.params,
+        queryByType: 'author',
+        entityId: author.id
+      }
+    })
   }
 
   beforeMount (): void {

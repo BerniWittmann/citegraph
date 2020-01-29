@@ -2,9 +2,11 @@
 
 exports[`components/ExpandableChipGroup.vue does not have a menu if the contents are very less 1`] = `
 <v-chip-group-stub activeclass="v-slide-item--active" nexticon="$next" mobilebreakpoint="1264" previcon="$prev">
-  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">just
+  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+    just
   </v-chip-stub>
-  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">this
+  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+    this
   </v-chip-stub>
   <!---->
 </v-chip-group-stub>
@@ -12,9 +14,11 @@ exports[`components/ExpandableChipGroup.vue does not have a menu if the contents
 
 exports[`components/ExpandableChipGroup.vue renders 1`] = `
 <v-chip-group-stub activeclass="v-slide-item--active" nexticon="$next" mobilebreakpoint="1264" previcon="$prev">
-  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">these
+  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+    these
   </v-chip-stub>
-  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">are
+  <v-chip-stub activeclass="" tag="span" active="true" closeicon="$delete" filtericon="$complete">
+    are
   </v-chip-stub>
   <v-menu-stub opendelay="0" closedelay="0" contentclass="" openonhover="true" maxwidth="auto" nudgebottom="0" nudgeleft="0" nudgeright="0" nudgetop="0" nudgewidth="0" openonclick="true" closeonclick="true" maxheight="auto" origin="top left" transition="v-menu-transition">
     <v-card-stub loaderheight="4" tag="div" class="pl-2">

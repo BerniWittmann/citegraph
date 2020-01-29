@@ -34,4 +34,19 @@ describe('components/ExpandableChipGroup.vue', () => {
     const menu = wrapper.find('v-menu-stub')
     expect(menu.exists()).toBeFalsy()
   })
+
+  it('a click calls the click Handler', () => {
+    const wrapper = getWrapper()
+    const handler = jest.fn()
+    wrapper.setProps({
+      clickHandler: handler
+    })
+    wrapper.find('v-chip-stub').vm.$emit('click', { stopPropagation: jest.fn(), preventDefault: jest.fn() })
+    expect(handler).toHaveBeenCalled()
+  })
+
+  it('handles a click without a click Handler', () => {
+    const wrapper = getWrapper()
+    wrapper.find('v-chip-stub').vm.$emit('click', { stopPropagation: jest.fn(), preventDefault: jest.fn() })
+  })
 })
