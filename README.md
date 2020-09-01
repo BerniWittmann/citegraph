@@ -1,17 +1,17 @@
 <img alt="CiteGraph Logo" src="src/assets/logo.png"/>
 <h1>Welcome to CiteGraph - Frontend 👋</h1>
 <p>
-  <a href="https://gitlab.com/citegraph/frontend/commits/master"><img alt="pipeline status" src="https://gitlab.com/citegraph/frontend/badges/master/pipeline.svg" /></a>
-  <a href="https://gitlab.com/citegraph/frontend/commits/master"><img alt="coverage report" src="https://gitlab.com/citegraph/frontend/badges/master/coverage.svg" /></a>
+  <a href="https://gitlab.com/BerniWittmann/citegraph/commits/master"><img alt="pipeline status" src="https://gitlab.com/BerniWittmann/citegraph/badges/master/pipeline.svg" /></a>
+  <a href="https://gitlab.com/BerniWittmann/citegraph/commits/master"><img alt="coverage report" src="https://gitlab.com/BerniWittmann/citegraph/badges/master/coverage.svg" /></a>
 </p>
 
 > A bibliometric tool for running literature analysis
 
-### 🏠 [Homepage](https://citegraph.gitlab.io/frontend/#/)
+### 🏠 [Homepage](https://berniwittmann.gitlab.io/citegraph/#/)
 
 ## Usage
 
-### Prerequisites 
+### Prerequisites
 
 You should have [node](https://nodejs.org/en/) and  [yarn](https://yarnpkg.com) installed.
 
