@@ -1,3 +1,9 @@
+## <small>0.9.1 (2020-09-01)</small>
+
+* chore: adjust urls to new repository url ([6ca86f1](https://gitlab.com/BerniWittmann/citegraph/commit/6ca86f1))
+
+
+
 ## 0.9.0 (2020-01-29)
 
 * feat: Added transformers to map between entities and Data Transfer Objects ([c62cf5f](https://gitlab.com/citegraph/frontend/commit/c62cf5f)), closes [#33](https://gitlab.com/citegraph/frontend/issues/33)
